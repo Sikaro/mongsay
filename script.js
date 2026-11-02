@@ -16,6 +16,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initLanguageToggle();
+  initSmartScrollNav();
   initGoldDustCanvas();
   initBackgroundLighting();
   initCard3DTilt();
@@ -174,14 +175,29 @@ const PHRASE_DICTIONARY_KH = {
   "Executive Portfolio": "ផលប័ត្រប្រតិបត្តិផ្លូវការ",
   "CEO & FOUNDER": "ស្ថាបនិក & នាយកប្រតិបត្តិ",
   "FOUNDER & CEO": "ស្ថាបនិក & នាយកប្រតិបត្តិ",
+  "Chief Executive Officer": "នាយកប្រតិបត្តិ (CEO)",
   "LEAD ADVISOR": "ប្រធានទីប្រឹក្សា",
   "PRIVATE ALPHA": "សហគមន៍ឯកជន ALPHA",
   "SAGPAY NOMINAL": "SAGPAY ដំណើរការប្រក្រតី",
   "SAGFX ACTIVE": "SAGFX កំពុងដំណើរការ",
+  "OFFICE OF MONG SAY": "ការិយាល័យ MONG SAY",
+  "EXECUTIVE ADVISORY // VIP DESK": "ការប្រឹក្សាប្រតិបត្តិ // ការិយាល័យ VIP",
+  "SAG TERMINAL // LAT 11.5564° N, 104.9282° E": "SAG TERMINAL // LAT 11.5564° N, 104.9282° E",
+  "0.09 PIP ECN": "0.09 PIP ECN",
+  "Mongsay": "Mongsay",
+  "Mong Say": "Mong Say",
+  "@MongsayFX": "@MongsayFX",
+  "@MongsayFX (Enroll Direct)": "@MongsayFX (ចុះឈ្មោះផ្ទាល់)",
+  "Mongsay Across Platforms": "Mongsay នៅលើបណ្តាញទាំងអស់",
+  "Mongsay House VIP": "Mongsay House VIP",
+  "Mongsay House VIP Channel": "Channel VIP Mongsay House",
+  "Mongsay House VIP Onboarding": "ការចូលរួម Mongsay House VIP",
 
-  // Section Tags
+  // Section Tags & Badges
   "EXCLUSIVE COMMERCIAL PROMOTIONS & PARTNER PRIVILEGES": "ប្រូម៉ូសិនពាណិជ្ជកម្មផ្តាច់មុខ & អត្ថប្រយោជន៍ដៃគូ",
   "STRATEGIC COMMERCIAL ECOSYSTEM": "ប្រព័ន្ធអេកូឡូស៊ីពាណិជ្ជកម្មយុទ្ធសាស្ត្រ",
+  "STRATEGIC COMMERCIAL INFRASTRUCTURE": "ហេដ្ឋារចនាសម្ព័ន្ធពាណិជ្ជកម្មយុទ្ធសាស្ត្រ",
+  "STRATEGIC COUNSEL & MARKET EXECUTION": "ការផ្តល់ប្រឹក្សាយុទ្ធសាស្ត្រ & ការប្រតិបត្តិទីផ្សារ",
   "PRIVATE COMMUNITY & EDUCATION": "សហគមន៍ឯកជន & ការអប់រំ",
   "QUANTITATIVE COST REDUCTION ENGINE": "ម៉ាស៊ីនកាត់បន្ថយថ្លៃដើមជួញដូរ",
   "INSTITUTIONAL POSITION SIZER": "ម៉ាស៊ីនកំណត់ទំហំ LOT ស្ថាប័ន",
@@ -193,6 +209,44 @@ const PHRASE_DICTIONARY_KH = {
   "CAPITAL & BROKER STRATEGY": "យុទ្ធសាស្ត្រទុន & ឈ្មួញជើងសា",
   "LIVE TELEGRAM ALPHA FEED": "ព័ត៌មាន TELEGRAM ALPHA បន្តផ្ទាល់",
   "REAL-TIME BROADCASTS": "ការផ្សាយតាមពេលវេលាជាក់ស្តែង",
+  "MEDIA & MULTI-CHANNEL ECOSYSTEM": "ប្រព័ន្ធផ្សព្វផ្សាយ & បណ្តាញចម្រុះ",
+  "OFFICIAL BROADCAST NETWORK": "បណ្តាញផ្សាយផ្លូវការ",
+  "INTELLECTUAL CAPITAL & READING VAULT": "ដើមទុនបញ្ញា & បណ្ណាល័យអំណាន",
+  "ADVISORY ENGAGEMENT PROTOCOL": "ពិធីសារកិច្ចព្រមព្រៀងប្រឹក្សា",
+  "EXECUTIVE CAPABILITIES": "សមត្ថភាពប្រតិបត្តិ",
+  "EXECUTIVE PROTOCOL": "ពិធីសារប្រតិបត្តិ",
+  "TELEGRAM INSIGHTS ARCHIVE": "ប័ណ្ណសារការវិភាគ TELEGRAM",
+  "CORE PHILOSOPHY": "ទស្សនវិជ្ជាស្នូល",
+  "Core Philosophy": "ទស្សនវិជ្ជាស្នូល",
+  "Core Curriculum": "កម្មវិធីសិក្សាស្នូល",
+  "Core Ventures": "អាជីវកម្មស្នូល",
+
+  // Capabilities & Rails
+  "01 / FINTECH INFRASTRUCTURE": "០១ / ហេដ្ឋារចនាសម្ព័ន្ធ FINTECH",
+  "02 / INSTITUTIONAL S&D": "០២ / S&D ស្ថាប័ន",
+  "03 / QUANTITATIVE DISCIPLINE": "០៣ / វិន័យបរិមាណ",
+  "01 / BROKER EXPANSION": "០១ / ការពង្រីកឈ្មួញជើងសា",
+  "02 / BROKERAGE SCALING": "០២ / ការពង្រីក BROKERAGE",
+  "03 / LIQUIDITY & SPREAD": "០៣ / សាច់ប្រាក់ងាយស្រួល & SPREAD",
+  "CAPABILITY 01": "សមត្ថភាព ០១",
+  "CAPABILITY 02": "សមត្ថភាព ០២",
+  "CAPABILITY 03": "សមត្ថភាព ០៣",
+  "RAIL 01": "ផ្លូវ ០១",
+  "RAIL 02": "ផ្លូវ ០២",
+  "RAIL 03": "ផ្លូវ ០៣",
+  "PHASE I": "ដំណាក់កាលទី I",
+  "PHASE II": "ដំណាក់កាលទី II",
+  "PHASE III": "ដំណាក់កាលទី III",
+  "PHASE IV": "ដំណាក់កាលទី IV",
+  "PROMO 01 // SAGPAYMENT.COM": "ប្រូម៉ូសិន ០១ // SAGPAYMENT.COM",
+  "PROMO 02 // SAGFX.ORG": "ប្រូម៉ូសិន ០២ // SAGFX.ORG",
+  "PROMO 03 // BDM & BROKER INCEPTION": "ប្រូម៉ូសិន ០៣ // BDM & ការបង្កើត BROKER",
+  "SAGPAYMENT.COM PROMOTION": "ប្រូម៉ូសិន SAGPAYMENT.COM",
+  "SAGPAYMENT.COM SPECIAL OFFER": "ការផ្តល់ជូនពិសេស SAGPAYMENT.COM",
+  "SAGFX.ORG PROMOTION": "ប្រូម៉ូសិន SAGFX.ORG",
+  "SAGFX.ORG TRADER PRIVILEGE": "អត្ថប្រយោជន៍ TRADER SAGFX.ORG",
+  "BDM & BROKER INCEPTION": "BDM & ការបង្កើត BROKER",
+  "BDM ARCHITECTURE": "ស្ថាបត្យកម្ម BDM",
 
   // Headings
   "Strategic Ecosystem Promotions & High-Value Offers": "ការផ្តល់ជូនពិសេស & ប្រូម៉ូសិនប្រព័ន្ធអេកូឡូស៊ីយុទ្ធសាស្ត្រ",
@@ -202,15 +256,29 @@ const PHRASE_DICTIONARY_KH = {
   "Media & Channel Ecosystem": "ប្រព័ន្ធផ្សព្វផ្សាយ & បណ្តាញសង្គម",
   "Curated Strategy & Educational Vault": "បណ្ណាល័យយុទ្ធសាស្ត្រ & ការអប់រំ",
   "Institutional Trading Sessions (Live Schedule)": "ម៉ោងបើកទីផ្សារជួញដូរស្ថាប័ន (កាលវិភាគបន្តផ្ទាល់)",
+  "Inside SAGFX.ORG: Maximizing Yield via Institutional Broker Rebates": "ស៊ីជម្រៅពី SAGFX.ORG៖ ការបង្កើនទិន្នផលតាមរយៈ Rebate ឈ្មួញជើងសាស្ថាប័ន",
+  "Maximizing Volume Yield: Institutional Broker Rebates via SAGFX.ORG": "ការបង្កើនទិន្នផលទំហំជួញដូរ៖ Rebate ឈ្មួញជើងសាស្ថាប័នតាមរយៈ SAGFX.ORG",
+  "Mastering Gold (XAU/USD) Multi-Timeframe Structural Mapping": "ជំនាញវិភាគរចនាសម្ព័ន្ធពហុពេលវេលាលើមាស (XAU/USD)",
+  "True Liquidity Sweeps vs Mechanical Market Displacement": "ការបោសសម្អាតសាច់ប្រាក់ងាយស្រួល (Liquidity Sweeps) ទល់នឹងការផ្លាស់ទីទីផ្សារមេកានិក",
+  "Elite Trading Psychology & Emotional Mastery in Institutional Volatility": "ចិត្តវិទ្យាជួញដូរកម្រិតខ្ពស់ & ការគ្រប់គ្រងអារម្មណ៍ក្នុងបម្រែបម្រួលទីផ្សារស្ថាប័ន",
+  "Trading Psychology & Mental Toughness in Institutional Markets": "ចិត្តវិទ្យាជួញដូរ & ភាពរឹងមាំផ្លូវចិត្តក្នុងទីផ្សារស្ថាប័ន",
+  "Institutional S&D Displacement & Gold (XAU/USD) Multi-Timeframe Structural Mapping": "ការផ្លាស់ទី S&D ស្ថាប័ន & ការវិភាគរចនាសម្ព័ន្ធពហុពេលវេលាលើមាស (XAU/USD)",
+  "High-Level Financial Markets Advisory": "ការប្រឹក្សាទីផ្សារហិរញ្ញវត្ថុកម្រិតខ្ពស់",
+  "Advisory Pillars": "សសរស្តម្ភនៃការប្រឹក្សា",
+  "Corporate Portals": "ច្រកទ្វារសាជីវកម្ម",
+  "Direct Channels": "បណ្តាញផ្ទាល់",
+  "Official Inquiries": "ការសាកសួរផ្លូវការ",
+  "Official Portal": "គេហទំព័រផ្លូវការ",
+  "All Literature (8)": "ឯកសារទាំងអស់ (៨)",
 
-  // Section Descriptions
+  // Section Descriptions & Strategy Texts
   "Active commercial incentives, infrastructure fee waivers, and exclusive tier-1 institutional rebate structures negotiated directly through the Office of Mong Say.": "ការលើកទឹកចិត្តពាណិជ្ជកម្ម ការលើកលែងកម្រៃហេដ្ឋារចនាសម្ព័ន្ធ និងរចនាសម្ព័ន្ធ Rebate ស្ថាប័ន Tier-1 ផ្តាច់មុខដែលចរចាដោយផ្ទាល់តាមរយៈការិយាល័យ Mong Say។",
   "Integrated finTech, cross-border payments, and institutional liquidity infrastructure founded and advised by Mong Say.": "ហេដ្ឋារចនាសម្ព័ន្ធបច្ចេកវិទ្យាហិរញ្ញវត្ថុ ការទូទាត់ឆ្លងព្រំដែន និងសាច់ប្រាក់ងាយស្រួលស្ថាប័នដែលបានបង្កើត និងផ្តល់ប្រឹក្សាដោយ Mong Say។",
   "Architecting high-stakes fintech infrastructure, optimizing broker revenue streams, and guiding cross-border capital expansion.": "ស្ថាបត្យកម្មហេដ្ឋារចនាសម្ព័ន្ធ FinTech, ការបង្កើនប្រសិទ្ធភាពចំណូលឈ្មួញជើងសា និងការដឹកនាំការពង្រីកទុនឆ្លងព្រំដែន។",
   "Engage with Mong Say across verified digital platforms for daily market analyses, keynote sessions, and payment fintech updates.": "ភ្ជាប់ទំនាក់ទំនងជាមួយ Mong Say តាមរយៈបណ្តាញឌីជីថលផ្លូវការ សម្រាប់ការវិភាគទីផ្សារប្រចាំថ្ងៃ និងព័ត៌មានបច្ចេកវិទ្យាហិរញ្ញវត្ថុ។",
   "Foundational reading and quantitative manuals on financial markets, risk modeling, and institutional leadership.": "សៀវភៅគោលការណ៍គ្រឹះ និងសៀវភៅណែនាំបរិមាណស្តីពីទីផ្សារហិរញ្ញវត្ថុ ការគ្រប់គ្រងហានិភ័យ និងភាពជាអ្នកដឹកនាំស្ថាប័ន។",
 
-  // Promotions
+  // Promotions & Whitelist
   "0% Setup Fee Merchant Launchpad": "កម្មវិធីបញ្ចុះតម្លៃ ០% ថ្លៃដំឡើងច្រកទូទាត់អាជីវកម្ម",
   "Waived integration and API gateway setup costs for eligible enterprise merchants integrating SAG Payment. Rapid settlement, multi-currency acquiring, and dedicated technical integration support.": "លើកលែងការចំណាយលើការតភ្ជាប់ និងដំឡើងច្រកទូទាត់ API សម្រាប់សហគ្រាសអាជីវកម្មដែលមានលក្ខខណ្ឌគ្រប់គ្រាន់ជាមួយ SAG Payment។ ការទូទាត់រហ័ស ទូទាត់ពហុរូបិយប័ណ្ណ និងការគាំទ្របច្ចេកទេសផ្ទាល់។",
   "GATEWAY LAUNCHPAD": "ច្រកទូទាត់អាជីវកម្ម",
@@ -223,8 +291,36 @@ const PHRASE_DICTIONARY_KH = {
   "Comprehensive turnkey advisory for regional funds, master introducing brokers, and fintech founders looking to structure institutional liquidity bridges and IB networks.": "ការប្រឹក្សាយុទ្ធសាស្ត្រពេញលេញសម្រាប់មូលនិធិក្នុងតំបន់, Master IB និងស្ថាបនិក FinTech ដែលចង់រៀបចំស្ពានសាច់ប្រាក់ងាយស្រួល និងបណ្តាញ IB។",
   "INSTITUTIONAL BDM": "BDM ស្ថាប័ន",
   "Book Strategy Session →": "កក់ការប្រជុំយុទ្ធសាស្ត្រ →",
+  "Architecture Audit": "ការត្រួតពិនិត្យស្ថាបត្យកម្មប្រព័ន្ធ",
+  "Comprehensive evaluation of current payment rails, liquidity bridges, and IB payout friction.": "ការវាយតម្លៃទូលំទូលាយលើផ្លូវទូទាត់បច្ចុប្បន្ន ស្ពានសាច់ប្រាក់ងាយស្រួល និងការកាត់បន្ថយកម្រៃជើងសារ IB។",
+  "Structural Blueprint": "ប្លង់មេនៃរចនាសម្ព័ន្ធ",
+  "Formulating custom SAG Payment integration, rebate distribution tiers, and risk models.": "ការរៀបចំការតភ្ជាប់ SAG Payment, កម្រិតបែងចែក Rebate និងគំរូគ្រប់គ្រងហានិភ័យ។",
+  "Pipeline Deployment": "ការដាក់ពង្រាយប្រព័ន្ធ",
+  "Rapid deployment of verified payment APIs, automated tracking scripts, and regulated broker bridges.": "ការដាក់ពង្រាយ API ទូទាត់ដែលបានផ្ទៀងផ្ទាត់ ស្គ្រីបតាមដានស្វ័យប្រវត្តិ និងស្ពាន Broker ដែលមានបទប្បញ្ញត្តិត្រឹមត្រូវយ៉ាងឆាប់រហ័ស។",
+  "Volume Acceleration": "ការពន្លឿនទំហំជួញដូរ",
+  "Syndicating community volume via Mongsay House and institutional affiliate channels.": "ការប្រមូលផ្តុំទំហំជួញដូរសហគមន៍តាមរយៈ Mongsay House និងបណ្តាញសម្ព័ន្ធស្ថាប័ន។",
+  "Dynamic routing engines automatically select optimal banking and digital currency rails to ensure 99.8% first-pass authorization rates and sub-second processing.": "ម៉ាស៊ីនកំណត់ផ្លូវឆ្លាតវៃជ្រើសរើសផ្លូវធនាគារ និងរូបិយប័ណ្ណឌីជីថលដ៏ល្អបំផុតដោយស្វ័យប្រវត្តិ ដើម្បីធានាអត្រាជោគជ័យ ៩៩.៨% និងដំណើរការលឿនជាងមួយវិនាទី។",
+  "Real-time cross-currency hedging and automated multi-currency conversion to eliminate merchant foreign exchange exposure across volatile trading pairs.": "ការការពារហានិភ័យប្តូរប្រាក់ភ្លាមៗ និងការបម្លែងពហុរូបិយប័ណ្ណស្វ័យប្រវត្តិ ដើម្បីលុបបំបាត់ហានិភ័យអត្រាប្តូរប្រាក់សម្រាប់អាជីវករ។",
+  "RESTful & Webhook architecture with enterprise SDKs, instant sandbox provisioning, and seamless checkout UI integrations for rapid merchant deployment.": "ស្ថាបត្យកម្ម RESTful & Webhook ជាមួយ Enterprise SDK, បរិស្ថាន Sandbox ភ្លាមៗ និងផ្ទាំងទូទាត់ UI យ៉ាងរលូន។",
+  "Trade directly against Tier-1 bank liquidity with zero retail broker markups.": "ជួញដូរដោយផ្ទាល់ជាមួយសាច់ប្រាក់ងាយស្រួលធនាគារ Tier-1 ដោយគ្មានការបូកបន្ថែមថ្លៃពីឈ្មួញជើងសាលក់រាយ។",
+  "Transparent cashback distribution per lot traded directly into user client accounts, reducing total spread friction by up to 85% with weekly distributions.": "ការបែងចែកប្រាក់ត្រឡប់មកវិញក្នុងមួយ Lot យ៉ាងមានតម្លាភាពទៅក្នុងគណនីជួញដូរផ្ទាល់ ដោយកាត់បន្ថយការកកិត Spread រហូតដល់ ៨៥% ជាមួយការទូទាត់ប្រចាំសប្តាហ៍។",
+  "Vetting and onboarding only top-tier regulated brokers with proven segregated accounts, negative balance protection, and institutional ECN/STP execution.": "ការជ្រើសរើស និងតភ្ជាប់តែឈ្មួញជើងសាដែលមានអាជ្ញាប័ណ្ណលំដាប់ខ្ពស់ គណនីដាច់ដោយឡែក ការពារសមតុល្យអវិជ្ជមាន និងការប្រតិបត្តិ ECN/STP កម្រិតស្ថាប័ន។",
+  "End-to-end advisory for introducing brokers (IBs) and emerging brokerages looking to establish institutional liquidity, CRM engines, and regional market penetration.": "ការប្រឹក្សាគ្រប់ជ្រុងជ្រោយសម្រាប់ IB និង Brokerage ថ្មីៗដែលចង់បង្កើតសាច់ប្រាក់ងាយស្រួលស្ថាប័ន ប្រព័ន្ធ CRM និងការពង្រីកទីផ្សារក្នុងតំបន់។",
+  "Direct market entry playbook across Cambodia, Thailand, and Vietnam.": "យុទ្ធសាស្ត្រវាយលុកទីផ្សារជាក់ស្តែងនៅកម្ពុជា ថៃ និងវៀតណាម។",
+  "Complete licensing pathways, MT4/MT5 bridges, and CRM architecture.": "ដំណោះស្រាយអាជ្ញាប័ណ្ណពេញលេញ, ស្ពាន MT4/MT5 និងស្ថាបត្យកម្ម CRM។",
+  "Maximize institutional commission splits across regional networks.": "បង្កើនការបែងចែកកម្រៃជើងសារស្ថាប័នជាអតិបរមានៅទូទាំងបណ្តាញក្នុងតំបន់។",
+  "Institutional volume rebates directly returned to you weekly.": "Rebate ទំហំជួញដូរស្ថាប័នត្រូវបានទូទាត់ជូនអ្នកដោយផ្ទាល់រៀងរាល់សប្តាហ៍។",
+  "Payouts credited directly to your trading account or USDT wallet.": "ប្រាក់ត្រូវបានបញ្ចូលដោយផ្ទាល់ទៅក្នុងគណនីជួញដូរ ឬកាបូប USDT របស់អ្នក។"
+};
 
-  // Ventures Cards & Details
+// Merged secondary vocabulary covering cards, tables, modal and media
+Object.assign(PHRASE_DICTIONARY_KH, {
+  "Plug-and-play RESTful API with pre-built checkout modules.": "RESTful API ងាយស្រួលប្រើជាមួយម៉ូឌុលទូទាត់ប្រាក់ដែលបានរៀបចំស្រេច។",
+  "Sub-second settlement with zero rolling reserves": "ការទូទាត់លឿនជាងមួយវិនាទីដោយគ្មានការទប់ប្រាក់បម្រុង",
+  "Real-time processing with zero rolling reserves for whitelisted merchants.": "ដំណើរការតាមពេលវេលាជាក់ស្តែងដោយគ្មានការទប់ប្រាក់បម្រុង (Zero Rolling Reserves) សម្រាប់ពាណិជ្ជករក្នុងបញ្ជីស។",
+  "Zero setup fee for high-throughput merchants": "មិនគិតថ្លៃដំឡើងសម្រាប់ពាណិជ្ជករដែលមានទំហំប្រតិបត្តិការធំ",
+
+  // Ventures Cards & Links
   "SAG Payment": "SAG Payment",
   "Global Merchant Acquiring & Cross-Border Rails": "ច្រកទូទាត់ពាណិជ្ជករសកល & ផ្លូវទូទាត់ឆ្លងព្រំដែន",
   "Tier-1 Global Merchant Acquiring": "ច្រកទូទាត់ពាណិជ្ជករសកលកម្រិត Tier-1",
@@ -233,6 +329,8 @@ const PHRASE_DICTIONARY_KH = {
   "Card & Alternative Payment Rails": "ផ្លូវទូទាត់តាមកាត និងវិធីសាស្ត្រទូទាត់ទំនើប",
   "Visit SAG Payment Portal": "ចូលកាន់គេហទំព័រ SAG Payment",
   "Acquiring Specs →": "លក្ខណៈបច្ចេកទេសច្រកទូទាត់ →",
+  "Architecture Specs →": "លក្ខណៈបច្ចេកទេសស្ថាបត្យកម្ម →",
+  "Open Merchant Account at sagpayment.com": "បើកគណនីពាណិជ្ជករនៅ sagpayment.com",
   "SAGFX.ORG": "SAGFX.ORG",
   "Institutional Brokerage BDM & Tier-1 Liquidity": "BDM ឈ្មួញជើងសាស្ថាប័ន & សាច់ប្រាក់ងាយស្រួល Tier-1",
   "Lead Broker BDM Strategy & Architecture": "យុទ្ធសាស្ត្រ និងស្ថាបត្យកម្ម BDM ឈ្មួញជើងសាឈានមុខ",
@@ -241,13 +339,22 @@ const PHRASE_DICTIONARY_KH = {
   "FinTech Community Incubator": "មជ្ឈមណ្ឌលបណ្តុះបណ្តាលសហគមន៍ FinTech",
   "Visit SAGFX Portal": "ចូលកាន់គេហទំព័រ SAGFX",
   "BDM Frameworks →": "ក្របខ័ណ្ឌ BDM →",
+  "Explore Broker Partners on sagfx.org": "ស្វែងយល់ពីដៃគូ Broker លើ sagfx.org",
   "Join Mongsay House Alpha Telegram": "ចូលរួម Telegram Mongsay House Alpha",
 
-  // Community Showcase Badges
+  // Badges & Perks
   "⚡ XAU/USD Structure Mapping": "⚡ ការវិភាគរចនាសម្ព័ន្ធ XAU/USD",
   "🛡️ Institutional Risk Models": "🛡️ គំរូគ្រប់គ្រងហានិភ័យស្ថាប័ន",
   "💎 Broker Commission Rebates": "💎 Rebate កម្រៃជើងសាឈ្មួញជើងសា",
   "🌐 Global FinTech Network": "🌐 បណ្តាញ FinTech សកល",
+  "⚡ 0% SETUP FEE FOR ONLINE MERCHANTS": "⚡ ០% ថ្លៃដំឡើងសម្រាប់អាជីវកម្មអនឡាញ",
+  "⚡ 0% SETUP FEE FOR QUALIFIED MERCHANTS": "⚡ ០% ថ្លៃដំឡើងសម្រាប់អាជីវករមានលក្ខខណ្ឌគ្រប់គ្រាន់",
+  "⚡ SAVE UP TO $5,000 ON GATEWAY SETUP": "⚡ ចំណេញរហូតដល់ $5,000 លើការដំឡើងច្រកទូទាត់",
+  "💰 RECOVER UP TO 85% REBATES": "💰 ទទួលបាន REBATE រហូតដល់ ៨៥%",
+  "💰 RECOVER UP TO 85% TRADING COMMISSIONS": "💰 ទទួលបានកម្រៃជើងសាក្នុងការជួញដូររហូតដល់ ៨៥% ត្រឡប់មកវិញ",
+  "💰 UP TO 85% BROKER REBATES": "💰 REBATE ឈ្មួញជើងសារហូតដល់ ៨៥%",
+  "🏛️ TURNKEY WHITE-LABEL ARCHITECTURE": "🏛️ ស្ថាបត្យកម្ម WHITE-LABEL ពេញលេញ",
+  "🏛️ TURNKEY WHITE-LABEL BROKERAGE": "🏛️ BROKERAGE WHITE-LABEL ពេញលេញ",
 
   // Gold Matrix Table
   "Tier Classification": "ចំណាត់ថ្នាក់កម្រិត",
@@ -274,6 +381,214 @@ const PHRASE_DICTIONARY_KH = {
   "Systematic market structure analysis focused on Gold (XAU/USD), macro currency flows, and institutional supply/demand mechanics.": "ការវិភាគរចនាសម្ព័ន្ធទីផ្សារជាប្រព័ន្ធផ្តោតលើមាស (XAU/USD), លំហូររូបិយប័ណ្ណម៉ាក្រូ និងយន្តការតម្រូវការ និងការផ្គត់ផ្គង់ (Supply/Demand) របស់ស្ថាប័ន។",
   "FinTech Community Incubation": "ការបង្កើតសហគមន៍ FinTech",
   "Cultivating high-performance private alpha communities, trading education platforms, and regional trader networks across Southeast Asia.": "ការអភិវឌ្ឍសហគមន៍ Alpha ឯកជនដែលមានសមត្ថភាពខ្ពស់ វេទិកាអប់រំការជួញដូរ និងបណ្តាញ Trader ក្នុងតំបន់អាស៊ីអាគ្នេយ៍។",
+  "Broker BDM & Advisory": "Broker BDM & ការប្រឹក្សា",
+  "Broker BDM & Master IB Expansion": "Broker BDM & ការពង្រីក Master IB",
+  "Broker BDM & White-Label": "Broker BDM & ប្រព័ន្ធ White-Label",
+  "Broker Development (BDM)": "ការអភិវឌ្ឍឈ្មួញជើងសា (BDM)",
+  "Broker Development Management & Advisory": "ការគ្រប់គ្រងអភិវឌ្ឍន៍ឈ្មួញជើងសា & ការប្រឹក្សា",
+  "Broker Inception & Master IB": "ការបង្កើតឈ្មួញជើងសា & Master IB",
+  "Broker Partnerships & IB Desk": "ភាពជាដៃគូ Broker & ការិយាល័យ IB",
+  "BDM & Liquidity Optimization": "BDM & ការបង្កើនប្រសិទ្ធភាពសាច់ប្រាក់ងាយស្រួល",
+  "BDM & Regional Market Growth": "BDM & កំណើនទីផ្សារក្នុងតំបន់",
+  "Payment Rail Architecture": "ស្ថាបត្យកម្មផ្លូវទូទាត់",
+  "Merchant Onboarding & Enterprise Solutions": "ការតភ្ជាប់ពាណិជ្ជករ & ដំណោះស្រាយសហគ្រាស",
+  "Enterprise Gateway Launch": "ការដំឡើងច្រកទូទាត់សម្រាប់សហគ្រាស",
+  "Fast-Track Gateway Onboarding": "ការភ្ជាប់ច្រកទូទាត់ល្បឿនលឿន",
+  "Cashback & Rebate Networks": "បណ្តាញ Cashback & Rebate",
+  "Cashback Rebate": "Rebate ទឹកប្រាក់ត្រឡប់មកវិញ",
+  "Whitelisted ECN Rebate Account": "គណនី Rebate ECN កម្រិត Whitelist",
+  "Whitelisted ECN Rebates": "អត្រា Rebate ECN ពិសេស Whitelisted",
+  "Strategic Advisory": "ការប្រឹក្សាយុទ្ធសាស្ត្រ",
+  "Strategic Venture Investment & Partnership": "ការវិនិយោគអាជីវកម្មយុទ្ធសាស្ត្រ & ភាពជាដៃគូ",
+  "Quantitative Market Structure Consultation": "ការពិគ្រោះយោបល់អំពីរចនាសម្ព័ន្ធទីផ្សារបរិមាណ",
+  "Direct VIP Advisory & Private Enrollment": "ការប្រឹក្សា VIP ផ្ទាល់ & ការចុះឈ្មោះជាលក្ខណៈឯកជន",
+
+  // Bullets & Details (Advisory & Promotions)
+  "48-Hour Rapid Integration:": "ការតភ្ជាប់រហ័សក្នុងរយៈពេល ៤៨ ម៉ោង៖",
+  "Direct REST API with turnkey checkout components": "REST API ផ្ទាល់ជាមួយសមាសភាគទូទាត់ប្រាក់ដែលស្រេចបាច់",
+  "Instant Multi-Currency Rails:": "ផ្លូវទូទាត់ពហុរូបិយប័ណ្ណភ្លាមៗ៖",
+  "USDT (TRC-20/ERC-20), USD, KHR (Bakong / KHQR), THB, and VND.": "USDT (TRC-20/ERC-20), USD, KHR (បាគង / KHQR), THB, និង VND។",
+  "Direct CEO Office technical escalation": "ការដោះស្រាយបច្ចេកទេសកម្រិតខ្ពស់ផ្ទាល់ពីការិយាល័យ CEO",
+  "Executive Desk Priority:": "អាទិភាពការិយាល័យប្រតិបត្តិ៖",
+  "Dedicated escalation channel with CEO Mong Say": "បណ្តាញទំនាក់ទំនងបន្ទាន់ផ្ទាល់ជាមួយ CEO Mong Say",
+  "Recover $30 to $45+ Per Lot:": "ទទួលបាន $30 ទៅ $45+ ក្នុងមួយ Lot ត្រឡប់មកវិញ៖",
+  "Raw 0.0 Pip ECN Spreads:": "អត្រា Spread Raw 0.0 Pip ECN៖",
+  "Raw 0.0 Pip Tier-1 bank ECN spreads": "Spread Raw 0.0 Pip ECN ពីធនាគារកម្រិត Tier-1",
+  "Automated Weekly Settlement:": "ការទូទាត់ស្វ័យប្រវត្តិប្រចាំសប្តាហ៍៖",
+  "Automated weekly payout directly to your wallet": "ការទូទាត់ស្វ័យប្រវត្តប្រចាំសប្តាហ៍ចូលកាបូបផ្ទាល់ខ្លួន",
+  "Automated weekly payouts directly credited": "ការទូទាត់ប្រចាំសប្តាហ៍ស្វ័យប្រវត្តិបញ្ចូលក្នុងគណនីផ្ទាល់",
+  "VIP Community Access:": "ការចូលប្រើប្រាស់សហគមន៍ VIP៖",
+  "Free lifetime pass to": "សំបុត្រចូលរួមឥតគិតថ្លៃមួយជីវិតទៅកាន់",
+  "Lifetime VIP pass to t.me/mongsayhouse17": "សិទ្ធិចូលរួម VIP មួយជីវិតទៅកាន់ t.me/mongsayhouse17",
+  "VIP community pass to t.me/mongsayhouse17": "សិទ្ធិចូលរួមសហគមន៍ VIP ទៅកាន់ t.me/mongsayhouse17",
+  "Turnkey White-Label Setup:": "ការរៀបចំ White-Label ពេញលេញ៖",
+  "Turnkey licensing pathways & MT4/MT5 bridges": "ដំណោះស្រាយអាជ្ញាប័ណ្ណពេញលេញ & ស្ពាន MT4/MT5",
+  "Highest-Tier Master IB Splits:": "ការបែងចែកភាគរយ Master IB កម្រិតខ្ពស់បំផុត៖",
+  "Highest-tier Master IB regional split agreements": "កិច្ចព្រមព្រៀងបែងចែកភាគរយ Master IB កម្រិតខ្ពស់បំផុតក្នុងតំបន់",
+  "Highest-tier regional Master IB rebate splits": "អត្រាបែងចែក Rebate Master IB កម្រិតខ្ពស់បំផុតក្នុងតំបន់",
+  "Southeast Asia Penetration:": "ការពង្រីកទីផ្សារនៅអាស៊ីអាគ្នេយ៍៖",
+  "Private Executive Mastermind:": "ការពិភាក្សាប្រតិបត្តិឯកជន Mastermind៖",
+  "1-on-1 private advisory mastermind with Mong Say": "ការប្រឹក្សាផ្ទាល់ ១ ទល់នឹង ១ ជាលក្ខណៈឯកជនជាមួយ Mong Say",
+  "1-on-1 strategy mastermind with Mong Say": "ការប្រជុំយុទ្ធសាស្ត្រផ្ទាល់ ១ ទល់នឹង ១ ជាមួយ Mong Say",
+  "1-on-1 strategy sessions with Mong Say.": "វគ្គប្រជុំយុទ្ធសាស្ត្រ ១ ទល់នឹង ១ ជាមួយ Mong Say។",
+  "PCI-DSS L1 Compliant": "អនុលោមតាមស្តង់ដារ PCI-DSS L1",
+  "PCI-DSS Level 1 compliant gateway infrastructure": "ហេដ្ឋារចនាសម្ព័ន្ធច្រកទូទាត់ស្របតាមស្តង់ដារ PCI-DSS កម្រិត ១",
+  "Smart Routing & High TPS": "ការកំណត់ផ្លូវឆ្លាតវៃ & TPS ខ្ពស់",
+  "Developer-First APIs": "API ងាយស្រួលសម្រាប់ Developer",
+  "Borderless Commerce": "ពាណិជ្ជកម្មគ្មានព្រំដែន",
+  "Settlement Speed": "ល្បឿននៃការទូទាត់",
+  "Automated FX Treasury": "រតនាគារប្តូរប្រាក់ FX ស្វ័យប្រវត្តិ",
+  "Real-time / Sub-second": "ពេលវេលាជាក់ស្តែង / លឿនជាង ១ វិនាទី",
+  "Automated Weekly": "ស្វ័យប្រវត្តប្រចាំសប្តាហ៍",
+  "Automated Rebate Engine": "ម៉ាស៊ីន Rebate ស្វ័យប្រវត្តិ",
+  "Regulated Broker Verification": "ការផ្ទៀងផ្ទាត់ Broker ដែលមានអាជ្ញាប័ណ្ណត្រឹមត្រូវ",
+  "Raw Institutional Limit": "ដែនកំណត់ស្ថាប័នកម្រិត Raw",
+  "Raw 0.0 Pip ECN institutional spread bridge": "ស្ពាន Spread ស្ថាប័នកម្រិត Raw 0.0 Pip ECN",
+  "Partner Broker Networks:": "បណ្តាញ Broker ដៃគូ៖",
+  "Partner Brokers:": "Broker ដៃគូ៖",
+  "Infrastructure Breakdown": "រចនាសម្ព័ន្ធហេដ្ឋារចនាសម្ព័ន្ធលម្អិត",
+
+  // Book Titles, Authors, and Details
+  "Principles: Life and Work": "គោលការណ៍ជីវិត និងការងារ (Principles)",
+  "by Ray Dalio": "ដោយ Ray Dalio",
+  "Systemic Logic": "តក្កវិជ្ជាប្រព័ន្ធ",
+  "The Psychology of Money": "The Psychology of Money (ចិត្តវិទ្យានៃលុយ)",
+  "by Morgan Housel": "ដោយ Morgan Housel",
+  "Cognitive Bias": "ភាពលំអៀងនៃការយល់ដឹង",
+  "Antifragile: Things That Gain from Disorder": "Antifragile: អត្ថប្រយោជន៍ពីភាពចលាចល",
+  "by Nassim Nicholas Taleb": "ដោយ Nassim Nicholas Taleb",
+  "Asymmetric Risk": "ហានិភ័យមិនស្មើគ្នា (Asymmetric Risk)",
+  "Thinking, Fast and Slow": "Thinking, Fast and Slow (ការគិត, លឿន និងយឺត)",
+  "by Daniel Kahneman": "ដោយ Daniel Kahneman",
+  "Cognitive Discipline": "វិន័យនៃការគិត",
+  "Trading in the Zone": "Trading in the Zone (វិន័យ និងផ្នត់គំនិតជួញដូរ)",
+  "by Mark Douglas": "ដោយ Mark Douglas",
+  "Probabilistic Mindset": "ផ្នត់គំនិតប្រូបាប៊ីលីតេ",
+  "Reminiscences of a Stock Operator": "ការចងចាំរបស់អ្នកជួញដូរភាគហ៊ុន (Reminiscences of a Stock Operator)",
+  "by Edwin Lefèvre": "ដោយ Edwin Lefèvre",
+  "Tape Reading & Liquidity": "ការអាន Tape & សាច់ប្រាក់ងាយស្រួល",
+  "The Alchemy of Finance": "The Alchemy of Finance (អាថ៌កំបាំងហិរញ្ញវត្ថុ)",
+  "by George Soros": "ដោយ George Soros",
+  "Reflexivity Theory": "ទ្រឹស្តី Reflexivity",
+  "Macro Reflexivity": "ទ្រឹស្តី Reflexivity ម៉ាក្រូ",
+  "The Sovereign Individual": "The Sovereign Individual (បុគ្គលអធិបតេយ្យ)",
+  "by James Dale Davidson & Lord William Rees-Mogg": "ដោយ James Dale Davidson & Lord William Rees-Mogg",
+  "Macro Foresight": "ចក្ខុវិស័យម៉ាក្រូសេដ្ឋកិច្ច",
+  "Executive Essential": "ឯកសារចាំបាច់សម្រាប់ថ្នាក់ដឹកនាំ",
+  "Capital Preservation": "ការការពារដើមទុន",
+  "Convex Payoffs": "ផលចំណេញកោង (Convex Payoffs)",
+  "Mechanical Market Structure": "រចនាសម្ព័ន្ធទីផ្សារមេកានិក",
+  "Trading Psychology": "ចិត្តវិទ្យាជួញដូរ",
+  "Historical Foundation": "គ្រឹះប្រវត្តិសាស្ត្រ",
+  "Systematic Reality": "តថភាពជាប្រព័ន្ធ",
+  "Risk & Leadership": "ហានិភ័យ & ភាពជាអ្នកដឹកនាំ",
+  "FinTech & Macro": "FinTech & សេដ្ឋកិច្ចម៉ាក្រូ",
+  "Executive Mindset": "ផ្នត់គំនិតថ្នាក់ប្រតិបត្តិ",
+
+  // Media Channels & Feeds
+  "YouTube Channel": "YouTube Channel",
+  "YouTube Live": "YouTube Live",
+  "YouTube Broadcasts": "YouTube Broadcasts",
+  "YouTube Analysis": "ការវិភាគលើ YouTube",
+  "YouTube @MongSayFX": "YouTube @MongSayFX",
+  "YouTube: @MongSayFX": "YouTube: @MongSayFX",
+  "Facebook Page": "ទំព័រ Facebook",
+  "Facebook Community": "សហគមន៍ Facebook",
+  "Facebook: @MongsayFX": "Facebook: @MongsayFX",
+  "Telegram VIP": "Telegram VIP",
+  "Community VIP Channel": "Channel VIP របស់សហគមន៍",
+  "Telegram: @mongsayhouse17": "Telegram: @mongsayhouse17",
+  "TikTok Official": "TikTok ផ្លូវការ",
+  "TikTok Short Insights": "វីដេអូខ្លីលើ TikTok",
+  "TikTok: @mongsayfx": "TikTok: @mongsayfx",
+  "Watch Analysis →": "ទស្សនាការវិភាគ →",
+  "Watch Breakdown →": "ទស្សនាការបំបែករចនាសម្ព័ន្ធ →",
+  "Watch Masterclass →": "ទស្សនាវគ្គ Masterclass →",
+  "Watch Session →": "ទស្សនាវគ្គចែករំលែក →",
+  "Subscribe →": "ជាវ (Subscribe) →",
+  "Subscribe Channel →": "ជាវ Channel →",
+  "Follow Feed →": "តាមដានព័ត៌មាន →",
+  "Follow TikTok →": "តាមដាន TikTok →",
+  "Follow Updates →": "តាមដានការអាប់ដេត →",
+  "Join Community →": "ចូលរួមសហគមន៍ →",
+  "Join VIP Channel →": "ចូលរួម VIP Channel →",
+  "Connect →": "ភ្ជាប់ទំនាក់ទំនង →",
+  "Connect with": "ភ្ជាប់ទំនាក់ទំនងជាមួយ",
+  "Live Analysis": "ការវិភាគផ្ទាល់",
+  "Market Insights": "ការយល់ដឹងអំពីទីផ្សារ",
+
+  // Market Sessions
+  "Sydney (22:00–07:00 UTC)": "ស៊ីដនី (22:00–07:00 UTC)",
+  "Tokyo (00:00–09:00 UTC)": "តូក្យូ (00:00–09:00 UTC)",
+  "London Open (08:00–17:00 UTC)": "ទីផ្សារឡុងដ៍បើក (08:00–17:00 UTC)",
+  "New York (13:00–22:00 UTC)": "ញូវយ៉ក (13:00–22:00 UTC)",
+  "NY/London Killzone (XAU/USD)": "ម៉ោងមាស NY/London Killzone (XAU/USD)",
+
+  // Calculator Options & Pairs
+  "Gold (XAU/USD) - $8.50/lot": "មាស (XAU/USD) - $8.50/lot",
+  "EUR/USD - $6.00/lot": "EUR/USD - $6.00/lot",
+  "GBP/USD - $7.00/lot": "GBP/USD - $7.00/lot",
+  "US30 / Indices - $5.00/lot": "US30 / សន្ទស្សន៍ - $5.00/lot",
+  "Crypto Rails - $12.00/lot": "ផ្លូវ Crypto - $12.00/lot",
+  "Gold (XAU/USD) - $10.00/pip": "មាស (XAU/USD) - $10.00/pip",
+  "EUR/USD - $10.00/pip": "EUR/USD - $10.00/pip",
+  "GBP/USD - $10.00/pip": "GBP/USD - $10.00/pip",
+  "US30 / Indices - $5.00/pt": "US30 / សន្ទស្សន៍ - $5.00/pt",
+  "IC Markets (Raw Spread)": "IC Markets (Raw Spread)",
+  "Exness (Zero Pro)": "Exness (Zero Pro)",
+  "FP Markets (ECN Raw)": "FP Markets (ECN Raw)",
+  "Vantage Markets (Pro ECN)": "Vantage Markets (Pro ECN)",
+  "BlackBull Markets": "BlackBull Markets",
+  "IC Markets": "IC Markets",
+  "FP Markets": "FP Markets",
+  "BlackBull": "BlackBull",
+  "OANDA": "OANDA",
+  "Asset Class": "ប្រភេទទ្រព្យសកម្ម",
+  "Asset Pair": "គូទ្រព្យសកម្ម",
+  "Execution Mode": "ទម្រង់ប្រតិបត្តិការ",
+  "Execution Cost Engineering": "វិស្វកម្មកាត់បន្ថយថ្លៃដើមប្រតិបត្តិការ",
+  "Risk %": "% ហានិភ័យ",
+  "Target 1:3 RR Gain": "គោលដៅប្រាក់ចំណេញ 1:3 RR",
+  "Payout Schedule": "កាលវិភាគទូទាត់ប្រាក់",
+  "Access SAGFX Trader Cashback Portal": "ចូលកាន់គេហទំព័រ Cashback សម្រាប់ Trader របស់ SAGFX",
+
+  // Form & Modal Fields
+  "Consultation Scope": "វិសាលភាពនៃការពិគ្រោះយោបល់"
+});
+
+// Merged third section covering form, modal, and footer
+Object.assign(PHRASE_DICTIONARY_KH, {
+  "Inquiry Classification": "ចំណាត់ថ្នាក់នៃការសាកសួរ",
+  "Full Name / Title": "ឈ្មោះពេញ / តួនាទី",
+  "Corporate Email": "អ៊ីមែលក្រុមហ៊ុន",
+  "Executive Name": "ឈ្មោះថ្នាក់ប្រតិបត្តិ",
+  "Executive Role": "តួនាទីប្រតិបត្តិ",
+  "Organization / Firm": "អង្គភាព / ក្រុមហ៊ុន",
+  "Preferred Date & Timeframe": "កាលបរិច្ឆេទ & ពេលវេលាដែលចង់បាន",
+  "Executive Brief / Proposal": "របាយការណ៍សង្ខេបប្រតិបត្តិ / សំណើ",
+  "Schedule Executive Session": "កំណត់កាលវិភាគពិភាក្សាប្រតិបត្តិ",
+  "Book Consultation Session": "កក់វគ្គប្រឹក្សាយោបល់",
+  "Confirm Session Request": "បញ្ជាក់ការស្នើសុំកាលវិភាគ",
+  "Engage Mongsay for": "ទាក់ទង Mongsay សម្រាប់",
+  "DIRECT ACCESS": "ការចូលប្រើប្រាស់ផ្ទាល់",
+  "Personal VIP Telegram (Primary)": "Telegram VIP ផ្ទាល់ខ្លួន (ចម្បង)",
+  "SAG Payment Merchant Rail Direct Channel": "បណ្តាញផ្ទាល់ផ្លូវច្រកទូទាត់ពាណិជ្ជករ SAG Payment",
+  "SAGFX Broker BDM & Liquidity Partnership": "ភាពជាដៃគូ Broker BDM & សាច់ប្រាក់ងាយស្រួល SAGFX",
+  "SAG Payment Gateway Merchant Rails": "ផ្លូវច្រកទូទាត់ពាណិជ្ជករ SAG Payment",
+  "SAGFX Institutional Broker BDM & Liquidity Setup": "ការរៀបចំ BDM ឈ្មួញជើងសាស្ថាប័ន & សាច់ប្រាក់ងាយស្រួល SAGFX",
+  "SAGFX Institutional Rebate Whitelisting": "ការចុះឈ្មោះបញ្ជីស Rebate ស្ថាប័ន SAGFX",
+  "SAG Payment Gateway High-Volume Integration": "ការតភ្ជាប់ច្រកទូទាត់ SAG Payment សម្រាប់ទំហំប្រតិបត្តិការធំ",
+  "SAGFX.ORG Advisory": "ការប្រឹក្សា SAGFX.ORG",
+  "Financial Markets Advisors | Institutional Rebate Network": "ទីប្រឹក្សាទីផ្សារហិរញ្ញវត្ថុ | បណ្តាញ Rebate ស្ថាប័ន",
+  "Financial Advisor & BDM": "ទីប្រឹក្សាហិរញ្ញវត្ថុ & BDM",
+  "Direct escalation to CEO Office": "ការដោះស្រាយបន្ទាន់ផ្ទាល់ទៅកាន់ការិយាល័យ CEO",
+  "Up to $8.50 / Lot": "រហូតដល់ $8.50 / Lot",
+  "Up to $0.85 / Mini": "រហូតដល់ $0.85 / Mini",
+  "Up to $0.08 / Micro": "រហូតដល់ $0.08 / Micro",
+  "Light": "ពន្លឺ",
+  "Light Mode": "ម៉ូដពន្លឺ (Light)",
+  "Dark": "ងងឹត",
+  "Dark Mode": "ម៉ូដងងឹត (Dark)",
 
   // VIP Telegram Steps & Perks
   "Tap 'Enroll via @MongsayFX' to launch official Telegram chat.": "ចុច 'ចុះឈ្មោះតាម @MongsayFX' ដើម្បីបើកការសន្ទនា Telegram ផ្លូវការ។",
@@ -284,7 +599,7 @@ const PHRASE_DICTIONARY_KH = {
   "✅ Daily XAU/USD Structural Breakdowns": "✅ ការវិភាគរចនាសម្ព័ន្ធ XAU/USD ប្រចាំថ្ងៃ",
   "✅ Priority Merchant Gateway Integration": "✅ ការតភ្ជាប់ច្រកទូទាត់អាជីវកម្មជាអាទិភាព",
 
-  // Form Labels
+  // Form Labels & Placeholders
   "Full Name / Organization": "ឈ្មោះពេញ / ស្ថាប័ន",
   "Email Address": "អាសយដ្ឋានអ៊ីមែល",
   "Telegram Handle (@username)": "Telegram Handle (@username)",
@@ -309,7 +624,7 @@ const PHRASE_DICTIONARY_KH = {
   "Compliance & Transparency": "ការអនុលោមតាមច្បាប់ & តម្លាភាព",
   "All Rights Reserved.": "រក្សាសិទ្ធិគ្រប់យ៉ាង។",
   "Risk Warning: Financial markets and currency trading involve substantial risk of loss. Historical yields do not guarantee future returns.": "ការព្រមានអំពីហានិភ័យ៖ ការជួញដូរលើទីផ្សារហិរញ្ញវត្ថុ និងរូបិយប័ណ្ណមានហានិភ័យខ្ពស់នៃការខាតបង់។ ទិន្នផលកន្លងមកមិនធានាដល់ប្រាក់ចំណេញនាពេលអនាគតឡើយ។"
-};
+});
 
 function initLanguageToggle() {
   const savedLang = localStorage.getItem('mongsay_lang') || 'en';
@@ -344,7 +659,7 @@ function applyLanguage(lang) {
     }
   });
 
-  // 1. First translate elements with explicit data-i18n
+  // 1. Explicit data-i18n elements (e.g. rich hero titles with styled markup)
   const dict = I18N_DICTIONARY[lang] || I18N_DICTIONARY.en;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
@@ -353,33 +668,62 @@ function applyLanguage(lang) {
     }
   });
 
-  // 2. Comprehensive site-wide translation for all text tags
-  const selectors = 'h1, h2, h3, h4, h5, p, .section-tag, .promo-title, .promo-desc, .venture-title, .venture-desc, .pillar-title, .pillar-desc, .channel-title, .channel-desc, .book-title, .book-desc, .btn-primary, .btn-secondary, .venture-link-btn, .community-pill, .stat-label, .metric-label, .footer-col h4, .footer-links a, .copyright, .risk-disclaimer, .gold-matrix-table th, .gold-matrix-table td strong, .vip-step h4, .vip-step p, .vip-perk, .calc-group label, .calc-submetric-label, .calc-header-cell, .session-name, .session-hours, .side-wing-label';
-
-  document.querySelectorAll(selectors).forEach(el => {
-    if (el.hasAttribute('data-i18n')) return;
-
-    if (!el.hasAttribute('data-en-text')) {
-      el.setAttribute('data-en-text', el.innerHTML.trim());
+  // 2. Comprehensive DOM Text-Node Walker: Translates all text nodes in place without breaking tags/SVGs
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode: function(node) {
+      const p = node.parentElement;
+      if (!p) return NodeFilter.FILTER_REJECT;
+      const tag = p.tagName;
+      if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT' || tag === 'CODE') {
+        return NodeFilter.FILTER_REJECT;
+      }
+      if (p.hasAttribute('data-i18n')) {
+        return NodeFilter.FILTER_REJECT;
+      }
+      const val = node.nodeValue;
+      if (!val || !val.trim()) return NodeFilter.FILTER_SKIP;
+      return NodeFilter.FILTER_ACCEPT;
     }
+  });
 
+  const textNodes = [];
+  while (walker.nextNode()) {
+    textNodes.push(walker.currentNode);
+  }
+
+  textNodes.forEach(node => {
+    if (node._origText === undefined) {
+      node._origText = node.nodeValue;
+    }
     if (lang === 'kh') {
-      const orig = el.getAttribute('data-en-text');
-      const plain = orig.replace(/<[^>]*>/g, '').trim();
-      if (PHRASE_DICTIONARY_KH[orig]) {
-        el.innerHTML = PHRASE_DICTIONARY_KH[orig];
-      } else if (PHRASE_DICTIONARY_KH[plain]) {
-        el.textContent = PHRASE_DICTIONARY_KH[plain];
+      const orig = node._origText;
+      const clean = orig.replace(/\s+/g, ' ').trim();
+      if (PHRASE_DICTIONARY_KH[clean]) {
+        const leading = orig.match(/^\s*/)[0];
+        const trailing = orig.match(/^\s*$/)[0];
+        node.nodeValue = leading + PHRASE_DICTIONARY_KH[clean] + trailing;
       }
     } else {
-      const orig = el.getAttribute('data-en-text');
-      if (orig) {
-        el.innerHTML = orig;
+      if (node._origText !== undefined) {
+        node.nodeValue = node._origText;
       }
     }
   });
 
-  // 3. Translate form placeholders
+  // 3. Translate select <option> text
+  document.querySelectorAll('option').forEach(opt => {
+    if (opt._origText === undefined) {
+      opt._origText = opt.textContent;
+    }
+    const clean = opt._origText.replace(/\s+/g, ' ').trim();
+    if (lang === 'kh' && PHRASE_DICTIONARY_KH[clean]) {
+      opt.textContent = PHRASE_DICTIONARY_KH[clean];
+    } else if (lang === 'en' && opt._origText !== undefined) {
+      opt.textContent = opt._origText;
+    }
+  });
+
+  // 4. Translate form placeholders
   document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
     if (!el.hasAttribute('data-en-placeholder')) {
       el.setAttribute('data-en-placeholder', el.getAttribute('placeholder'));
@@ -394,11 +738,60 @@ function applyLanguage(lang) {
         el.setAttribute('placeholder', 'ឧ. @institutional_trader');
       } else if (origPh.includes('capital structure')) {
         el.setAttribute('placeholder', 'រៀបរាប់អំពីរចនាសម្ព័ន្ធទុន, ទំហំច្រកទូទាត់ ឬតម្រូវការយុទ្ធសាស្ត្ររបស់អ្នក...');
+      } else if (origPh.includes('Search literature by title')) {
+        el.setAttribute('placeholder', 'ស្វែងរកសៀវភៅតាមចំណងជើង, អ្នកនិពន្ធ ឬទស្សនវិជ្ជា...');
       }
     } else {
       el.setAttribute('placeholder', origPh);
     }
   });
+}
+
+/* ---------------------------------------------------------
+   Smart Pop-Up Floating Toolbar (Pops Up on Scroll Up)
+   --------------------------------------------------------- */
+function initSmartScrollNav() {
+  const navOuter = document.querySelector('.site-nav-outer');
+  if (!navOuter) return;
+
+  let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+  let ticking = false;
+  const scrollThreshold = 6;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const currentScrollY = Math.max(0, window.pageYOffset || document.documentElement.scrollTop);
+        const diff = currentScrollY - lastScrollY;
+
+        // When near top (first 65px), always keep navbar displayed
+        if (currentScrollY <= 65) {
+          navOuter.classList.remove('nav-hidden');
+          navOuter.classList.add('nav-visible');
+        } 
+        // Scrolling DOWN past threshold -> smoothly hide navbar
+        else if (diff > scrollThreshold) {
+          navOuter.classList.add('nav-hidden');
+          navOuter.classList.remove('nav-visible');
+          const mobileMenu = document.getElementById('mobileNavMenu');
+          const toggleBtn = document.getElementById('mobileNavToggle');
+          if (mobileMenu && mobileMenu.classList.contains('open')) {
+            mobileMenu.classList.remove('open');
+            if (toggleBtn) toggleBtn.innerHTML = '☰';
+          }
+        } 
+        // Scrolling UP past threshold -> pop up navbar immediately
+        else if (diff < -scrollThreshold) {
+          navOuter.classList.remove('nav-hidden');
+          navOuter.classList.add('nav-visible');
+        }
+
+        lastScrollY = currentScrollY;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 }
 
 /* ---------------------------------------------------------
