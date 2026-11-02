@@ -7,12 +7,12 @@
 
 :root {
   /* DARK THEME (DEFAULT INSTITUTIONAL OBSIDIAN & GOLD) */
-  --bg-primary: #05070b;
-  --bg-secondary: #080d1a;
-  --bg-tertiary: #0c1426;
-  --bg-card: rgba(8, 13, 26, 0.82);
-  --bg-card-hover: rgba(14, 22, 44, 0.94);
-  --bg-glass: rgba(6, 10, 20, 0.75);
+  --bg-primary: #04060a;
+  --bg-secondary: rgba(8, 13, 26, 0.72);
+  --bg-tertiary: rgba(12, 20, 38, 0.75);
+  --bg-card: rgba(8, 13, 26, 0.58);
+  --bg-card-hover: rgba(14, 22, 44, 0.82);
+  --bg-glass: rgba(6, 10, 20, 0.48);
 
   --border-subtle: rgba(229, 185, 95, 0.18);
   --border-card: rgba(229, 185, 95, 0.28);
@@ -109,7 +109,7 @@
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
-  background-color: var(--bg-primary);
+  background-color: #030408;
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -120,7 +120,7 @@ body {
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
-  background-color: var(--bg-primary);
+  background-color: transparent;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -147,7 +147,7 @@ img {
   height: 100vh;
   overflow: hidden;
   z-index: -2;
-  background: #000;
+  background: transparent;
   pointer-events: none;
 }
 
@@ -156,9 +156,9 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  filter: brightness(0.85); /* Keeps text legible over the animation */
-  opacity: 0.88;
+  object-position: center 25%;
+  filter: contrast(1.18) brightness(1.22) saturate(1.28);
+  opacity: 1;
   transition: opacity 0.4s ease;
 }
 
@@ -169,12 +169,13 @@ img {
   mix-blend-mode: multiply;
 }
 
-/* Soft radial vignette to keep text sharp in the center/sides */
+/* Soft radial vignette to keep text sharp while glowing lion shines through */
 .site-bg-overlay,
 .video-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.75) 100%);
+  background: radial-gradient(circle at 50% 28%, transparent 30%, rgba(3, 5, 10, 0.22) 58%, rgba(3, 5, 10, 0.68) 100%),
+              linear-gradient(180deg, rgba(3, 5, 10, 0.12) 0%, transparent 18%, transparent 68%, rgba(3, 5, 10, 0.88) 100%);
   pointer-events: none;
 }
 
@@ -183,32 +184,9 @@ img {
   background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(246, 248, 251, 0.78) 100%);
 }
 
-/* 1. Base 002.jpg Banknote - HIGH VISIBILITY LUXURY PRESENCE */
+/* 1. Base 002.jpg Banknote - ELIMINATED TO PREVENT STACKING WITH GLOWING LION */
 .bg-img-layer {
-  position: absolute;
-  inset: 0;
-  background-image: url('assets/002.jpg');
-  background-position: center 25%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.35; /* Harmonized blend so lion video strokes & banknote filigree coexist */
-  filter: contrast(1.2) brightness(1.02) saturate(1.15);
-  mix-blend-mode: screen;
-  transform: scale(1.02);
-  transition: transform 0.25s ease-out, opacity 0.4s ease;
-  animation: bgBreathingZoom 22s ease-in-out infinite alternate;
-}
-
-[data-theme="light"] .bg-img-layer {
-  opacity: 0.35;
-  filter: contrast(1.15) brightness(1.12) sepia(0.4) saturate(1.3);
-  mix-blend-mode: multiply;
-}
-
-@keyframes bgBreathingZoom {
-  0% { transform: scale(1.02) translateY(0); filter: contrast(1.25) brightness(1.02); }
-  50% { transform: scale(1.05) translateY(-8px); filter: contrast(1.32) brightness(1.1); }
-  100% { transform: scale(1.02) translateY(0); filter: contrast(1.25) brightness(1.02); }
+  display: none !important;
 }
 
 /* 1b. Classic Luxury Guilloche Filigree & Damask Lattice Overlay */
@@ -3226,6 +3204,30 @@ body.lang-kh .nav-links {
 }
 
 @media (max-width: 960px) {
+  /* Glowing Lion Video Background Mobile Geometry & Radiant Clarity */
+  .site-bg-video,
+  .video-bg {
+    object-fit: contain;
+    object-position: center 14%;
+    transform: scale(1.42);
+    transform-origin: center 14%;
+    filter: contrast(1.18) brightness(1.22) saturate(1.28);
+  }
+  .site-bg-overlay,
+  .video-overlay {
+    background: radial-gradient(circle at 50% 18%, transparent 35%, rgba(3, 5, 10, 0.35) 65%, rgba(3, 5, 10, 0.82) 100%),
+                linear-gradient(180deg, rgba(3, 5, 10, 0.1) 0%, transparent 22%, rgba(3, 5, 10, 0.82) 85%);
+  }
+  .bg-margin-flourish-left,
+  .bg-margin-flourish-right {
+    display: none !important;
+  }
+  .bg-aura-layer {
+    width: 480px;
+    height: 380px;
+    top: 14%;
+  }
+
   .nav-links {
     display: none;
   }
@@ -3279,6 +3281,49 @@ body.lang-kh .nav-links {
     flex-direction: column;
     gap: 10px;
     text-align: center;
+  }
+}
+
+@media (max-width: 580px) {
+  /* Ultra-refined mobile fit - center-locked lion crown with 0 clipping */
+  .site-bg-video,
+  .video-bg {
+    object-fit: contain;
+    object-position: center 10%;
+    transform: scale(1.52);
+    transform-origin: center 10%;
+    filter: contrast(1.2) brightness(1.25) saturate(1.3);
+  }
+  .site-bg-overlay,
+  .video-overlay {
+    background: radial-gradient(circle at 50% 14%, transparent 38%, rgba(3, 5, 10, 0.4) 68%, rgba(3, 5, 10, 0.88) 100%),
+                linear-gradient(180deg, rgba(3, 5, 10, 0.08) 0%, transparent 20%, rgba(3, 5, 10, 0.88) 88%);
+  }
+  .bg-aura-layer {
+    width: 320px;
+    height: 260px;
+    top: 12%;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  .hero-section {
+    padding: 24px 0 45px;
+  }
+  .hero-title {
+    font-size: clamp(1.85rem, 7.5vw, 2.35rem);
+  }
+  .hero-entity-badges {
+    flex-wrap: wrap;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-cta-group .btn-primary,
+  .hero-cta-group .btn-secondary {
+    width: 100%;
+    justify-content: center;
   }
 }
 
