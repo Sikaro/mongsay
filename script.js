@@ -64,6 +64,9 @@ const I18N_DICTIONARY = {
     nav_contact: "Enroll / Contact",
     hero_badge_payment: "COUNTRY MANAGER",
     hero_badge_advisory: "SAGFX LEAD BROKERAGE",
+    hero_badge_sagfx: "SAGFX LEAD BROKERAGE",
+    hero_badge_cm: "COUNTRY MANAGER",
+    hero_badge_mongsay: "MONGSAY HOUSE VIP",
     hero_subtitle: "Executive Portfolio",
     hero_title: "Institutional <br><span class=\"gold-text\">Market Liquidity</span> & Lead <br><span class=\"gold-text\">Brokerage Leadership</span>",
     hero_desc: "Country Manager & Lead Institutional Brokerage Director at <strong>SAGFX</strong> (<a href=\"https://sagfx.org\" target=\"_blank\" class=\"gold-text\">sagfx.org</a>). Structuring tier-1 interbank liquidity bridges, institutional rebate networks, and mechanical market execution for elite trading communities across Southeast Asia.",
@@ -218,6 +221,9 @@ const I18N_DICTIONARY = {
     nav_contact: "ទំនាក់ទំនង",
     hero_badge_payment: "នាយកគ្រប់គ្រងប្រចាំប្រទេស",
     hero_badge_advisory: "ឈ្មួញជើងសាឈានមុខ SAGFX",
+    hero_badge_sagfx: "ឈ្មួញជើងសាឈានមុខ SAGFX",
+    hero_badge_cm: "នាយកគ្រប់គ្រងប្រចាំប្រទេស",
+    hero_badge_mongsay: "MONGSAY HOUSE VIP",
     hero_subtitle: "ផលប័ត្រប្រតិបត្តិផ្លូវការ",
     hero_title: "សាច់ប្រាក់ងាយស្រួលស្ថាប័ន <br><span class=\"gold-text\">កម្រិតអន្តរជាតិ</span> & ភាពជាអ្នកដឹកនាំ <br><span class=\"gold-text\">ឈ្មួញជើងសាឈានមុខ</span>",
     hero_desc: "នាយកគ្រប់គ្រងប្រចាំប្រទេស និងជាប្រធានដឹកនាំឈ្មួញជើងសាស្ថាប័ននៅ <strong>SAGFX</strong> (<a href=\"https://sagfx.org\" target=\"_blank\" class=\"gold-text\">sagfx.org</a>)។ ដឹកនាំសាច់ប្រាក់ងាយស្រួលស្ថាប័ន Tier-1 រចនាសម្ព័ន្ធទីផ្សារមេកានិក និងសហគមន៍ជួញដូរកម្រិតខ្ពស់។",
@@ -858,6 +864,91 @@ Object.assign(PHRASE_DICTIONARY_KH, {
   "Copy Link": "ចម្លងតំណ",
   "Schedule Strategy Call": "កំណត់កាលវិភាគពិភាក្សា",
 
+  // Additional Institutional & System Phrases
+  "Tier-1 Liquidity Bridges:": "ស្ពានសាច់ប្រាក់ងាយស្រួល Tier-1:",
+  "Master IB Commission Engines:": "ប្រព័ន្ធកម្រៃជើងសារ Master IB:",
+  "Rapid Turnkey Deployment:": "ការដាក់ពង្រាយ Turnkey រហ័ស:",
+  "Estimated Monthly Volume": "ទំហំជួញដូរប្រចាំខែប៉ាន់ស្មាន",
+  "Partner Broker": "ឈ្មួញជើងសាដៃគូ",
+  "Projected Monthly Cashback": "ប្រាក់ត្រឡប់មកវិញប្រចាំខែប៉ាន់ស្មាន",
+  "Annual Compound Savings": "ការសន្សំរួមប្រចាំឆ្នាំ",
+  "Pips Recovered / Month": "Pips ទទួលបានមកវិញ / ខែ",
+  "Spread Cost Reduction": "ការកាត់បន្ថយថ្លៃដើម Spread",
+  "Rebate Settlement": "ការទូទាត់ប្រាក់ Rebate",
+  "Automated / Weekly": "ស្វ័យប្រវត្តិ / ប្រចាំសប្តាហ៍",
+  "Fractional Risk Engine": "ម៉ាស៊ីនគ្រប់គ្រងហានិភ័យប្រភាគ",
+  "Standard Pip Scaling Matrix": "ម៉ាទ្រីសកម្រិត Pip ស្តង់ដារ",
+  "Contract Type": "ប្រភេទកិច្ចសន្យា",
+  "1 Pip Movement": "ចលនា 1 Pip",
+  "SAGFX Rebate Yield": "ទិន្នផល Rebate SAGFX",
+  "Institutional Friction": "ការកកិតថ្លៃដើមស្ថាប័ន",
+  "Standard Lot (1.00)": "ឡូតស្តង់ដារ (1.00)",
+  "Mini Lot (0.10)": "ឡូតមីនី (0.10)",
+  "Micro Lot (0.01)": "ឡូតមីក្រូ (0.01)",
+  "Standard Lot": "ឡូតស្តង់ដារ",
+  "Mini Lot": "ឡូតមីនី",
+  "Micro Lot": "ឡូតមីក្រូ",
+  "Troy Ounces": "អោន Troy",
+  "Troy Ounce": "អោន Troy",
+  "Raw ECN Interbank (0.0 - 0.2 pips)": "ECN ធនាគារដើម (0.0 - 0.2 pips)",
+  "Direct Bridge Route": "ផ្លូវតភ្ជាប់ស្ពានផ្ទាល់",
+  "Fractional Liquidity Feed": "ទិន្នន័យសាច់ប្រាក់ងាយស្រួលប្រភាគ",
+  "Account Capital (USD)": "ដើមទុនគណនី (USD)",
+  "Risk Percentage per Trade": "ភាគរយហានិភ័យក្នុងមួយជួញដូរ",
+  "Stop Loss Distance (Pips)": "ចម្ងាយ Stop Loss (Pips)",
+  "Recommended Lot Size": "ទំហំ Lot ដែលបានណែនាំ",
+  "Monetary Risk Amount": "ទំហំទឹកប្រាក់ប្រឈមហានិភ័យ",
+  "Pip Value at Lot Size": "តម្លៃ Pip តាមទំហំ Lot",
+  "Institutional Tier-1 Standard": "ស្តង់ដារ Tier-1 ស្ថាប័ន",
+  "Market Liquidity": "សាច់ប្រាក់ងាយស្រួលទីផ្សារ",
+  "Brokerage Leadership": "ភាពជាអ្នកដឹកនាំឈ្មួញជើងសា",
+  "Institutional Network": "បណ្តាញស្ថាប័ន",
+  "Promotions & High-Value Offers": "ប្រូម៉ូសិន & ការផ្តល់ជូនពិសេស",
+  "Institutional Rails": "ផ្លូវតភ្ជាប់ស្ថាប័ន",
+  "White-Label Infrastructure": "ហេដ្ឋារចនាសម្ព័ន្ធ White-Label",
+  "Institutional Liquidity": "សាច់ប្រាក់ងាយស្រួលស្ថាប័ន",
+  "Country Management & Scale": "ការគ្រប់គ្រងប្រទេស & ការពង្រីក",
+  "Cashback & Rebate Networks": "បណ្តាញ Cashback & Rebate",
+  "Strictly Institutional & Confidential. Zero Retail Clutter.": "កម្រិតស្ថាប័ន & ការសម្ងាត់ខ្ពស់បំផុត។ គ្មានភាពរញ៉េរញ៉ៃកម្រិតរាយ។",
+  "Pioneering institutional brokerage infrastructure, regional liquidity bridges, and mechanical market execution.": "ត្រួសត្រាយផ្លូវលើហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាស្ថាប័ន ស្ពានសាច់ប្រាក់ងាយស្រួលក្នុងតំបន់ និងការប្រតិបត្តិទីផ្សារតាមប្រព័ន្ធមេកានិក។",
+  "Initiate Executive Partnership": "ចាប់ផ្តើមភាពជាដៃគូកម្រិតប្រតិបត្តិ",
+  "Direct channel to the Office of Mong Say for institutional inquiries, SAGFX brokerage consulting, country management partnerships, and keynote strategic engagements.": "បណ្តាញផ្ទាល់ទៅកាន់ការិយាល័យលោក ម៉ុង សាយ សម្រាប់ការសាកសួរកម្រិតស្ថាប័ន ការប្រឹក្សាឈ្មួញជើងសា SAGFX ភាពជាដៃគូគ្រប់គ្រងប្រទេស និងកិច្ចសហការយុទ្ធសាស្ត្រ។",
+  "Direct private access to Mong Say for institutional traders, brokerage partnerships, and regional scaling (SAGFX.ORG). Connect directly on Telegram to enroll in private mentorship and VIP institutional channels.": "ការតភ្ជាប់ផ្ទាល់ជាមួយលោក ម៉ុង សាយ សម្រាប់ពាណិជ្ជករស្ថាប័ន ភាពជាដៃគូឈ្មួញជើងសា និងការពង្រីកក្នុងតំបន់ (SAGFX.ORG)។ ភ្ជាប់ទំនាក់ទំនងតាម Telegram ដើម្បីចូលរួមការបណ្តុះបណ្តាលឯកជន និងបណ្តាញ VIP ស្ថាប័ន។",
+  "Book a direct strategy consultation with Mong Say regarding SAGFX institutional broker partnerships, liquidity infrastructure, or trading mentorship.": "កក់ការពិគ្រោះយោបល់យុទ្ធសាស្ត្រផ្ទាល់ជាមួយលោក ម៉ុង សាយ អំពីភាពជាដៃគូឈ្មួញជើងសាស្ថាប័ន SAGFX ហេដ្ឋារចនាសម្ព័ន្ធសាច់ប្រាក់ ឬការបណ្តុះបណ្តាលការជួញដូរ។",
+  "SAGFX Institutional White-Label Brokerage": "ប្រព័ន្ធ White-Label ឈ្មួញជើងសាស្ថាប័ន SAGFX",
+  "SAGFX Regional Liquidity & Rebate Partnership": "ភាពជាដៃគូសាច់ប្រាក់ងាយស្រួល & Rebate តំបន់ SAGFX",
+  "SAGFX Regional Brokerage Expansion & White-Label": "ការពង្រីកឈ្មួញជើងសាក្នុងតំបន់ & White-Label SAGFX",
+  "SAGFX Institutional Liquidity & Rebate Setup": "ការរៀបចំសាច់ប្រាក់ងាយស្រួលស្ថាប័ន & Rebate SAGFX",
+  "Strategic Venture Investment & Partnership": "ការវិនិយោគលើអាជីវកម្មយុទ្ធសាស្ត្រ & ភាពជាដៃគូ",
+  "Executive Name": "ឈ្មោះថ្នាក់ដឹកនាំ",
+  "Corporate Email": "អ៊ីមែលសាជីវកម្ម",
+  "Consultation Scope": "វិសាលភាពនៃការពិគ្រោះយោបល់",
+  "Confirm Session Request": "បញ្ជាក់ការស្នើសុំកាលវិភាគ",
+  "Preferred Date & Timeframe": "កាលបរិច្ឆេទ & ពេលវេលាដែលចង់បាន",
+  "Schedule Executive Session": "កាលវិភាគកិច្ចប្រជុំប្រតិបត្តិ",
+  "EXECUTIVE PROTOCOL": "ពិធីការប្រតិបត្តិ",
+  "Sydney": "ស៊ីដនី",
+  "Tokyo": "តូក្យូ",
+  "London Open": "បើកទីផ្សារឡុងដ៍",
+  "New York": "ញូវយ៉ក",
+  "NY/London Killzone (XAU/USD)": "តំបន់ Killzone ញូវយ៉ក/ឡុងដ៍ (XAU/USD)",
+  "NY/London Killzone": "តំបន់ Killzone ញូវយ៉ក/ឡុងដ៍",
+  "Killzone": "តំបន់ Killzone",
+  "Subscribe →": "ជាវ →",
+  "Follow Feed →": "តាមដាន →",
+  "Connect →": "ភ្ជាប់ទំនាក់ទំនង →",
+  "Watch Masterclass →": "ទស្សនា Masterclass →",
+  "Watch Analysis →": "ទស្សនាការវិភាគ →",
+  "Watch Breakdown →": "ទស្សនាការពន្យល់ →",
+  "Watch Session →": "ទស្សនាមេរៀន →",
+  "Channel:": "ប៉ុស្តិ៍:",
+  "Live Schedule": "កាលវិភាគបន្តផ្ទាល់",
+  "Lots": "ឡូត",
+  "Lot": "ឡូត",
+  "Pips": "Pips",
+  "Pip": "Pip",
+  "Spread": "Spread",
+
   // Footer & Disclaimers
   "Ecosystem": "ប្រព័ន្ធអេកូឡូស៊ី",
   "Institutional Advisory": "ការប្រឹក្សាស្ថាប័ន",
@@ -867,50 +958,38 @@ Object.assign(PHRASE_DICTIONARY_KH, {
   "Risk Warning: Financial markets and currency trading involve substantial risk of loss. Historical yields do not guarantee future returns.": "ការព្រមានអំពីហានិភ័យ៖ ការជួញដូរលើទីផ្សារហិរញ្ញវត្ថុ និងរូបិយប័ណ្ណមានហានិភ័យខ្ពស់នៃការខាតបង់។ ទិន្នផលកន្លងមកមិនធានាដល់ប្រាក់ចំណេញនាពេលអនាគតឡើយ។"
 });
 
-function initLanguageToggle() {
-  const savedLang = localStorage.getItem('mongsay_lang') || 'en';
-  applyLanguage(savedLang);
+// Pre-computed sorted phrases list by length descending for greedy substring matching
+const SORTED_PHRASE_LIST = Object.entries(PHRASE_DICTIONARY_KH).sort((a, b) => b[0].length - a[0].length);
 
-  const langBtns = document.querySelectorAll('.lang-toggle');
-  langBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      if (e) e.preventDefault();
-      const current = document.documentElement.getAttribute('lang') || localStorage.getItem('mongsay_lang') || 'en';
-      const nextLang = current === 'kh' ? 'en' : 'kh';
-      localStorage.setItem('mongsay_lang', nextLang);
-      applyLanguage(nextLang);
-      showToast(nextLang === 'kh' ? 'បានប្តូរទៅជាភាសាខ្មែរ (Khmer Language Active)' : 'Switched to English Language');
-    });
-  });
-}
+// English DOM Cache: captured once from initial clean HTML
+let IS_DOM_CACHED = false;
+const CACHED_TEXT_NODES = [];
 
-function applyLanguage(lang) {
-  document.documentElement.setAttribute('lang', lang);
-  if (lang === 'kh') {
-    document.body.classList.add('lang-kh');
-  } else {
-    document.body.classList.remove('lang-kh');
-  }
+function ensureEnglishDOMCached() {
+  if (IS_DOM_CACHED) return;
 
-  // Update language pills in UI
-  document.querySelectorAll('.lang-code').forEach(el => {
-    if (el.getAttribute('data-lang') === lang) {
-      el.classList.add('active');
-    } else {
-      el.classList.remove('active');
-    }
-  });
-
-  // 1. Explicit data-i18n elements (e.g. rich hero titles with styled markup)
-  const dict = I18N_DICTIONARY[lang] || I18N_DICTIONARY.en;
+  // 1. Cache all data-i18n elements original HTML
   document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (dict[key]) {
-      el.innerHTML = dict[key];
+    if (!el.dataset.enHtml) {
+      el.dataset.enHtml = el.innerHTML;
     }
   });
 
-  // 2. Comprehensive DOM Text-Node Walker: Translates all text nodes in place without breaking tags/SVGs
+  // 2. Cache placeholders
+  document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
+    if (!el.dataset.enPh) {
+      el.dataset.enPh = el.getAttribute('placeholder') || '';
+    }
+  });
+
+  // 3. Cache select options
+  document.querySelectorAll('option').forEach(opt => {
+    if (opt._enText === undefined) {
+      opt._enText = opt.textContent;
+    }
+  });
+
+  // 4. Cache all DOM text nodes across body (excluding scripts/styles)
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
     acceptNode: function(node) {
       const p = node.parentElement;
@@ -919,26 +998,129 @@ function applyLanguage(lang) {
       if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT' || tag === 'CODE') {
         return NodeFilter.FILTER_REJECT;
       }
-      if (p.hasAttribute('data-i18n')) {
-        return NodeFilter.FILTER_REJECT;
-      }
       const val = node.nodeValue;
       if (!val || !val.trim()) return NodeFilter.FILTER_SKIP;
       return NodeFilter.FILTER_ACCEPT;
     }
   });
 
-  const textNodes = [];
   while (walker.nextNode()) {
-    textNodes.push(walker.currentNode);
+    const node = walker.currentNode;
+    if (node._enText === undefined) {
+      node._enText = node.nodeValue;
+    }
+    CACHED_TEXT_NODES.push(node);
   }
 
-  textNodes.forEach(node => {
-    if (node._origText === undefined) {
-      node._origText = node.nodeValue;
+  IS_DOM_CACHED = true;
+}
+
+function initLanguageToggle() {
+  ensureEnglishDOMCached();
+
+  const savedLang = localStorage.getItem('mongsay_lang') || 'en';
+  applyLanguage(savedLang);
+
+  // Global event delegation catching all language clicks (desktop pill, mobile menu)
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.lang-toggle');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+
+    const codeEl = e.target.closest('.lang-code');
+    const current = document.documentElement.getAttribute('lang') || 'en';
+    let nextLang;
+
+    if (codeEl && codeEl.getAttribute('data-lang')) {
+      nextLang = codeEl.getAttribute('data-lang');
+    } else {
+      nextLang = current === 'kh' ? 'en' : 'kh';
     }
-    if (lang === 'kh') {
-      const orig = node._origText;
+
+    localStorage.setItem('mongsay_lang', nextLang);
+    applyLanguage(nextLang);
+    showToast(nextLang === 'kh' ? 'បានប្តូរទៅជាភាសាខ្មែរ (Khmer Language Active)' : 'Switched to English Language');
+  });
+}
+
+function applyLanguage(lang) {
+  ensureEnglishDOMCached();
+
+  document.documentElement.setAttribute('lang', lang);
+  if (lang === 'kh') {
+    document.body.classList.add('lang-kh');
+  } else {
+    document.body.classList.remove('lang-kh');
+  }
+
+  // Synchronize language buttons
+  document.querySelectorAll('.lang-code').forEach(el => {
+    if (el.getAttribute('data-lang') === lang) {
+      el.classList.add('active');
+    } else {
+      el.classList.remove('active');
+    }
+  });
+
+  if (lang === 'en') {
+    // ---------------------------------------------
+    // RESTORE 100% ORIGINAL PRISTINE ENGLISH
+    // ---------------------------------------------
+    // 1. Restore data-i18n elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (el.dataset.enHtml) {
+        el.innerHTML = el.dataset.enHtml;
+      } else if (I18N_DICTIONARY.en && I18N_DICTIONARY.en[key]) {
+        el.innerHTML = I18N_DICTIONARY.en[key];
+      }
+    });
+
+    // 2. Restore cached text nodes
+    CACHED_TEXT_NODES.forEach(node => {
+      if (node && node.parentNode && node._enText !== undefined) {
+        node.nodeValue = node._enText;
+      }
+    });
+
+    // 3. Restore select options
+    document.querySelectorAll('option').forEach(opt => {
+      if (opt._enText !== undefined) {
+        opt.textContent = opt._enText;
+      }
+    });
+
+    // 4. Restore form placeholders
+    document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
+      if (el.dataset.enPh !== undefined) {
+        el.setAttribute('placeholder', el.dataset.enPh);
+      }
+    });
+
+  } else {
+    // ---------------------------------------------
+    // TRANSLATE 100% TO AUTHENTIC KHMER
+    // ---------------------------------------------
+    // 1. Explicit data-i18n elements
+    const khDict = I18N_DICTIONARY.kh || {};
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (khDict[key]) {
+        el.innerHTML = khDict[key];
+      }
+    });
+
+    // 2. Comprehensive text node translation (Exact + Greedy Substring matching)
+    CACHED_TEXT_NODES.forEach(node => {
+      if (!node || !node.parentNode) return;
+      if (node.parentElement && node.parentElement.closest('[data-i18n]')) {
+        return; // Handled by data-i18n
+      }
+
+      const orig = node._enText || node.nodeValue;
+      if (!orig || !orig.trim()) return;
+
       const clean = orig.replace(/\s+/g, ' ').trim();
       if (PHRASE_DICTIONARY_KH[clean]) {
         const leadingMatch = orig.match(/^\s*/);
@@ -946,49 +1128,44 @@ function applyLanguage(lang) {
         const leading = leadingMatch ? leadingMatch[0] : '';
         const trailing = trailingMatch ? trailingMatch[0] : '';
         node.nodeValue = leading + PHRASE_DICTIONARY_KH[clean] + trailing;
+      } else {
+        let translated = orig;
+        let modified = false;
+        for (let i = 0; i < SORTED_PHRASE_LIST.length; i++) {
+          const enPhrase = SORTED_PHRASE_LIST[i][0];
+          const khPhrase = SORTED_PHRASE_LIST[i][1];
+          if (translated.includes(enPhrase)) {
+            translated = translated.split(enPhrase).join(khPhrase);
+            modified = true;
+          }
+        }
+        if (modified) {
+          node.nodeValue = translated;
+        }
       }
-    } else {
-      if (node._origText !== undefined) {
-        node.nodeValue = node._origText;
-      }
-    }
-  });
+    });
 
-  // 3. Translate select <option> text
-  document.querySelectorAll('option').forEach(opt => {
-    if (opt._origText === undefined) {
-      opt._origText = opt.textContent;
-    }
-    const clean = opt._origText.replace(/\s+/g, ' ').trim();
-    if (lang === 'kh' && PHRASE_DICTIONARY_KH[clean]) {
-      opt.textContent = PHRASE_DICTIONARY_KH[clean];
-    } else if (lang === 'en' && opt._origText !== undefined) {
-      opt.textContent = opt._origText;
-    }
-  });
-
-  // 4. Translate form placeholders
-  document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
-    if (!el.hasAttribute('data-en-placeholder')) {
-      el.setAttribute('data-en-placeholder', el.getAttribute('placeholder'));
-    }
-    const origPh = el.getAttribute('data-en-placeholder');
-    if (lang === 'kh') {
-      if (origPh.includes('Alexander Vance')) {
-        el.setAttribute('placeholder', 'ឧ. Alexander Vance / មូលនិធិសកល');
-      } else if (origPh.includes('name@fund.com')) {
-        el.setAttribute('placeholder', 'ឧ. name@fund.com');
-      } else if (origPh.includes('@institutional_trader')) {
-        el.setAttribute('placeholder', 'ឧ. @institutional_trader');
-      } else if (origPh.includes('capital structure')) {
-        el.setAttribute('placeholder', 'រៀបរាប់អំពីរចនាសម្ព័ន្ធទុន, ទំហំច្រកទូទាត់ ឬតម្រូវការយុទ្ធសាស្ត្ររបស់អ្នក...');
-      } else if (origPh.includes('Search literature by title')) {
-        el.setAttribute('placeholder', 'ស្វែងរកសៀវភៅតាមចំណងជើង, អ្នកនិពន្ធ ឬទស្សនវិជ្ជា...');
+    // 3. Translate select options
+    document.querySelectorAll('option').forEach(opt => {
+      const clean = (opt._enText || opt.textContent).replace(/\s+/g, ' ').trim();
+      if (PHRASE_DICTIONARY_KH[clean]) {
+        opt.textContent = PHRASE_DICTIONARY_KH[clean];
       }
-    } else {
-      el.setAttribute('placeholder', origPh);
-    }
-  });
+    });
+
+    // 4. Translate form placeholders
+    document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
+      const orig = el.dataset.enPh || el.getAttribute('placeholder') || '';
+      for (let i = 0; i < SORTED_PHRASE_LIST.length; i++) {
+        const enPhrase = SORTED_PHRASE_LIST[i][0];
+        const khPhrase = SORTED_PHRASE_LIST[i][1];
+        if (orig.includes(enPhrase)) {
+          el.setAttribute('placeholder', orig.split(enPhrase).join(khPhrase));
+          break;
+        }
+      }
+    });
+  }
 }
 
 /* ---------------------------------------------------------
