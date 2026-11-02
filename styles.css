@@ -28,8 +28,8 @@
   --text-blue: #38bdf8;
 
   --accent-gold: #d4af37;
-  --accent-gold-gradient: linear-gradient(135deg, #fff2c6 0%, #f6d88e 30%, #e5b95f 60%, #b88628 100%);
-  --accent-gold-shimmer: linear-gradient(90deg, #b88628 0%, #fff2c6 50%, #b88628 100%);
+  --accent-gold-gradient: linear-gradient(135deg, #fef08a 0%, #facc15 30%, #f59e0b 65%, #d97706 100%);
+  --accent-gold-shimmer: linear-gradient(90deg, #d97706 0%, #fef08a 50%, #d97706 100%);
   --accent-sp-blue: linear-gradient(135deg, #38bdf8 0%, #0284c7 60%, #0369a1 100%);
   --accent-emerald: #10b981;
   --accent-ruby: #f43f5e;
@@ -468,9 +468,12 @@ img {
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #fff2c6 30%, #f6d88e 65%, #b88628 100%);
+  background: linear-gradient(135deg, #fef08a 0%, #facc15 28%, #f59e0b 60%, #d97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: #f59e0b;
+  display: inline-block;
+  font-weight: 800;
 }
 
 .blue-text {
@@ -542,7 +545,9 @@ img {
   max-width: 620px;
   margin-bottom: 38px;
   line-height: 1.75;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ==========================================================================
@@ -664,18 +669,24 @@ img {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.3s ease;
 }
 
-/* Micro Diamond Sparkle Star at Top Right of Mongsay */
+/* Micro Diamond Sparkle Star at Top Right of Mongsay (Positioned strictly over letter 'y') */
 .brand-title::after {
   content: '✦';
   position: absolute;
-  top: -4px;
-  right: -10px;
-  font-size: 0.65rem;
+  top: -6px;
+  right: 0px;
+  font-size: 0.62rem;
   color: var(--text-gold-light);
-  filter: drop-shadow(0 0 6px rgba(247, 223, 165, 0.9));
+  filter: drop-shadow(0 0 4px rgba(247, 223, 165, 0.9));
   animation: brandSparkleTwinkle 3s ease-in-out infinite alternate;
   pointer-events: none;
   -webkit-text-fill-color: initial;
+}
+
+@media (max-width: 1200px) {
+  .brand-title::after {
+    display: none !important;
+  }
 }
 
 .brand-title .brand-cap {
@@ -1109,13 +1120,15 @@ body.lang-kh .nav-links {
   line-height: 1.75;
   margin-bottom: 28px;
   max-width: 560px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 20px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .hero-paragraph strong {
   color: #ffffff;
   font-weight: 700;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 1), 0 0 24px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
 }
 
 .hero-cta-group {
@@ -1403,26 +1416,29 @@ body.lang-kh .nav-links {
 
 .venture-footer {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 14px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
   margin-top: 24px;
   width: 100%;
 }
 
 .venture-footer .btn-primary {
-  flex: 1 1 auto;
-  min-width: 170px;
+  width: 100%;
   justify-content: center;
   text-align: center;
   white-space: nowrap;
+  padding: 13px 22px;
+  font-size: 0.90rem;
 }
 
 .venture-footer .venture-link-btn {
-  flex: 0 0 auto;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
   white-space: nowrap;
   padding: 8px 12px;
+  font-size: 0.88rem;
 }
 
 .venture-link-btn {
@@ -1480,7 +1496,7 @@ body.lang-kh .nav-links {
   -webkit-backdrop-filter: blur(28px);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-lg);
-  padding: 34px;
+  padding: 38px 36px 44px 36px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -2934,11 +2950,11 @@ body.lang-kh .nav-links {
 }
 
 /* ==========================================================================
-   COMPREHENSIVE HIGH-CONTRAST LIGHT MODE RULES (TOTAL READABILITY)
+   SAGFX BLUE SEA THEME (DEEP SAPPHIRE OCEAN & BIOLUMINESCENT GLOW)
    ========================================================================== */
 [data-theme="light"] body {
-  color: #0a1120;
-  background-color: #f6f8fb;
+  color: #f0f9ff !important;
+  background-color: #040d1a !important;
 }
 
 [data-theme="light"] .hero-title,
@@ -2947,15 +2963,15 @@ body.lang-kh .nav-links {
 [data-theme="light"] h2, 
 [data-theme="light"] h3, 
 [data-theme="light"] h4 {
-  color: #0a1120;
+  color: #ffffff !important;
 }
 
 [data-theme="light"] .hero-paragraph {
-  color: #24324d;
+  color: #e0f2fe !important;
 }
 
 [data-theme="light"] .section-desc {
-  color: #334155;
+  color: #bae6fd !important;
 }
 
 [data-theme="light"] .venture-card, 
@@ -2968,55 +2984,67 @@ body.lang-kh .nav-links {
 [data-theme="light"] .telegram-enroll-container,
 [data-theme="light"] .contact-card-main,
 [data-theme="light"] .market-sessions-bar,
-[data-theme="light"] .crest-showcase {
-  background: #ffffff;
-  border-color: rgba(184, 134, 40, 0.35);
-  box-shadow: 0 12px 35px rgba(10, 17, 32, 0.08);
-  color: #0a1120;
+[data-theme="light"] .crest-showcase,
+[data-theme="light"] .promo-card {
+  background: rgba(8, 24, 46, 0.82) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 16px 45px rgba(2, 6, 23, 0.8) !important;
+  color: #f0f9ff !important;
+}
+
+[data-theme="light"] .gold-gradient-text,
+[data-theme="light"] .gold-text {
+  background: linear-gradient(135deg, #e0f2fe 0%, #7dd3fc 35%, #38bdf8 70%, #0284c7 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: #38bdf8 !important;
+  display: inline-block;
 }
 
 [data-theme="light"] .channel-card::before {
-  background: linear-gradient(90deg, transparent, rgba(184, 134, 40, 0.8), transparent);
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.8), transparent) !important;
 }
 
 [data-theme="light"] .channel-card:hover {
-  border-color: #b88628;
-  box-shadow: 0 20px 45px rgba(184, 134, 40, 0.22);
+  border-color: #38bdf8 !important;
+  box-shadow: 0 20px 45px rgba(56, 189, 248, 0.25) !important;
 }
 
 [data-theme="light"] .channel-icon {
-  box-shadow: 0 8px 20px rgba(10, 17, 32, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.8);
-  border-color: rgba(184, 134, 40, 0.4);
+  box-shadow: 0 8px 20px rgba(2, 6, 23, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(56, 189, 248, 0.4) !important;
 }
 
 [data-theme="light"] .channel-icon.tg {
-  background: radial-gradient(circle at 35% 30%, rgba(2, 132, 199, 0.15) 0%, #f0f9ff 100%);
-  color: #0284c7;
-  border-color: rgba(2, 132, 199, 0.4);
+  background: radial-gradient(circle at 35% 30%, rgba(2, 132, 199, 0.35) 0%, rgba(8, 24, 46, 0.95) 100%) !important;
+  color: #38bdf8 !important;
+  border-color: rgba(56, 189, 248, 0.5) !important;
 }
 
 [data-theme="light"] .channel-icon.yt {
-  background: radial-gradient(circle at 35% 30%, rgba(220, 38, 38, 0.15) 0%, #fef2f2 100%);
-  color: #dc2626;
-  border-color: rgba(220, 38, 38, 0.4);
+  background: radial-gradient(circle at 35% 30%, rgba(220, 38, 38, 0.35) 0%, rgba(8, 24, 46, 0.95) 100%) !important;
+  color: #f87171 !important;
+  border-color: rgba(220, 38, 38, 0.5) !important;
 }
 
 [data-theme="light"] .channel-icon.tk {
-  background: radial-gradient(circle at 35% 30%, rgba(225, 29, 72, 0.15) 0%, #fff1f2 100%);
-  color: #e11d48;
-  border-color: rgba(225, 29, 72, 0.4);
+  background: radial-gradient(circle at 35% 30%, rgba(225, 29, 72, 0.35) 0%, rgba(8, 24, 46, 0.95) 100%) !important;
+  color: #fb7185 !important;
+  border-color: rgba(225, 29, 72, 0.5) !important;
 }
 
 [data-theme="light"] .channel-icon.fb {
-  background: radial-gradient(circle at 35% 30%, rgba(37, 99, 235, 0.15) 0%, #eff6ff 100%);
-  color: #2563eb;
-  border-color: rgba(37, 99, 235, 0.4);
+  background: radial-gradient(circle at 35% 30%, rgba(37, 99, 235, 0.35) 0%, rgba(8, 24, 46, 0.95) 100%) !important;
+  color: #60a5fa !important;
+  border-color: rgba(37, 99, 235, 0.5) !important;
 }
 
 [data-theme="light"] .channel-card span {
-  color: #9e7514;
-  background: rgba(184, 134, 40, 0.08);
-  border-color: rgba(184, 134, 40, 0.25);
+  color: #7dd3fc !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
 }
 
 [data-theme="light"] .channel-card .btn-connect {
@@ -3522,7 +3550,7 @@ body.lang-kh .nav-links {
 
   /* Community Gold Telegram CTA Button on Mobile */
   .crest-showcase {
-    padding: 26px 20px;
+    padding: 28px 20px 36px 20px;
     background: rgba(10, 14, 24, 0.72) !important;
     backdrop-filter: blur(24px) !important;
     -webkit-backdrop-filter: blur(24px) !important;
@@ -3618,33 +3646,10 @@ body.lang-kh .nav-links {
 /* ==========================================================================
    WIDESCREEN ARCHITECTURAL FLANKING WINGS (LEFT & RIGHT TERMINAL RAILS)
    ========================================================================== */
+/* Side wings completely removed */
 .side-wing-left,
 .side-wing-right {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 40;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  pointer-events: auto;
-  user-select: none;
-}
-
-.side-wing-left {
-  left: 18px;
-}
-
-.side-wing-right {
-  right: 18px;
-}
-
-@media (max-width: 1340px) {
-  .side-wing-left,
-  .side-wing-right {
-    display: none !important;
-  }
+  display: none !important;
 }
 
 .wing-bracket-top,
