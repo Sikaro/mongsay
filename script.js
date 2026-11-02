@@ -160,6 +160,157 @@ const I18N_DICTIONARY = {
   }
 };
 
+/* Comprehensive site-wide phrase dictionary for complete full-page Khmer translations */
+const PHRASE_DICTIONARY_KH = {
+  // Navigation & Identifiers
+  "Overview": "ទិដ្ឋភាព",
+  "Ventures": "អាជីវកម្ម",
+  "Advisory & BDM": "ទីប្រឹក្សា & BDM",
+  "Media": "ផ្សព្វផ្សាយ",
+  "Library": "បណ្ណាល័យ",
+  "Enroll / Contact": "ចុះឈ្មោះ / ទំនាក់ទំនង",
+  "SAG PAYMENT CEO": "នាយកប្រតិបត្តិ SAG PAYMENT",
+  "SAGFX.ORG ADVISOR": "ទីប្រឹក្សា SAGFX.ORG",
+  "Executive Portfolio": "ផលប័ត្រប្រតិបត្តិផ្លូវការ",
+  "CEO & FOUNDER": "ស្ថាបនិក & នាយកប្រតិបត្តិ",
+  "FOUNDER & CEO": "ស្ថាបនិក & នាយកប្រតិបត្តិ",
+  "LEAD ADVISOR": "ប្រធានទីប្រឹក្សា",
+  "PRIVATE ALPHA": "សហគមន៍ឯកជន ALPHA",
+  "SAGPAY NOMINAL": "SAGPAY ដំណើរការប្រក្រតី",
+  "SAGFX ACTIVE": "SAGFX កំពុងដំណើរការ",
+
+  // Section Tags
+  "EXCLUSIVE COMMERCIAL PROMOTIONS & PARTNER PRIVILEGES": "ប្រូម៉ូសិនពាណិជ្ជកម្មផ្តាច់មុខ & អត្ថប្រយោជន៍ដៃគូ",
+  "STRATEGIC COMMERCIAL ECOSYSTEM": "ប្រព័ន្ធអេកូឡូស៊ីពាណិជ្ជកម្មយុទ្ធសាស្ត្រ",
+  "PRIVATE COMMUNITY & EDUCATION": "សហគមន៍ឯកជន & ការអប់រំ",
+  "QUANTITATIVE COST REDUCTION ENGINE": "ម៉ាស៊ីនកាត់បន្ថយថ្លៃដើមជួញដូរ",
+  "INSTITUTIONAL POSITION SIZER": "ម៉ាស៊ីនកំណត់ទំហំ LOT ស្ថាប័ន",
+  "CORE COMPETENCIES & LEADERSHIP": "សមត្ថភាពស្នូល & ភាពជាអ្នកដឹកនាំ",
+  "BROADCASTS & SOCIAL ALPHA": "ការផ្សាយផ្ទាល់ & បណ្តាញសង្គម",
+  "EXECUTIVE PUBLICATIONS": "ការបោះពុម្ពផ្សាយប្រតិបត្តិ",
+  "OFFICIAL DIRECT ENROLLMENT CHANNEL": "បណ្តាញចុះឈ្មោះផ្ទាល់ផ្លូវការ",
+  "DIRECT PROTOCOL": "ពិធីសារផ្ទាល់",
+  "CAPITAL & BROKER STRATEGY": "យុទ្ធសាស្ត្រទុន & ឈ្មួញជើងសា",
+  "LIVE TELEGRAM ALPHA FEED": "ព័ត៌មាន TELEGRAM ALPHA បន្តផ្ទាល់",
+  "REAL-TIME BROADCASTS": "ការផ្សាយតាមពេលវេលាជាក់ស្តែង",
+
+  // Headings
+  "Strategic Ecosystem Promotions & High-Value Offers": "ការផ្តល់ជូនពិសេស & ប្រូម៉ូសិនប្រព័ន្ធអេកូឡូស៊ីយុទ្ធសាស្ត្រ",
+  "The SAG Financial Network": "បណ្តាញហិរញ្ញវត្ថុ SAG",
+  "Mongsay House & Trading Alpha": "Mongsay House & យុទ្ធសាស្ត្រជួញដូរ Alpha",
+  "Institutional Advisory & Strategic Execution": "ការប្រឹក្សាស្ថាប័ន & ការប្រតិបត្តិជាយុទ្ធសាស្ត្រ",
+  "Media & Channel Ecosystem": "ប្រព័ន្ធផ្សព្វផ្សាយ & បណ្តាញសង្គម",
+  "Curated Strategy & Educational Vault": "បណ្ណាល័យយុទ្ធសាស្ត្រ & ការអប់រំ",
+  "Institutional Trading Sessions (Live Schedule)": "ម៉ោងបើកទីផ្សារជួញដូរស្ថាប័ន (កាលវិភាគបន្តផ្ទាល់)",
+
+  // Section Descriptions
+  "Active commercial incentives, infrastructure fee waivers, and exclusive tier-1 institutional rebate structures negotiated directly through the Office of Mong Say.": "ការលើកទឹកចិត្តពាណិជ្ជកម្ម ការលើកលែងកម្រៃហេដ្ឋារចនាសម្ព័ន្ធ និងរចនាសម្ព័ន្ធ Rebate ស្ថាប័ន Tier-1 ផ្តាច់មុខដែលចរចាដោយផ្ទាល់តាមរយៈការិយាល័យ Mong Say។",
+  "Integrated finTech, cross-border payments, and institutional liquidity infrastructure founded and advised by Mong Say.": "ហេដ្ឋារចនាសម្ព័ន្ធបច្ចេកវិទ្យាហិរញ្ញវត្ថុ ការទូទាត់ឆ្លងព្រំដែន និងសាច់ប្រាក់ងាយស្រួលស្ថាប័នដែលបានបង្កើត និងផ្តល់ប្រឹក្សាដោយ Mong Say។",
+  "Architecting high-stakes fintech infrastructure, optimizing broker revenue streams, and guiding cross-border capital expansion.": "ស្ថាបត្យកម្មហេដ្ឋារចនាសម្ព័ន្ធ FinTech, ការបង្កើនប្រសិទ្ធភាពចំណូលឈ្មួញជើងសា និងការដឹកនាំការពង្រីកទុនឆ្លងព្រំដែន។",
+  "Engage with Mong Say across verified digital platforms for daily market analyses, keynote sessions, and payment fintech updates.": "ភ្ជាប់ទំនាក់ទំនងជាមួយ Mong Say តាមរយៈបណ្តាញឌីជីថលផ្លូវការ សម្រាប់ការវិភាគទីផ្សារប្រចាំថ្ងៃ និងព័ត៌មានបច្ចេកវិទ្យាហិរញ្ញវត្ថុ។",
+  "Foundational reading and quantitative manuals on financial markets, risk modeling, and institutional leadership.": "សៀវភៅគោលការណ៍គ្រឹះ និងសៀវភៅណែនាំបរិមាណស្តីពីទីផ្សារហិរញ្ញវត្ថុ ការគ្រប់គ្រងហានិភ័យ និងភាពជាអ្នកដឹកនាំស្ថាប័ន។",
+
+  // Promotions
+  "0% Setup Fee Merchant Launchpad": "កម្មវិធីបញ្ចុះតម្លៃ ០% ថ្លៃដំឡើងច្រកទូទាត់អាជីវកម្ម",
+  "Waived integration and API gateway setup costs for eligible enterprise merchants integrating SAG Payment. Rapid settlement, multi-currency acquiring, and dedicated technical integration support.": "លើកលែងការចំណាយលើការតភ្ជាប់ និងដំឡើងច្រកទូទាត់ API សម្រាប់សហគ្រាសអាជីវកម្មដែលមានលក្ខខណ្ឌគ្រប់គ្រាន់ជាមួយ SAG Payment។ ការទូទាត់រហ័ស ទូទាត់ពហុរូបិយប័ណ្ណ និងការគាំទ្របច្ចេកទេសផ្ទាល់។",
+  "GATEWAY LAUNCHPAD": "ច្រកទូទាត់អាជីវកម្ម",
+  "Apply via SAG Payment →": "ដាក់ពាក្យតាម SAG Payment →",
+  "Tier-1 Institutional Rebate Whitelist": "បញ្ជី Rebate ស្ថាប័ន Tier-1 ពិសេស",
+  "Enhanced commission rebate rates on Gold (XAU/USD) and FX majors with direct partner brokers. Up to $8.50 per lot cashback credited weekly to trading accounts.": "អត្រា Rebate កម្រៃជើងសារខ្ពស់លើមាស (XAU/USD) និងរូបិយប័ណ្ណចម្បងជាមួយឈ្មួញជើងសាដៃគូផ្ទាល់។ ទឹកប្រាក់ត្រឡប់មកវិញរហូតដល់ $8.50 ក្នុង ១ Lot ទូទាត់ប្រចាំសប្តាហ៍។",
+  "HIGH VOLUME YIELD": "ទិន្នផលទំហំធំ",
+  "Whitelist Account →": "ចុះឈ្មោះគណនី →",
+  "Brokerage Inception & Master IB Scale": "ការបង្កើត Brokerage & ពង្រីក Master IB",
+  "Comprehensive turnkey advisory for regional funds, master introducing brokers, and fintech founders looking to structure institutional liquidity bridges and IB networks.": "ការប្រឹក្សាយុទ្ធសាស្ត្រពេញលេញសម្រាប់មូលនិធិក្នុងតំបន់, Master IB និងស្ថាបនិក FinTech ដែលចង់រៀបចំស្ពានសាច់ប្រាក់ងាយស្រួល និងបណ្តាញ IB។",
+  "INSTITUTIONAL BDM": "BDM ស្ថាប័ន",
+  "Book Strategy Session →": "កក់ការប្រជុំយុទ្ធសាស្ត្រ →",
+
+  // Ventures Cards & Details
+  "SAG Payment": "SAG Payment",
+  "Global Merchant Acquiring & Cross-Border Rails": "ច្រកទូទាត់ពាណិជ្ជករសកល & ផ្លូវទូទាត់ឆ្លងព្រំដែន",
+  "Tier-1 Global Merchant Acquiring": "ច្រកទូទាត់ពាណិជ្ជករសកលកម្រិត Tier-1",
+  "Multi-Currency Settlement (USD, EUR, KHR)": "ការទូទាត់ពហុរូបិយប័ណ្ណ (USD, EUR, KHR)",
+  "High-Throughput API Gateway": "ច្រកទូទាត់ API ល្បឿនលឿន & សុវត្ថិភាពខ្ពស់",
+  "Card & Alternative Payment Rails": "ផ្លូវទូទាត់តាមកាត និងវិធីសាស្ត្រទូទាត់ទំនើប",
+  "Visit SAG Payment Portal": "ចូលកាន់គេហទំព័រ SAG Payment",
+  "Acquiring Specs →": "លក្ខណៈបច្ចេកទេសច្រកទូទាត់ →",
+  "SAGFX.ORG": "SAGFX.ORG",
+  "Institutional Brokerage BDM & Tier-1 Liquidity": "BDM ឈ្មួញជើងសាស្ថាប័ន & សាច់ប្រាក់ងាយស្រួល Tier-1",
+  "Lead Broker BDM Strategy & Architecture": "យុទ្ធសាស្ត្រ និងស្ថាបត្យកម្ម BDM ឈ្មួញជើងសាឈានមុខ",
+  "Whitelisted Direct Interbank Spreads": "Spread ផ្ទាល់ពីទីផ្សារអន្តរធនាគារកម្រិត Whitelist",
+  "Automated Trader Commission Rebate Yield": "ទិន្នផល Rebate កម្រៃជើងសាស្វ័យប្រវត្តិសម្រាប់ Trader",
+  "FinTech Community Incubator": "មជ្ឈមណ្ឌលបណ្តុះបណ្តាលសហគមន៍ FinTech",
+  "Visit SAGFX Portal": "ចូលកាន់គេហទំព័រ SAGFX",
+  "BDM Frameworks →": "ក្របខ័ណ្ឌ BDM →",
+  "Join Mongsay House Alpha Telegram": "ចូលរួម Telegram Mongsay House Alpha",
+
+  // Community Showcase Badges
+  "⚡ XAU/USD Structure Mapping": "⚡ ការវិភាគរចនាសម្ព័ន្ធ XAU/USD",
+  "🛡️ Institutional Risk Models": "🛡️ គំរូគ្រប់គ្រងហានិភ័យស្ថាប័ន",
+  "💎 Broker Commission Rebates": "💎 Rebate កម្រៃជើងសាឈ្មួញជើងសា",
+  "🌐 Global FinTech Network": "🌐 បណ្តាញ FinTech សកល",
+
+  // Gold Matrix Table
+  "Tier Classification": "ចំណាត់ថ្នាក់កម្រិត",
+  "Contract Size": "ទំហំកិច្ចសន្យា",
+  "1 Pip Movement": "ចលនា ១ Pip",
+  "SAGFX Rebate Yield": "ទិន្នផល Rebate SAGFX",
+  "Institutional Friction": "ការកកិតថ្លៃដើមស្ថាប័ន",
+  "Standard Lot (1.00)": "Standard Lot (១.០០)",
+  "Mini Lot (0.10)": "Mini Lot (០.១០)",
+  "Micro Lot (0.01)": "Micro Lot (០.០១)",
+  "100 Troy Ounces": "១០០ Troy Ounces",
+  "10 Troy Ounces": "១០ Troy Ounces",
+  "1 Troy Ounce": "១ Troy Ounce",
+  "Raw ECN Interbank (0.0 - 0.2 pips)": "Raw ECN Interbank (០.០ - ០.២ pips)",
+  "Direct Bridge Route": "ផ្លូវស្ពានផ្ទាល់",
+  "Fractional Liquidity Feed": "លំហូរសាច់ប្រាក់ងាយស្រួលបំណែក",
+
+  // Advisory Pillars
+  "Broker BDM & Tier-1 Liquidity": "BDM ឈ្មួញជើងសា & សាច់ប្រាក់ Tier-1",
+  "Consulting for institutional brokerages to scale active trading volumes, negotiate prime liquidity bridges, and structure high-retention IB distribution.": "ការប្រឹក្សាយោបល់សម្រាប់ឈ្មួញជើងសាស្ថាប័ន ដើម្បីពង្រីកទំហំជួញដូរ ចរចាស្ពានសាច់ប្រាក់ងាយស្រួល Prime និងរៀបចំបណ្តាញចែកចាយ IB ដែលមានស្ថិរភាពខ្ពស់។",
+  "Payment Gateway Architecture": "ស្ថាបត្យកម្មច្រកទូទាត់ប្រាក់",
+  "Architecting resilient payment rails, multi-currency settlement channels, and compliant merchant acquiring for global e-commerce and fintech operators.": "ការកសាងប្រព័ន្ធទូទាត់ដ៏រឹងមាំ បណ្តាញទូទាត់ពហុរូបិយប័ណ្ណ និងច្រកទូទាត់ពាណិជ្ជករស្របច្បាប់សម្រាប់ពាណិជ្ជកម្មអេឡិចត្រូនិកសកល និងប្រតិបត្តិករ FinTech។",
+  "Quantitative Market Strategy": "យុទ្ធសាស្ត្រទីផ្សារបរិមាណ",
+  "Systematic market structure analysis focused on Gold (XAU/USD), macro currency flows, and institutional supply/demand mechanics.": "ការវិភាគរចនាសម្ព័ន្ធទីផ្សារជាប្រព័ន្ធផ្តោតលើមាស (XAU/USD), លំហូររូបិយប័ណ្ណម៉ាក្រូ និងយន្តការតម្រូវការ និងការផ្គត់ផ្គង់ (Supply/Demand) របស់ស្ថាប័ន។",
+  "FinTech Community Incubation": "ការបង្កើតសហគមន៍ FinTech",
+  "Cultivating high-performance private alpha communities, trading education platforms, and regional trader networks across Southeast Asia.": "ការអភិវឌ្ឍសហគមន៍ Alpha ឯកជនដែលមានសមត្ថភាពខ្ពស់ វេទិកាអប់រំការជួញដូរ និងបណ្តាញ Trader ក្នុងតំបន់អាស៊ីអាគ្នេយ៍។",
+
+  // VIP Telegram Steps & Perks
+  "Tap 'Enroll via @MongsayFX' to launch official Telegram chat.": "ចុច 'ចុះឈ្មោះតាម @MongsayFX' ដើម្បីបើកការសន្ទនា Telegram ផ្លូវការ។",
+  "State your investment focus: Trading Mentorship, Broker BDM, or Gateway Acquiring.": "បញ្ជាក់ពីគោលដៅវិនិយោគរបស់អ្នក៖ ការបណ្តុះបណ្តាលការជួញដូរ, Broker BDM ឬច្រកទូទាត់អាជីវកម្ម។",
+  "Receive institutional whitelist credentials and direct onboarding confirmation.": "ទទួលបានអត្តសញ្ញាណប័ណ្ណ Whitelist ស្ថាប័ន និងការបញ្ជាក់ការចុះឈ្មោះផ្ទាល់។",
+  "✅ 1-on-1 Direct Institutional Channel": "✅ បណ្តាញផ្ទាល់ ១ ទល់នឹង ១ កម្រិតស្ថាប័ន",
+  "✅ Whitelisted Broker Rebates": "✅ អត្រា Rebate ពិសេស Whitelisted",
+  "✅ Daily XAU/USD Structural Breakdowns": "✅ ការវិភាគរចនាសម្ព័ន្ធ XAU/USD ប្រចាំថ្ងៃ",
+  "✅ Priority Merchant Gateway Integration": "✅ ការតភ្ជាប់ច្រកទូទាត់អាជីវកម្មជាអាទិភាព",
+
+  // Form Labels
+  "Full Name / Organization": "ឈ្មោះពេញ / ស្ថាប័ន",
+  "Email Address": "អាសយដ្ឋានអ៊ីមែល",
+  "Telegram Handle (@username)": "Telegram Handle (@username)",
+  "Primary Inception Focus": "គោលបំណងចម្បង",
+  "Strategic Inquiry Details": "ព័ត៌មានលម្អិតនៃសំណើជាយុទ្ធសាស្ត្រ",
+
+  // Buttons & Controls
+  "Enroll via @MongsayFX": "ចុះឈ្មោះតាម @MongsayFX",
+  "Copy Handle (@MongsayFX)": "ចម្លង (@MongsayFX)",
+  "Scan with Telegram App": "ស្កេនជាមួយកម្មវិធី Telegram",
+  "Transmit Strategic Inquiry": "ផ្ញើសំណើជាយុទ្ធសាស្ត្រ",
+  "View All Updates on Telegram": "មើលព័ត៌មានថ្មីៗទាំងអស់លើ Telegram",
+  "Open Full Channel": "ចូលទៅកាន់ Channel ពេញលេញ",
+  "Claim Whitelisted Rebate Rate via @MongsayFX": "ទទួលបានអត្រា Rebate តាមរយៈ @MongsayFX",
+  "Copy Link": "ចម្លងតំណ",
+  "Schedule Strategy Call": "កំណត់កាលវិភាគពិភាក្សា",
+
+  // Footer & Disclaimers
+  "Ecosystem": "ប្រព័ន្ធអេកូឡូស៊ី",
+  "Institutional Advisory": "ការប្រឹក្សាស្ថាប័ន",
+  "Direct Desk": "ការិយាល័យផ្ទាល់",
+  "Compliance & Transparency": "ការអនុលោមតាមច្បាប់ & តម្លាភាព",
+  "All Rights Reserved.": "រក្សាសិទ្ធិគ្រប់យ៉ាង។",
+  "Risk Warning: Financial markets and currency trading involve substantial risk of loss. Historical yields do not guarantee future returns.": "ការព្រមានអំពីហានិភ័យ៖ ការជួញដូរលើទីផ្សារហិរញ្ញវត្ថុ និងរូបិយប័ណ្ណមានហានិភ័យខ្ពស់នៃការខាតបង់។ ទិន្នផលកន្លងមកមិនធានាដល់ប្រាក់ចំណេញនាពេលអនាគតឡើយ។"
+};
+
 function initLanguageToggle() {
   const savedLang = localStorage.getItem('mongsay_lang') || 'en';
   applyLanguage(savedLang);
@@ -193,11 +344,59 @@ function applyLanguage(lang) {
     }
   });
 
+  // 1. First translate elements with explicit data-i18n
   const dict = I18N_DICTIONARY[lang] || I18N_DICTIONARY.en;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (dict[key]) {
       el.innerHTML = dict[key];
+    }
+  });
+
+  // 2. Comprehensive site-wide translation for all text tags
+  const selectors = 'h1, h2, h3, h4, h5, p, .section-tag, .promo-title, .promo-desc, .venture-title, .venture-desc, .pillar-title, .pillar-desc, .channel-title, .channel-desc, .book-title, .book-desc, .btn-primary, .btn-secondary, .venture-link-btn, .community-pill, .stat-label, .metric-label, .footer-col h4, .footer-links a, .copyright, .risk-disclaimer, .gold-matrix-table th, .gold-matrix-table td strong, .vip-step h4, .vip-step p, .vip-perk, .calc-group label, .calc-submetric-label, .calc-header-cell, .session-name, .session-hours, .side-wing-label';
+
+  document.querySelectorAll(selectors).forEach(el => {
+    if (el.hasAttribute('data-i18n')) return;
+
+    if (!el.hasAttribute('data-en-text')) {
+      el.setAttribute('data-en-text', el.innerHTML.trim());
+    }
+
+    if (lang === 'kh') {
+      const orig = el.getAttribute('data-en-text');
+      const plain = orig.replace(/<[^>]*>/g, '').trim();
+      if (PHRASE_DICTIONARY_KH[orig]) {
+        el.innerHTML = PHRASE_DICTIONARY_KH[orig];
+      } else if (PHRASE_DICTIONARY_KH[plain]) {
+        el.textContent = PHRASE_DICTIONARY_KH[plain];
+      }
+    } else {
+      const orig = el.getAttribute('data-en-text');
+      if (orig) {
+        el.innerHTML = orig;
+      }
+    }
+  });
+
+  // 3. Translate form placeholders
+  document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
+    if (!el.hasAttribute('data-en-placeholder')) {
+      el.setAttribute('data-en-placeholder', el.getAttribute('placeholder'));
+    }
+    const origPh = el.getAttribute('data-en-placeholder');
+    if (lang === 'kh') {
+      if (origPh.includes('Alexander Vance')) {
+        el.setAttribute('placeholder', 'ឧ. Alexander Vance / មូលនិធិសកល');
+      } else if (origPh.includes('name@fund.com')) {
+        el.setAttribute('placeholder', 'ឧ. name@fund.com');
+      } else if (origPh.includes('@institutional_trader')) {
+        el.setAttribute('placeholder', 'ឧ. @institutional_trader');
+      } else if (origPh.includes('capital structure')) {
+        el.setAttribute('placeholder', 'រៀបរាប់អំពីរចនាសម្ព័ន្ធទុន, ទំហំច្រកទូទាត់ ឬតម្រូវការយុទ្ធសាស្ត្ររបស់អ្នក...');
+      }
+    } else {
+      el.setAttribute('placeholder', origPh);
     }
   });
 }

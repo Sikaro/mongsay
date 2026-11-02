@@ -8,11 +8,11 @@
 :root {
   /* DARK THEME (DEFAULT INSTITUTIONAL OBSIDIAN & GOLD) */
   --bg-primary: #04060a;
-  --bg-secondary: rgba(8, 13, 26, 0.72);
-  --bg-tertiary: rgba(12, 20, 38, 0.75);
-  --bg-card: rgba(8, 13, 26, 0.58);
-  --bg-card-hover: rgba(14, 22, 44, 0.82);
-  --bg-glass: rgba(6, 10, 20, 0.48);
+  --bg-secondary: #090e1c;
+  --bg-tertiary: #0e1528;
+  --bg-card: rgba(9, 14, 28, 0.90);
+  --bg-card-hover: rgba(14, 22, 44, 0.98);
+  --bg-glass: rgba(9, 14, 28, 0.88);
 
   --border-subtle: rgba(229, 185, 95, 0.18);
   --border-card: rgba(229, 185, 95, 0.28);
@@ -113,11 +113,16 @@ html {
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100%;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100%;
   position: relative;
   min-height: 100vh;
   background-color: transparent;
@@ -136,15 +141,15 @@ img {
 }
 
 /* ==========================================================================
-   VIDEO BACKGROUND ENGINE (LION GOLD STROKES)
+   VIDEO BACKGROUND ENGINE (SEAMLESS FULL BACKGROUND COVERAGE)
    ========================================================================== */
 .site-bg-wrapper,
 .video-bg-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
   overflow: hidden;
   z-index: -2;
   background: transparent;
@@ -153,35 +158,39 @@ img {
 
 .site-bg-video,
 .video-bg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover !important;
   object-position: center 25%;
-  filter: contrast(1.18) brightness(1.22) saturate(1.28);
-  opacity: 1;
+  transform: none !important;
+  filter: contrast(1.06) brightness(0.92) saturate(1.05);
+  opacity: 0.80;
   transition: opacity 0.4s ease;
 }
 
 [data-theme="light"] .site-bg-video,
 [data-theme="light"] .video-bg {
-  opacity: 0.32;
-  filter: contrast(1.1) brightness(1.15) sepia(0.3) saturate(1.2);
+  filter: invert(1) hue-rotate(180deg) contrast(1.25) brightness(1.02) saturate(1.4);
   mix-blend-mode: multiply;
+  opacity: 0.85;
 }
 
-/* Soft radial vignette to keep text sharp while glowing lion shines through */
+/* Vignette ensuring clean readability while background lion shines comfortably */
 .site-bg-overlay,
 .video-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 28%, transparent 30%, rgba(3, 5, 10, 0.22) 58%, rgba(3, 5, 10, 0.68) 100%),
-              linear-gradient(180deg, rgba(3, 5, 10, 0.12) 0%, transparent 18%, transparent 68%, rgba(3, 5, 10, 0.88) 100%);
+  background: radial-gradient(circle at 50% 25%, rgba(0, 0, 0, 0.22) 0%, rgba(4, 6, 12, 0.62) 58%, rgba(4, 6, 12, 0.94) 100%),
+              linear-gradient(180deg, rgba(4, 6, 12, 0.25) 0%, transparent 18%, transparent 48%, rgba(4, 6, 12, 0.96) 82%);
   pointer-events: none;
 }
 
 [data-theme="light"] .site-bg-overlay,
 [data-theme="light"] .video-overlay {
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, rgba(246, 248, 251, 0.78) 100%);
+  background: radial-gradient(circle at 50% 25%, transparent 35%, rgba(246, 248, 251, 0.45) 65%, rgba(246, 248, 251, 0.94) 100%),
+              linear-gradient(180deg, rgba(246, 248, 251, 0.2) 0%, transparent 18%, transparent 50%, rgba(246, 248, 251, 0.95) 82%);
 }
 
 /* 1. Base 002.jpg Banknote - ELIMINATED TO PREVENT STACKING WITH GLOWING LION */
@@ -245,24 +254,25 @@ img {
   background: conic-gradient(
     from 0deg at 50% 50%,
     rgba(229, 185, 95, 0.0) 0deg,
-    rgba(247, 223, 165, 0.16) 30deg,
+    rgba(247, 223, 165, 0.10) 30deg,
     rgba(229, 185, 95, 0.0) 60deg,
-    rgba(247, 223, 165, 0.20) 120deg,
+    rgba(247, 223, 165, 0.12) 120deg,
     rgba(229, 185, 95, 0.0) 160deg,
-    rgba(247, 223, 165, 0.18) 210deg,
+    rgba(247, 223, 165, 0.10) 210deg,
     rgba(229, 185, 95, 0.0) 250deg,
-    rgba(247, 223, 165, 0.16) 300deg,
+    rgba(247, 223, 165, 0.10) 300deg,
     rgba(229, 185, 95, 0.0) 360deg
   );
-  filter: blur(45px);
+  filter: blur(55px);
   mix-blend-mode: screen;
   animation: rotateGodRays 40s linear infinite;
   pointer-events: none;
+  opacity: 0.32;
 }
 
 [data-theme="light"] .bg-god-rays {
-  mix-blend-mode: overlay;
-  opacity: 0.55;
+  mix-blend-mode: multiply;
+  opacity: 0.22;
 }
 
 @keyframes rotateGodRays {
@@ -280,20 +290,32 @@ img {
   transform: translate(-50%, -20%);
   background: radial-gradient(
     ellipse at center,
-    rgba(255, 242, 198, 0.42) 0%,
-    rgba(229, 185, 95, 0.28) 35%,
-    rgba(14, 165, 233, 0.12) 60%,
+    rgba(255, 242, 198, 0.32) 0%,
+    rgba(229, 185, 95, 0.20) 35%,
+    rgba(14, 165, 233, 0.08) 60%,
     transparent 75%
   );
-  filter: blur(60px);
+  filter: blur(75px);
   animation: lionHeartbeat 6s ease-in-out infinite alternate;
   pointer-events: none;
+  opacity: 0.45;
+}
+
+[data-theme="light"] .bg-aura-layer {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(184, 134, 40, 0.35) 0%,
+    rgba(229, 185, 95, 0.22) 40%,
+    transparent 70%
+  );
+  mix-blend-mode: multiply;
+  opacity: 0.65;
 }
 
 @keyframes lionHeartbeat {
-  0% { opacity: 0.65; transform: translate(-50%, -20%) scale(0.95); filter: blur(55px); }
-  50% { opacity: 0.95; transform: translate(-50%, -20%) scale(1.08); filter: blur(70px); }
-  100% { opacity: 0.65; transform: translate(-50%, -20%) scale(0.95); filter: blur(55px); }
+  0% { opacity: 0.40; transform: translate(-50%, -20%) scale(0.96); filter: blur(70px); }
+  50% { opacity: 0.55; transform: translate(-50%, -20%) scale(1.04); filter: blur(80px); }
+  100% { opacity: 0.40; transform: translate(-50%, -20%) scale(0.96); filter: blur(70px); }
 }
 
 /* 5. Cursor Specular Spotlight Layer */
@@ -347,41 +369,10 @@ img {
   );
 }
 
-/* 6b. Banknote Margin Filigree Flourishes on Both Viewport Sides */
-.bg-margin-flourish-left {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 140px;
-  background-image: 
-    radial-gradient(ellipse at 0% 50%, rgba(229, 185, 95, 0.18) 0%, transparent 80%),
-    repeating-linear-gradient(180deg, rgba(229, 185, 95, 0.04) 0px, rgba(229, 185, 95, 0.04) 1px, transparent 1px, transparent 24px),
-    repeating-linear-gradient(45deg, rgba(229, 185, 95, 0.025) 0, rgba(229, 185, 95, 0.025) 1px, transparent 1px, transparent 32px);
-  border-right: 1px solid rgba(229, 185, 95, 0.16);
-  pointer-events: none;
-  opacity: 0.9;
-}
-
+/* 6b. Banknote Margin Filigree Flourishes - REMOVED TO PREVENT BORDER CUTOFFS */
+.bg-margin-flourish-left,
 .bg-margin-flourish-right {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 140px;
-  background-image: 
-    radial-gradient(ellipse at 100% 50%, rgba(229, 185, 95, 0.18) 0%, transparent 80%),
-    repeating-linear-gradient(180deg, rgba(229, 185, 95, 0.04) 0px, rgba(229, 185, 95, 0.04) 1px, transparent 1px, transparent 24px),
-    repeating-linear-gradient(-45deg, rgba(229, 185, 95, 0.025) 0, rgba(229, 185, 95, 0.025) 1px, transparent 1px, transparent 32px);
-  border-left: 1px solid rgba(229, 185, 95, 0.16);
-  pointer-events: none;
-  opacity: 0.9;
-}
-
-[data-theme="light"] .bg-margin-flourish-left,
-[data-theme="light"] .bg-margin-flourish-right {
-  opacity: 0.45;
-  border-color: rgba(184, 134, 40, 0.2);
+  display: none !important;
 }
 
 /* 7. Starlight Beaming & Celestial Flare Layer */
@@ -442,13 +433,13 @@ img {
 /* Canvas Floating Gold Dust Embers & Sparkling Stars */
 #matrixCanvas {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100vw;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.45;
 }
 
 /* Layout Container */
@@ -457,6 +448,7 @@ img {
   max-width: 1180px;
   margin: 0 auto;
   padding: 0 24px;
+  box-sizing: border-box;
 }
 
 /* ==========================================================================
@@ -2815,11 +2807,16 @@ body.lang-kh .nav-links {
    ========================================================================== */
 .gold-matrix-container {
   margin: 32px 0;
+  width: 100%;
+  max-width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  display: block;
 }
 
 .gold-matrix-table {
   width: 100%;
+  min-width: 580px;
   border-collapse: collapse;
   background: var(--bg-card);
   border: 1px solid var(--border-card);
@@ -3204,28 +3201,32 @@ body.lang-kh .nav-links {
 }
 
 @media (max-width: 960px) {
-  /* Glowing Lion Video Background Mobile Geometry & Radiant Clarity */
+  /* Full Background Fill on Mobile - Zero Rectangular Letterboxing, Zero Lateral Sway */
   .site-bg-video,
   .video-bg {
-    object-fit: contain;
-    object-position: center 14%;
-    transform: scale(1.42);
-    transform-origin: center 14%;
-    filter: contrast(1.18) brightness(1.22) saturate(1.28);
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+    object-position: center 20%;
+    transform: none !important;
+    filter: contrast(1.06) brightness(0.92) saturate(1.05);
+    opacity: 0.80;
   }
   .site-bg-overlay,
   .video-overlay {
-    background: radial-gradient(circle at 50% 18%, transparent 35%, rgba(3, 5, 10, 0.35) 65%, rgba(3, 5, 10, 0.82) 100%),
-                linear-gradient(180deg, rgba(3, 5, 10, 0.1) 0%, transparent 22%, rgba(3, 5, 10, 0.82) 85%);
+    background: radial-gradient(circle at 50% 20%, rgba(0, 0, 0, 0.22) 0%, rgba(4, 6, 12, 0.65) 55%, rgba(4, 6, 12, 0.95) 90%),
+                linear-gradient(180deg, rgba(4, 6, 12, 0.25) 0%, transparent 16%, transparent 45%, rgba(4, 6, 12, 0.96) 80%);
   }
   .bg-margin-flourish-left,
   .bg-margin-flourish-right {
     display: none !important;
   }
   .bg-aura-layer {
-    width: 480px;
-    height: 380px;
-    top: 14%;
+    width: 440px;
+    height: 340px;
+    top: 16%;
   }
 
   .nav-links {
@@ -3285,27 +3286,32 @@ body.lang-kh .nav-links {
 }
 
 @media (max-width: 580px) {
-  /* Ultra-refined mobile fit - center-locked lion crown with 0 clipping */
   .site-bg-video,
   .video-bg {
-    object-fit: contain;
-    object-position: center 10%;
-    transform: scale(1.52);
-    transform-origin: center 10%;
-    filter: contrast(1.2) brightness(1.25) saturate(1.3);
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+    object-position: center 18%;
+    transform: none !important;
+    filter: contrast(1.06) brightness(0.92) saturate(1.05);
+    opacity: 0.80;
   }
   .site-bg-overlay,
   .video-overlay {
-    background: radial-gradient(circle at 50% 14%, transparent 38%, rgba(3, 5, 10, 0.4) 68%, rgba(3, 5, 10, 0.88) 100%),
-                linear-gradient(180deg, rgba(3, 5, 10, 0.08) 0%, transparent 20%, rgba(3, 5, 10, 0.88) 88%);
+    background: radial-gradient(circle at 50% 16%, rgba(0, 0, 0, 0.22) 0%, rgba(4, 6, 12, 0.68) 52%, rgba(4, 6, 12, 0.96) 88%),
+                linear-gradient(180deg, rgba(4, 6, 12, 0.22) 0%, transparent 15%, transparent 42%, rgba(4, 6, 12, 0.97) 78%);
   }
   .bg-aura-layer {
-    width: 320px;
-    height: 260px;
-    top: 12%;
+    width: 300px;
+    height: 240px;
+    top: 14%;
   }
   .container {
     padding: 0 16px;
+    max-width: 100%;
+    overflow-x: hidden;
   }
   .hero-section {
     padding: 24px 0 45px;
