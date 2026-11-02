@@ -1415,6 +1415,9 @@ body.lang-kh .nav-links {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
 }
 
 .venture-link-btn {
@@ -1424,11 +1427,43 @@ body.lang-kh .nav-links {
   color: var(--text-gold);
   font-weight: 700;
   font-size: 0.86rem;
+  transition: var(--transition-fast);
 }
 
 .venture-link-btn:hover {
   color: #fff;
   transform: translateX(4px);
+}
+
+/* Community Showcase Gold Telegram CTA Button */
+.community-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 520px;
+  padding: 16px 32px;
+  font-size: 1.02rem;
+  font-weight: 800;
+  border-radius: var(--radius-full);
+  background: var(--accent-gold-gradient);
+  color: #05070b;
+  box-shadow: 0 10px 32px -6px rgba(229, 185, 95, 0.55);
+  margin-top: 14px;
+  text-decoration: none;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.community-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 42px -4px rgba(229, 185, 95, 0.8);
+}
+
+.community-cta-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
@@ -1951,7 +1986,9 @@ body.lang-kh .nav-links {
    FOOTER
    ========================================================================== */
 .site-footer {
-  background: #030508;
+  background: rgba(6, 10, 20, 0.72);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
   border-top: 1px solid var(--border-subtle);
   padding: 44px 0 22px;
   position: relative;
@@ -3134,7 +3171,9 @@ body.lang-kh .nav-links {
 }
 
 [data-theme="light"] .site-footer {
-  background: #f1f5f9;
+  background: rgba(246, 248, 251, 0.82);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
   border-top-color: rgba(184, 134, 40, 0.25);
   color: #24324d;
 }
@@ -3342,33 +3381,103 @@ body.lang-kh .nav-links {
     height: 240px;
     top: 14%;
   }
+  .site-nav-outer {
+    padding: 0 10px;
+    top: 10px;
+  }
   .site-nav {
-    padding: 6px 14px;
+    padding: 6px 12px;
     min-height: 52px;
+    gap: 6px;
+    justify-content: space-between;
+  }
+  .brand-wrapper {
+    gap: 8px;
+    flex-shrink: 1;
+    min-width: 0;
   }
   .brand-lion-logo,
   .brand-sp-logo {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
   }
   .brand-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+  }
+  .brand-title .brand-cap {
+    font-size: 1.25rem;
+  }
+  .brand-title::after {
+    display: none !important; /* Eliminates sparkle overlap onto language button */
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .lang-toggle {
+    padding: 4px 7px;
+    font-size: 0.68rem;
+  }
+  .theme-toggle {
+    width: 30px;
+    height: 30px;
+    font-size: 0.82rem;
   }
   .btn-nav-telegram {
-    padding: 4px 9px;
+    padding: 4px 8px;
     font-size: 0.70rem;
     gap: 4px;
+    white-space: nowrap;
   }
   .btn-nav-telegram svg {
     width: 11px;
     height: 11px;
   }
-  .nav-controls {
-    gap: 4px;
+  .mobile-toggle {
+    padding: 2px 4px;
+    font-size: 1.15rem;
   }
-  .nav-control-btn {
-    padding: 4px 7px;
-    font-size: 0.70rem;
+
+  /* Card Action Buttons (Zero collision / neat stacking) */
+  .venture-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+  }
+  .venture-footer .btn-primary {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    padding: 12px 20px;
+    font-size: 0.88rem;
+  }
+  .venture-footer .venture-link-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 6px 12px;
+  }
+
+  /* Community Gold Telegram CTA Button on Mobile */
+  .community-cta-btn {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 20px;
+    font-size: 0.94rem;
+    gap: 8px;
+    justify-content: center;
+    text-align: center;
   }
   .container {
     padding: 0 16px;
@@ -3392,6 +3501,57 @@ body.lang-kh .nav-links {
   .hero-cta-group .btn-secondary {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .site-nav-outer {
+    padding: 0 6px;
+    top: 8px;
+  }
+  .site-nav {
+    padding: 5px 8px;
+    gap: 4px;
+    min-height: 48px;
+  }
+  .brand-wrapper {
+    gap: 6px;
+  }
+  .brand-lion-logo,
+  .brand-sp-logo {
+    width: 30px;
+    height: 30px;
+  }
+  .brand-title {
+    font-size: 0.95rem;
+  }
+  .brand-title .brand-cap {
+    font-size: 1.15rem;
+  }
+  .nav-actions {
+    gap: 4px;
+  }
+  .lang-toggle {
+    padding: 3px 5px;
+    font-size: 0.65rem;
+  }
+  .theme-toggle {
+    width: 26px;
+    height: 26px;
+    font-size: 0.75rem;
+  }
+  .btn-nav-telegram {
+    padding: 3px 6px;
+    font-size: 0.65rem;
+    gap: 3px;
+  }
+  .btn-nav-telegram svg {
+    width: 10px;
+    height: 10px;
+  }
+  .mobile-toggle {
+    font-size: 1.05rem;
+    padding: 1px 3px;
   }
 }
 
