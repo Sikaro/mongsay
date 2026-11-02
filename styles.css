@@ -200,24 +200,13 @@ img {
   display: none !important;
 }
 
-/* 1b. Classic Luxury Guilloche Filigree & Damask Lattice Overlay */
+/* 1b. Classic Luxury Guilloche Filigree & Damask Lattice Overlay - ELIMINATED */
 .bg-classic-ornament {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    radial-gradient(circle at 50% 50%, transparent 60%, rgba(229, 185, 95, 0.08) 100%),
-    repeating-linear-gradient(45deg, rgba(229, 185, 95, 0.02) 0, rgba(229, 185, 95, 0.02) 1px, transparent 0, transparent 40px),
-    repeating-linear-gradient(-45deg, rgba(229, 185, 95, 0.02) 0, rgba(229, 185, 95, 0.02) 1px, transparent 0, transparent 40px);
-  pointer-events: none;
-  opacity: 0.85;
+  display: none !important;
 }
 
 [data-theme="light"] .bg-classic-ornament {
-  opacity: 0.65;
-  background-image: 
-    radial-gradient(circle at 50% 50%, transparent 50%, rgba(56, 189, 248, 0.08) 100%),
-    repeating-linear-gradient(45deg, rgba(56, 189, 248, 0.03) 0, rgba(56, 189, 248, 0.03) 1px, transparent 0, transparent 40px),
-    repeating-linear-gradient(-45deg, rgba(56, 189, 248, 0.03) 0, rgba(56, 189, 248, 0.03) 1px, transparent 0, transparent 40px);
+  display: none !important;
 }
 
 /* 2. Sweeping Diagonal Golden Light Beam */
