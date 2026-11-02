@@ -75,7 +75,7 @@ const I18N_DICTIONARY = {
     sessions_title: "Institutional Trading Sessions (Live Schedule)",
 
     // Strategic Promotions Section (3 Columns)
-    promo_sec_tag: '<span class="dot"></span> EXCLUSIVE COMMERCIAL PROMOTIONS & PARTNER PRIVILEGES',
+    promo_sec_tag: 'EXCLUSIVE COMMERCIAL PROMOTIONS & PARTNER PRIVILEGES',
     promo_sec_title: 'Strategic Ecosystem <span class="gold-gradient-text">Promotions & High-Value Offers</span>',
     promo_sec_desc: 'High-value institutional programs engineered across SAGFX.ORG (<a href="https://sagfx.org" target="_blank" class="gold-text">sagfx.org</a>) and Mongsay House VIP. Whitelist tier-1 interbank trading rebates, scale turnkey brokerage infrastructure, and access private market intelligence.',
 
@@ -146,6 +146,35 @@ const I18N_DICTIONARY = {
     venture_2_payout_val: 'Automated Weekly',
     venture_2_btn_portal: 'Visit SAGFX Portal',
     venture_2_btn_frameworks: 'Brokerage Frameworks →',
+
+    // Crest & Community Showcase Section
+    crest_tag: 'PRIVATE COMMUNITY & EDUCATION',
+    crest_title: 'Mongsay House & Trading Alpha',
+    crest_desc: 'Under the insignia of the Golden Lion, <strong>Mongsay House</strong> brings together elite market operators, currency strategists, and fintech founders. Daily institutional market structure analyses on Gold (XAU/USD), macro volatility breakdowns, and real-time community execution.',
+    crest_p1: '⚡ XAU/USD Structure Mapping',
+    crest_p2: '🛡️ Institutional Risk Models',
+    crest_p3: '💎 Broker Commission Rebates',
+    crest_p4: '🌐 Global FinTech Network',
+    crest_cta: 'Join Official Channel: t.me/mongsayhouse17',
+
+    // Advisory Pillars Section (3 Columns)
+    pillars_sec_tag: 'EXECUTIVE CAPABILITIES',
+    pillars_sec_title: 'Institutional <span class="gold-gradient-text">Advisory Pillars</span>',
+    pillars_sec_desc: 'Strategic frameworks delivered to institutions, fintech startups, and high-volume trading desks.',
+    pillar_1_num: '01 / BROKERAGE ARCHITECTURE',
+    pillar_1_title: 'White-Label & Clearing Rails',
+    pillar_1_desc: 'Designing end-to-end brokerage infrastructure, multi-asset bridge integrations, turnkey CRM deployments, and prime clearing feeds powered by SAGFX.',
+    pillar_2_num: '02 / BROKERAGE SCALING',
+    pillar_2_title: 'Country Management & Liquidity Scale',
+    pillar_2_desc: 'Structuring strategic IB contracts, white-label liquidity bridges, raw STP/ECN feed configurations, and rebate redistribution pipelines via SAGFX.ORG.',
+    pillar_3_num: '03 / QUANTITATIVE DISCIPLINE',
+    pillar_3_title: 'Mechanical Market Structure',
+    pillar_3_desc: 'Rigorous high-probability liquidity sweep tracking, displacement validation, and fractional risk architecture tailored for institutional Gold (XAU/USD) operations.',
+
+    // Media Section
+    media_sec_tag: 'MEDIA & MULTI-CHANNEL ECOSYSTEM',
+    media_sec_title: 'Connect with <span class="gold-gradient-text">Mongsay Across Platforms</span>',
+    media_sec_desc: 'Real-time broadcasts, trading education, financial market insights, and executive perspectives.',
     calc_tag: "QUANTITATIVE COST REDUCTION ENGINE",
     calc_title: "SAGFX Interactive <span class=\"gold-gradient-text\">Broker Rebate Yield</span>",
     calc_desc: "Calculate real-time monthly cashback and trading cost reductions across institutional tier-1 partner brokers powered by SAGFX.ORG.",
@@ -200,7 +229,7 @@ const I18N_DICTIONARY = {
     sessions_title: "ម៉ោងបើកទីផ្សារជួញដូរស្ថាប័ន (កាលវិភាគបន្តផ្ទាល់)",
 
     // Strategic Promotions Section (3 Columns)
-    promo_sec_tag: '<span class="dot"></span> កម្មវិធីប្រូម៉ូសិនពាណិជ្ជកម្មផ្តាច់មុខ & អភ័យឯកសិទ្ធិដៃគូ',
+    promo_sec_tag: 'កម្មវិធីប្រូម៉ូសិនពាណិជ្ជកម្មផ្តាច់មុខ & អភ័យឯកសិទ្ធិដៃគូ',
     promo_sec_title: 'ប្រព័ន្ធយុទ្ធសាស្ត្រ <span class="gold-gradient-text">ប្រូម៉ូសិន & ការផ្តល់ជូនពិសេស</span>',
     promo_sec_desc: 'កម្មវិធីស្ថាប័នតម្លៃខ្ពស់បង្កើតឡើងនៅទូទាំង SAGFX.ORG (<a href="https://sagfx.org" target="_blank" class="gold-text">sagfx.org</a>) និង Mongsay House VIP។ ទទួលបាន Rebate ជួញដូរធនាគារកម្រិត Tier-1 ពង្រីកហេដ្ឋារចនាសម្ព័ន្ធ White-Label Brokerage និងទទួលបានព័ត៌មានទីផ្សារសម្ងាត់។',
 
@@ -271,6 +300,35 @@ const I18N_DICTIONARY = {
     venture_2_payout_val: 'ស្វ័យប្រវត្តប្រចាំសប្តាហ៍',
     venture_2_btn_portal: 'ចូលទៅកាន់ SAGFX Portal',
     venture_2_btn_frameworks: 'ក្របខ័ណ្ឌឈ្មួញជើងសា →',
+
+    // Crest & Community Showcase Section
+    crest_tag: 'សហគមន៍ឯកជន & ការអប់រំ',
+    crest_title: 'Mongsay House & ភាពជាអ្នកដឹកនាំជួញដូរ',
+    crest_desc: 'ក្រោមនិមិត្តសញ្ញារាជសីហ៍មាស <strong>Mongsay House</strong> ប្រមូលផ្តុំអ្នកជួញដូរកម្រិតខ្ពស់ អ្នកយុទ្ធសាស្ត្ររូបិយប័ណ្ណ និងស្ថាបនិក FinTech។ ផ្តល់ការវិភាគរចនាសម្ព័ន្ធទីផ្សារស្ថាប័នលើមាស (XAU/USD) ប្រចាំថ្ងៃ ការវិភាគការប្រែប្រួលម៉ាក្រូ និងការជួញដូរជាក់ស្តែងក្នុងសហគមន៍។',
+    crest_p1: '⚡ ផែនទីរចនាសម្ព័ន្ធ XAU/USD',
+    crest_p2: '🛡️ គំរូគ្រប់គ្រងហានិភ័យស្ថាប័ន',
+    crest_p3: '💎 ប្រាក់ Rebate កម្រៃជើងសាឈ្មួញ',
+    crest_p4: '🌐 បណ្តាញ FinTech សកល',
+    crest_cta: 'ចូលរួមបណ្តាញផ្លូវការ៖ t.me/mongsayhouse17',
+
+    // Advisory Pillars Section (3 Columns)
+    pillars_sec_tag: 'សមត្ថភាពប្រតិបត្តិ',
+    pillars_sec_title: 'សសរស្តម្ភ <span class="gold-gradient-text">ប្រឹក្សាស្ថាប័ន</span>',
+    pillars_sec_desc: 'ក្របខ័ណ្ឌយុទ្ធសាស្ត្រផ្តល់ជូនស្ថាប័ន ធុរកិច្ចថ្មី FinTech និងតុជួញដូរទំហំធំ។',
+    pillar_1_num: '០១ // ស្ថាបត្យកម្មឈ្មួញជើងសា',
+    pillar_1_title: 'ប្រព័ន្ធ White-Label & ការទូទាត់សាច់ប្រាក់',
+    pillar_1_desc: 'រចនាហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាពេញលេញ ការតភ្ជាប់ស្ពានពហុទ្រព្យសកម្ម ការដាក់ពង្រាយ CRM ពេញលេញ និងប្រភពទិន្នន័យតម្លៃផ្ទាល់តាមរយៈ SAGFX។',
+    pillar_2_num: '០២ // ការពង្រីកឈ្មួញជើងសា',
+    pillar_2_title: 'ការគ្រប់គ្រងប្រទេស & ពង្រីកសាច់ប្រាក់ងាយស្រួល',
+    pillar_2_desc: 'រៀបចំកិច្ចសន្យា IB ជាយុទ្ធសាស្ត្រ ស្ពានសាច់ប្រាក់ White-Label ការកំណត់រចនាសម្ព័ន្ធ STP/ECN ដើម និងបំពង់បែងចែក Rebate តាមរយៈ SAGFX.ORG។',
+    pillar_3_num: '០៣ // វិន័យបរិមាណ',
+    pillar_3_title: 'រចនាសម្ព័ន្ធទីផ្សារមេកានិក',
+    pillar_3_desc: 'ការតាមដានការបោសសម្អាត Liquidity កម្រិតប្រូបាប៊ីលីតេខ្ពស់ ការផ្ទៀងផ្ទាត់ Displacement និងស្ថាបត្យកម្មហានិភ័យប្រភាគសម្រាប់ប្រតិបត្តិការមាស (XAU/USD)។',
+
+    // Media Section
+    media_sec_tag: 'ប្រព័ន្ធផ្សព្វផ្សាយ & អេកូឡូស៊ីពហុបណ្តាញ',
+    media_sec_title: 'ភ្ជាប់ទំនាក់ទំនងជាមួយ <span class="gold-gradient-text">Mongsay លើគ្រប់បណ្តាញ</span>',
+    media_sec_desc: 'ការផ្សាយផ្ទាល់ជាក់ស្តែង ការអប់រំការជួញដូរ ការយល់ដឹងស៊ីជម្រៅពីទីផ្សារហិរញ្ញវត្ថុ និងទស្សនវិស័យប្រតិបត្តិ។',
     calc_tag: "ម៉ាស៊ីនកាត់បន្ថយថ្លៃដើមជួញដូរ",
     calc_title: "ការគណនា Rebate ផ្ទាល់ <span class=\"gold-gradient-text\">SAGFX</span>",
     calc_desc: "គណនាទឹកប្រាក់ត្រឡប់មកវិញប្រចាំខែ និងការកាត់បន្ថយថ្លៃដើមជួញដូរជាមួយឈ្មួញជើងសាដៃគូស្ថាប័ន Tier-1 តាមរយៈ SAGFX.ORG។",
@@ -815,11 +873,12 @@ function initLanguageToggle() {
 
   const langBtns = document.querySelectorAll('.lang-toggle');
   langBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const current = localStorage.getItem('mongsay_lang') || 'en';
-      const nextLang = current === 'en' ? 'kh' : 'en';
-      applyLanguage(nextLang);
+    btn.addEventListener('click', (e) => {
+      if (e) e.preventDefault();
+      const current = document.documentElement.getAttribute('lang') || localStorage.getItem('mongsay_lang') || 'en';
+      const nextLang = current === 'kh' ? 'en' : 'kh';
       localStorage.setItem('mongsay_lang', nextLang);
+      applyLanguage(nextLang);
       showToast(nextLang === 'kh' ? 'បានប្តូរទៅជាភាសាខ្មែរ (Khmer Language Active)' : 'Switched to English Language');
     });
   });
@@ -882,8 +941,10 @@ function applyLanguage(lang) {
       const orig = node._origText;
       const clean = orig.replace(/\s+/g, ' ').trim();
       if (PHRASE_DICTIONARY_KH[clean]) {
-        const leading = orig.match(/^\s*/)[0];
-        const trailing = orig.match(/^\s*$/)[0];
+        const leadingMatch = orig.match(/^\s*/);
+        const trailingMatch = orig.match(/\s*$/);
+        const leading = leadingMatch ? leadingMatch[0] : '';
+        const trailing = trailingMatch ? trailingMatch[0] : '';
         node.nodeValue = leading + PHRASE_DICTIONARY_KH[clean] + trailing;
       }
     } else {
@@ -1153,22 +1214,6 @@ function initGoldDustCanvas() {
 
   function render() {
     ctx.clearRect(0, 0, width, height);
-
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 115) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(229, 185, 95, ${0.12 * (1 - dist / 115)})`;
-          ctx.lineWidth = 0.7;
-          ctx.stroke();
-        }
-      }
-    }
 
     particles.forEach(p => {
       p.update();
