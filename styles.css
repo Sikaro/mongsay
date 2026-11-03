@@ -862,6 +862,62 @@ body.lang-kh .nav-links {
   display: inline-block;
 }
 
+/* FX Freeze / Eco Performance Toggle Button */
+.fx-toggle {
+  min-height: 34px;
+  padding: 0 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-fast);
+}
+
+.fx-toggle .icon-fx-on {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #ffd978;
+}
+
+.fx-toggle .icon-fx-off {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  color: #38bdf8;
+}
+
+/* When FX is frozen (Eco Performance Mode Active) */
+html.fx-frozen .fx-toggle {
+  background: rgba(14, 165, 233, 0.16) !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.35) !important;
+}
+
+html.fx-frozen .fx-toggle .icon-fx-on {
+  display: none !important;
+}
+
+html.fx-frozen .fx-toggle .icon-fx-off {
+  display: inline-flex !important;
+}
+
+[data-theme="light"] .fx-toggle .icon-fx-on {
+  color: #7dd3fc;
+}
+
+[data-theme="light"] html.fx-frozen .fx-toggle,
+html.fx-frozen[data-theme="light"] .fx-toggle {
+  background: rgba(14, 165, 233, 0.25) !important;
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45) !important;
+}
+
 /* ==========================================================================
    LIGHT MODE: EXECUTIVE DIM BLUE SEA NAVBAR & TOOLBAR STYLING
    ========================================================================== */
@@ -3529,6 +3585,17 @@ body.lang-kh .nav-links {
     font-size: 0.80rem;
     flex-shrink: 0;
   }
+  .fx-toggle {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    justify-content: center;
+    font-size: 0.80rem;
+    flex-shrink: 0;
+  }
+  .fx-toggle .fx-label {
+    display: none !important;
+  }
   .btn-nav-telegram {
     padding: 5px 9px;
     font-size: 0.70rem;
@@ -3543,6 +3610,12 @@ body.lang-kh .nav-links {
   .mobile-toggle {
     padding: 2px 4px;
     font-size: 1.15rem;
+  }
+
+  @media (max-width: 400px) {
+    .brand-title {
+      display: none !important;
+    }
   }
 
   /* Card Action Buttons (Zero collision / neat stacking) */
@@ -4009,4 +4082,121 @@ body.lang-kh .nav-links {
   color: #7dd3fc;
   background: rgba(14, 165, 233, 0.15);
   border-left-color: #38bdf8;
+}
+
+/* ==========================================================================
+   PERFORMANCE / FX FREEZE (ECO MODE)
+   Stops heavy animations, particle CPU/GPU loops, continuous video rendering,
+   and replaces multi-layer backdrop filters with high-performance glass.
+   Guarantees 100% visual beauty with 0% scroll stutter on mobile devices.
+   ========================================================================== */
+
+/* Freeze specific heavy animated layers */
+html.fx-frozen .bg-god-rays {
+  animation: none !important;
+  transform: translate(-50%, -50%) rotate(24deg) !important;
+  opacity: 0.20 !important;
+  filter: blur(45px) !important;
+}
+
+html.fx-frozen .bg-gold-light-sweep {
+  animation: none !important;
+  display: none !important;
+}
+
+html.fx-frozen .bg-aura-layer {
+  animation: none !important;
+  opacity: 0.32 !important;
+  filter: blur(60px) !important;
+}
+
+html.fx-frozen .bg-starlight-layer {
+  animation: none !important;
+  opacity: 0.70 !important;
+}
+
+html.fx-frozen .brand-cap {
+  animation: none !important;
+}
+
+html.fx-frozen .brand-title {
+  animation: none !important;
+}
+
+html.fx-frozen .gold-text,
+html.fx-frozen .gold-gradient-text {
+  animation: none !important;
+}
+
+html.fx-frozen .status-dot {
+  animation: none !important;
+}
+
+html.fx-frozen .dot {
+  animation: none !important;
+}
+
+/* Card GPU Optimization: Replace live backdrop-filter with ultra-deep frosted solid glass */
+html.fx-frozen .promo-card,
+html.fx-frozen .venture-card,
+html.fx-frozen .pillar-card,
+html.fx-frozen .channel-card,
+html.fx-frozen .book-card,
+html.fx-frozen .feed-item,
+html.fx-frozen .rebate-calc-container,
+html.fx-frozen .risk-calc-container,
+html.fx-frozen .telegram-enroll-container,
+html.fx-frozen .contact-card-main,
+html.fx-frozen .market-sessions-bar,
+html.fx-frozen .crest-showcase {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(8, 14, 26, 0.96) !important;
+  border: 1px solid rgba(229, 185, 95, 0.32) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* In Light Mode when FX is frozen */
+html.fx-frozen[data-theme="light"] .promo-card,
+html.fx-frozen[data-theme="light"] .venture-card,
+html.fx-frozen[data-theme="light"] .pillar-card,
+html.fx-frozen[data-theme="light"] .channel-card,
+html.fx-frozen[data-theme="light"] .book-card,
+html.fx-frozen[data-theme="light"] .feed-item,
+html.fx-frozen[data-theme="light"] .rebate-calc-container,
+html.fx-frozen[data-theme="light"] .risk-calc-container,
+html.fx-frozen[data-theme="light"] .telegram-enroll-container,
+html.fx-frozen[data-theme="light"] .contact-card-main,
+html.fx-frozen[data-theme="light"] .market-sessions-bar,
+html.fx-frozen[data-theme="light"] .crest-showcase,
+[data-theme="light"] html.fx-frozen .promo-card,
+[data-theme="light"] html.fx-frozen .venture-card,
+[data-theme="light"] html.fx-frozen .pillar-card,
+[data-theme="light"] html.fx-frozen .channel-card,
+[data-theme="light"] html.fx-frozen .book-card,
+[data-theme="light"] html.fx-frozen .feed-item,
+[data-theme="light"] html.fx-frozen .rebate-calc-container,
+[data-theme="light"] html.fx-frozen .risk-calc-container,
+[data-theme="light"] html.fx-frozen .telegram-enroll-container,
+[data-theme="light"] html.fx-frozen .contact-card-main,
+[data-theme="light"] html.fx-frozen .market-sessions-bar,
+[data-theme="light"] html.fx-frozen .crest-showcase {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(6, 20, 38, 0.96) !important;
+  border: 1px solid rgba(56, 189, 248, 0.42) !important;
+  box-shadow: 0 16px 40px rgba(2, 6, 23, 0.85) !important;
+}
+
+html.fx-frozen .site-nav {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(5, 9, 18, 0.96) !important;
+}
+
+html.fx-frozen[data-theme="light"] .site-nav,
+[data-theme="light"] html.fx-frozen .site-nav {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(6, 18, 36, 0.98) !important;
 }

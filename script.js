@@ -15,6 +15,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
+  initFxFreezeToggle();
   initLanguageToggle();
   initSmartScrollNav();
   initGoldDustCanvas();
@@ -49,6 +50,71 @@ function initThemeToggle() {
       showToast(nextTheme === 'light' ? 'Switched to Dim Blue Sea Mode (Oceanic Sapphire)' : 'Switched to Institutional Dark Obsidian Mode');
     });
   });
+}
+
+/* ---------------------------------------------------------
+   A2. FX Freeze / Eco Performance Toggle Engine
+   Stops heavy animations, particle CPU/GPU loops, continuous video
+   decoding, and replaces backdrop-filters with 60-120 FPS glass.
+   --------------------------------------------------------- */
+function initFxFreezeToggle() {
+  const savedFx = localStorage.getItem('mongsay_fx_frozen');
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isFrozen = savedFx === 'true' || (savedFx === null && prefersReduced);
+
+  applyFxState(isFrozen, false);
+
+  const fxBtns = document.querySelectorAll('.fx-toggle');
+  fxBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const currentFrozen = document.documentElement.classList.contains('fx-frozen');
+      const nextFrozen = !currentFrozen;
+      applyFxState(nextFrozen, true);
+    });
+  });
+}
+
+function applyFxState(frozen, showToastNotice = false) {
+  if (frozen) {
+    document.documentElement.classList.add('fx-frozen');
+    localStorage.setItem('mongsay_fx_frozen', 'true');
+  } else {
+    document.documentElement.classList.remove('fx-frozen');
+    localStorage.setItem('mongsay_fx_frozen', 'false');
+  }
+
+  // Handle Video Backgrounds
+  const bgVideos = document.querySelectorAll('.site-bg-video, .video-bg');
+  bgVideos.forEach(v => {
+    if (frozen) {
+      v.pause();
+    } else {
+      v.play().catch(() => {});
+    }
+  });
+
+  // Handle Canvas Starfield & Embers
+  if (window.mongsayCanvas) {
+    if (frozen) {
+      window.mongsayCanvas.pause();
+    } else {
+      window.mongsayCanvas.resume();
+    }
+  }
+
+  if (showToastNotice) {
+    const isKhmer = document.documentElement.getAttribute('lang') === 'kh';
+    if (frozen) {
+      showToast(isKhmer 
+        ? '⚡ មុខងារ Eco សន្សំសំចៃ៖ ចលនាត្រូវបានផ្អាកដើម្បីល្បឿនលឿនបំផុត' 
+        : '⚡ Eco Performance Mode: Visual animations frozen for maximum mobile speed');
+    } else {
+      showToast(isKhmer 
+        ? '✨ បើកដំណើរការចលនាធម្មតាវិញ៖ ពន្លឺនិងបែបផែនពេញលេញ' 
+        : '✨ Dynamic FX Restored: Full cinematic lighting active');
+    }
+  }
 }
 
 /* ---------------------------------------------------------
@@ -210,7 +276,11 @@ const I18N_DICTIONARY = {
     contact_tag: "DIRECT PROTOCOL",
     contact_title: "Initiate Executive Partnership",
     contact_desc: "Direct channel to the Office of Mong Say for institutional inquiries, country management partnerships, lead brokerage consulting, and keynote strategic engagements.",
-    contact_btn_submit: "Transmit Strategic Inquiry"
+    contact_btn_submit: "Transmit Strategic Inquiry",
+    fx_label: "FX",
+    eco_label: "ECO",
+    fx_mode_active: "FX Active",
+    fx_mode_eco: "ECO Freeze"
   },
   kh: {
     nav_overview: "ទិដ្ឋភាព",
@@ -367,12 +437,23 @@ const I18N_DICTIONARY = {
     contact_tag: "ពិធីសារផ្ទាល់",
     contact_title: "ចាប់ផ្តើមភាពជាដៃគូប្រតិបត្តិ",
     contact_desc: "បណ្តាញផ្ទាល់ទៅកាន់ការិយាល័យ Mong Say សម្រាប់ការសាកសួរកម្រិតស្ថាប័ន ភាពជាដៃគូនាយកគ្រប់គ្រងប្រចាំប្រទេស និងការពិគ្រោះយោបល់ឈ្មួញជើងសាឈានមុខ។",
-    contact_btn_submit: "ផ្ញើសំណើជាយុទ្ធសាស្ត្រ"
+    contact_btn_submit: "ផ្ញើសំណើជាយុទ្ធសាស្ត្រ",
+    fx_label: "ចលនា",
+    eco_label: "សន្សំ",
+    fx_mode_active: "ចលនាបើក",
+    fx_mode_eco: "សន្សំសំចៃ"
   }
 };
 
 /* Comprehensive site-wide phrase dictionary for complete full-page Khmer translations */
 const PHRASE_DICTIONARY_KH = {
+  // FX Freeze & Performance Controls
+  "FX Active": "ចលនាបើក",
+  "ECO Freeze": "សន្សំសំចៃ",
+  "FX": "ចលនា",
+  "ECO": "សន្សំ",
+  "Eco Mode": "មុខងារសន្សំ",
+  "Performance Mode": "មុខងារល្បឿនខ្ពស់",
   // Navigation & Identifiers
   "Overview": "ទិដ្ឋភាព",
   "Ventures": "អាជីវកម្ម",
@@ -1235,6 +1316,10 @@ function initBackgroundLighting() {
   }, { passive: true });
 
   function updateLighting() {
+    if (document.documentElement.classList.contains('fx-frozen')) {
+      requestAnimationFrame(updateLighting);
+      return;
+    }
     if (isMoving) {
       currentX += (mouseX - currentX) * 0.08;
       currentY += (mouseY - currentY) * 0.08;
@@ -1292,10 +1377,15 @@ function initGoldDustCanvas() {
   let particles = [];
   const particleCount = 60;
   let shootingStar = null;
+  let animId = null;
+  let isRunning = false;
 
   function resize() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
+    if (!isRunning && document.documentElement.classList.contains('fx-frozen')) {
+      drawStaticStarfield();
+    }
   }
   window.addEventListener('resize', resize);
   resize();
@@ -1374,7 +1464,7 @@ function initGoldDustCanvas() {
   }
 
   function spawnShootingStar() {
-    if (shootingStar) return;
+    if (!isRunning || shootingStar) return;
     const startX = Math.random() * (width * 0.7);
     const startY = Math.random() * (height * 0.3);
     shootingStar = {
@@ -1389,7 +1479,16 @@ function initGoldDustCanvas() {
   }
   setInterval(spawnShootingStar, 6000);
 
+  function drawStaticStarfield() {
+    ctx.clearRect(0, 0, width, height);
+    particles.forEach(p => {
+      p.draw();
+    });
+  }
+
   function render() {
+    if (!isRunning) return;
+
     ctx.clearRect(0, 0, width, height);
 
     particles.forEach(p => {
@@ -1422,9 +1521,33 @@ function initGoldDustCanvas() {
       }
     }
 
-    requestAnimationFrame(render);
+    animId = requestAnimationFrame(render);
   }
-  render();
+
+  window.mongsayCanvas = {
+    pause: () => {
+      isRunning = false;
+      if (animId) {
+        cancelAnimationFrame(animId);
+        animId = null;
+      }
+      drawStaticStarfield();
+    },
+    resume: () => {
+      if (!isRunning) {
+        isRunning = true;
+        render();
+      }
+    }
+  };
+
+  if (document.documentElement.classList.contains('fx-frozen')) {
+    isRunning = false;
+    drawStaticStarfield();
+  } else {
+    isRunning = true;
+    render();
+  }
 }
 
 /* ---------------------------------------------------------
@@ -1438,6 +1561,7 @@ function initCard3DTilt() {
 
   tiltCards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
+      if (document.documentElement.classList.contains('fx-frozen')) return;
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
