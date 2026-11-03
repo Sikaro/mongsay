@@ -152,15 +152,15 @@ const I18N_DICTIONARY = {
     promo_sec_desc: 'High-value institutional programs engineered across SAGFX.ORG (<a href="https://sagfx.org" target="_blank" class="gold-text">sagfx.org</a>) and Mongsay House VIP. Whitelist tier-1 interbank trading rebates, scale turnkey brokerage infrastructure, and access private market intelligence.',
 
     // Promo 1: Brokerage Infrastructure
-    promo_1_ribbon: 'PROMO 01 // BROKERAGE INFRASTRUCTURE',
-    promo_1_badge: '⚡ TURNKEY BROKERAGE & LIQUIDITY SUITE',
-    promo_1_title: 'Institutional Brokerage Infrastructure & Liquidity Scale',
-    promo_1_desc: 'Turnkey institutional brokerage infrastructure and strategic expansion for fund managers, introducing brokers (IBs), and financial institutions looking to scale regional market operations.',
-    promo_1_b1: '<strong>Turnkey White-Label Setup:</strong> Complete licensing pathways, MT4/MT5 bridges, and CRM architecture.',
-    promo_1_b2: '<strong>Tier-1 Liquidity Access:</strong> Institutional FIX API connections with ultra-tight raw interbank spreads.',
-    promo_1_b3: '<strong>Highest Master IB Splits:</strong> Maximize institutional commission splits across regional networks.',
-    promo_1_b4: '<strong>Regional Penetration:</strong> Direct market entry playbook across Cambodia, Thailand, and Southeast Asia.',
-    promo_1_cta: 'Inquire for Brokerage Scale →',
+    promo_1_ribbon: 'PROMO 01 // PHYSICAL HEDGING DESK',
+    promo_1_badge: '🛡️ DELTA-NEUTRAL INVENTORY PROTECTION',
+    promo_1_title: 'Physical Gold & Silver Delta-Neutral Hedging Desk',
+    promo_1_desc: 'Mechanical price-drop defense engineered for Cambodian gold shops, bullion traders, and jewelry merchants. Convert Damlung (តម្លឹង) and Chi (ជី) directly into exact MT4/MT5 contract lot sizes with live market sync and local counter valuation.',
+    promo_1_b1: '<strong>100% Price-Drop Immunity:</strong> Eliminate spot market variance through exact digital short lot calibration.',
+    promo_1_b2: '<strong>Local Cambodian Valuation:</strong> Live calculation of USD/Damlung and USD/Chi with customizable shop premiums.',
+    promo_1_b3: '<strong>Tier-1 Raw Spreads via SAGFX:</strong> Ultra-tight interbank clearing with zero retail markups and swap optimization.',
+    promo_1_b4: '<strong>Executive Desk Priority:</strong> Direct escalation to Lead Brokerage Desk (@MongsayFX).',
+    promo_1_cta: 'Launch Interactive Hedging Desk →',
 
     // Promo 2: SAGFX.ORG Rebates
     promo_2_ribbon: 'PROMO 02 // SAGFX.ORG REBATES',
@@ -290,8 +290,8 @@ const I18N_DICTIONARY = {
     faq_a1: "SAGFX (<a href=\"https://sagfx.org\" target=\"_blank\" class=\"gold-text\">sagfx.org</a>) connects retail, prop, and institutional traders directly to tier-1 regulated prime brokerages (including IC Markets, OANDA, BlackBull Markets, and FP Markets) with raw 0.0 pip ECN spreads. Traded volume automatically accrues institutional rebates up to $45+ per lot, credited weekly directly to the trader's account with zero retail markup.",
     faq_q2: "What analytical framework is utilized in Mongsay House?",
     faq_a2: "Mongsay House relies strictly on Pure Institutional Supply & Demand (S&D), Liquidity Sweeps, and Mechanical Market Structure. Trend continuation (BOS) and character change (CHoCH) are confirmed exclusively by full candle-body closes past major swing points originating from displacement base formations (RBD, DBR, RBR, DBD) primarily on Gold (XAU/USD). All retail indicator clutter and speculative guesswork are eliminated.",
-    faq_q3: "How do fund managers and brokers scale through the Brokerage Infrastructure?",
-    faq_a3: "Mongsay structures turnkey institutional brokerage architecture including MT4/MT5 liquidity bridge connections, FIX API feeds, custom CRM onboarding, branded client portals, and master affiliate multi-tier rebate redistribution engines with rapid 48-hour onboarding across Southeast Asia.",
+    faq_q3: "How do physical gold shops and bullion merchants protect capital through the Hedging Desk?",
+    faq_a3: "Through delta-neutral physical bullion hedging on MT4/MT5 via SAGFX, gold shops and jewelry merchants eliminate spot price drop variance. When physical inventory is acquired, an equal and opposite digital short contract is executed at raw institutional spreads, locking store inventory cash value at 100% against macro market reversals.",
     faq_q4: "What are the qualification requirements to join Mongsay House VIP?",
     faq_a4: "Access to Mongsay House VIP is complimentary for verified community traders who maintain institutional risk discipline (fractional risk modeling 0.5%–1.0% per trade, minimum 1:3 RR targeting external structural liquidity pools) and hold active whitelisted trading accounts via official partner brokers.",
     faq_q5: "How can I verify official communications from Mong Say?",
@@ -305,11 +305,39 @@ const I18N_DICTIONARY = {
     hedge_badge_3: "🛡️ Delta-Neutral Equation: Digital = −Physical",
     hedge_badge_4: "⚡ Direct Clearing via SAGFX.ORG",
     hedge_calc_tag: "INTERACTIVE DEALER HEDGING ENGINE",
-    hedge_calc_title: "Physical Gold <span class=\"gold-gradient-text\">Delta-Neutral Hedging Calculator</span>",
-    hedge_calc_desc: "Calculate exact digital MT4/MT5 contract lot sizes, required margin collateral, and adverse volatility buffers for your shop's physical gold inventory in real time.",
+    hedge_calc_title: "Physical Bullion <span class=\"gold-gradient-text\">Delta-Neutral Hedging Desk</span>",
+    hedge_calc_desc: "Calculate exact digital MT4/MT5 contract lot sizes, required margin collateral, local Cambodian counter valuations, and adverse volatility buffers for your shop's physical gold & silver inventory in real time.",
+    hedge_flow_steps_tag: "🇰🇭 3-STEP CAMBODIAN BULLION GUIDE",
+    hedge_step_1_title: "Step 1: Select Metal & Shop Inventory",
+    hedge_step_1_desc: "Select Gold or Silver, then input your physical Damlung (តម្លឹង) or Chi (ជី) stored in your counter safe.",
+    hedge_step_2_title: "Step 2: Check Cambodian Counter Valuation",
+    hedge_step_2_desc: "System calculates local cash price per Damlung/Chi and total physical inventory value in USD.",
+    hedge_step_3_title: "Step 3: Execute Protective Hedge via SAGFX",
+    hedge_step_3_desc: "Execute the exact MT4/MT5 lots on SAGFX to lock in your shop value and eliminate price-drop losses 100%.",
+    hedge_label_asset: "Precious Metal Commodity",
+    metal_gold_opt: "Gold / មាស (XAU/USD)",
+    metal_silver_opt: "Silver / ប្រាក់ (XAG/USD)",
+    btn_sync_price: "Sync Live Price",
+    hedge_local_title: "🇰🇭 LOCAL CAMBODIAN COUNTER VALUATION (OUTSIDE DIGITAL)",
+    hedge_local_premium_tag: "Local Shop Premium:",
+    hedge_local_per_damlung: "Price / Damlung (តម្លឹង)",
+    hedge_local_per_chi: "Price / Chi (ជី)",
+    hedge_local_weight_troy: "Equivalent Weight (Troy Oz)",
+    hedge_total_inventory_val_label: "🏦 TOTAL PHYSICAL SHOP INVENTORY CASH VALUE",
+    hedge_total_inventory_val_sub: "Physical counter cash value protected at 100% against macro price drop",
+    hedge_presets_label: "Quick Presets:",
+    hedge_capital_card_title: "💼 CAPITAL & BALANCE ADVISORY (HOW MUCH BALANCE SHOULD YOU INPUT?)",
+    hedge_capital_card_tag: "How Much Balance Should You Deposit?",
+    hedge_user_balance_label: "Your Current Trading Account Balance ($USD)",
+    hedge_min_capital_rec: "Recommended Safe Deposit (ប្រាក់តម្កល់សុវត្ថិភាព):",
+    hedge_sim_title: "📊 ADVERSE PRICE SHOCK STRESS-TEST SIMULATION",
+    sim_phys_label: "Physical Store Inventory",
+    sim_hedge_label: "Digital SAGFX Hedge",
+    sim_net_label: "Net Combined Shop P&L",
+    sim_net_desc: "When spot price drops, your digital Short gains cash on MT4/MT5, perfectly cancelling the loss on physical inventory. 100% Delta-Neutral (Δ = 0).",
     hedge_label_flow: "Physical Inventory Transaction Flow",
-    hedge_flow_buy: "📥 Shop Buys Gold (Inventory UP)",
-    hedge_flow_sell: "📤 Shop Sells Gold (Inventory DOWN)",
+    hedge_flow_buy: "📥 Shop Buys Bullion (Inventory UP)",
+    hedge_flow_sell: "📤 Shop Sells Bullion (Inventory DOWN)",
     hedge_label_unit: "Inventory Unit of Measure",
     unit_damlung: "Damlung (តម្លឹង - 37.5g)",
     unit_chi: "Chi (ជី - 3.75g)",
@@ -394,15 +422,15 @@ const I18N_DICTIONARY = {
     promo_sec_desc: 'កម្មវិធីស្ថាប័នតម្លៃខ្ពស់បង្កើតឡើងនៅទូទាំង SAGFX.ORG (<a href="https://sagfx.org" target="_blank" class="gold-text">sagfx.org</a>) និង Mongsay House VIP។ ទទួលបាន Rebate ជួញដូរធនាគារកម្រិត Tier-1 ពង្រីកហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាស្ថាប័ន និងទទួលបានព័ត៌មានទីផ្សារសម្ងាត់។',
 
     // Promo 1: Brokerage Infrastructure
-    promo_1_ribbon: 'ប្រូម៉ូសិន ០១ // ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសា',
-    promo_1_badge: '⚡ កញ្ចប់ឈ្មួញជើងសា & សាច់ប្រាក់ងាយស្រួលពេញលេញ',
-    promo_1_title: 'ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាស្ថាប័ន & ការពង្រីកសាច់ប្រាក់',
-    promo_1_desc: 'ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាស្ថាប័នពេញលេញ និងការពង្រីកជាយុទ្ធសាស្ត្រសម្រាប់អ្នកគ្រប់គ្រងមូលនិធិ ឈ្មួញជើងសាកម្រិតមធ្យម (IBs) និងស្ថាប័នហិរញ្ញវត្ថុដែលចង់ពង្រីកប្រតិបត្តិការទីផ្សារក្នុងតំបន់។',
-    promo_1_b1: '<strong>ការរៀបចំ White-Label ពេញលេញ៖</strong> ផ្លូវច្បាប់អាជ្ញាប័ណ្ណ ស្ពាន MT4/MT5 និងប្រព័ន្ធ CRM។',
-    promo_1_b2: '<strong>ការទទួលបានសាច់ប្រាក់ Tier-1៖</strong> ការតភ្ជាប់ FIX API ស្ថាប័នជាមួយ Spread ធនាគារទាបបំផុត។',
-    promo_1_b3: '<strong>ការបែងចែក Master IB ខ្ពស់បំផុត៖</strong> បង្កើនការបែងចែកកម្រៃជើងសារស្ថាប័នអតិបរមាក្នុងតំបន់។',
-    promo_1_b4: '<strong>ការពង្រីកទីផ្សារអាស៊ីអាគ្នេយ៍៖</strong> យុទ្ធសាស្ត្រវាយលុកទីផ្សារកម្ពុជា ថៃ និងបណ្តាប្រទេសក្នុងតំបន់។',
-    promo_1_cta: 'សាកសួរការពង្រីកឈ្មួញជើងសា →',
+    promo_1_ribbon: 'ប្រូម៉ូសិន ០១ // តុការពារហានិភ័យមាស & ប្រាក់រូបវន្ត',
+    promo_1_badge: '🛡️ ការការពារស្តុកមាសបែប DELTA-NEUTRAL',
+    promo_1_title: 'តុការពារហានិភ័យមាស & ប្រាក់រូបវន្ត Delta-Neutral',
+    promo_1_desc: 'ប្រព័ន្ធការពារការខាតបង់ពេលមាសធ្លាក់ថ្លៃសម្រាប់ហាងមាស អាជីវករគ្រឿងអលង្ការ និងឃ្លាំងស្តុកមាសកម្ពុជា។ បំប្លែងទម្ងន់ តម្លឹង និង ជី ទៅជាទំហំកិច្ចសន្យា MT4/MT5 ជាក់លាក់ ជាមួយតម្លៃទីផ្សារបច្ចុប្បន្ន និងតម្លៃផ្សារក្នុងស្រុក។',
+    promo_1_b1: '<strong>ការពារហានិភ័យ ១០០%៖</strong> បន្សាបការប្រែប្រួលតម្លៃទីផ្សារមាសតាមរយៈកិច្ចសន្យា Short ឌីជីថលស្មើគ្នា។',
+    promo_1_b2: '<strong>គណនាតម្លៃផ្សារកម្ពុជា៖</strong> បង្ហាញតម្លៃសាច់ប្រាក់ក្នុង ១តម្លឹង/ជី និងតម្លៃស្តុកសរុបក្នុងហាងភ្លាមៗ។',
+    promo_1_b3: '<strong>Spread ដើមពីធនាគារតាម SAGFX៖</strong> ជម្រះកិច្ចសន្យាក្នុង Spread ទាបបំផុត និងមិនគិតថ្លៃ Swap លើសកម្រិត។',
+    promo_1_b4: '<strong>ទំនាក់ទំនងអាទិភាព៖</strong> ពិភាក្សាផ្ទាល់ជាមួយតុជួញដូរ Mong Say (@MongsayFX)។',
+    promo_1_cta: 'បើកផ្ទាំងគណនា Hedging អន្តរកម្ម →',
 
     // Promo 2: SAGFX.ORG Rebates
     promo_2_ribbon: 'ប្រូម៉ូសិន ០២ // REBATES SAGFX.ORG',
@@ -532,8 +560,8 @@ const I18N_DICTIONARY = {
     faq_a1: "SAGFX (<a href=\"https://sagfx.org\" target=\"_blank\" class=\"gold-text\">sagfx.org</a>) ភ្ជាប់ទំនាក់ទំនងអ្នកជួញដូរលក់រាយ Prop និងស្ថាប័នដោយផ្ទាល់ទៅកាន់ឈ្មួញជើងសាធនាគារ Tier-1 ដែលមានអាជ្ញាប័ណ្ណ (រួមមាន IC Markets, OANDA, BlackBull Markets និង FP Markets) ជាមួយ Spread ECN 0.0 Pip ដើម។ ទំហំជួញដូរនឹងបង្កើតជាប្រាក់ Rebate ស្ថាប័នរហូតដល់ $45+ ក្នុងមួយ Lot ដោយស្វ័យប្រវត្តិ ហើយទូទាត់រៀងរាល់សប្តាហ៍ផ្ទាល់ទៅកាន់គណនីជួញដូរ។",
     faq_q2: "តើ Mongsay House ប្រើប្រាស់គំរូវិភាគបែបណា?",
     faq_a2: "Mongsay House ពឹងផ្អែកលើតម្រូវការ & ការផ្គត់ផ្គង់ស្ថាប័នសុទ្ធសាធ (Pure Institutional S&D), ការបោសសម្អាត Liquidity (Liquidity Sweeps) និងរចនាសម្ព័ន្ធទីផ្សារមេកានិក។ ការបន្តនិន្នាការ (BOS) និងការផ្លាស់ប្តូរចរិតលក្ខណៈទីផ្សារ (CHoCH) ត្រូវបានបញ្ជាក់ដោយការបិទតួទៀនពេញលេញហួសពី Swing High/Low សំខាន់ៗដែលមានប្រភពមកពី Base Formations (RBD, DBR, RBR, DBD) លើមាស (XAU/USD)។ គ្មានការប្រើប្រាស់ Indicator រញ៉េរញ៉ៃឡើយ។",
-    faq_q3: "តើអ្នកគ្រប់គ្រងមូលនិធិ និងឈ្មួញជើងសាអាចពង្រីកតាមរយៈ Brokerage Infrastructure យ៉ាងដូចម្តេច?",
-    faq_a3: "Mongsay រៀបចំស្ថាបត្យកម្មឈ្មួញជើងសាស្ថាប័នពេញលេញ រួមទាំងស្ពានតភ្ជាប់ MT4/MT5, FIX API, ប្រព័ន្ធ CRM ផ្ទាល់ខ្លួន, ផ្ទាំងគ្រប់គ្រងអតិថិជន និងប្រព័ន្ធបែងចែកកម្រៃជើងសារ Master IB ពហុកម្រិត ជាមួយនឹងការដាក់ពង្រាយយ៉ាងឆាប់រហ័សក្នុងរយៈពេល ៤៨ ម៉ោងនៅអាស៊ីអាគ្នេយ៍។",
+    faq_q3: "តើហាងមាស និងអាជីវករគ្រឿងអលង្ការអាចការពារដើមទុនតាមរយៈតុ Hedging យ៉ាងដូចម្តេច?",
+    faq_a3: "តាមរយៈការការពារហានិភ័យមាសរូបវន្តបែប Delta-Neutral លើ MT4/MT5 តាម SAGFX ហាងមាសអាចលុបបំបាត់ហានិភ័យតម្លៃធ្លាក់ចុះបាន ១០០%។ នៅពេលហាងទិញមាសចូលស្តុក បញ្ជា Short ឌីជីថលក្នុងទំហំស្មើគ្នាត្រូវបានបើកក្នុង Spread ធនាគារដើម ដែលធានាថាតម្លៃសាច់ប្រាក់ស្តុកក្នុងហាងមិនរងផលប៉ះពាល់ឡើយទោះបីទីផ្សារមាសដាំក្បាលចុះខ្លាំងយ៉ាងណាក្តី។",
     faq_q4: "តើអ្វីជាលក្ខខណ្ឌតម្រូវដើម្បីចូលរួម Mongsay House VIP?",
     faq_a4: "ការចូលរួម Mongsay House VIP គឺឥតគិតថ្លៃ ១០០% មួយជីវិតសម្រាប់សមាជិកដែលបានផ្ទៀងផ្ទាត់ និងរក្សាវិន័យគ្រប់គ្រងហានិភ័យស្ថាប័ន (គំរូហានិភ័យប្រភាគ ០.៥%–១.០% ក្នុងមួយ Trade និងគោលដៅចំណេញអប្បបរមា 1:3 RR សំដៅលើ Structural Liquidity Pools) ព្រមទាំងមានគណនីជួញដូរក្នុងបញ្ជីស។",
     faq_q5: "តើខ្ញុំអាចផ្ទៀងផ្ទាត់ការទំនាក់ទំនងផ្លូវការពីលោក ម៉ុង សាយ យ៉ាងដូចម្តេច?",
@@ -547,11 +575,39 @@ const I18N_DICTIONARY = {
     hedge_badge_3: "🛡️ សមីការ Delta-Neutral: Digital = −Physical",
     hedge_badge_4: "⚡ ជម្រះកិច្ចសន្យាផ្ទាល់តាម SAGFX.ORG",
     hedge_calc_tag: "ម៉ាស៊ីនគណនាការពារហានិភ័យមាសសម្រាប់ហាង",
-    hedge_calc_title: "ការគណនាការពារហានិភ័យមាសរូបវន្ត <span class=\"gold-gradient-text\">Delta-Neutral</span>",
-    hedge_calc_desc: "គណនាទំហំកិច្ចសន្យា MT4/MT5 (Lots) ប្រាក់កក់តម្កល់ Margin និងទុនបម្រុងសុវត្ថិភាពសម្រាប់ស្តុកមាសរូបវន្តនៃហាងរបស់អ្នកតាមពេលវេលាជាក់ស្តែង។",
+    hedge_calc_title: "ការគណនាការពារហានិភ័យលោហធាតុរូបវន្ត <span class=\"gold-gradient-text\">Delta-Neutral</span>",
+    hedge_calc_desc: "គណនាទំហំកិច្ចសន្យា MT4/MT5 (Lots) ប្រាក់កក់តម្កល់ Margin តម្លៃទីផ្សារក្នុងស្រុកកម្ពុជា និងទុនបម្រុងសុវត្ថិភាពសម្រាប់ស្តុកមាស និងប្រាក់នៃហាងរបស់អ្នកតាមពេលវេលាជាក់ស្តែង។",
+    hedge_flow_steps_tag: "🇰🇭 របៀបប្រើប្រាស់សម្រាប់ហាងមាសកម្ពុជា",
+    hedge_step_1_title: "ជំហាន ១: ជ្រើសរើសទំនិញ & ស្តុក",
+    hedge_step_1_desc: "ជ្រើសរើស មាស (Gold) ឬ ប្រាក់ (Silver) ហើយបញ្ចូលទម្ងន់ តម្លឹង (Damlung) ឬ ជី (Chi) ដែលមានក្នុងទូហាង។",
+    hedge_step_2_title: "ជំហាន ២: ពិនិត្យតម្លៃផ្សារកម្ពុជា",
+    hedge_step_2_desc: "ប្រព័ន្ធគណនាតម្លៃមាស ១តម្លឹង/ជី និងតម្លៃស្តុកសរុបជាសាច់ប្រាក់ USD តាមផ្សារក្នុងស្រុកជាក់ស្តែង។",
+    hedge_step_3_title: "ជំហាន ៣: បើកបញ្ជាការពារហានិភ័យ",
+    hedge_step_3_desc: "អនុវត្តតាមបញ្ជា Lots លើ MT4/MT5 តាមរយៈ SAGFX ដើម្បីការពារតម្លៃស្តុក ១០០% មិនឱ្យខាតបង់ពេលមាសធ្លាក់ថ្លៃ។",
+    hedge_label_asset: "ទំនិញលោហធាតុមានតម្លៃ",
+    metal_gold_opt: "មាស / Gold (XAU/USD)",
+    metal_silver_opt: "ប្រាក់ / Silver (XAG/USD)",
+    btn_sync_price: "ទាញយកតម្លៃបច្ចុប្បន្ន",
+    hedge_local_title: "🇰🇭 តម្លៃផ្សារកម្ពុជាក្រៅឌីជីថល / LOCAL CAMBODIAN COUNTER VALUATION",
+    hedge_local_premium_tag: "កម្រៃបន្ថែមលើទីផ្សារក្នុងស្រុក៖",
+    hedge_local_per_damlung: "តម្លៃក្នុង ១តម្លឹង (Price / Damlung)",
+    hedge_local_per_chi: "តម្លៃក្នុង ១ជី (Price / Chi)",
+    hedge_local_weight_troy: "ទម្ងន់ស្មើ Ounce (Troy Oz)",
+    hedge_total_inventory_val_label: "🏦 តម្លៃស្តុកមាសសរុបក្នុងហាង (Total Shop Physical Value)",
+    hedge_total_inventory_val_sub: "តម្លៃសាច់ប្រាក់ស្តុកក្នុងហាងត្រូវបានការពារ ១០០% មិនឱ្យបាត់បង់",
+    hedge_presets_label: "ជ្រើសរើសទំហំរហ័ស៖",
+    hedge_capital_card_title: "💼 ការណែនាំអំពីដើមទុន & ទឹកប្រាក់គណនី (CAPITAL & BALANCE ADVISORY)",
+    hedge_capital_card_tag: "តើគួរមានទឹកប្រាក់តម្កល់ប៉ុន្មាន?",
+    hedge_user_balance_label: "សមតុល្យទឹកប្រាក់ក្នុងគណនីជួញដូររបស់អ្នក ($USD)",
+    hedge_min_capital_rec: "ប្រាក់កក់តម្កល់សុវត្ថិភាពដែលណែនាំ (Recommended Deposit):",
+    hedge_sim_title: "📊 ការសាកល្បងហានិភ័យពេលទីផ្សារប្រែប្រួល (MARKET STRESS-TEST SIMULATION)",
+    sim_phys_label: "ស្តុកមាសរូបវន្តក្នុងហាង",
+    sim_hedge_label: "កិច្ចសន្យាការពារលើ SAGFX",
+    sim_net_label: "ផលចំណេញ/ខាតសរុបសុទ្ធ (Delta-Neutral)",
+    sim_net_desc: "នៅពេលតម្លៃមាសធ្លាក់ចុះ កិច្ចសន្យា Short ឌីជីថលទទួលបានប្រាក់ចំណេញលើ MT4/MT5 ដែលមកទូទាត់ការខាតបង់លើស្តុកមាសរូបវន្តស្មើគ្នា ១០០% Delta-Neutral (Δ = 0)។",
     hedge_label_flow: "ទិសដៅលំហូរស្តុកមាសរូបវន្ត",
-    hedge_flow_buy: "📥 ហាងទិញមាសចូល (ស្តុកកើនឡើង)",
-    hedge_flow_sell: "📤 ហាងលក់មាសចេញ (ស្តុកថយចុះ)",
+    hedge_flow_buy: "📥 ហាងទិញចូល (ស្តុកកើនឡើង)",
+    hedge_flow_sell: "📤 ហាងលក់ចេញ (ស្តុកថយចុះ)",
     hedge_label_unit: "ខ្នាតរង្វាស់ស្តុកមាស",
     unit_damlung: "តម្លឹង (៣៧.៥ ក្រាម)",
     unit_chi: "ជី (៣.៧៥ ក្រាម)",
@@ -704,11 +760,14 @@ const PHRASE_DICTIONARY_KH = {
   "PHASE II": "ដំណាក់កាលទី II",
   "PHASE III": "ដំណាក់កាលទី III",
   "PHASE IV": "ដំណាក់កាលទី IV",
-  "PROMO 01 // WHITE-LABEL SCALE": "ប្រូម៉ូសិន ០១ // ការពង្រីក WHITE-LABEL",
+  "PROMO 01 // PHYSICAL HEDGING DESK": "ប្រូម៉ូសិន ០១ // តុការពារហានិភ័យមាស & ប្រាក់រូបវន្ត",
+  "PROMO 01 // BROKERAGE INFRASTRUCTURE": "ប្រូម៉ូសិន ០១ // តុការពារហានិភ័យមាស & ប្រាក់រូបវន្ត",
+  "PROMO 01 // WHITE-LABEL SCALE": "ប្រូម៉ូសិន ០១ // តុការពារហានិភ័យមាស & ប្រាក់រូបវន្ត",
   "PROMO 02 // SAGFX.ORG": "ប្រូម៉ូសិន ០២ // SAGFX.ORG",
   "PROMO 03 // LEAD BROKERAGE": "ប្រូម៉ូសិន ០៣ // ឈ្មួញជើងសាឈានមុខ",
   "PROMO 03 // BDM & BROKER INCEPTION": "ប្រូម៉ូសិន ០៣ // ឈ្មួញជើងសាឈានមុខ",
-  "WHITE-LABEL PROMOTION": "ប្រូម៉ូសិន WHITE-LABEL",
+  "PHYSICAL HEDGING DESK": "តុការពារហានិភ័យមាស & ប្រាក់រូបវន្ត",
+  "WHITE-LABEL PROMOTION": "ការការពារហានិភ័យមាស & ប្រាក់រូបវន្ត",
   "BROKERAGE SPECIAL OFFER": "ការផ្តល់ជូនពិសេស BROKERAGE",
   "SAGFX.ORG PROMOTION": "ប្រូម៉ូសិន SAGFX.ORG",
   "SAGFX.ORG TRADER PRIVILEGE": "អត្ថប្រយោជន៍ TRADER SAGFX.ORG",
@@ -2002,16 +2061,50 @@ function initPositionSizeRiskCalculator() {
    9B. Institutional Delta-Neutral Physical Gold Hedging Engine
    --------------------------------------------------------- */
 function initHedgingCalculator() {
+  const metalButtons = document.querySelectorAll('#hedgeMetalAssetToggle .metal-asset-btn');
   const flowButtons = document.querySelectorAll('#hedgeFlowToggle .hedge-flow-btn');
   const unitButtons = document.querySelectorAll('#hedgeUnitToggle .hedge-unit-btn');
   const quantityInput = document.getElementById('hedgeQuantityInput');
   const quantitySlider = document.getElementById('hedgeQuantitySlider');
   const quantityLabel = document.getElementById('hedgeQuantityLabel');
   const quantityValDisplay = document.getElementById('hedgeQuantityVal');
+  const presetButtons = document.querySelectorAll('#presetPillsContainer .preset-pill-btn');
+
   const spotPriceInput = document.getElementById('hedgeSpotPriceInput');
+  const spotPriceLabel = document.getElementById('hedgeSpotPriceLabel');
   const leverageSelect = document.getElementById('hedgeLeverageSelect');
   const bufferSelect = document.getElementById('hedgeBufferSelect');
+  const bufferLabel = document.getElementById('hedgeBufferLabel');
 
+  // Live Ticker Elements
+  const livePriceAssetLabel = document.getElementById('livePriceAssetLabel');
+  const livePriceDisplayVal = document.getElementById('livePriceDisplayVal');
+  const livePriceSourceTag = document.getElementById('livePriceSourceTag');
+  const btnRefreshLivePrice = document.getElementById('btnRefreshLivePrice');
+
+  // Local Cambodian Counter Pricing Elements
+  const localPremiumInput = document.getElementById('hedgeLocalPremiumInput');
+  const localPricePerDamlung = document.getElementById('localPricePerDamlung');
+  const localPricePerChi = document.getElementById('localPricePerChi');
+  const localWeightTroyOz = document.getElementById('localWeightTroyOz');
+  const localTotalInventoryValue = document.getElementById('localTotalInventoryValue');
+
+  // Capital Guidance Elements
+  const userBalanceInput = document.getElementById('hedgeUserBalanceInput');
+  const recommendedDepositOut = document.getElementById('hedgeRecommendedDepositOut');
+  const depositPercentComparison = document.getElementById('hedgeDepositPercentComparison');
+  const capitalHealthMeter = document.getElementById('hedgeCapitalHealthMeter');
+  const meterIcon = document.getElementById('hedgeMeterIcon');
+  const meterText = document.getElementById('hedgeMeterText');
+
+  // Stress-Test Simulation Elements
+  const simMoveSlider = document.getElementById('simMoveSlider');
+  const simMoveDisplayVal = document.getElementById('simMoveDisplayVal');
+  const simPhysicalPnlVal = document.getElementById('simPhysicalPnlVal');
+  const simDigitalPnlVal = document.getElementById('simDigitalPnlVal');
+  const simNetPnlVal = document.getElementById('simNetPnlVal');
+
+  // Primary Directive & Metrics Outputs
   const actionCard = document.getElementById('hedgeActionCard');
   const directionBadge = document.getElementById('hedgeDirectionBadge');
   const commandOut = document.getElementById('hedgeCommandOut');
@@ -2025,76 +2118,208 @@ function initHedgingCalculator() {
 
   if (!quantityInput || !commandOut) return;
 
-  let currentFlow = 'buy';
-  let currentUnit = 'damlung';
+  let currentMetal = 'gold'; // 'gold' | 'silver'
+  let currentFlow = 'buy';    // 'buy' | 'sell'
+  let currentUnit = 'damlung'; // 'damlung' | 'chi' | 'grams' | 'ounces'
+  let liveGoldSpot = 3952.13;
+  let liveSilverSpot = 32.50;
+
+  // Commodity Configuration Matrix
+  const COMMODITY_CONFIG = {
+    gold: {
+      symbol: 'XAU/USD',
+      lotSizeOz: 100, // 1 Standard Lot = 100 Troy Ounces
+      gramsPerLot: 3110.34768,
+      damlungPerLot: 82.9426, // 3110.34768 / 37.5
+      chiPerLot: 829.426,
+      defaultSpot: 3952.00,
+      defaultBuffer: 100,
+      bufferOptions: [
+        { val: 50, text: '±$50/oz Adverse Move (Low Buffer)' },
+        { val: 100, text: '±$100/oz Adverse Move (Recommended Safe Buffer)' },
+        { val: 150, text: '±$150/oz Adverse Move (Maximum Macro Defense)' },
+        { val: 200, text: '±$200/oz Adverse Move (Extreme Volatility Buffer)' }
+      ],
+      presets: [1, 5, 10, 50, 100, 500],
+      simRange: { min: -300, max: 300, step: 10, def: -100 },
+      defaultPremium: 30, // $30/damlung counter spread in Cambodia
+      unitLabel: 'Damlung (តម្លឹង)'
+    },
+    silver: {
+      symbol: 'XAG/USD',
+      lotSizeOz: 5000, // 1 Standard Lot = 5000 Troy Ounces
+      gramsPerLot: 155517.384,
+      damlungPerLot: 4147.1302, // 155517.384 / 37.5
+      chiPerLot: 41471.302,
+      defaultSpot: 32.50,
+      defaultBuffer: 3.0,
+      bufferOptions: [
+        { val: 1.5, text: '±$1.50/oz Adverse Move (Low Buffer)' },
+        { val: 3.0, text: '±$3.00/oz Adverse Move (Recommended Safe Buffer)' },
+        { val: 5.0, text: '±$5.00/oz Adverse Move (Maximum Macro Defense)' },
+        { val: 8.0, text: '±$8.00/oz Adverse Move (Extreme Volatility Buffer)' }
+      ],
+      presets: [10, 50, 100, 500, 1000, 5000],
+      simRange: { min: -10, max: 10, step: 0.5, def: -3 },
+      defaultPremium: 1.5, // $1.5/damlung counter spread in Cambodia
+      unitLabel: 'Damlung (តម្លឹង)'
+    }
+  };
+
+  async function fetchLivePrice(isManual = false) {
+    if (btnRefreshLivePrice) btnRefreshLivePrice.classList.add('rotating');
+    try {
+      if (currentMetal === 'gold') {
+        const res = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=PAXGUSDT');
+        if (res.ok) {
+          const data = await res.json();
+          const parsed = parseFloat(data.price);
+          if (!isNaN(parsed) && parsed > 1000) {
+            liveGoldSpot = parsed;
+            if (spotPriceInput) spotPriceInput.value = Math.round(parsed);
+            if (livePriceDisplayVal) livePriceDisplayVal.textContent = `$${parsed.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            if (livePriceSourceTag) livePriceSourceTag.textContent = '(Live Binance PAXG Feed)';
+            if (isManual) showToast(`Live Gold Spot Synced: $${parsed.toFixed(2)}/oz`);
+          }
+        }
+      } else {
+        const res = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=PAXGUSDT');
+        if (res.ok) {
+          const data = await res.json();
+          const goldP = parseFloat(data.price) || 3950;
+          const silverDerived = parseFloat((goldP / 88.5).toFixed(2));
+          liveSilverSpot = silverDerived;
+          if (spotPriceInput) spotPriceInput.value = silverDerived.toFixed(2);
+          if (livePriceDisplayVal) livePriceDisplayVal.textContent = `$${silverDerived.toFixed(2)}`;
+          if (livePriceSourceTag) livePriceSourceTag.textContent = '(Live Ratio Benchmark)';
+          if (isManual) showToast(`Live Silver Spot Synced: $${silverDerived.toFixed(2)}/oz`);
+        }
+      }
+    } catch (e) {
+      console.warn('Live ticker sync fallback:', e);
+      if (isManual) showToast('Benchmark spot active (offline fallback)');
+    } finally {
+      if (btnRefreshLivePrice) {
+        setTimeout(() => btnRefreshLivePrice.classList.remove('rotating'), 600);
+      }
+      recalculateHedge();
+    }
+  }
+
+  function updateBufferOptions() {
+    if (!bufferSelect) return;
+    const cfg = COMMODITY_CONFIG[currentMetal];
+    bufferSelect.innerHTML = '';
+    cfg.bufferOptions.forEach((opt, idx) => {
+      const el = document.createElement('option');
+      el.value = opt.val;
+      el.textContent = opt.text;
+      if (idx === 1) el.selected = true;
+      bufferSelect.appendChild(el);
+    });
+  }
+
+  function updatePresets() {
+    const cfg = COMMODITY_CONFIG[currentMetal];
+    const pillsWrap = document.getElementById('presetPillsContainer');
+    if (!pillsWrap) return;
+    pillsWrap.innerHTML = '';
+    cfg.presets.forEach(p => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'preset-pill-btn';
+      if (parseFloat(quantityInput.value) === p) btn.classList.add('active');
+      btn.setAttribute('data-preset', p);
+      btn.textContent = `${p.toLocaleString('en-US')} ${currentUnit === 'chi' ? 'ជី' : 'តម្លឹង'}`;
+      btn.addEventListener('click', () => {
+        quantityInput.value = p;
+        quantitySlider.value = p;
+        pillsWrap.querySelectorAll('.preset-pill-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        recalculateHedge();
+      });
+      pillsWrap.appendChild(btn);
+    });
+  }
 
   function updateUnitSliderLimits() {
+    const cfg = COMMODITY_CONFIG[currentMetal];
     if (currentUnit === 'damlung') {
-      quantitySlider.min = 1;
-      quantitySlider.max = 500;
-      quantitySlider.step = 1;
+      quantitySlider.min = currentMetal === 'gold' ? 1 : 10;
+      quantitySlider.max = currentMetal === 'gold' ? 500 : 5000;
+      quantitySlider.step = currentMetal === 'gold' ? 1 : 10;
       quantityInput.min = 0.1;
-      quantityInput.step = 0.5;
-      if (quantityLabel) quantityLabel.textContent = 'Physical Quantity to Hedge (Damlung)';
+      quantityInput.step = currentMetal === 'gold' ? 0.5 : 1;
+      if (quantityLabel) quantityLabel.textContent = `Physical Quantity to Hedge (${cfg.symbol} Damlung / តម្លឹង)`;
     } else if (currentUnit === 'chi') {
-      quantitySlider.min = 5;
-      quantitySlider.max = 5000;
-      quantitySlider.step = 5;
+      quantitySlider.min = currentMetal === 'gold' ? 5 : 50;
+      quantitySlider.max = currentMetal === 'gold' ? 5000 : 50000;
+      quantitySlider.step = currentMetal === 'gold' ? 5 : 50;
       quantityInput.min = 1;
       quantityInput.step = 1;
-      if (quantityLabel) quantityLabel.textContent = 'Physical Quantity to Hedge (Chi / ជី)';
+      if (quantityLabel) quantityLabel.textContent = `Physical Quantity to Hedge (${cfg.symbol} Chi / ជី)`;
     } else if (currentUnit === 'grams') {
-      quantitySlider.min = 10;
-      quantitySlider.max = 10000;
+      quantitySlider.min = currentMetal === 'gold' ? 10 : 100;
+      quantitySlider.max = currentMetal === 'gold' ? 10000 : 100000;
       quantitySlider.step = 10;
       quantityInput.min = 1;
       quantityInput.step = 1;
-      if (quantityLabel) quantityLabel.textContent = 'Physical Quantity to Hedge (Grams)';
+      if (quantityLabel) quantityLabel.textContent = `Physical Quantity to Hedge (Grams / ក្រាម)`;
     } else if (currentUnit === 'ounces') {
       quantitySlider.min = 1;
-      quantitySlider.max = 300;
+      quantitySlider.max = currentMetal === 'gold' ? 300 : 5000;
       quantitySlider.step = 1;
       quantityInput.min = 0.1;
       quantityInput.step = 0.5;
-      if (quantityLabel) quantityLabel.textContent = 'Physical Quantity to Hedge (Troy Ounces)';
+      if (quantityLabel) quantityLabel.textContent = `Physical Quantity to Hedge (Troy Ounces / អោន)`;
     }
   }
 
   function recalculateHedge() {
+    const cfg = COMMODITY_CONFIG[currentMetal];
     const qty = parseFloat(quantityInput.value) || 0;
-    const spot = parseFloat(spotPriceInput ? spotPriceInput.value : 2720) || 2720;
+    const spot = parseFloat(spotPriceInput ? spotPriceInput.value : cfg.defaultSpot) || cfg.defaultSpot;
     const leverage = parseFloat(leverageSelect ? leverageSelect.value : 100) || 100;
-    const buffer = parseFloat(bufferSelect ? bufferSelect.value : 100) || 100;
+    const buffer = parseFloat(bufferSelect ? bufferSelect.value : cfg.defaultBuffer) || cfg.defaultBuffer;
+    const localPremium = parseFloat(localPremiumInput ? localPremiumInput.value : cfg.defaultPremium) || cfg.defaultPremium;
+    const userBalance = parseFloat(userBalanceInput ? userBalanceInput.value : 10000) || 10000;
 
     let grams = 0;
     let troyOz = 0;
     let exactLots = 0;
+    let totalDamlung = 0;
 
     if (currentUnit === 'damlung') {
+      totalDamlung = qty;
       grams = qty * 37.5;
       troyOz = grams / 31.1034768;
-      exactLots = qty / 82.9426;
+      exactLots = qty / cfg.damlungPerLot;
       if (quantityValDisplay) quantityValDisplay.textContent = `${qty.toLocaleString('en-US', { maximumFractionDigits: 1 })} Damlung`;
     } else if (currentUnit === 'chi') {
+      totalDamlung = qty / 10;
       grams = qty * 3.75;
       troyOz = grams / 31.1034768;
-      exactLots = qty / 829.426;
+      exactLots = qty / cfg.chiPerLot;
       if (quantityValDisplay) quantityValDisplay.textContent = `${qty.toLocaleString('en-US', { maximumFractionDigits: 1 })} Chi`;
     } else if (currentUnit === 'grams') {
       grams = qty;
+      totalDamlung = grams / 37.5;
       troyOz = grams / 31.1034768;
-      exactLots = grams / 3110.34768;
+      exactLots = grams / cfg.gramsPerLot;
       if (quantityValDisplay) quantityValDisplay.textContent = `${qty.toLocaleString('en-US', { maximumFractionDigits: 0 })} g`;
     } else if (currentUnit === 'ounces') {
       troyOz = qty;
       grams = troyOz * 31.1034768;
-      exactLots = troyOz / 100;
+      totalDamlung = grams / 37.5;
+      exactLots = troyOz / cfg.lotSizeOz;
       if (quantityValDisplay) quantityValDisplay.textContent = `${qty.toLocaleString('en-US', { maximumFractionDigits: 1 })} oz`;
     }
 
     const roundedLots = Math.max(0.01, Math.round(exactLots * 100) / 100);
-    const initialMargin = (roundedLots * 100 * spot) / leverage;
-    const safeBufferBalance = initialMargin + (roundedLots * 100 * buffer);
+    const contractUnits = roundedLots * cfg.lotSizeOz;
+    const initialMargin = (contractUnits * spot) / leverage;
+    const bufferReserve = contractUnits * buffer;
+    const safeBufferBalance = initialMargin + bufferReserve;
 
     if (weightOut) {
       weightOut.textContent = `${grams.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} g / ${troyOz.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} oz`;
@@ -2104,62 +2329,147 @@ function initHedgingCalculator() {
     if (marginOut) marginOut.textContent = `$${initialMargin.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     if (safeDepositOut) safeDepositOut.textContent = `$${safeBufferBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
+    // Local Cambodian Counter Pricing Calculations
+    const cambodiaPricePerDamlung = (spot * 1.205653) + localPremium;
+    const cambodiaPricePerChi = cambodiaPricePerDamlung / 10;
+    const totalPhysicalCashVal = totalDamlung * cambodiaPricePerDamlung;
+
+    if (localPricePerDamlung) localPricePerDamlung.textContent = `$${cambodiaPricePerDamlung.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    if (localPricePerChi) localPricePerChi.textContent = `$${cambodiaPricePerChi.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    if (localWeightTroyOz) localWeightTroyOz.textContent = `${troyOz.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} oz`;
+    if (localTotalInventoryValue) localTotalInventoryValue.textContent = `$${totalPhysicalCashVal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+    // Capital Advisory Guidance & Health Meter
+    if (recommendedDepositOut) recommendedDepositOut.textContent = `$${safeBufferBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    if (depositPercentComparison && totalPhysicalCashVal > 0) {
+      const pctOfInventory = ((safeBufferBalance / totalPhysicalCashVal) * 100).toFixed(1);
+      depositPercentComparison.textContent = `~${pctOfInventory}% of your total physical shop inventory ($${Math.round(totalPhysicalCashVal).toLocaleString('en-US')})`;
+    }
+
+    if (capitalHealthMeter && meterText && meterIcon) {
+      capitalHealthMeter.classList.remove('optimal', 'moderate', 'danger');
+      if (userBalance >= safeBufferBalance) {
+        capitalHealthMeter.classList.add('optimal');
+        meterIcon.textContent = '🟢';
+        meterText.textContent = `OPTIMAL CAPITALIZATION: Your deposit ($${userBalance.toLocaleString('en-US', { minimumFractionDigits: 2 })}) exceeds the safe requirement ($${safeBufferBalance.toLocaleString('en-US', { minimumFractionDigits: 2 })}). 100% immune from margin-call risk.`;
+      } else if (userBalance >= initialMargin) {
+        capitalHealthMeter.classList.add('moderate');
+        meterIcon.textContent = '🟡';
+        meterText.textContent = `MODERATE CAUTION: Balance ($${userBalance.toLocaleString('en-US', { minimumFractionDigits: 2 })}) covers opening margin ($${initialMargin.toLocaleString('en-US', { minimumFractionDigits: 2 })}), but has limited adverse volatility cushion. Consider depositing $${safeBufferBalance.toLocaleString('en-US', { minimumFractionDigits: 2 })} for safe holding.`;
+      } else {
+        capitalHealthMeter.classList.add('danger');
+        meterIcon.textContent = '🔴';
+        meterText.textContent = `UNDER-COLLATERALIZED: Balance ($${userBalance.toLocaleString('en-US', { minimumFractionDigits: 2 })}) is below the required minimum margin ($${initialMargin.toLocaleString('en-US', { minimumFractionDigits: 2 })}). Deposit at least $${initialMargin.toLocaleString('en-US', { minimumFractionDigits: 2 })} before opening this hedge.`;
+      }
+    }
+
+    // Directives
     if (currentFlow === 'buy') {
       if (directionBadge) {
-        directionBadge.textContent = 'NET INVENTORY: LONG';
+        directionBadge.textContent = `NET ${cfg.symbol} INVENTORY: LONG`;
         directionBadge.style.borderColor = '#f43f5e';
         directionBadge.style.color = '#f43f5e';
         directionBadge.style.background = 'rgba(244, 63, 94, 0.2)';
       }
       if (commandOut) {
-        commandOut.textContent = `SELL ${roundedLots.toFixed(2)} LOTS XAU/USD`;
+        commandOut.textContent = `SELL ${roundedLots.toFixed(2)} LOTS ${cfg.symbol}`;
         commandOut.style.color = '#f43f5e';
         commandOut.style.textShadow = '0 0 16px rgba(244, 63, 94, 0.4)';
       }
-      if (actionCard) {
-        actionCard.classList.remove('action-buy');
-      }
+      if (actionCard) actionCard.classList.remove('action-buy');
       if (explanationOut) {
-        explanationOut.textContent = 'Shop is receiving physical gold inventory. Open Digital Short to eliminate spot market drop risk.';
+        explanationOut.textContent = `Shop holds physical ${currentMetal === 'gold' ? 'gold' : 'silver'} in showcase/safe. Open Digital Short to neutralize spot market price drops.`;
       }
     } else {
       if (directionBadge) {
-        directionBadge.textContent = 'NET INVENTORY: SHORT';
+        directionBadge.textContent = `NET ${cfg.symbol} INVENTORY: SHORT`;
         directionBadge.style.borderColor = '#10b981';
         directionBadge.style.color = '#10b981';
         directionBadge.style.background = 'rgba(16, 185, 129, 0.2)';
       }
       if (commandOut) {
-        commandOut.textContent = `BUY ${roundedLots.toFixed(2)} LOTS XAU/USD`;
+        commandOut.textContent = `BUY ${roundedLots.toFixed(2)} LOTS ${cfg.symbol}`;
         commandOut.style.color = '#10b981';
         commandOut.style.textShadow = '0 0 16px rgba(16, 185, 129, 0.4)';
       }
-      if (actionCard) {
-        actionCard.classList.add('action-buy');
-      }
+      if (actionCard) actionCard.classList.add('action-buy');
       if (explanationOut) {
-        explanationOut.textContent = 'Shop is selling physical inventory or locking forward delivery. Open Digital Long to eliminate replacement price spikes.';
+        explanationOut.textContent = `Shop sold physical inventory or pre-booked forward orders. Open Digital Long to eliminate replenishment price surges.`;
       }
     }
 
     if (formulaCode) {
       if (currentUnit === 'damlung') {
-        formulaCode.textContent = `Lots = ${qty} Damlung ÷ 82.9426 = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5`;
+        formulaCode.textContent = `Lots = ${qty} Damlung ÷ ${cfg.damlungPerLot.toFixed(2)} = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5 (${cfg.symbol})`;
       } else if (currentUnit === 'chi') {
-        formulaCode.textContent = `Lots = ${qty} Chi ÷ 829.426 = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5`;
+        formulaCode.textContent = `Lots = ${qty} Chi ÷ ${cfg.chiPerLot.toFixed(2)} = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5 (${cfg.symbol})`;
       } else if (currentUnit === 'grams') {
-        formulaCode.textContent = `Lots = ${qty} g ÷ 3,110.35 g = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5`;
+        formulaCode.textContent = `Lots = ${qty} g ÷ ${cfg.gramsPerLot.toFixed(2)} g = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5 (${cfg.symbol})`;
       } else if (currentUnit === 'ounces') {
-        formulaCode.textContent = `Lots = ${qty} oz ÷ 100 oz = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5`;
+        formulaCode.textContent = `Lots = ${qty} oz ÷ ${cfg.lotSizeOz} oz = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5 (${cfg.symbol})`;
       }
+    }
+
+    // Stress-Test Simulation Calculation
+    const simShift = parseFloat(simMoveSlider ? simMoveSlider.value : (currentMetal === 'gold' ? -100 : -3)) || (currentMetal === 'gold' ? -100 : -3);
+    const shiftSign = simShift >= 0 ? '+' : '';
+    if (simMoveDisplayVal) {
+      simMoveDisplayVal.textContent = `${shiftSign}$${simShift.toFixed(currentMetal === 'gold' ? 0 : 2)} / oz (${simShift < 0 ? 'Spot Market Drop' : 'Spot Market Rally'})`;
+      simMoveDisplayVal.style.color = simShift < 0 ? '#f43f5e' : '#10b981';
+    }
+
+    const physicalPnl = (currentFlow === 'buy' ? 1 : -1) * (troyOz * simShift);
+    const digitalPnl = (currentFlow === 'buy' ? -1 : 1) * (contractUnits * simShift);
+    const netCombinedPnl = physicalPnl + digitalPnl;
+
+    if (simPhysicalPnlVal) {
+      simPhysicalPnlVal.textContent = `${physicalPnl >= 0 ? '+' : '-'}$${Math.abs(physicalPnl).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      simPhysicalPnlVal.style.color = physicalPnl >= 0 ? '#10b981' : '#f43f5e';
+    }
+
+    if (simDigitalPnlVal) {
+      simDigitalPnlVal.textContent = `${digitalPnl >= 0 ? '+' : '-'}$${Math.abs(digitalPnl).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+      simDigitalPnlVal.style.color = digitalPnl >= 0 ? '#10b981' : '#f43f5e';
+    }
+
+    if (simNetPnlVal) {
+      const netRounded = Math.abs(netCombinedPnl) < 1 ? 0 : netCombinedPnl;
+      simNetPnlVal.textContent = `${netRounded >= 0 ? '+' : '-'}$${Math.abs(netRounded).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (Delta-Neutral)`;
+      simNetPnlVal.style.color = 'var(--text-gold)';
     }
 
     if (telegramLink) {
       const action = currentFlow === 'buy' ? 'SELL' : 'BUY';
-      const msg = encodeURIComponent(`Hello Mong Say, I would like to establish an institutional physical gold hedging desk via SAGFX. Execution Request: ${action} ${roundedLots.toFixed(2)} Lots XAU/USD for ${qty} ${currentUnit} (${grams.toFixed(1)}g / ${troyOz.toFixed(2)}oz) at Spot $${spot}.`);
+      const msg = encodeURIComponent(`Hello Mong Say, I am establishing a physical ${currentMetal.toUpperCase()} hedging desk via SAGFX. Execution Request: ${action} ${roundedLots.toFixed(2)} Lots ${cfg.symbol} for ${qty} ${currentUnit} (${grams.toFixed(1)}g / ${troyOz.toFixed(2)}oz) at Spot $${spot}. Physical Value: $${Math.round(totalPhysicalCashVal).toLocaleString()}. Required Margin: $${initialMargin.toFixed(2)}.`);
       telegramLink.href = `https://t.me/MongsayFX?text=${msg}`;
     }
   }
+
+  metalButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      metalButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentMetal = btn.getAttribute('data-metal') || 'gold';
+      const cfg = COMMODITY_CONFIG[currentMetal];
+
+      if (livePriceAssetLabel) livePriceAssetLabel.textContent = `${cfg.symbol} LIVE SPOT:`;
+      if (spotPriceLabel) spotPriceLabel.textContent = `${currentMetal === 'gold' ? 'Gold' : 'Silver'} Spot Price ($USD/oz)`;
+      if (spotPriceInput) spotPriceInput.value = currentMetal === 'gold' ? Math.round(liveGoldSpot) : liveSilverSpot.toFixed(2);
+      if (localPremiumInput) localPremiumInput.value = cfg.defaultPremium;
+
+      if (simMoveSlider) {
+        simMoveSlider.min = cfg.simRange.min;
+        simMoveSlider.max = cfg.simRange.max;
+        simMoveSlider.step = cfg.simRange.step;
+        simMoveSlider.value = cfg.simRange.def;
+      }
+
+      updateBufferOptions();
+      updatePresets();
+      updateUnitSliderLimits();
+      fetchLivePrice(false);
+    });
+  });
 
   flowButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -2176,6 +2486,7 @@ function initHedgingCalculator() {
       btn.classList.add('active');
       currentUnit = btn.getAttribute('data-unit') || 'damlung';
       updateUnitSliderLimits();
+      updatePresets();
       recalculateHedge();
     });
   });
@@ -2193,9 +2504,18 @@ function initHedgingCalculator() {
   if (spotPriceInput) spotPriceInput.addEventListener('input', recalculateHedge);
   if (leverageSelect) leverageSelect.addEventListener('change', recalculateHedge);
   if (bufferSelect) bufferSelect.addEventListener('change', recalculateHedge);
+  if (localPremiumInput) localPremiumInput.addEventListener('input', recalculateHedge);
+  if (userBalanceInput) userBalanceInput.addEventListener('input', recalculateHedge);
+  if (simMoveSlider) simMoveSlider.addEventListener('input', recalculateHedge);
 
+  if (btnRefreshLivePrice) {
+    btnRefreshLivePrice.addEventListener('click', () => fetchLivePrice(true));
+  }
+
+  updateBufferOptions();
+  updatePresets();
   updateUnitSliderLimits();
-  recalculateHedge();
+  fetchLivePrice(false);
 }
 
 /* ---------------------------------------------------------

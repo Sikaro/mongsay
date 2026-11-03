@@ -2688,10 +2688,370 @@ html.fx-frozen[data-theme="light"] .fx-toggle .icon-fx-off {
 }
 
 /* ==========================================================================
-   DELTA-NEUTRAL PHYSICAL GOLD HEDGING CALCULATOR (hedging.html)
+   DELTA-NEUTRAL PHYSICAL GOLD & SILVER HEDGING CALCULATOR (hedging.html)
    ========================================================================== */
 .hedging-calc-container {
   margin: 20px 0 40px;
+}
+
+/* Metal Asset Toggle (Gold / Silver) */
+.metal-asset-toggle {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.metal-asset-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+  font-family: var(--font-accent);
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.metal-asset-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.metal-asset-btn.active.gold {
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.22) 0%, rgba(202, 138, 4, 0.35) 100%);
+  border: 1px solid #eab308;
+  color: #fef08a;
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.35);
+}
+
+.metal-asset-btn.active.silver {
+  background: linear-gradient(135deg, rgba(226, 232, 240, 0.22) 0%, rgba(148, 163, 184, 0.35) 100%);
+  border: 1px solid #cbd5e1;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(203, 213, 225, 0.35);
+}
+
+/* 3-Step Cambodian Bullion Merchant Workflow Card */
+.cambodia-merchant-flow-card {
+  background: linear-gradient(135deg, rgba(229, 185, 95, 0.08) 0%, rgba(15, 23, 42, 0.75) 100%);
+  border: 1px solid rgba(229, 185, 95, 0.3);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.cambodia-merchant-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.merchant-step-item {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform var(--transition-fast);
+}
+
+.merchant-step-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(229, 185, 95, 0.35);
+}
+
+[data-theme="light"] .cambodia-merchant-flow-card {
+  background: linear-gradient(135deg, rgba(8, 24, 46, 0.88) 0%, rgba(12, 35, 60, 0.92) 100%);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+[data-theme="light"] .merchant-step-item {
+  background: rgba(6, 18, 36, 0.75);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+/* Live Market Price Banner */
+.live-ticker-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(229, 185, 95, 0.25);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  margin-bottom: 22px;
+}
+
+.live-price-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseGreen 1.8s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.btn-refresh-price {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: var(--text-primary);
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.btn-refresh-price:hover {
+  background: rgba(229, 185, 95, 0.2);
+  border-color: var(--text-gold);
+}
+
+.btn-refresh-price.rotating svg {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* Local Cambodian Market Pricing Box */
+.local-cambodia-pricing-card {
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.12) 0%, rgba(15, 23, 42, 0.85) 100%);
+  border: 1px solid rgba(229, 185, 95, 0.45);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: 22px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.local-cambodia-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.local-price-item {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  text-align: center;
+}
+
+.local-price-item .item-label {
+  font-size: 0.76rem;
+  color: var(--text-gold-light);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.local-price-item .item-val {
+  font-family: var(--font-accent);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.local-inventory-banner {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(229, 185, 95, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.local-inventory-val {
+  font-family: var(--font-accent);
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: var(--text-gold);
+  text-shadow: 0 0 14px rgba(229, 185, 95, 0.5);
+}
+
+/* Quick Quantity Presets */
+.preset-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.preset-pill-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+  border-radius: var(--radius-full);
+  padding: 4px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.preset-pill-btn:hover {
+  background: rgba(229, 185, 95, 0.18);
+  border-color: var(--text-gold);
+  color: #fff;
+}
+
+/* Shop Capital & Balance Advisory Card */
+.shop-capital-card {
+  background: rgba(8, 14, 28, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  margin-top: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.capital-health-meter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin-top: 12px;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.capital-health-meter.optimal {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid #10b981;
+  color: #34d399;
+}
+
+.capital-health-meter.moderate {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid #f59e0b;
+  color: #fbbf24;
+}
+
+.capital-health-meter.danger {
+  background: rgba(244, 63, 94, 0.15);
+  border: 1px solid #f43f5e;
+  color: #fb7185;
+}
+
+/* Stress-Test Market Simulation Box */
+.hedge-simulation-box {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.sim-results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.sim-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  text-align: center;
+}
+
+.sim-card .sim-label {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.sim-card .sim-val {
+  font-family: var(--font-accent);
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+/* Light Mode Overrides for Hedging Calculator */
+[data-theme="light"] .metal-asset-btn {
+  background: rgba(6, 18, 36, 0.7);
+  border-color: rgba(56, 189, 248, 0.25);
+  color: #cbd5e1;
+}
+
+[data-theme="light"] .metal-asset-btn.active.gold {
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.25) 0%, rgba(14, 165, 233, 0.35) 100%);
+  border-color: #38bdf8;
+  color: #f0f9ff;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+[data-theme="light"] .metal-asset-btn.active.silver {
+  background: linear-gradient(135deg, rgba(148, 163, 184, 0.25) 0%, rgba(56, 189, 248, 0.35) 100%);
+  border-color: #7dd3fc;
+  color: #f0f9ff;
+}
+
+[data-theme="light"] .local-cambodia-pricing-card {
+  background: linear-gradient(135deg, rgba(8, 24, 46, 0.9) 0%, rgba(12, 35, 60, 0.95) 100%);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+[data-theme="light"] .shop-capital-card {
+  background: rgba(6, 18, 36, 0.92);
+  border-color: rgba(56, 189, 248, 0.45);
+}
+
+[data-theme="light"] .live-ticker-wrap {
+  background: rgba(6, 18, 36, 0.85);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+@media (max-width: 768px) {
+  .local-cambodia-grid {
+    grid-template-columns: 1fr;
+  }
+  .sim-results-grid {
+    grid-template-columns: 1fr;
+  }
+  .metal-asset-toggle {
+    flex-direction: column;
+  }
 }
 
 .hedge-mode-toggle {

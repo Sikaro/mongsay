@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.5.0">
+  <link rel="stylesheet" href="styles.css?v=3.6.0">
 </head>
 <body>
 
@@ -131,13 +131,102 @@
           <div class="section-tag"><span class="dot"></span> <span data-i18n="hedge_calc_tag">INTERACTIVE DEALER HEDGING ENGINE</span></div>
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 12px;">
             <h2 class="section-title" style="margin-bottom: 0;" data-i18n="hedge_calc_title">
-              Physical Gold <span class="gold-gradient-text">Delta-Neutral Hedging Calculator</span>
+              Physical Bullion <span class="gold-gradient-text">Delta-Neutral Hedging Desk</span>
             </h2>
             <img src="assets/sagfx-3d-logo.jpg" alt="SAGFX 3D Official Emblem" style="height: 44px; width: 44px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);">
           </div>
-          <p class="section-desc" style="margin-bottom: 28px;" data-i18n="hedge_calc_desc">
-            Calculate exact digital MT4/MT5 contract lot sizes, required margin collateral, and adverse volatility buffers for your shop's physical gold inventory in real time.
+          <p class="section-desc" style="margin-bottom: 22px;" data-i18n="hedge_calc_desc">
+            Calculate exact digital MT4/MT5 contract lot sizes, required margin collateral, local Cambodian counter valuations, and adverse volatility buffers for your shop's physical gold & silver inventory in real time.
           </p>
+
+          <!-- 3-Step Cambodian Bullion Merchant Workflow -->
+          <div class="cambodia-merchant-flow-card">
+            <div style="font-size: 0.82rem; text-transform: uppercase; color: var(--text-gold); font-weight: 800; letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px;" data-i18n="hedge_flow_steps_tag">
+              <span>🇰🇭</span> <span>របៀបប្រើប្រាស់សម្រាប់ហាងមាសកម្ពុជា / 3-STEP CAMBODIAN BULLION GUIDE</span>
+            </div>
+            <div class="cambodia-merchant-flow-grid">
+              <div class="merchant-step-item">
+                <div style="color: var(--text-gold); font-weight: 800; font-size: 0.84rem; margin-bottom: 4px;" data-i18n="hedge_step_1_title">ជំហាន ១: ជ្រើសរើសទំនិញ & ស្តុក</div>
+                <div style="font-size: 0.78rem; color: #cbd5e1; line-height: 1.4;" data-i18n="hedge_step_1_desc">ជ្រើសរើស មាស (Gold) ឬ ប្រាក់ (Silver) ហើយបញ្ចូលទម្ងន់ តម្លឹង (Damlung) ឬ ជី (Chi) ដែលមានក្នុងទូហាង។</div>
+              </div>
+              <div class="merchant-step-item">
+                <div style="color: #38bdf8; font-weight: 800; font-size: 0.84rem; margin-bottom: 4px;" data-i18n="hedge_step_2_title">ជំហាន ២: ពិនិត្យតម្លៃផ្សារកម្ពុជា</div>
+                <div style="font-size: 0.78rem; color: #cbd5e1; line-height: 1.4;" data-i18n="hedge_step_2_desc">ប្រព័ន្ធគណនាតម្លៃមាស ១តម្លឹង/ជី និងតម្លៃស្តុកសរុបជាសាច់ប្រាក់ USD តាមផ្សារក្នុងស្រុកជាក់ស្តែង។</div>
+              </div>
+              <div class="merchant-step-item">
+                <div style="color: #10b981; font-weight: 800; font-size: 0.84rem; margin-bottom: 4px;" data-i18n="hedge_step_3_title">ជំហាន ៣: បើកបញ្ជាការពារហានិភ័យ</div>
+                <div style="font-size: 0.78rem; color: #cbd5e1; line-height: 1.4;" data-i18n="hedge_step_3_desc">អនុវត្តតាមបញ្ជា Lots លើ MT4/MT5 តាមរយៈ SAGFX ដើម្បីការពារតម្លៃស្តុក ១០០% មិនឱ្យខាតបង់ពេលមាសធ្លាក់ថ្លៃ។</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metal Asset Toggle: Gold vs Silver -->
+          <div class="metal-asset-toggle" id="hedgeMetalAssetToggle">
+            <button type="button" class="metal-asset-btn active gold" data-metal="gold" id="metalBtnGold">
+              <span>🟡</span> <span data-i18n="metal_gold_opt">Gold / មាស (XAU/USD)</span>
+            </button>
+            <button type="button" class="metal-asset-btn silver" data-metal="silver" id="metalBtnSilver">
+              <span>⚪</span> <span data-i18n="metal_silver_opt">Silver / ប្រាក់ (XAG/USD)</span>
+            </button>
+          </div>
+
+          <!-- Live Market Price Banner -->
+          <div class="live-ticker-wrap">
+            <div class="live-price-indicator">
+              <span class="pulse-dot"></span>
+              <span id="livePriceAssetLabel">XAU/USD LIVE SPOT:</span>
+              <span id="livePriceDisplayVal" style="color: var(--text-gold); font-size: 1.25rem; font-family: var(--font-accent); font-weight: 900;">$3,952.13</span>
+              <span style="font-size: 0.75rem; color: #94a3b8; font-weight: 500;" id="livePriceSourceTag">(Live Binance PAXG Feed)</span>
+            </div>
+            <button type="button" class="btn-refresh-price" id="btnRefreshLivePrice" title="Sync Live Price">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+              <span data-i18n="btn_sync_price">Sync Live Price</span>
+            </button>
+          </div>
+
+          <!-- Local Cambodian Physical Market Pricing Card -->
+          <div class="local-cambodia-pricing-card">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+              <div style="font-size: 0.84rem; text-transform: uppercase; color: var(--text-gold); font-weight: 800; letter-spacing: 0.05em;" data-i18n="hedge_local_title">
+                🇰🇭 តម្លៃផ្សារកម្ពុជាក្រៅឌីជីថល / LOCAL CAMBODIAN COUNTER VALUATION
+              </div>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span style="font-size: 0.74rem; color: #cbd5e1;" data-i18n="hedge_local_premium_tag">Local Shop Premium:</span>
+                <div style="display: flex; align-items: center; background: rgba(0,0,0,0.5); border: 1px solid rgba(229,185,95,0.4); border-radius: 6px; padding: 2px 8px;">
+                  <span style="font-size: 0.75rem; color: var(--text-gold); margin-right: 4px;">+$</span>
+                  <input type="number" id="hedgeLocalPremiumInput" value="30" min="0" max="300" step="5" style="width: 55px; background: transparent; border: none; color: #fff; font-size: 0.85rem; font-weight: 700; text-align: center; outline: none;">
+                  <span style="font-size: 0.72rem; color: #94a3b8; margin-left: 2px;">/តម្លឹង</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="local-cambodia-grid">
+              <div class="local-price-item">
+                <div class="item-label" data-i18n="hedge_local_per_damlung">តម្លៃក្នុង ១តម្លឹង (Price / Damlung)</div>
+                <div class="item-val" id="localPricePerDamlung">$4,795.00</div>
+              </div>
+              <div class="local-price-item">
+                <div class="item-label" data-i18n="hedge_local_per_chi">តម្លៃក្នុង ១ជី (Price / Chi)</div>
+                <div class="item-val" id="localPricePerChi">$479.50</div>
+              </div>
+              <div class="local-price-item">
+                <div class="item-label" data-i18n="hedge_local_weight_troy">ទម្ងន់ស្មើ Ounce (Troy Oz)</div>
+                <div class="item-val" id="localWeightTroyOz" style="color: #38bdf8;">60.28 oz</div>
+              </div>
+            </div>
+
+            <div class="local-inventory-banner">
+              <div>
+                <div style="font-size: 0.78rem; text-transform: uppercase; color: #f8fafc; font-weight: 800;" data-i18n="hedge_total_inventory_val_label">
+                  🏦 តម្លៃស្តុកមាសសរុបក្នុងហាង (Total Shop Physical Value)
+                </div>
+                <div style="font-size: 0.74rem; color: #94a3b8;" data-i18n="hedge_total_inventory_val_sub">
+                  Physical counter cash value protected at 100% against macro price drop
+                </div>
+              </div>
+              <div class="local-inventory-val" id="localTotalInventoryValue">$239,750.00</div>
+            </div>
+          </div>
 
           <div class="rebate-calc-grid">
             <!-- Left Column: Inputs & Unit Selection -->
@@ -148,10 +237,10 @@
                 <label data-i18n="hedge_label_flow">Physical Inventory Transaction Flow</label>
                 <div class="hedge-mode-toggle" id="hedgeFlowToggle">
                   <button type="button" class="hedge-flow-btn active" data-flow="buy" data-i18n="hedge_flow_buy">
-                    📥 Shop Buys Gold (Inventory UP)
+                    📥 Shop Buys Bullion (Inventory UP)
                   </button>
                   <button type="button" class="hedge-flow-btn" data-flow="sell" data-i18n="hedge_flow_sell">
-                    📤 Shop Sells Gold (Inventory DOWN)
+                    📤 Shop Sells Bullion (Inventory DOWN)
                   </button>
                 </div>
               </div>
@@ -167,23 +256,35 @@
                 </div>
               </div>
 
-              <!-- 3. Quantity Input & Slider -->
+              <!-- 3. Quantity Input, Slider & Presets -->
               <div class="calc-group">
                 <div class="calc-group-header">
                   <label for="hedgeQuantityInput" id="hedgeQuantityLabel" data-i18n="hedge_label_quantity">Physical Quantity to Hedge (Damlung)</label>
                   <span class="calc-value-display" id="hedgeQuantityVal">50 Damlung</span>
                 </div>
                 <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 8px;">
-                  <input type="number" id="hedgeQuantityInput" class="form-input" value="50" min="0.1" step="0.5" style="max-width: 130px; font-weight: 700;">
+                  <input type="number" id="hedgeQuantityInput" class="form-input" value="50" min="0.1" step="0.5" style="max-width: 140px; font-weight: 800; font-size: 1.1rem;">
                   <input type="range" id="hedgeQuantitySlider" class="calc-slider-range" min="1" max="500" step="1" value="50" style="flex: 1;">
+                </div>
+
+                <!-- Quick Presets -->
+                <div style="margin-top: 6px;">
+                  <div class="preset-pills-row" id="presetPillsContainer">
+                    <button type="button" class="preset-pill-btn" data-preset="1">1 តម្លឹង</button>
+                    <button type="button" class="preset-pill-btn" data-preset="5">5 តម្លឹង</button>
+                    <button type="button" class="preset-pill-btn" data-preset="10">10 តម្លឹង</button>
+                    <button type="button" class="preset-pill-btn active" data-preset="50">50 តម្លឹង</button>
+                    <button type="button" class="preset-pill-btn" data-preset="100">100 តម្លឹង</button>
+                    <button type="button" class="preset-pill-btn" data-preset="500">500 តម្លឹង</button>
+                  </div>
                 </div>
               </div>
 
               <!-- 4. Spot Price & Broker Leverage Grid -->
               <div class="calc-select-row">
                 <div class="calc-group">
-                  <label for="hedgeSpotPriceInput" data-i18n="hedge_label_spot">Gold Spot Price ($USD/oz)</label>
-                  <input type="number" id="hedgeSpotPriceInput" class="form-input" value="2720" min="1500" max="4000" step="5">
+                  <label for="hedgeSpotPriceInput" id="hedgeSpotPriceLabel" data-i18n="hedge_label_spot">Benchmark Spot Price ($USD/oz)</label>
+                  <input type="number" id="hedgeSpotPriceInput" class="form-input" value="3952" min="10" max="6000" step="1" style="font-weight: 700;">
                 </div>
 
                 <div class="calc-group">
@@ -198,11 +299,12 @@
 
               <!-- 5. Volatility Buffer Selector -->
               <div class="calc-group">
-                <label for="hedgeBufferSelect" data-i18n="hedge_label_buffer">Adverse Volatility Defense Buffer</label>
+                <label for="hedgeBufferSelect" id="hedgeBufferLabel" data-i18n="hedge_label_buffer">Adverse Volatility Defense Buffer</label>
                 <select id="hedgeBufferSelect" class="form-select">
-                  <option value="50">±$50/oz Adverse Move (Low Volatility Buffer)</option>
+                  <option value="50">±$50/oz Adverse Move (Low Buffer)</option>
                   <option value="100" selected>±$100/oz Adverse Move (Recommended Safe Buffer)</option>
                   <option value="150">±$150/oz Adverse Move (Maximum Macro Defense)</option>
+                  <option value="200">±$200/oz Adverse Move (Extreme Volatility Buffer)</option>
                 </select>
               </div>
 
@@ -234,12 +336,12 @@
 
                 <div class="calc-submetric-card">
                   <div class="label" data-i18n="hedge_metric_margin">Initial Margin Required</div>
-                  <div class="val" id="hedgeMarginOut" style="color: #38bdf8;">$1,632.00</div>
+                  <div class="val" id="hedgeMarginOut" style="color: #38bdf8;">$2,371.20</div>
                 </div>
 
                 <div class="calc-submetric-card">
-                  <div class="label" data-i18n="hedge_metric_buffer">Safe Buffer Deposit</div>
-                  <div class="val" id="hedgeSafeDepositOut" style="color: #10b981;">$7,632.00</div>
+                  <div class="label" data-i18n="hedge_metric_buffer">Recommended Safe Deposit</div>
+                  <div class="val" id="hedgeSafeDepositOut" style="color: #10b981;">$8,399.20</div>
                 </div>
 
                 <div class="calc-submetric-card">
@@ -266,6 +368,68 @@
 
             </div>
           </div>
+
+          <!-- Shop Capital & Balance Guidance Card -->
+          <div class="shop-capital-card">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+              <div style="font-size: 0.86rem; text-transform: uppercase; color: #38bdf8; font-weight: 800; letter-spacing: 0.05em;" data-i18n="hedge_capital_card_title">
+                💼 ការណែនាំអំពីដើមទុន & ទឹកប្រាក់គណនី (CAPITAL & BALANCE ADVISORY)
+              </div>
+              <span style="font-size: 0.72rem; color: #cbd5e1; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); padding: 3px 10px; border-radius: 9999px;" data-i18n="hedge_capital_card_tag">
+                How Much Balance Should You Deposit?
+              </span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center;">
+              <div class="calc-group" style="margin-bottom: 0;">
+                <label for="hedgeUserBalanceInput" style="font-size: 0.82rem;" data-i18n="hedge_user_balance_label">Your Current Trading Account Balance ($USD)</label>
+                <input type="number" id="hedgeUserBalanceInput" class="form-input" value="10000" min="100" step="500" style="font-weight: 800; color: #38bdf8; font-size: 1.15rem;">
+              </div>
+              <div>
+                <div style="font-size: 0.76rem; color: #94a3b8; text-transform: uppercase;" data-i18n="hedge_min_capital_rec">Recommended Deposit (ប្រាក់តម្កល់សុវត្ថិភាព):</div>
+                <div style="font-size: 1.35rem; font-family: var(--font-accent); font-weight: 800; color: #10b981;" id="hedgeRecommendedDepositOut">$8,399.20</div>
+                <div style="font-size: 0.75rem; color: #cbd5e1;" id="hedgeDepositPercentComparison">~3.5% of your total physical inventory value ($239,750)</div>
+              </div>
+            </div>
+
+            <!-- Capital Health Meter -->
+            <div class="capital-health-meter optimal" id="hedgeCapitalHealthMeter">
+              <span class="meter-icon" id="hedgeMeterIcon">🟢</span>
+              <span id="hedgeMeterText">OPTIMAL CAPITALIZATION: Your deposit ($10,000.00) covers initial margin plus adverse drawdown buffer. Zero margin-call risk.</span>
+            </div>
+          </div>
+
+          <!-- Adverse Volatility Stress-Test Simulator -->
+          <div class="hedge-simulation-box">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+              <div style="font-size: 0.84rem; text-transform: uppercase; color: var(--text-gold); font-weight: 800;" data-i18n="hedge_sim_title">
+                📊 ការសាកល្បងហានិភ័យពេលទីផ្សារប្រែប្រួល (MARKET STRESS-TEST SIMULATION)
+              </div>
+              <span style="font-size: 0.84rem; font-weight: 800; color: #f43f5e;" id="simMoveDisplayVal">-$100 / oz (Spot Market Drop)</span>
+            </div>
+            <div style="margin-top: 10px;">
+              <input type="range" id="simMoveSlider" class="calc-slider-range" min="-300" max="300" step="10" value="-100" style="width: 100%;">
+            </div>
+            
+            <div class="sim-results-grid">
+              <div class="sim-card">
+                <div class="sim-label" data-i18n="sim_phys_label">Physical Store Inventory</div>
+                <div class="sim-val" id="simPhysicalPnlVal" style="color: #f43f5e;">-$6,028.00</div>
+              </div>
+              <div class="sim-card">
+                <div class="sim-label" data-i18n="sim_hedge_label">Digital SAGFX Hedge</div>
+                <div class="sim-val" id="simDigitalPnlVal" style="color: #10b981;">+$6,000.00</div>
+              </div>
+              <div class="sim-card" style="border-color: rgba(229,185,95,0.4); background: rgba(229,185,95,0.06);">
+                <div class="sim-label" style="color: var(--text-gold);" data-i18n="sim_net_label">Net Combined Shop P&L</div>
+                <div class="sim-val" id="simNetPnlVal" style="color: var(--text-gold); font-size: 1.25rem;">$0.00 (Protected)</div>
+              </div>
+            </div>
+            <p style="font-size: 0.78rem; color: #94a3b8; margin-top: 10px; margin-bottom: 0; text-align: center;" data-i18n="sim_net_desc">
+              When spot price drops, your digital Short gains cash on MT4/MT5, perfectly cancelling the loss on physical inventory. 100% Delta-Neutral (&Delta; = 0).
+            </p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -558,6 +722,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=3.5.0"></script>
+  <script src="script.js?v=3.6.0"></script>
 </body>
 </html>
