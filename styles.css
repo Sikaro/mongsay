@@ -1463,6 +1463,18 @@ html.fx-frozen[data-theme="light"] .fx-toggle .icon-fx-off {
   margin-bottom: 4px;
 }
 
+/* SAGFX Dim Blue Sea Theme Title & Glow */
+.venture-card.gold-venture .venture-title,
+.sagfx-title {
+  color: #38bdf8 !important;
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.55), 0 0 32px rgba(14, 165, 233, 0.35) !important;
+}
+
+.sagfx-glow-text {
+  color: #38bdf8 !important;
+  text-shadow: 0 0 14px rgba(56, 189, 248, 0.6) !important;
+}
+
 .venture-tagline {
   font-size: 0.92rem;
   color: var(--text-gold-light);
@@ -1572,20 +1584,20 @@ html.fx-frozen[data-theme="light"] .fx-toggle .icon-fx-off {
 
 /* Community Showcase Gold Telegram CTA Button */
 .community-cta-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   width: 100%;
-  max-width: 520px;
+  max-width: 100%;
   padding: 16px 32px;
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   font-weight: 800;
   border-radius: var(--radius-full);
   background: var(--accent-gold-gradient);
   color: #05070b;
   box-shadow: 0 10px 32px -6px rgba(229, 185, 95, 0.55);
-  margin-top: 14px;
+  margin-top: 18px;
   text-decoration: none;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
@@ -1605,7 +1617,7 @@ html.fx-frozen[data-theme="light"] .fx-toggle .icon-fx-off {
    CREST BANNER SECTION
    ========================================================================== */
 .crest-showcase {
-  background: var(--bg-card);
+  background: rgba(9, 14, 28, 0.72);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
   border: 1px solid var(--border-card);
@@ -1684,7 +1696,7 @@ html.fx-frozen[data-theme="light"] .fx-toggle .icon-fx-off {
 
 .pillars-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 22px;
 }
 
@@ -3489,6 +3501,51 @@ html.fx-frozen[data-theme="light"] .fx-toggle .icon-fx-off {
   .mobile-toggle {
     display: block;
   }
+  .site-nav {
+    flex-wrap: nowrap !important;
+    gap: 8px;
+    padding: 8px 14px;
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap !important;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap !important;
+    gap: 5px;
+    flex-shrink: 0;
+  }
+  .lang-toggle {
+    height: 30px !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
+    padding: 0 8px !important;
+    font-size: 0.72rem !important;
+    border-radius: var(--radius-full) !important;
+  }
+  .theme-toggle,
+  .fx-toggle {
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    min-height: 30px !important;
+    max-width: 30px !important;
+    max-height: 30px !important;
+    font-size: 0.85rem !important;
+  }
+  .btn-nav-telegram {
+    height: 30px !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
+    padding: 0 10px !important;
+    font-size: 0.74rem !important;
+    border-radius: var(--radius-full) !important;
+  }
   .nav-mobile-menu {
     position: fixed;
     top: 80px;
@@ -3603,6 +3660,7 @@ html.fx-frozen[data-theme="light"] .fx-toggle .icon-fx-off {
     min-height: 50px;
     gap: 6px;
     justify-content: space-between;
+    flex-wrap: nowrap !important;
   }
   .brand-wrapper {
     gap: 8px;

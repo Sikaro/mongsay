@@ -151,8 +151,8 @@ const I18N_DICTIONARY = {
 
     // Promo 1: Brokerage Infrastructure
     promo_1_ribbon: 'PROMO 01 // BROKERAGE INFRASTRUCTURE',
-    promo_1_badge: '⚡ TURNKEY WHITE-LABEL & LIQUIDITY SUITE',
-    promo_1_title: 'Brokerage Infrastructure & White-Label Scale',
+    promo_1_badge: '⚡ TURNKEY BROKERAGE & LIQUIDITY SUITE',
+    promo_1_title: 'Institutional Brokerage Infrastructure & Liquidity Scale',
     promo_1_desc: 'Turnkey institutional brokerage infrastructure and strategic expansion for fund managers, introducing brokers (IBs), and financial institutions looking to scale regional market operations.',
     promo_1_b1: '<strong>Turnkey White-Label Setup:</strong> Complete licensing pathways, MT4/MT5 bridges, and CRM architecture.',
     promo_1_b2: '<strong>Tier-1 Liquidity Access:</strong> Institutional FIX API connections with ultra-tight raw interbank spreads.',
@@ -227,19 +227,16 @@ const I18N_DICTIONARY = {
     crest_p4: '🌐 Global FinTech Network',
     crest_cta: 'Join Official Channel: t.me/mongsayhouse17',
 
-    // Advisory Pillars Section (3 Columns)
+    // Advisory Pillars Section (2 Columns)
     pillars_sec_tag: 'EXECUTIVE CAPABILITIES',
     pillars_sec_title: 'Institutional <span class="gold-gradient-text">Advisory Pillars</span>',
     pillars_sec_desc: 'Strategic frameworks delivered to institutions, fintech startups, and high-volume trading desks.',
-    pillar_1_num: '01 / BROKERAGE ARCHITECTURE',
-    pillar_1_title: 'White-Label & Clearing Rails',
-    pillar_1_desc: 'Designing end-to-end brokerage infrastructure, multi-asset bridge integrations, turnkey CRM deployments, and prime clearing feeds powered by SAGFX.',
-    pillar_2_num: '02 / BROKERAGE SCALING',
-    pillar_2_title: 'Brokerage Expansion & Liquidity Scale',
-    pillar_2_desc: 'Structuring strategic IB contracts, white-label liquidity bridges, raw STP/ECN feed configurations, and rebate redistribution pipelines via SAGFX.ORG.',
-    pillar_3_num: '03 / QUANTITATIVE DISCIPLINE',
-    pillar_3_title: 'Mechanical Market Structure',
-    pillar_3_desc: 'Rigorous high-probability liquidity sweep tracking, displacement validation, and fractional risk architecture tailored for institutional Gold (XAU/USD) operations.',
+    pillar_1_num: '01 / BROKERAGE SCALING',
+    pillar_1_title: 'Brokerage Expansion & Liquidity Scale',
+    pillar_1_desc: 'Structuring strategic IB contracts, prime liquidity bridges, raw STP/ECN feed configurations, and rebate redistribution pipelines via SAGFX.ORG.',
+    pillar_2_num: '02 / QUANTITATIVE DISCIPLINE',
+    pillar_2_title: 'Mechanical Market Structure',
+    pillar_2_desc: 'Rigorous high-probability liquidity sweep tracking, displacement validation, and fractional risk architecture tailored for institutional Gold (XAU/USD) operations.',
 
     // Media Section
     media_sec_tag: 'MEDIA & MULTI-CHANNEL ECOSYSTEM',
@@ -329,12 +326,12 @@ const I18N_DICTIONARY = {
     // Strategic Promotions Section (3 Columns)
     promo_sec_tag: 'កម្មវិធីប្រូម៉ូសិនពាណិជ្ជកម្មផ្តាច់មុខ & អភ័យឯកសិទ្ធិដៃគូ',
     promo_sec_title: 'ប្រព័ន្ធយុទ្ធសាស្ត្រ <span class="gold-gradient-text">ប្រូម៉ូសិន & ការផ្តល់ជូនពិសេស</span>',
-    promo_sec_desc: 'កម្មវិធីស្ថាប័នតម្លៃខ្ពស់បង្កើតឡើងនៅទូទាំង SAGFX.ORG (<a href="https://sagfx.org" target="_blank" class="gold-text">sagfx.org</a>) និង Mongsay House VIP។ ទទួលបាន Rebate ជួញដូរធនាគារកម្រិត Tier-1 ពង្រីកហេដ្ឋារចនាសម្ព័ន្ធ White-Label Brokerage និងទទួលបានព័ត៌មានទីផ្សារសម្ងាត់។',
+    promo_sec_desc: 'កម្មវិធីស្ថាប័នតម្លៃខ្ពស់បង្កើតឡើងនៅទូទាំង SAGFX.ORG (<a href="https://sagfx.org" target="_blank" class="gold-text">sagfx.org</a>) និង Mongsay House VIP។ ទទួលបាន Rebate ជួញដូរធនាគារកម្រិត Tier-1 ពង្រីកហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាស្ថាប័ន និងទទួលបានព័ត៌មានទីផ្សារសម្ងាត់។',
 
     // Promo 1: Brokerage Infrastructure
     promo_1_ribbon: 'ប្រូម៉ូសិន ០១ // ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសា',
-    promo_1_badge: '⚡ កញ្ចប់ WHITE-LABEL & សាច់ប្រាក់ងាយស្រួលពេញលេញ',
-    promo_1_title: 'ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសា & ការពង្រីក White-Label',
+    promo_1_badge: '⚡ កញ្ចប់ឈ្មួញជើងសា & សាច់ប្រាក់ងាយស្រួលពេញលេញ',
+    promo_1_title: 'ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាស្ថាប័ន & ការពង្រីកសាច់ប្រាក់',
     promo_1_desc: 'ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាស្ថាប័នពេញលេញ និងការពង្រីកជាយុទ្ធសាស្ត្រសម្រាប់អ្នកគ្រប់គ្រងមូលនិធិ ឈ្មួញជើងសាកម្រិតមធ្យម (IBs) និងស្ថាប័នហិរញ្ញវត្ថុដែលចង់ពង្រីកប្រតិបត្តិការទីផ្សារក្នុងតំបន់។',
     promo_1_b1: '<strong>ការរៀបចំ White-Label ពេញលេញ៖</strong> ផ្លូវច្បាប់អាជ្ញាប័ណ្ណ ស្ពាន MT4/MT5 និងប្រព័ន្ធ CRM។',
     promo_1_b2: '<strong>ការទទួលបានសាច់ប្រាក់ Tier-1៖</strong> ការតភ្ជាប់ FIX API ស្ថាប័នជាមួយ Spread ធនាគារទាបបំផុត។',
@@ -409,19 +406,16 @@ const I18N_DICTIONARY = {
     crest_p4: '🌐 បណ្តាញ FinTech សកល',
     crest_cta: 'ចូលរួមបណ្តាញផ្លូវការ៖ t.me/mongsayhouse17',
 
-    // Advisory Pillars Section (3 Columns)
+    // Advisory Pillars Section (2 Columns)
     pillars_sec_tag: 'សមត្ថភាពប្រតិបត្តិ',
     pillars_sec_title: 'សសរស្តម្ភ <span class="gold-gradient-text">ប្រឹក្សាស្ថាប័ន</span>',
     pillars_sec_desc: 'ក្របខ័ណ្ឌយុទ្ធសាស្ត្រផ្តល់ជូនស្ថាប័ន ធុរកិច្ចថ្មី FinTech និងតុជួញដូរទំហំធំ។',
-    pillar_1_num: '០១ // ស្ថាបត្យកម្មឈ្មួញជើងសា',
-    pillar_1_title: 'ប្រព័ន្ធ White-Label & ការទូទាត់សាច់ប្រាក់',
-    pillar_1_desc: 'រចនាហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាពេញលេញ ការតភ្ជាប់ស្ពានពហុទ្រព្យសកម្ម ការដាក់ពង្រាយ CRM ពេញលេញ និងប្រភពទិន្នន័យតម្លៃផ្ទាល់តាមរយៈ SAGFX។',
-    pillar_2_num: '០២ // ការពង្រីកឈ្មួញជើងសា',
-    pillar_2_title: 'ការពង្រីកឈ្មួញជើងសា & សាច់ប្រាក់ងាយស្រួល',
-    pillar_2_desc: 'រៀបចំកិច្ចសន្យា IB ជាយុទ្ធសាស្ត្រ ស្ពានសាច់ប្រាក់ White-Label ការកំណត់រចនាសម្ព័ន្ធ STP/ECN ដើម និងបំពង់បែងចែក Rebate តាមរយៈ SAGFX.ORG។',
-    pillar_3_num: '០៣ // វិន័យបរិមាណ',
-    pillar_3_title: 'រចនាសម្ព័ន្ធទីផ្សារមេកានិក',
-    pillar_3_desc: 'ការតាមដានការបោសសម្អាត Liquidity កម្រិតប្រូបាប៊ីលីតេខ្ពស់ ការផ្ទៀងផ្ទាត់ Displacement និងស្ថាបត្យកម្មហានិភ័យប្រភាគសម្រាប់ប្រតិបត្តិការមាស (XAU/USD)។',
+    pillar_1_num: '០១ // ការពង្រីកឈ្មួញជើងសា',
+    pillar_1_title: 'ការពង្រីកឈ្មួញជើងសា & សាច់ប្រាក់ងាយស្រួល',
+    pillar_1_desc: 'រៀបចំកិច្ចសន្យា IB ជាយុទ្ធសាស្ត្រ ស្ពានសាច់ប្រាក់ងាយស្រួល Prime ការកំណត់រចនាសម្ព័ន្ធ STP/ECN ដើម និងបំពង់បែងចែក Rebate តាមរយៈ SAGFX.ORG។',
+    pillar_2_num: '០២ // វិន័យបរិមាណ',
+    pillar_2_title: 'រចនាសម្ព័ន្ធទីផ្សារមេកានិក',
+    pillar_2_desc: 'ការតាមដានការបោសសម្អាត Liquidity កម្រិតប្រូបាប៊ីលីតេខ្ពស់ ការផ្ទៀងផ្ទាត់ Displacement និងស្ថាបត្យកម្មហានិភ័យប្រភាគសម្រាប់ប្រតិបត្តិការមាស (XAU/USD)។',
 
     // Media Section
     media_sec_tag: 'ប្រព័ន្ធផ្សព្វផ្សាយ & អេកូឡូស៊ីពហុបណ្តាញ',
@@ -624,6 +618,12 @@ const PHRASE_DICTIONARY_KH = {
 
   // Promotions & Whitelist
   "0% Setup Fee Merchant Launchpad": "ការគ្រប់គ្រងប្រទេស & ការពង្រីក White-Label",
+  "Institutional Brokerage Infrastructure & Liquidity Scale": "ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាស្ថាប័ន & ការពង្រីកសាច់ប្រាក់",
+  "TURNKEY BROKERAGE & LIQUIDITY SUITE": "កញ្ចប់ឈ្មួញជើងសា & សាច់ប្រាក់ងាយស្រួលពេញលេញ",
+  "Institutional Brokerage Architecture": "ស្ថាបត្យកម្មឈ្មួញជើងសាស្ថាប័ន",
+  "Institutional Brokerage Inception & Enterprise Solutions": "ការចាប់ផ្តើមឈ្មួញជើងសាស្ថាប័ន & ដំណោះស្រាយសហគ្រាស",
+  "Prime liquidity bridges & CRM infrastructure guidance": "ស្ពានសាច់ប្រាក់ងាយស្រួល Prime & ការណែនាំ CRM",
+  "Southeast Asia regional market expansion playbooks": "យុទ្ធសាស្ត្រពង្រីកទីផ្សារក្នុងតំបន់អាស៊ីអាគ្នេយ៍",
   "Brokerage Infrastructure & White-Label Scale": "ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសា & ការពង្រីក White-Label",
   "Waived integration and API gateway setup costs for eligible enterprise merchants integrating SAG Payment. Rapid settlement, multi-currency acquiring, and dedicated technical integration support.": "ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាស្ថាប័នពេញលេញ និងការគ្រប់គ្រងប្រទេសជាយុទ្ធសាស្ត្រសម្រាប់អ្នកគ្រប់គ្រងមូលនិធិ ឈ្មួញជើងសាកម្រិតមធ្យម (IBs) និងស្ថាប័នហិរញ្ញវត្ថុដែលចង់ពង្រីកប្រតិបត្តិការទីផ្សារក្នុងតំបន់។",
   "GATEWAY LAUNCHPAD": "ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសា",
