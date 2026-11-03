@@ -4292,3 +4292,326 @@ html.fx-frozen[data-theme="light"] .site-nav,
   -webkit-backdrop-filter: none !important;
   background: rgba(6, 18, 36, 0.98) !important;
 }
+
+/* ==========================================================================
+   INSTITUTIONAL FAQ ACCORDION SECTION
+   ========================================================================== */
+.faq-section {
+  padding: 60px 0 80px;
+  position: relative;
+  z-index: 10;
+}
+
+.faq-accordion {
+  max-width: 920px;
+  margin: 36px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: rgba(10, 16, 28, 0.75);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+.faq-item:hover {
+  border-color: rgba(229, 185, 95, 0.4);
+}
+
+.faq-item.active {
+  border-color: rgba(229, 185, 95, 0.65);
+  background: rgba(14, 22, 38, 0.90);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(229, 185, 95, 0.12);
+}
+
+.faq-header {
+  width: 100%;
+  padding: 22px 26px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  text-align: left;
+  user-select: none;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.45;
+  transition: color var(--transition-fast);
+}
+
+.faq-header:hover {
+  color: var(--text-gold);
+}
+
+.faq-item.active .faq-header {
+  color: #fff;
+}
+
+.faq-question {
+  flex: 1;
+}
+
+.faq-icon {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(229, 185, 95, 0.35);
+  background: rgba(229, 185, 95, 0.08);
+  color: var(--text-gold);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+  background: var(--gold-gradient);
+  border-color: transparent;
+  color: #07090e;
+  box-shadow: 0 0 12px rgba(229, 185, 95, 0.45);
+}
+
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.faq-item.active .faq-body {
+  opacity: 1;
+}
+
+.faq-content {
+  padding: 0 26px 24px 26px;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+  line-height: 1.75;
+  border-top: 1px dashed rgba(255, 255, 255, 0.06);
+  padding-top: 16px;
+}
+
+.faq-content a {
+  color: var(--text-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+
+.faq-content a:hover {
+  color: #fff;
+}
+
+/* Light Mode Overrides for FAQ */
+[data-theme="light"] .faq-item {
+  background: rgba(6, 20, 38, 0.94);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 12px 32px rgba(2, 6, 23, 0.7);
+}
+
+[data-theme="light"] .faq-item:hover {
+  border-color: rgba(56, 189, 248, 0.65);
+}
+
+[data-theme="light"] .faq-item.active {
+  background: rgba(8, 25, 48, 0.98);
+  border-color: #38bdf8;
+  box-shadow: 0 16px 40px rgba(2, 6, 23, 0.85), 0 0 25px rgba(56, 189, 248, 0.25);
+}
+
+[data-theme="light"] .faq-header {
+  color: #f0f9ff;
+}
+
+[data-theme="light"] .faq-header:hover {
+  color: #38bdf8;
+}
+
+[data-theme="light"] .faq-icon {
+  border-color: rgba(56, 189, 248, 0.45);
+  background: rgba(14, 165, 233, 0.12);
+  color: #38bdf8;
+}
+
+[data-theme="light"] .faq-item.active .faq-icon {
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.55);
+}
+
+[data-theme="light"] .faq-content {
+  color: #cbd5e1;
+  border-top-color: rgba(56, 189, 248, 0.15);
+}
+
+[data-theme="light"] .faq-content a {
+  color: #38bdf8;
+}
+
+/* Frozen FX Mode for FAQ */
+html.fx-frozen .faq-item {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html.fx-frozen .faq-body {
+  transition: none !important;
+}
+
+/* ==========================================================================
+   KINGDOM OF CAMBODIA STATUTORY LEGAL & INTELLECTUAL PROPERTY NOTICE
+   ========================================================================== */
+.footer-legal-notice {
+  margin: 36px 0 28px 0;
+  padding: 24px 28px;
+  background: rgba(9, 14, 24, 0.88);
+  border-left: 3px solid var(--text-gold);
+  border-top: 1px solid var(--border-card);
+  border-right: 1px solid var(--border-card);
+  border-bottom: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(229, 185, 95, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.legal-notice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.legal-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-gold);
+  background: rgba(229, 185, 95, 0.12);
+  border: 1px solid rgba(229, 185, 95, 0.32);
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
+.legal-badge-pill .flag-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.legal-code {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.legal-quote-text {
+  color: #e2e8f0;
+  font-size: 0.86rem;
+  line-height: 1.75;
+  font-style: italic;
+  margin-bottom: 14px;
+}
+
+.legal-quote-text strong {
+  color: var(--text-gold);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.legal-disclaimer-sub {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  line-height: 1.65;
+  margin: 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  padding-top: 12px;
+}
+
+.legal-disclaimer-sub strong {
+  color: #cbd5e1;
+}
+
+/* Light Mode Overrides for Legal Notice */
+[data-theme="light"] .footer-legal-notice {
+  background: rgba(6, 20, 38, 0.94);
+  border-left: 3px solid #38bdf8;
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 12px 35px rgba(2, 6, 23, 0.75), inset 0 1px 0 rgba(56, 189, 248, 0.18);
+}
+
+[data-theme="light"] .legal-badge-pill {
+  color: #38bdf8;
+  background: rgba(14, 165, 233, 0.14);
+  border-color: rgba(56, 189, 248, 0.45);
+}
+
+[data-theme="light"] .legal-code {
+  color: #7dd3fc;
+}
+
+[data-theme="light"] .legal-quote-text {
+  color: #f1f5f9;
+}
+
+[data-theme="light"] .legal-quote-text strong {
+  color: #38bdf8;
+}
+
+[data-theme="light"] .legal-disclaimer-sub {
+  color: #94a3b8;
+  border-top-color: rgba(56, 189, 248, 0.18);
+}
+
+[data-theme="light"] .legal-disclaimer-sub strong {
+  color: #e2e8f0;
+}
+
+/* Frozen FX Mode for Legal Notice */
+html.fx-frozen .footer-legal-notice {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+@media (max-width: 768px) {
+  .footer-legal-notice {
+    padding: 18px 20px;
+    margin: 28px 0 20px 0;
+  }
+  .legal-badge-pill {
+    font-size: 0.68rem;
+    padding: 4px 10px;
+  }
+  .legal-quote-text {
+    font-size: 0.82rem;
+  }
+  .legal-disclaimer-sub {
+    font-size: 0.74rem;
+  }
+}
+

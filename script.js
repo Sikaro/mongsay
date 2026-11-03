@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBooksFilterAndSearch();
   initTelegramCopyButtons();
   initVideoBackground();
+  initFaqAccordion();
 });
 
 /* ---------------------------------------------------------
@@ -128,14 +129,14 @@ const I18N_DICTIONARY = {
     nav_media: "Media",
     nav_library: "Library",
     nav_contact: "Enroll / Contact",
-    hero_badge_payment: "COUNTRY MANAGER",
+    hero_badge_payment: "INSTITUTIONAL LIQUIDITY",
     hero_badge_advisory: "SAGFX LEAD BROKERAGE",
     hero_badge_sagfx: "SAGFX LEAD BROKERAGE",
-    hero_badge_cm: "COUNTRY MANAGER",
+    hero_badge_cm: "INSTITUTIONAL LIQUIDITY",
     hero_badge_mongsay: "MONGSAY HOUSE VIP",
     hero_subtitle: "Executive Portfolio",
     hero_title: "Institutional <br><span class=\"gold-text\">Market Liquidity</span> & Lead <br><span class=\"gold-text\">Brokerage Leadership</span>",
-    hero_desc: "Country Manager & Lead Institutional Brokerage Director at <strong>SAGFX</strong> (<a href=\"https://sagfx.org\" target=\"_blank\" class=\"gold-text\">sagfx.org</a>). Structuring tier-1 interbank liquidity bridges, institutional rebate networks, and mechanical market execution for elite trading communities across Southeast Asia.",
+    hero_desc: "Lead Institutional Brokerage Director at <strong>SAGFX</strong> (<a href=\"https://sagfx.org\" target=\"_blank\" class=\"gold-text\">sagfx.org</a>). Structuring tier-1 interbank liquidity bridges, institutional rebate networks, and mechanical market execution for elite trading communities across Southeast Asia.",
     hero_cta_enroll: "Enroll with @MongsayFX",
     hero_cta_ventures: "Explore SAGFX Ventures",
     stat_gateway: "Execution Availability",
@@ -151,8 +152,8 @@ const I18N_DICTIONARY = {
     // Promo 1: Brokerage Infrastructure
     promo_1_ribbon: 'PROMO 01 // BROKERAGE INFRASTRUCTURE',
     promo_1_badge: '⚡ TURNKEY WHITE-LABEL & LIQUIDITY SUITE',
-    promo_1_title: 'Country Management & White-Label Scale',
-    promo_1_desc: 'Turnkey institutional brokerage infrastructure and strategic country management for fund managers, introducing brokers (IBs), and financial institutions looking to scale regional market operations.',
+    promo_1_title: 'Brokerage Infrastructure & White-Label Scale',
+    promo_1_desc: 'Turnkey institutional brokerage infrastructure and strategic expansion for fund managers, introducing brokers (IBs), and financial institutions looking to scale regional market operations.',
     promo_1_b1: '<strong>Turnkey White-Label Setup:</strong> Complete licensing pathways, MT4/MT5 bridges, and CRM architecture.',
     promo_1_b2: '<strong>Tier-1 Liquidity Access:</strong> Institutional FIX API connections with ultra-tight raw interbank spreads.',
     promo_1_b3: '<strong>Highest Master IB Splits:</strong> Maximize institutional commission splits across regional networks.',
@@ -201,14 +202,14 @@ const I18N_DICTIONARY = {
     venture_1_btn_alpha: 'Community Alpha →',
 
     // Venture 2: SAGFX.ORG
-    venture_2_role: 'Country Manager & Lead Brokerage',
+    venture_2_role: 'Lead Institutional Brokerage',
     venture_2_title: 'SAGFX.ORG',
     venture_2_tagline: 'Financial Markets Advisors | Institutional Rebate Network',
     venture_2_desc: 'Premier brokerage development management and institutional rebate network. Connecting high-net-worth clients and active market participants directly to regulated liquidity providers with up to 85% commission cashbacks, tightened raw spreads, and weekly payouts.',
     partner_brokers_label: 'Partner Brokers:',
     spec_official_portal: 'Official Portal',
     spec_executive_role: 'Executive Role',
-    venture_2_role_val: 'Country Manager & Director',
+    venture_2_role_val: 'Lead Brokerage Director',
     spec_cashback: 'Cashback Rebate',
     venture_2_cashback_val: 'Up to $8.50 / Lot',
     spec_payout: 'Payout Schedule',
@@ -234,7 +235,7 @@ const I18N_DICTIONARY = {
     pillar_1_title: 'White-Label & Clearing Rails',
     pillar_1_desc: 'Designing end-to-end brokerage infrastructure, multi-asset bridge integrations, turnkey CRM deployments, and prime clearing feeds powered by SAGFX.',
     pillar_2_num: '02 / BROKERAGE SCALING',
-    pillar_2_title: 'Country Management & Liquidity Scale',
+    pillar_2_title: 'Brokerage Expansion & Liquidity Scale',
     pillar_2_desc: 'Structuring strategic IB contracts, white-label liquidity bridges, raw STP/ECN feed configurations, and rebate redistribution pipelines via SAGFX.ORG.',
     pillar_3_num: '03 / QUANTITATIVE DISCIPLINE',
     pillar_3_title: 'Mechanical Market Structure',
@@ -275,12 +276,33 @@ const I18N_DICTIONARY = {
     telegram_caption: "Scan with Telegram App",
     contact_tag: "DIRECT PROTOCOL",
     contact_title: "Initiate Executive Partnership",
-    contact_desc: "Direct channel to the Office of Mong Say for institutional inquiries, country management partnerships, lead brokerage consulting, and keynote strategic engagements.",
+    contact_desc: "Direct channel to the Office of Mong Say for institutional inquiries, lead brokerage partnerships, institutional consulting, and keynote strategic engagements.",
     contact_btn_submit: "Transmit Strategic Inquiry",
     fx_label: "FX",
     eco_label: "ECO",
     fx_mode_active: "FX Active",
-    fx_mode_eco: "ECO Freeze"
+    fx_mode_eco: "ECO Freeze",
+
+    // FAQ Section
+    faq_sec_tag: "KNOWLEDGE ARCHITECTURE",
+    faq_sec_title: "Frequently Asked <span class=\"gold-gradient-text\">Questions</span>",
+    faq_sec_desc: "Key institutional operational guidelines, rebate mechanics, mechanical market structure methodologies, and partnership protocols.",
+    faq_q1: "What is SAGFX and how does the institutional rebate mechanism function?",
+    faq_a1: "SAGFX (<a href=\"https://sagfx.org\" target=\"_blank\" class=\"gold-text\">sagfx.org</a>) connects retail, prop, and institutional traders directly to tier-1 regulated prime brokerages (including IC Markets, OANDA, BlackBull Markets, and FP Markets) with raw 0.0 pip ECN spreads. Traded volume automatically accrues institutional rebates up to $45+ per lot, credited weekly directly to the trader's account with zero retail markup.",
+    faq_q2: "What analytical framework is utilized in Mongsay House?",
+    faq_a2: "Mongsay House relies strictly on Pure Institutional Supply & Demand (S&D), Liquidity Sweeps, and Mechanical Market Structure. Trend continuation (BOS) and character change (CHoCH) are confirmed exclusively by full candle-body closes past major swing points originating from displacement base formations (RBD, DBR, RBR, DBD) primarily on Gold (XAU/USD). All retail indicator clutter and speculative guesswork are eliminated.",
+    faq_q3: "How do fund managers and brokers scale through the Brokerage Infrastructure?",
+    faq_a3: "Mongsay structures turnkey institutional brokerage architecture including MT4/MT5 liquidity bridge connections, FIX API feeds, custom CRM onboarding, branded client portals, and master affiliate multi-tier rebate redistribution engines with rapid 48-hour onboarding across Southeast Asia.",
+    faq_q4: "What are the qualification requirements to join Mongsay House VIP?",
+    faq_a4: "Access to Mongsay House VIP is complimentary for verified community traders who maintain institutional risk discipline (fractional risk modeling 0.5%–1.0% per trade, minimum 1:3 RR targeting external structural liquidity pools) and hold active whitelisted trading accounts via official partner brokers.",
+    faq_q5: "How can I verify official communications from Mong Say?",
+    faq_a5: "All official correspondence, direct consultations, and whitelist enrollments are conducted exclusively through verified personal Telegram handle <a href=\"https://t.me/MongsayFX\" target=\"_blank\" class=\"gold-text\">@MongsayFX</a> and official community channel <a href=\"https://t.me/mongsayhouse17\" target=\"_blank\" class=\"gold-text\">t.me/mongsayhouse17</a>. Always verify handles carefully to protect against impersonators.",
+
+    // Cambodian Statutory Legal Protection & IP Notice
+    legal_badge: "KINGDOM OF CAMBODIA STATUTORY PROTECTION & IP NOTICE",
+    legal_statute_ref: "ROYAL KRAM NO. NS/RKM/0303/008 • NS/RKM/1119/017",
+    legal_quote: "\"All intellectual property, proprietary financial architectures, mechanical market models, quantitative systems, visual identity assets, and published research contained within mongsay.com are protected under the <strong>Law on Copyright and Related Rights (Royal Kram No. NS/RKM/0303/008)</strong> and the <strong>Law on Electronic Commerce (Royal Kram No. NS/RKM/1119/017)</strong> of the Kingdom of Cambodia. Unauthorized reproduction, programmatic scraping, distribution, translation mirroring, or commercial exploitation is strictly prohibited and subject to civil remedies and penal prosecution under Cambodian law.\"",
+    legal_disclaimer: "<strong>Institutional Notice:</strong> Content published by Mong Say and Mongsay House is strictly educational and analytical research. It does not constitute retail financial advice, collective investment solicitation, or custodial deposit taking under the regulatory remits of the Securities and Exchange Regulator of Cambodia (SERC) or the National Bank of Cambodia (NBC). All trading in leveraged instruments involves substantial risk of capital loss."
   },
   kh: {
     nav_overview: "ទិដ្ឋភាព",
@@ -289,14 +311,14 @@ const I18N_DICTIONARY = {
     nav_media: "ផ្សព្វផ្សាយ",
     nav_library: "បណ្ណាល័យ",
     nav_contact: "ទំនាក់ទំនង",
-    hero_badge_payment: "នាយកគ្រប់គ្រងប្រចាំប្រទេស",
+    hero_badge_payment: "សាច់ប្រាក់ងាយស្រួលស្ថាប័ន",
     hero_badge_advisory: "ឈ្មួញជើងសាឈានមុខ SAGFX",
     hero_badge_sagfx: "ឈ្មួញជើងសាឈានមុខ SAGFX",
-    hero_badge_cm: "នាយកគ្រប់គ្រងប្រចាំប្រទេស",
+    hero_badge_cm: "សាច់ប្រាក់ងាយស្រួលស្ថាប័ន",
     hero_badge_mongsay: "MONGSAY HOUSE VIP",
     hero_subtitle: "ផលប័ត្រប្រតិបត្តិផ្លូវការ",
     hero_title: "សាច់ប្រាក់ងាយស្រួលស្ថាប័ន <br><span class=\"gold-text\">កម្រិតអន្តរជាតិ</span> & ភាពជាអ្នកដឹកនាំ <br><span class=\"gold-text\">ឈ្មួញជើងសាឈានមុខ</span>",
-    hero_desc: "នាយកគ្រប់គ្រងប្រចាំប្រទេស និងជាប្រធានដឹកនាំឈ្មួញជើងសាស្ថាប័ននៅ <strong>SAGFX</strong> (<a href=\"https://sagfx.org\" target=\"_blank\" class=\"gold-text\">sagfx.org</a>)។ ដឹកនាំសាច់ប្រាក់ងាយស្រួលស្ថាប័ន Tier-1 រចនាសម្ព័ន្ធទីផ្សារមេកានិក និងសហគមន៍ជួញដូរកម្រិតខ្ពស់។",
+    hero_desc: "ប្រធានដឹកនាំឈ្មួញជើងសាស្ថាប័ននៅ <strong>SAGFX</strong> (<a href=\"https://sagfx.org\" target=\"_blank\" class=\"gold-text\">sagfx.org</a>)។ ដឹកនាំសាច់ប្រាក់ងាយស្រួលស្ថាប័ន Tier-1 រចនាសម្ព័ន្ធទីផ្សារមេកានិក និងសហគមន៍ជួញដូរកម្រិតខ្ពស់។",
     hero_cta_enroll: "ចុះឈ្មោះជាមួយ @MongsayFX",
     hero_cta_ventures: "ស្វែងយល់ពី SAGFX Ventures",
     stat_gateway: "ភាពអាចរកបាននៃប្រព័ន្ធប្រតិបត្តិ",
@@ -312,8 +334,8 @@ const I18N_DICTIONARY = {
     // Promo 1: Brokerage Infrastructure
     promo_1_ribbon: 'ប្រូម៉ូសិន ០១ // ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសា',
     promo_1_badge: '⚡ កញ្ចប់ WHITE-LABEL & សាច់ប្រាក់ងាយស្រួលពេញលេញ',
-    promo_1_title: 'ការគ្រប់គ្រងប្រទេស & ការពង្រីក White-Label',
-    promo_1_desc: 'ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាស្ថាប័នពេញលេញ និងការគ្រប់គ្រងប្រទេសជាយុទ្ធសាស្ត្រសម្រាប់អ្នកគ្រប់គ្រងមូលនិធិ ឈ្មួញជើងសាកម្រិតមធ្យម (IBs) និងស្ថាប័នហិរញ្ញវត្ថុដែលចង់ពង្រីកប្រតិបត្តិការទីផ្សារក្នុងតំបន់។',
+    promo_1_title: 'ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសា & ការពង្រីក White-Label',
+    promo_1_desc: 'ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាស្ថាប័នពេញលេញ និងការពង្រីកជាយុទ្ធសាស្ត្រសម្រាប់អ្នកគ្រប់គ្រងមូលនិធិ ឈ្មួញជើងសាកម្រិតមធ្យម (IBs) និងស្ថាប័នហិរញ្ញវត្ថុដែលចង់ពង្រីកប្រតិបត្តិការទីផ្សារក្នុងតំបន់។',
     promo_1_b1: '<strong>ការរៀបចំ White-Label ពេញលេញ៖</strong> ផ្លូវច្បាប់អាជ្ញាប័ណ្ណ ស្ពាន MT4/MT5 និងប្រព័ន្ធ CRM។',
     promo_1_b2: '<strong>ការទទួលបានសាច់ប្រាក់ Tier-1៖</strong> ការតភ្ជាប់ FIX API ស្ថាប័នជាមួយ Spread ធនាគារទាបបំផុត។',
     promo_1_b3: '<strong>ការបែងចែក Master IB ខ្ពស់បំផុត៖</strong> បង្កើនការបែងចែកកម្រៃជើងសារស្ថាប័នអតិបរមាក្នុងតំបន់។',
@@ -362,14 +384,14 @@ const I18N_DICTIONARY = {
     venture_1_btn_alpha: 'Community Alpha →',
 
     // Venture 2: SAGFX.ORG
-    venture_2_role: 'នាយកគ្រប់គ្រងប្រចាំប្រទេស & ឈ្មួញជើងសាឈានមុខ',
+    venture_2_role: 'ប្រធានដឹកនាំឈ្មួញជើងសាស្ថាប័ន',
     venture_2_title: 'SAGFX.ORG',
     venture_2_tagline: 'ទីប្រឹក្សាទីផ្សារហិរញ្ញវត្ថុ | បណ្តាញ Rebate ស្ថាប័ន',
     venture_2_desc: 'ការគ្រប់គ្រង និងអភិវឌ្ឍន៍ឈ្មួញជើងសាឈានមុខ និងបណ្តាញ Rebate ស្ថាប័ន។ ភ្ជាប់ទំនាក់ទំនងអតិថិជនលំដាប់ខ្ពស់ និងអ្នកជួញដូរសកម្មដោយផ្ទាល់ទៅកាន់អ្នកផ្តល់សាច់ប្រាក់ស្របច្បាប់ ជាមួយប្រាក់ Rebate រហូតដល់ ៨៥%, Spread ECN ដើមទាបបំផុត និងការទូទាត់ប្រចាំសប្តាហ៍។',
     partner_brokers_label: 'ឈ្មួញជើងសាដៃគូ៖',
     spec_official_portal: 'គេហទំព័រផ្លូវការ',
     spec_executive_role: 'តួនាទីប្រតិបត្តិ',
-    venture_2_role_val: 'នាយកគ្រប់គ្រងប្រចាំប្រទេស',
+    venture_2_role_val: 'ប្រធានដឹកនាំឈ្មួញជើងសា',
     spec_cashback: 'ប្រាក់ Rebate ត្រឡប់មកវិញ',
     venture_2_cashback_val: 'រហូតដល់ $8.50 / Lot',
     spec_payout: 'កាលវិភាគទូទាត់',
@@ -395,7 +417,7 @@ const I18N_DICTIONARY = {
     pillar_1_title: 'ប្រព័ន្ធ White-Label & ការទូទាត់សាច់ប្រាក់',
     pillar_1_desc: 'រចនាហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាពេញលេញ ការតភ្ជាប់ស្ពានពហុទ្រព្យសកម្ម ការដាក់ពង្រាយ CRM ពេញលេញ និងប្រភពទិន្នន័យតម្លៃផ្ទាល់តាមរយៈ SAGFX។',
     pillar_2_num: '០២ // ការពង្រីកឈ្មួញជើងសា',
-    pillar_2_title: 'ការគ្រប់គ្រងប្រទេស & ពង្រីកសាច់ប្រាក់ងាយស្រួល',
+    pillar_2_title: 'ការពង្រីកឈ្មួញជើងសា & សាច់ប្រាក់ងាយស្រួល',
     pillar_2_desc: 'រៀបចំកិច្ចសន្យា IB ជាយុទ្ធសាស្ត្រ ស្ពានសាច់ប្រាក់ White-Label ការកំណត់រចនាសម្ព័ន្ធ STP/ECN ដើម និងបំពង់បែងចែក Rebate តាមរយៈ SAGFX.ORG។',
     pillar_3_num: '០៣ // វិន័យបរិមាណ',
     pillar_3_title: 'រចនាសម្ព័ន្ធទីផ្សារមេកានិក',
@@ -436,12 +458,33 @@ const I18N_DICTIONARY = {
     telegram_caption: "ស្កេនជាមួយកម្មវិធី Telegram",
     contact_tag: "ពិធីសារផ្ទាល់",
     contact_title: "ចាប់ផ្តើមភាពជាដៃគូប្រតិបត្តិ",
-    contact_desc: "បណ្តាញផ្ទាល់ទៅកាន់ការិយាល័យ Mong Say សម្រាប់ការសាកសួរកម្រិតស្ថាប័ន ភាពជាដៃគូនាយកគ្រប់គ្រងប្រចាំប្រទេស និងការពិគ្រោះយោបល់ឈ្មួញជើងសាឈានមុខ។",
+    contact_desc: "បណ្តាញផ្ទាល់ទៅកាន់ការិយាល័យ Mong Say សម្រាប់ការសាកសួរកម្រិតស្ថាប័ន ភាពជាដៃគូដឹកនាំឈ្មួញជើងសាស្ថាប័ន និងការពិគ្រោះយោបល់យុទ្ធសាស្ត្រ។",
     contact_btn_submit: "ផ្ញើសំណើជាយុទ្ធសាស្ត្រ",
     fx_label: "ចលនា",
     eco_label: "សន្សំ",
     fx_mode_active: "ចលនាបើក",
-    fx_mode_eco: "សន្សំសំចៃ"
+    fx_mode_eco: "សន្សំសំចៃ",
+
+    // FAQ Section
+    faq_sec_tag: "ស្ថាបត្យកម្មចំណេះដឹង & សំណួរញឹកញាប់",
+    faq_sec_title: "សំណួរដែលសួរ <span class=\"gold-gradient-text\">ញឹកញាប់ (FAQ)</span>",
+    faq_sec_desc: "គោលការណ៍ណែនាំប្រតិបត្តិការស្ថាប័នសំខាន់ៗ យន្តការ Rebate វិធីសាស្ត្ររចនាសម្ព័ន្ធទីផ្សារមេកានិក និងពិធីសារភាពជាដៃគូ។",
+    faq_q1: "តើ SAGFX ជាអ្វី ហើយយន្តការ Rebate ស្ថាប័នដំណើរការយ៉ាងដូចម្តេច?",
+    faq_a1: "SAGFX (<a href=\"https://sagfx.org\" target=\"_blank\" class=\"gold-text\">sagfx.org</a>) ភ្ជាប់ទំនាក់ទំនងអ្នកជួញដូរលក់រាយ Prop និងស្ថាប័នដោយផ្ទាល់ទៅកាន់ឈ្មួញជើងសាធនាគារ Tier-1 ដែលមានអាជ្ញាប័ណ្ណ (រួមមាន IC Markets, OANDA, BlackBull Markets និង FP Markets) ជាមួយ Spread ECN 0.0 Pip ដើម។ ទំហំជួញដូរនឹងបង្កើតជាប្រាក់ Rebate ស្ថាប័នរហូតដល់ $45+ ក្នុងមួយ Lot ដោយស្វ័យប្រវត្តិ ហើយទូទាត់រៀងរាល់សប្តាហ៍ផ្ទាល់ទៅកាន់គណនីជួញដូរ។",
+    faq_q2: "តើ Mongsay House ប្រើប្រាស់គំរូវិភាគបែបណា?",
+    faq_a2: "Mongsay House ពឹងផ្អែកលើតម្រូវការ & ការផ្គត់ផ្គង់ស្ថាប័នសុទ្ធសាធ (Pure Institutional S&D), ការបោសសម្អាត Liquidity (Liquidity Sweeps) និងរចនាសម្ព័ន្ធទីផ្សារមេកានិក។ ការបន្តនិន្នាការ (BOS) និងការផ្លាស់ប្តូរចរិតលក្ខណៈទីផ្សារ (CHoCH) ត្រូវបានបញ្ជាក់ដោយការបិទតួទៀនពេញលេញហួសពី Swing High/Low សំខាន់ៗដែលមានប្រភពមកពី Base Formations (RBD, DBR, RBR, DBD) លើមាស (XAU/USD)។ គ្មានការប្រើប្រាស់ Indicator រញ៉េរញ៉ៃឡើយ។",
+    faq_q3: "តើអ្នកគ្រប់គ្រងមូលនិធិ និងឈ្មួញជើងសាអាចពង្រីកតាមរយៈ Brokerage Infrastructure យ៉ាងដូចម្តេច?",
+    faq_a3: "Mongsay រៀបចំស្ថាបត្យកម្មឈ្មួញជើងសាស្ថាប័នពេញលេញ រួមទាំងស្ពានតភ្ជាប់ MT4/MT5, FIX API, ប្រព័ន្ធ CRM ផ្ទាល់ខ្លួន, ផ្ទាំងគ្រប់គ្រងអតិថិជន និងប្រព័ន្ធបែងចែកកម្រៃជើងសារ Master IB ពហុកម្រិត ជាមួយនឹងការដាក់ពង្រាយយ៉ាងឆាប់រហ័សក្នុងរយៈពេល ៤៨ ម៉ោងនៅអាស៊ីអាគ្នេយ៍។",
+    faq_q4: "តើអ្វីជាលក្ខខណ្ឌតម្រូវដើម្បីចូលរួម Mongsay House VIP?",
+    faq_a4: "ការចូលរួម Mongsay House VIP គឺឥតគិតថ្លៃ ១០០% មួយជីវិតសម្រាប់សមាជិកដែលបានផ្ទៀងផ្ទាត់ និងរក្សាវិន័យគ្រប់គ្រងហានិភ័យស្ថាប័ន (គំរូហានិភ័យប្រភាគ ០.៥%–១.០% ក្នុងមួយ Trade និងគោលដៅចំណេញអប្បបរមា 1:3 RR សំដៅលើ Structural Liquidity Pools) ព្រមទាំងមានគណនីជួញដូរក្នុងបញ្ជីស។",
+    faq_q5: "តើខ្ញុំអាចផ្ទៀងផ្ទាត់ការទំនាក់ទំនងផ្លូវការពីលោក ម៉ុង សាយ យ៉ាងដូចម្តេច?",
+    faq_a5: "រាល់ការឆ្លើយឆ្លងផ្លូវការ ការពិគ្រោះយោបល់ និងការចុះឈ្មោះ Whitelist ត្រូវបានធ្វើឡើងផ្តាច់មុខតាមរយៈ Telegram ផ្ទាល់ខ្លួនដែលបានផ្ទៀងផ្ទាត់ <a href=\"https://t.me/MongsayFX\" target=\"_blank\" class=\"gold-text\">@MongsayFX</a> និងឆានែលសហគមន៍ផ្លូវការ <a href=\"https://t.me/mongsayhouse17\" target=\"_blank\" class=\"gold-text\">t.me/mongsayhouse17</a>។ សូមផ្ទៀងផ្ទាត់ឈ្មោះគណនីជានិច្ចដើម្បីជៀសវាងគណនីក្លែងបន្លំ។",
+
+    // Cambodian Statutory Legal Protection & IP Notice
+    legal_badge: "សេចក្តីជូនដំណឹងស្តីពីកិច្ចការពារផ្លូវច្បាប់ & កម្មសិទ្ធិបញ្ញានៃព្រះរាជាណាចក្រកម្ពុជា",
+    legal_statute_ref: "ព្រះរាជក្រមលេខ នស/រកម/០៣០៣/០០៨ • នស/រកម/១១១៩/០១៧",
+    legal_quote: "«រាល់កម្មសិទ្ធិបញ្ញា ស្ថាបត្យកម្មហិរញ្ញវត្ថុផ្តាច់មុខ គំរូរចនាសម្ព័ន្ធទីផ្សារមេកានិក ប្រព័ន្ធបរិមាណ ទ្រព្យសកម្មអត្តសញ្ញាណ និងឯកសារស្រាវជ្រាវដែលបានបោះពុម្ពផ្សាយនៅលើ mongsay.com ត្រូវបានការពារយ៉ាងតឹងរ៉ឹងបំផុតក្រោម <strong>ច្បាប់ស្តីពីសិទ្ធិអ្នកនិពន្ធ និងសិទ្ធិប្រហាក់ប្រហែល (ព្រះរាជក្រមលេខ នស/រកម/០៣០៣/០០៨)</strong> និង <strong>ច្បាប់ស្តីពីពាណិជ្ជកម្មតាមប្រព័ន្ធអេឡិចត្រូនិក (ព្រះរាជក្រមលេខ នស/រកម/១១១៩/០១៧)</strong> នៃព្រះរាជាណាចក្រកម្ពុជា។ ការចម្លង ការទាញយកទិន្នន័យដោយស្វ័យប្រវត្តិ ការចែកចាយ ការកែច្នៃ ឬការទាញយកផលប្រយោជន៍ពាណិជ្ជកម្មដោយគ្មានការអនុញ្ញាតជាលាយលក្ខណ៍អក្សរ គឺជាអំពើខុសច្បាប់ និងត្រូវប្រឈមមុខនឹងចំណាត់ការផ្លូវច្បាប់រដ្ឋប្បវេណី និងព្រហ្មទណ្ឌ។»",
+    legal_disclaimer: "<strong>សេចក្តីជូនដំណឹងកម្រិតស្ថាប័ន៖</strong> ខ្លឹមសារដែលបានផ្សព្វផ្សាយដោយ Mong Say និង Mongsay House គឺជាការស្រាវជ្រាវបែបអប់រំ និងការវិភាគបច្ចេកទេសសុទ្ធសាធ។ វាមិនមែនជាការផ្តល់ដំបូន្មានហិរញ្ញវត្ថុលក់រាយ ឬការកៀរគរប្រាក់បញ្ញើក្រោមដែនសមត្ថកិច្ចរបស់និយ័តករមូលបត្រកម្ពុជា (SERC) ឬធនាគារជាតិនៃកម្ពុជា (NBC) ឡើយ។ ការជួញដូរឧបករណ៍ហិរញ្ញវត្ថុ Leverage មានហានិភ័យខ្ពស់នៃការបាត់បង់ដើមទុន។"
   }
 };
 
@@ -462,8 +505,11 @@ const PHRASE_DICTIONARY_KH = {
   "Media": "ផ្សព្វផ្សាយ",
   "Library": "បណ្ណាល័យ",
   "Enroll / Contact": "ចុះឈ្មោះ / ទំនាក់ទំនង",
-  "COUNTRY MANAGER": "នាយកគ្រប់គ្រងប្រចាំប្រទេស",
-  "COUNTRY MANAGER & LEAD BROKERAGE": "នាយកគ្រប់គ្រងប្រចាំប្រទេស & ឈ្មួញជើងសាឈានមុខ",
+  "LEAD BROKERAGE DIRECTOR": "ប្រធានដឹកនាំឈ្មួញជើងសាស្ថាប័ន",
+  "Lead Brokerage Director": "ប្រធានដឹកនាំឈ្មួញជើងសាស្ថាប័ន",
+  "Lead Institutional Brokerage": "ប្រធានដឹកនាំឈ្មួញជើងសាស្ថាប័ន",
+  "Lead Institutional Brokerage Director": "ប្រធានដឹកនាំឈ្មួញជើងសាស្ថាប័ន",
+  "INSTITUTIONAL LIQUIDITY": "សាច់ប្រាក់ងាយស្រួលស្ថាប័ន",
   "SAGFX LEAD BROKERAGE": "ឈ្មួញជើងសាឈានមុខ SAGFX",
   "SAGFX.ORG ADVISOR": "ឈ្មួញជើងសាឈានមុខ SAGFX",
   "Executive Portfolio": "ផលប័ត្រប្រតិបត្តិផ្លូវការ",
@@ -578,7 +624,7 @@ const PHRASE_DICTIONARY_KH = {
 
   // Promotions & Whitelist
   "0% Setup Fee Merchant Launchpad": "ការគ្រប់គ្រងប្រទេស & ការពង្រីក White-Label",
-  "Country Management & White-Label Scale": "ការគ្រប់គ្រងប្រទេស & ការពង្រីក White-Label",
+  "Brokerage Infrastructure & White-Label Scale": "ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសា & ការពង្រីក White-Label",
   "Waived integration and API gateway setup costs for eligible enterprise merchants integrating SAG Payment. Rapid settlement, multi-currency acquiring, and dedicated technical integration support.": "ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាស្ថាប័នពេញលេញ និងការគ្រប់គ្រងប្រទេសជាយុទ្ធសាស្ត្រសម្រាប់អ្នកគ្រប់គ្រងមូលនិធិ ឈ្មួញជើងសាកម្រិតមធ្យម (IBs) និងស្ថាប័នហិរញ្ញវត្ថុដែលចង់ពង្រីកប្រតិបត្តិការទីផ្សារក្នុងតំបន់។",
   "GATEWAY LAUNCHPAD": "ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសា",
   "Apply via SAG Payment →": "សាកសួរការពង្រីកឈ្មួញជើងសា →",
@@ -637,10 +683,10 @@ Object.assign(PHRASE_DICTIONARY_KH, {
   "Acquiring Specs →": "លក្ខណៈបច្ចេកទេសច្រកទូទាត់ →",
   "Architecture Specs →": "លក្ខណៈបច្ចេកទេសស្ថាបត្យកម្ម →",
   "SAGFX.ORG": "SAGFX.ORG",
-  "Country Manager & Lead Institutional Brokerage": "នាយកគ្រប់គ្រងប្រចាំប្រទេស & ឈ្មួញជើងសាស្ថាប័នឈានមុខ",
-  "Institutional Brokerage BDM & Tier-1 Liquidity": "នាយកគ្រប់គ្រងប្រចាំប្រទេស & ឈ្មួញជើងសាស្ថាប័នឈានមុខ",
-  "Country Management & Strategic Brokerage": "ការគ្រប់គ្រងប្រទេស & ឈ្មួញជើងសាជាយុទ្ធសាស្ត្រ",
-  "Lead Broker BDM Strategy & Architecture": "ការគ្រប់គ្រងប្រទេស & ឈ្មួញជើងសាជាយុទ្ធសាស្ត្រ",
+  "Institutional Brokerage & Liquidity Architecture": "ស្ថាបត្យកម្មឈ្មួញជើងសាស្ថាប័ន & សាច់ប្រាក់",
+  "Institutional Brokerage BDM & Tier-1 Liquidity": "ឈ្មួញជើងសាស្ថាប័ន & សាច់ប្រាក់ Tier-1",
+  "Lead Brokerage & Strategic Architecture": "ស្ថាបត្យកម្មឈ្មួញជើងសាជាយុទ្ធសាស្ត្រ",
+  "Lead Broker BDM Strategy & Architecture": "យុទ្ធសាស្ត្រ & ស្ថាបត្យកម្មឈ្មួញជើងសាឈានមុខ",
   "Whitelisted Direct Interbank Spreads": "Spread ផ្ទាល់ពីទីផ្សារអន្តរធនាគារកម្រិត Whitelist",
   "Automated Trader Commission Rebate Yield": "ទិន្នផល Rebate កម្រៃជើងសាស្វ័យប្រវត្តិសម្រាប់ Trader",
   "FinTech Community Incubator": "មជ្ឈមណ្ឌលបណ្តុះបណ្តាលសហគមន៍ FinTech",
@@ -681,8 +727,8 @@ Object.assign(PHRASE_DICTIONARY_KH, {
   "Fractional Liquidity Feed": "លំហូរសាច់ប្រាក់ងាយស្រួលបំណែក",
 
   // Advisory Pillars
-  "Country Management & Scale": "ការគ្រប់គ្រងប្រទេស & ការពង្រីក",
-  "Country Management & Regional Brokerage Expansion": "ការគ្រប់គ្រងប្រទេស & ការពង្រីកឈ្មួញជើងសាក្នុងតំបន់",
+  "Brokerage Expansion & Scale": "ការពង្រីកឈ្មួញជើងសា & ការពង្រីក",
+  "Regional Brokerage Expansion & Scale": "ការពង្រីកឈ្មួញជើងសាក្នុងតំបន់ & ការពង្រីក",
   "Institutional Liquidity Bridges": "ស្ពានសាច់ប្រាក់ងាយស្រួលស្ថាប័ន",
   "Lead Brokerage & Tier-1 Liquidity": "ឈ្មួញជើងសាឈានមុខ & សាច់ប្រាក់ Tier-1",
   "Broker BDM & Tier-1 Liquidity": "ឈ្មួញជើងសាឈានមុខ & សាច់ប្រាក់ Tier-1",
@@ -889,8 +935,8 @@ Object.assign(PHRASE_DICTIONARY_KH, {
   "Engage Mongsay for": "ទាក់ទង Mongsay សម្រាប់",
   "DIRECT ACCESS": "ការចូលប្រើប្រាស់ផ្ទាល់",
   "Personal VIP Telegram (Primary)": "Telegram VIP ផ្ទាល់ខ្លួន (ចម្បង)",
-  "Country Management & White-Label Rails": "ការគ្រប់គ្រងប្រទេស & ផ្លូវ White-Label",
-  "Country Management & Institutional Liquidity Channel": "ការគ្រប់គ្រងប្រទេស & បណ្តាញសាច់ប្រាក់ស្ថាប័ន",
+  "Brokerage Infrastructure & White-Label Rails": "ហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសា & ផ្លូវ White-Label",
+  "Lead Brokerage & Institutional Liquidity Channel": "ឈ្មួញជើងសាឈានមុខ & បណ្តាញសាច់ប្រាក់ស្ថាប័ន",
   "SAG Payment Merchant Rail Direct Channel": "ការគ្រប់គ្រងប្រទេស & ផ្លូវ White-Label",
   "SAGFX Lead Brokerage & Liquidity Partnership": "ភាពជាដៃគូឈ្មួញជើងសាឈានមុខ & សាច់ប្រាក់ងាយស្រួល SAGFX",
   "SAGFX Broker BDM & Liquidity Partnership": "ភាពជាដៃគូឈ្មួញជើងសាឈានមុខ & សាច់ប្រាក់ងាយស្រួល SAGFX",
@@ -905,7 +951,7 @@ Object.assign(PHRASE_DICTIONARY_KH, {
   "SAGFX.ORG Advisory": "ការប្រឹក្សា SAGFX.ORG",
   "SAGFX.ORG Brokerage": "ឈ្មួញជើងសា SAGFX.ORG",
   "Financial Markets Advisors | Institutional Rebate Network": "ទីប្រឹក្សាទីផ្សារហិរញ្ញវត្ថុ | បណ្តាញ Rebate ស្ថាប័ន",
-  "Country Manager & Lead Brokerage": "នាយកគ្រប់គ្រងប្រចាំប្រទេស & ឈ្មួញជើងសាឈានមុខ",
+  "Lead Brokerage & Scale": "ប្រធានដឹកនាំឈ្មួញជើងសាស្ថាប័ន",
   "Financial Advisor & BDM": "នាយកគ្រប់គ្រងប្រចាំប្រទេស & ឈ្មួញជើងសាឈានមុខ",
   "Direct escalation to CEO Office": "ការដោះស្រាយបន្ទាន់ផ្ទាល់ទៅកាន់ការិយាល័យ",
   "Up to $8.50 / Lot": "រហូតដល់ $8.50 / Lot",
@@ -988,12 +1034,12 @@ Object.assign(PHRASE_DICTIONARY_KH, {
   "Institutional Rails": "ផ្លូវតភ្ជាប់ស្ថាប័ន",
   "White-Label Infrastructure": "ហេដ្ឋារចនាសម្ព័ន្ធ White-Label",
   "Institutional Liquidity": "សាច់ប្រាក់ងាយស្រួលស្ថាប័ន",
-  "Country Management & Scale": "ការគ្រប់គ្រងប្រទេស & ការពង្រីក",
+  "Brokerage Expansion & Scale": "ការពង្រីកឈ្មួញជើងសា & ការពង្រីក",
   "Cashback & Rebate Networks": "បណ្តាញ Cashback & Rebate",
   "Strictly Institutional & Confidential. Zero Retail Clutter.": "កម្រិតស្ថាប័ន & ការសម្ងាត់ខ្ពស់បំផុត។ គ្មានភាពរញ៉េរញ៉ៃកម្រិតរាយ។",
   "Pioneering institutional brokerage infrastructure, regional liquidity bridges, and mechanical market execution.": "ត្រួសត្រាយផ្លូវលើហេដ្ឋារចនាសម្ព័ន្ធឈ្មួញជើងសាស្ថាប័ន ស្ពានសាច់ប្រាក់ងាយស្រួលក្នុងតំបន់ និងការប្រតិបត្តិទីផ្សារតាមប្រព័ន្ធមេកានិក។",
   "Initiate Executive Partnership": "ចាប់ផ្តើមភាពជាដៃគូកម្រិតប្រតិបត្តិ",
-  "Direct channel to the Office of Mong Say for institutional inquiries, SAGFX brokerage consulting, country management partnerships, and keynote strategic engagements.": "បណ្តាញផ្ទាល់ទៅកាន់ការិយាល័យលោក ម៉ុង សាយ សម្រាប់ការសាកសួរកម្រិតស្ថាប័ន ការប្រឹក្សាឈ្មួញជើងសា SAGFX ភាពជាដៃគូគ្រប់គ្រងប្រទេស និងកិច្ចសហការយុទ្ធសាស្ត្រ។",
+  "Direct channel to the Office of Mong Say for institutional inquiries, SAGFX brokerage consulting, lead brokerage partnerships, and keynote strategic engagements.": "បណ្តាញផ្ទាល់ទៅកាន់ការិយាល័យលោក ម៉ុង សាយ សម្រាប់ការសាកសួរកម្រិតស្ថាប័ន ការប្រឹក្សាឈ្មួញជើងសា SAGFX ភាពជាដៃគូដឹកនាំឈ្មួញជើងសាស្ថាប័ន និងកិច្ចសហការយុទ្ធសាស្ត្រ។",
   "Direct private access to Mong Say for institutional traders, brokerage partnerships, and regional scaling (SAGFX.ORG). Connect directly on Telegram to enroll in private mentorship and VIP institutional channels.": "ការតភ្ជាប់ផ្ទាល់ជាមួយលោក ម៉ុង សាយ សម្រាប់ពាណិជ្ជករស្ថាប័ន ភាពជាដៃគូឈ្មួញជើងសា និងការពង្រីកក្នុងតំបន់ (SAGFX.ORG)។ ភ្ជាប់ទំនាក់ទំនងតាម Telegram ដើម្បីចូលរួមការបណ្តុះបណ្តាលឯកជន និងបណ្តាញ VIP ស្ថាប័ន។",
   "Book a direct strategy consultation with Mong Say regarding SAGFX institutional broker partnerships, liquidity infrastructure, or trading mentorship.": "កក់ការពិគ្រោះយោបល់យុទ្ធសាស្ត្រផ្ទាល់ជាមួយលោក ម៉ុង សាយ អំពីភាពជាដៃគូឈ្មួញជើងសាស្ថាប័ន SAGFX ហេដ្ឋារចនាសម្ព័ន្ធសាច់ប្រាក់ ឬការបណ្តុះបណ្តាលការជួញដូរ។",
   "SAGFX Institutional White-Label Brokerage": "ប្រព័ន្ធ White-Label ឈ្មួញជើងសាស្ថាប័ន SAGFX",
@@ -1246,6 +1292,12 @@ function applyLanguage(lang) {
         }
       }
     });
+  }
+
+  // Update active FAQ accordion body height after translation text size change
+  const activeFaqBody = document.querySelector('.faq-item.active .faq-body');
+  if (activeFaqBody) {
+    activeFaqBody.style.maxHeight = activeFaqBody.scrollHeight + 'px';
   }
 }
 
@@ -1940,4 +1992,52 @@ function showToast(msg) {
   setTimeout(() => {
     toast.classList.remove('show');
   }, 4500);
+}
+
+/* ---------------------------------------------------------
+   13. Institutional FAQ Accordion Controller
+   --------------------------------------------------------- */
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  if (!faqItems.length) return;
+
+  faqItems.forEach(item => {
+    const header = item.querySelector('.faq-header');
+    const body = item.querySelector('.faq-body');
+    if (!header || !body) return;
+
+    header.addEventListener('click', () => {
+      const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+      // Close all other open items
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item && otherItem.classList.contains('active')) {
+          otherItem.classList.remove('active');
+          const otherHeader = otherItem.querySelector('.faq-header');
+          const otherBody = otherItem.querySelector('.faq-body');
+          if (otherHeader) otherHeader.setAttribute('aria-expanded', 'false');
+          if (otherBody) otherBody.style.maxHeight = null;
+        }
+      });
+
+      // Toggle current item
+      if (isExpanded) {
+        item.classList.remove('active');
+        header.setAttribute('aria-expanded', 'false');
+        body.style.maxHeight = null;
+      } else {
+        item.classList.add('active');
+        header.setAttribute('aria-expanded', 'true');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Recalculate heights on resize
+  window.addEventListener('resize', () => {
+    const activeBody = document.querySelector('.faq-item.active .faq-body');
+    if (activeBody) {
+      activeBody.style.maxHeight = activeBody.scrollHeight + 'px';
+    }
+  });
 }
