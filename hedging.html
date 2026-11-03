@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Institutional Gold Hedging | Delta-Neutral Physical Dealer & Bullion Risk Desk | Mongsay</title>
+  <meta name="description" content="Delta-neutral physical gold hedging architecture, Cambodian Damlung-to-Lot mathematical calibration, and institutional bullion risk management by Mongsay.">
+  <link rel="icon" href="assets/lion-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=3.5.0">
+</head>
+<body>
+
+  <!-- Background Video Container -->
+  <div class="site-bg-wrapper">
+    <video autoplay muted loop playsinline preload="auto" poster="assets/lion-gold-strokes.jpg" class="site-bg-video">
+      <source src="assets/lion-bg.webm" type="video/webm">
+      <source src="assets/lion-bg.mp4" type="video/mp4">
+      <source src="assets/lion-gold-strokes.webm" type="video/webm">
+      <source src="assets/lion-gold-strokes.mp4" type="video/mp4">
+    </video>
+    <div class="site-bg-overlay"></div>
+    <div class="bg-god-rays"></div>
+    <div class="bg-gold-light-sweep"></div>
+    <div class="bg-starlight-layer"></div>
+    <div class="bg-aura-layer"></div>
+    <div class="bg-spotlight-layer"></div>
+  </div>
+
+  <canvas id="matrixCanvas"></canvas>
+
+  <!-- Minimalist Floating Capsule Navigation -->
+  <div class="site-nav-outer">
+    <nav class="site-nav">
+      <!-- Chinese Lion Face Logo + Luxury Brand Font -->
+      <a href="index.html" class="brand-wrapper">
+        <img src="assets/lion-logo.png" alt="Mongsay Chinese Lion Crest" class="brand-lion-logo">
+        <span class="brand-title"><span class="brand-cap">M</span>ongsay</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav_overview">Overview</a></li>
+        <li><a href="ventures.html" data-i18n="nav_ventures">Ventures</a></li>
+        <li><a href="advisory.html" data-i18n="nav_advisory">Lead Brokerage</a></li>
+        <li><a href="hedging.html" class="active" data-i18n="nav_hedging">Gold Hedging</a></li>
+        <li><a href="media.html" data-i18n="nav_media">Media</a></li>
+        <li><a href="books.html" data-i18n="nav_library">Library</a></li>
+        <li><a href="index.html#contact" data-i18n="nav_contact">Enroll / Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Bilingual & Theme Controls -->
+        <div class="nav-controls">
+          <button class="nav-control-btn lang-toggle" id="langToggleBtn" aria-label="Switch Language" title="Switch Language">
+            <span class="lang-code active" data-lang="en">EN</span>
+            <span class="lang-divider">|</span>
+            <span class="lang-code" data-lang="kh">ខ្មែរ</span>
+          </button>
+          <button class="nav-control-btn theme-toggle" id="themeToggleBtn" aria-label="Toggle Theme" title="Toggle Theme">
+            <span class="theme-icon icon-sun">☀️</span>
+            <span class="theme-icon icon-moon">🌙</span>
+          </button>
+          <button class="nav-control-btn fx-toggle" id="fxToggleBtn" aria-label="Toggle Animations (FX / Eco Mode)" title="Toggle Animations">
+            <span class="fx-icon icon-fx-on">✨ <span class="fx-label" data-i18n="fx_label">FX</span></span>
+            <span class="fx-icon icon-fx-off">⚡ <span class="fx-label" data-i18n="eco_label">ECO</span></span>
+          </button>
+        </div>
+
+        <a href="https://t.me/MongsayFX" target="_blank" rel="noopener noreferrer" class="btn-nav-action btn-nav-telegram" title="VIP Telegram @MongsayFX">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
+          <span>@MongsayFX</span>
+        </a>
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="nav-mobile-menu" id="mobileNavMenu">
+      <div style="display: flex; gap: 8px; margin-bottom: 12px; justify-content: center;">
+        <button class="nav-control-btn lang-toggle" style="flex: 1; justify-content: center;">
+          <span class="lang-code active" data-lang="en">EN</span> | <span class="lang-code" data-lang="kh">ខ្មែរ</span>
+        </button>
+        <button class="nav-control-btn theme-toggle" style="flex: 1; justify-content: center;">
+          <span class="theme-icon icon-sun">☀️ Light</span>
+          <span class="theme-icon icon-moon">🌙 Dark</span>
+        </button>
+        <button class="nav-control-btn fx-toggle" style="flex: 1; justify-content: center;">
+          <span class="fx-icon icon-fx-on">✨ <span data-i18n="fx_mode_active">FX Active</span></span>
+          <span class="fx-icon icon-fx-off">⚡ <span data-i18n="fx_mode_eco">ECO Freeze</span></span>
+        </button>
+      </div>
+      <a href="index.html" data-i18n="nav_overview">Overview</a>
+      <a href="ventures.html" data-i18n="nav_ventures">Ventures</a>
+      <a href="advisory.html" data-i18n="nav_advisory">Lead Brokerage</a>
+      <a href="hedging.html" data-i18n="nav_hedging">Gold Hedging</a>
+      <a href="media.html" data-i18n="nav_media">Media</a>
+      <a href="books.html" data-i18n="nav_library">Library</a>
+      <a href="index.html#contact" data-i18n="nav_contact">Enroll / Contact</a>
+      <a href="https://t.me/MongsayFX" target="_blank" class="btn-primary" style="justify-content: center;">Enroll via @MongsayFX</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" style="padding: 50px 0 24px;">
+      <div class="container">
+        <div class="section-tag"><span class="dot"></span> <span data-i18n="hedge_hero_tag">QUANTITATIVE BULLION DESK // DELTA-NEUTRAL ARCHITECTURE</span></div>
+        <h1 class="section-title">
+          Institutional <span class="gold-gradient-text">Gold Hedging Desk</span> & Bullion Risk Architecture
+        </h1>
+        <p class="section-desc" data-i18n="hedge_hero_desc">
+          Engineering delta-neutral liquidity execution for physical gold shops, jewelry merchants, and bullion vaults. Neutralize spot market price swings, eliminate directional inventory risk, and lock in 100% of dealer spreads and fabrication premiums.
+        </p>
+
+        <!-- Fast Conversion Constants Banner -->
+        <div class="community-badges" style="margin-top: 24px; justify-content: center; gap: 10px;">
+          <span class="community-pill" data-i18n="hedge_badge_1">⚖️ 1 Damlung (តម្លឹង) = 37.50 g ≈ 1.20565 Troy oz</span>
+          <span class="community-pill" data-i18n="hedge_badge_2">📐 1.00 Standard Lot = 82.9426 Damlung (3,110.35 g)</span>
+          <span class="community-pill" data-i18n="hedge_badge_3">🛡️ Delta-Neutral Equation: Digital = −Physical</span>
+          <span class="community-pill" data-i18n="hedge_badge_4">⚡ Direct Clearing via SAGFX.ORG</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Hedging Calculator Section -->
+    <section class="calculator-section" style="padding: 20px 0 60px;">
+      <div class="container">
+        <div class="rebate-calc-container hedging-calc-container">
+          <div class="section-tag"><span class="dot"></span> <span data-i18n="hedge_calc_tag">INTERACTIVE DEALER HEDGING ENGINE</span></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 12px;">
+            <h2 class="section-title" style="margin-bottom: 0;" data-i18n="hedge_calc_title">
+              Physical Gold <span class="gold-gradient-text">Delta-Neutral Hedging Calculator</span>
+            </h2>
+            <img src="assets/sagfx-3d-logo.jpg" alt="SAGFX 3D Official Emblem" style="height: 44px; width: 44px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);">
+          </div>
+          <p class="section-desc" style="margin-bottom: 28px;" data-i18n="hedge_calc_desc">
+            Calculate exact digital MT4/MT5 contract lot sizes, required margin collateral, and adverse volatility buffers for your shop's physical gold inventory in real time.
+          </p>
+
+          <div class="rebate-calc-grid">
+            <!-- Left Column: Inputs & Unit Selection -->
+            <div class="calc-inputs-col">
+              
+              <!-- 1. Transaction Type Toggle -->
+              <div class="calc-group">
+                <label data-i18n="hedge_label_flow">Physical Inventory Transaction Flow</label>
+                <div class="hedge-mode-toggle" id="hedgeFlowToggle">
+                  <button type="button" class="hedge-flow-btn active" data-flow="buy" data-i18n="hedge_flow_buy">
+                    📥 Shop Buys Gold (Inventory UP)
+                  </button>
+                  <button type="button" class="hedge-flow-btn" data-flow="sell" data-i18n="hedge_flow_sell">
+                    📤 Shop Sells Gold (Inventory DOWN)
+                  </button>
+                </div>
+              </div>
+
+              <!-- 2. Weight Unit Selector -->
+              <div class="calc-group">
+                <label data-i18n="hedge_label_unit">Inventory Unit of Measure</label>
+                <div class="hedge-unit-toggle" id="hedgeUnitToggle">
+                  <button type="button" class="hedge-unit-btn active" data-unit="damlung" data-i18n="unit_damlung">Damlung (តម្លឹង - 37.5g)</button>
+                  <button type="button" class="hedge-unit-btn" data-unit="chi" data-i18n="unit_chi">Chi (ជី - 3.75g)</button>
+                  <button type="button" class="hedge-unit-btn" data-unit="grams" data-i18n="unit_grams">Grams (g)</button>
+                  <button type="button" class="hedge-unit-btn" data-unit="ounces" data-i18n="unit_ounces">Troy Ounces (oz)</button>
+                </div>
+              </div>
+
+              <!-- 3. Quantity Input & Slider -->
+              <div class="calc-group">
+                <div class="calc-group-header">
+                  <label for="hedgeQuantityInput" id="hedgeQuantityLabel" data-i18n="hedge_label_quantity">Physical Quantity to Hedge (Damlung)</label>
+                  <span class="calc-value-display" id="hedgeQuantityVal">50 Damlung</span>
+                </div>
+                <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 8px;">
+                  <input type="number" id="hedgeQuantityInput" class="form-input" value="50" min="0.1" step="0.5" style="max-width: 130px; font-weight: 700;">
+                  <input type="range" id="hedgeQuantitySlider" class="calc-slider-range" min="1" max="500" step="1" value="50" style="flex: 1;">
+                </div>
+              </div>
+
+              <!-- 4. Spot Price & Broker Leverage Grid -->
+              <div class="calc-select-row">
+                <div class="calc-group">
+                  <label for="hedgeSpotPriceInput" data-i18n="hedge_label_spot">Gold Spot Price ($USD/oz)</label>
+                  <input type="number" id="hedgeSpotPriceInput" class="form-input" value="2720" min="1500" max="4000" step="5">
+                </div>
+
+                <div class="calc-group">
+                  <label for="hedgeLeverageSelect" data-i18n="hedge_label_leverage">Clearing Leverage</label>
+                  <select id="hedgeLeverageSelect" class="form-select">
+                    <option value="100" selected>1:100 (Institutional Standard)</option>
+                    <option value="200">1:200 (Flexible Liquidity)</option>
+                    <option value="500">1:500 (Aggressive Margin)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 5. Volatility Buffer Selector -->
+              <div class="calc-group">
+                <label for="hedgeBufferSelect" data-i18n="hedge_label_buffer">Adverse Volatility Defense Buffer</label>
+                <select id="hedgeBufferSelect" class="form-select">
+                  <option value="50">±$50/oz Adverse Move (Low Volatility Buffer)</option>
+                  <option value="100" selected>±$100/oz Adverse Move (Recommended Safe Buffer)</option>
+                  <option value="150">±$150/oz Adverse Move (Maximum Macro Defense)</option>
+                </select>
+              </div>
+
+            </div>
+
+            <!-- Right Column: Hedging Execution Directive & Metrics -->
+            <div class="calc-results-col">
+
+              <!-- Primary Action Directive Card -->
+              <div class="risk-primary-stat hedge-action-card" id="hedgeActionCard">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px;">
+                  <span class="spec-title" style="color: rgba(255,255,255,0.8); font-weight: 700;" data-i18n="hedge_directive_title">DIGITAL EXECUTION DIRECTIVE</span>
+                  <span class="badge" id="hedgeDirectionBadge" style="background: rgba(244, 63, 94, 0.2); border: 1px solid #f43f5e; color: #f43f5e; font-weight: 800; padding: 4px 10px; border-radius: 9999px; font-size: 0.72rem;">NET INVENTORY: LONG</span>
+                </div>
+                <div class="risk-big-metric" id="hedgeCommandOut" style="font-size: 1.85rem; color: #f43f5e; line-height: 1.2; text-shadow: 0 0 16px rgba(244, 63, 94, 0.4);">
+                  SELL 0.60 LOTS XAU/USD
+                </div>
+                <p id="hedgeActionExplanation" style="font-size: 0.85rem; color: #cbd5e1; margin-top: 8px; margin-bottom: 0;">
+                  Shop is holding physical gold. Open Short to lock value against spot price drops.
+                </p>
+              </div>
+
+              <!-- Metric Grid -->
+              <div class="calc-submetrics-grid">
+                <div class="calc-submetric-card">
+                  <div class="label" data-i18n="hedge_metric_lots">Exact Contract Lots</div>
+                  <div class="val" id="hedgeLotsOut" style="color: var(--text-gold);">0.60 Lots</div>
+                </div>
+
+                <div class="calc-submetric-card">
+                  <div class="label" data-i18n="hedge_metric_margin">Initial Margin Required</div>
+                  <div class="val" id="hedgeMarginOut" style="color: #38bdf8;">$1,632.00</div>
+                </div>
+
+                <div class="calc-submetric-card">
+                  <div class="label" data-i18n="hedge_metric_buffer">Safe Buffer Deposit</div>
+                  <div class="val" id="hedgeSafeDepositOut" style="color: #10b981;">$7,632.00</div>
+                </div>
+
+                <div class="calc-submetric-card">
+                  <div class="label" data-i18n="hedge_metric_weight">Converted Weight</div>
+                  <div class="val" id="hedgeWeightOut" style="font-size: 0.95rem; color: #f8fafc;">1,875.0 g / 60.28 oz</div>
+                </div>
+              </div>
+
+              <!-- Live Mathematical Proof Box -->
+              <div class="hedge-formula-box" id="hedgeFormulaProof">
+                <div style="font-size: 0.74rem; text-transform: uppercase; color: var(--text-gold); font-weight: 700; margin-bottom: 6px;">
+                  📐 Mathematical Substitution Proof
+                </div>
+                <div style="font-family: monospace; font-size: 0.85rem; color: #e2e8f0; line-height: 1.5;" id="hedgeFormulaCode">
+                  Lots = 50.00 Damlung ÷ 82.9426 = 0.6028 Lots → Rounded to 0.60 Lots MT4/MT5
+                </div>
+              </div>
+
+              <!-- 1-Click Ticket Dispatch to Telegram -->
+              <a href="https://t.me/MongsayFX" id="hedgeTelegramLink" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 18px; font-weight: 800;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
+                <span data-i18n="hedge_btn_dispatch">Dispatch Hedge Ticket to @MongsayFX</span>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 Institutional Hedging Framework Pillars -->
+    <section class="pillars-section" style="padding: 10px 0 60px;">
+      <div class="container">
+        <div class="section-tag"><span class="dot"></span> <span data-i18n="hedge_pillars_tag">DEALER RISK MANAGEMENT PLAYBOOK</span></div>
+        <h2 class="section-title" data-i18n="hedge_pillars_title">
+          Institutional <span class="gold-gradient-text">Physical Gold Hedging Frameworks</span>
+        </h2>
+        <p class="section-desc" data-i18n="hedge_pillars_desc">
+          Four mechanical pillars that transform physical gold retail from a volatile speculative gamble into a reliable, delta-neutral cash-flow enterprise.
+        </p>
+
+        <div class="pillars-grid" style="margin-top: 36px;">
+          <!-- Pillar 1 -->
+          <div class="pillar-card">
+            <div class="pillar-num">01 / BALANCED BALANCE SHEET</div>
+            <h3 data-i18n="hedge_p1_title">The Delta-Neutral Dealer Principle</h3>
+            <p data-i18n="hedge_p1_desc">
+              Physical retail jewellers generate revenue purely through bid/ask spreads, design/casting markups, and minting premiums. Holding unhedged gold exposes inventory to macro price drops. By opening an equal and opposite digital short, the dealer's net market exposure remains exactly zero (&Delta; = 0).
+            </p>
+            <div class="pillar-tagline" data-i18n="hedge_p1_badge">Risk Elimination: Spot Variance Neutralized</div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="pillar-card">
+            <div class="pillar-num">02 / CAMBODIAN TO GLOBAL CALIBRATION</div>
+            <h3 data-i18n="hedge_p2_title">Weight Translation & Standard Lots</h3>
+            <p data-i18n="hedge_p2_desc">
+              Traditional Cambodian gold merchants operate in Damlung (តម្លឹង = 37.5g) and Chi (ជី = 3.75g), while digital liquidity clearing is executed in Troy Ounces (31.1035g). We establish the institutional conversion ratio: exactly 82.9426 Damlung per 1.00 Standard Contract Lot (100 oz).
+            </p>
+            <div class="pillar-tagline" data-i18n="hedge_p2_badge">Exact Formula: Lots = Damlung / 82.9426</div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="pillar-card">
+            <div class="pillar-num">03 / CAPITAL PROTECTION</div>
+            <h3 data-i18n="hedge_p3_title">Volatility Buffer & Drawdown Defense</h3>
+            <p data-i18n="hedge_p3_desc">
+              A digital hedge requires margin collateral. If gold spikes while a short hedge is open, the physical inventory gains equal value, but the trading account must possess adequate cash buffer to avoid broker margin calls. We enforce a minimum &plusmn;$100/oz adverse volatility buffer for safety.
+            </p>
+            <div class="pillar-tagline" data-i18n="hedge_p3_badge">Buffer Standard: Margin + ($100 &times; Oz)</div>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="pillar-card">
+            <div class="pillar-num">04 / CLEARING INFRASTRUCTURE</div>
+            <h3 data-i18n="hedge_p4_title">Tier-1 Institutional Clearing via SAGFX</h3>
+            <p data-i18n="hedge_p4_desc">
+              Hedging margins are destroyed by wide retail spreads and punitive overnight swaps. Through SAGFX.ORG institutional liquidity bridges, physical bullion desks clear contracts at raw interbank spreads (0.0&ndash;0.8 pips on XAU/USD) with swap-optimized institutional accounts.
+            </p>
+            <div class="pillar-tagline" data-i18n="hedge_p4_badge">Execution Rails: Raw Spreads &amp; Weekly Rebates</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real-World Dealer Case Studies -->
+    <section class="deep-dive-section" style="padding: 20px 0 60px;">
+      <div class="container">
+        <div class="section-tag"><span class="dot"></span> <span data-i18n="hedge_cases_tag">EXECUTION CASE STUDIES</span></div>
+        <h2 class="section-title" data-i18n="hedge_cases_title">
+          Physical Shop Scenarios: <span class="gold-gradient-text">Before & After Hedging</span>
+        </h2>
+        <p class="section-desc" data-i18n="hedge_cases_desc">
+          How mechanical delta-neutral execution saves physical bullion merchants tens of thousands of dollars during violent gold market reversals.
+        </p>
+
+        <div class="pillars-grid" style="margin-top: 36px;">
+          <!-- Case Study 1 -->
+          <div class="pillar-card" style="border-left: 3px solid var(--accent-ruby);">
+            <div class="section-tag" style="color: #f43f5e;"><span class="dot" style="background: #f43f5e;"></span> CASE A: BUYING 50 DAMLUNG SCRAP AT ALL-TIME HIGH</div>
+            <h3 data-i18n="hedge_case1_title">The Unhedged Flash Crash Trap</h3>
+            <p data-i18n="hedge_case1_desc">
+              A jeweler buys 50 Damlung ($1,875g = 60.28 oz) from clients at $2,720/oz ($163,960 total value). Over the weekend, gold plunges $90 to $2,630/oz. 
+              <br><br>
+              <strong>Without Hedging:</strong> Physical stock devalues by <strong>-$5,425</strong> before it can be refined and sold. The merchant incurs a catastrophic retail loss.
+              <br><br>
+              <strong>With Delta-Neutral Hedge:</strong> The merchant executed <strong>SELL 0.60 Lots XAU/USD</strong> at $2,720. The digital short gained <strong>+$5,400</strong>, offsetting 99.5% of the physical drop. Net profit from fabrication remains intact.
+            </p>
+          </div>
+
+          <!-- Case Study 2 -->
+          <div class="pillar-card" style="border-left: 3px solid var(--accent-emerald);">
+            <div class="section-tag" style="color: #10b981;"><span class="dot" style="background: #10b981;"></span> CASE B: ADVANCE WEDDING JEWELRY ORDER LOCK-IN</div>
+            <h3 data-i18n="hedge_case2_title">Wholesale Replacement Surge Defense</h3>
+            <p data-i18n="hedge_case2_desc">
+              A boutique takes customer pre-orders for custom 24K jewelry requiring 30 Damlung ($1,125g = 36.17 oz), priced today at $2,700/oz. Delivery is scheduled in 3 weeks, but physical bullion hasn't arrived from the refinery.
+              <br><br>
+              <strong>Without Hedging:</strong> Gold rallies to $2,790/oz. Wholesale restocking cost jumps by <strong>+$3,255</strong>, wiping out all workmanship profits.
+              <br><br>
+              <strong>With Delta-Neutral Hedge:</strong> The boutique opens <strong>BUY 0.36 Lots XAU/USD</strong> at order confirmation. The digital long gains <strong>+$3,240</strong>, directly covering the higher refinery invoice.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calibration Reference Table Matrix -->
+    <section class="matrix-section" style="padding: 20px 0 60px;">
+      <div class="container">
+        <div class="section-tag"><span class="dot"></span> <span data-i18n="hedge_matrix_tag">STANDARDIZED CONVERSION MATRIX</span></div>
+        <h2 class="section-title" data-i18n="hedge_matrix_title">
+          Cambodian Damlung to <span class="gold-gradient-text">MT4/MT5 Contract Matrix</span>
+        </h2>
+        <p class="section-desc" data-i18n="hedge_matrix_desc">
+          Quick-reference institutional conversion table based on standard $2,720 spot gold and 1:100 leverage with $100/oz drawdown defense buffer.
+        </p>
+
+        <div style="overflow-x: auto; margin-top: 28px;">
+          <table class="gold-matrix-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+              <tr>
+                <th data-i18n="th_damlung">Cambodian Damlung</th>
+                <th data-i18n="th_chi">Chi (ជី)</th>
+                <th data-i18n="th_grams">Weight (Grams)</th>
+                <th data-i18n="th_oz">Troy Ounces</th>
+                <th data-i18n="th_lots">MT4/MT5 Lots</th>
+                <th data-i18n="th_margin">Initial Margin (1:100)</th>
+                <th data-i18n="th_safe_balance">Safe Buffer Balance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1 Damlung</strong></td>
+                <td>10 Chi</td>
+                <td>37.50 g</td>
+                <td>1.21 oz</td>
+                <td><strong class="gold-text">0.01 Lot</strong></td>
+                <td>$27.20</td>
+                <td>$127.20</td>
+              </tr>
+              <tr>
+                <td><strong>5 Damlung</strong></td>
+                <td>50 Chi</td>
+                <td>187.50 g</td>
+                <td>6.03 oz</td>
+                <td><strong class="gold-text">0.06 Lots</strong></td>
+                <td>$163.20</td>
+                <td>$763.20</td>
+              </tr>
+              <tr>
+                <td><strong>10 Damlung</strong></td>
+                <td>100 Chi</td>
+                <td>375.00 g</td>
+                <td>12.06 oz</td>
+                <td><strong class="gold-text">0.12 Lots</strong></td>
+                <td>$326.40</td>
+                <td>$1,526.40</td>
+              </tr>
+              <tr>
+                <td><strong>50 Damlung</strong></td>
+                <td>500 Chi</td>
+                <td>1,875.00 g</td>
+                <td>60.28 oz</td>
+                <td><strong class="gold-text">0.60 Lots</strong></td>
+                <td>$1,632.00</td>
+                <td>$7,632.00</td>
+              </tr>
+              <tr>
+                <td><strong>82.94 Damlung</strong></td>
+                <td>829.4 Chi</td>
+                <td>3,110.35 g</td>
+                <td>100.00 oz</td>
+                <td><strong class="gold-text">1.00 Standard Lot</strong></td>
+                <td>$2,720.00</td>
+                <td>$12,720.00</td>
+              </tr>
+              <tr>
+                <td><strong>100 Damlung</strong></td>
+                <td>1,000 Chi</td>
+                <td>3,750.00 g</td>
+                <td>120.57 oz</td>
+                <td><strong class="gold-text">1.21 Lots</strong></td>
+                <td>$3,291.20</td>
+                <td>$15,391.20</td>
+              </tr>
+              <tr>
+                <td><strong>500 Damlung</strong></td>
+                <td>5,000 Chi</td>
+                <td>18,750.00 g</td>
+                <td>602.83 oz</td>
+                <td><strong class="gold-text">6.03 Lots</strong></td>
+                <td>$16,401.60</td>
+                <td>$76,701.60</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consultation CTA -->
+    <section class="contact-section" style="padding: 20px 0 80px;">
+      <div class="container">
+        <div class="telegram-enroll-container">
+          <div class="section-tag"><span class="dot"></span> <span data-i18n="hedge_consult_tag">BULLION TREASURY ONBOARDING</span></div>
+          <h2 class="section-title" data-i18n="hedge_consult_title">
+            Establish a Dedicated <span class="gold-gradient-text">Gold Hedging Desk</span>
+          </h2>
+          <p class="section-desc" style="max-width: 680px; margin: 0 auto 28px;" data-i18n="hedge_consult_desc">
+            Direct institutional setup with Mong Say for Cambodian physical gold merchants, jewelry wholesale houses, and pawn lenders looking to deploy automated delta-neutral risk mitigation with institutional SAGFX broker clearing.
+          </p>
+
+          <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+            <a href="https://t.me/MongsayFX" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 16px 36px; font-weight: 800;">
+              <span>Consult with @MongsayFX</span>
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://t.me/mongsayhouse17" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 16px 28px;">
+              <span>VIP Channel: t.me/mongsayhouse17</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-wrapper">
+            <img src="assets/lion-logo.png" alt="Mongsay Logo" class="brand-lion-logo">
+            <span class="brand-title"><span class="brand-cap">M</span>ongsay</span>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-top: 14px;">
+            Haute-couture quantitative market structures, delta-neutral physical gold hedging, and institutional lead brokerage leadership.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Core Ventures</h5>
+          <ul class="footer-links">
+            <li><a href="https://sagfx.org" target="_blank">SAGFX.ORG Advisory</a></li>
+            <li><a href="https://t.me/mongsayhouse17" target="_blank">Mongsay House VIP</a></li>
+            <li><a href="ventures.html">Institutional Rails</a></li>
+            <li><a href="hedging.html">Gold Hedging Desk</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Lead Brokerage</h5>
+          <ul class="footer-links">
+            <li><a href="advisory.html#broker">Brokerage Expansion & Scale</a></li>
+            <li><a href="advisory.html#rebates">Cashback & Rebate Networks</a></li>
+            <li><a href="hedging.html">Physical Bullion Risk</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Direct Channels</h5>
+          <ul class="footer-links">
+            <li><a href="https://www.youtube.com/@MongSayFX" target="_blank">YouTube: @MongSayFX</a></li>
+            <li><a href="https://www.tiktok.com/@mongsayfx?is_from_webapp=1&sender_device=pc" target="_blank">TikTok: @mongsayfx</a></li>
+            <li><a href="https://web.facebook.com/MongsayFX" target="_blank">Facebook: @MongsayFX</a></li>
+            <li><a href="https://t.me/mongsayhouse17" target="_blank">Telegram: @mongsayhouse17</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Kingdom of Cambodia Statutory Legal & Intellectual Property Notice -->
+      <div class="footer-legal-notice">
+        <div class="legal-notice-header">
+          <span class="legal-badge-pill">
+            <span class="flag-icon">🇰🇭</span>
+            <span data-i18n="legal_badge">KINGDOM OF CAMBODIA STATUTORY PROTECTION & IP NOTICE</span>
+          </span>
+          <span class="legal-code" data-i18n="legal_statute_ref">ROYAL KRAM NO. NS/RKM/0303/008 &bull; NS/RKM/1119/017</span>
+        </div>
+        <p class="legal-quote-text" data-i18n="legal_quote">
+          "All intellectual property, proprietary financial architectures, mechanical market models, quantitative systems, visual identity assets, and published research contained within mongsay.com are protected under the <strong>Law on Copyright and Related Rights (Royal Kram No. NS/RKM/0303/008)</strong> and the <strong>Law on Electronic Commerce (Royal Kram No. NS/RKM/1119/017)</strong> of the Kingdom of Cambodia. Unauthorized reproduction, programmatic scraping, distribution, translation mirroring, or commercial exploitation is strictly prohibited and subject to civil remedies and penal prosecution under Cambodian law."
+        </p>
+        <p class="legal-disclaimer-sub" data-i18n="legal_disclaimer">
+          <strong>Institutional Notice:</strong> Content published by Mong Say and Mongsay House is strictly educational and analytical research. It does not constitute retail financial advice, collective investment solicitation, or custodial deposit taking under the regulatory remits of the Securities and Exchange Regulator of Cambodia (SERC) or the National Bank of Cambodia (NBC). All trading in leveraged instruments involves substantial risk of capital loss.
+        </p>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Mongsay. All Rights Reserved. Synchronized with <a href="https://sagfx.org" target="_blank" class="gold-text">SAGFX.ORG</a>.
+        </div>
+        <div>
+          Strictly Institutional & Confidential. Zero Retail Clutter.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=3.5.0"></script>
+</body>
+</html>

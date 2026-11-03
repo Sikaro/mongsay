@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initRebateCalculator();
   initPositionSizeRiskCalculator();
+  initHedgingCalculator();
   initMarketSessionsClock();
   initBooksFilterAndSearch();
   initTelegramCopyButtons();
@@ -126,6 +127,7 @@ const I18N_DICTIONARY = {
     nav_overview: "Overview",
     nav_ventures: "Ventures",
     nav_advisory: "Lead Brokerage",
+    nav_hedging: "Gold Hedging",
     nav_media: "Media",
     nav_library: "Library",
     nav_contact: "Enroll / Contact",
@@ -295,6 +297,68 @@ const I18N_DICTIONARY = {
     faq_q5: "How can I verify official communications from Mong Say?",
     faq_a5: "All official correspondence, direct consultations, and whitelist enrollments are conducted exclusively through verified personal Telegram handle <a href=\"https://t.me/MongsayFX\" target=\"_blank\" class=\"gold-text\">@MongsayFX</a> and official community channel <a href=\"https://t.me/mongsayhouse17\" target=\"_blank\" class=\"gold-text\">t.me/mongsayhouse17</a>. Always verify handles carefully to protect against impersonators.",
 
+    // Delta-Neutral Gold Hedging Architecture
+    hedge_hero_tag: "QUANTITATIVE BULLION DESK // DELTA-NEUTRAL ARCHITECTURE",
+    hedge_hero_desc: "Engineering delta-neutral liquidity execution for physical gold shops, jewelry merchants, and bullion vaults. Neutralize spot market price swings, eliminate directional inventory risk, and lock in 100% of dealer spreads and fabrication premiums.",
+    hedge_badge_1: "⚖️ 1 Damlung (តម្លឹង) = 37.50 g ≈ 1.20565 Troy oz",
+    hedge_badge_2: "📐 1.00 Standard Lot = 82.9426 Damlung (3,110.35 g)",
+    hedge_badge_3: "🛡️ Delta-Neutral Equation: Digital = −Physical",
+    hedge_badge_4: "⚡ Direct Clearing via SAGFX.ORG",
+    hedge_calc_tag: "INTERACTIVE DEALER HEDGING ENGINE",
+    hedge_calc_title: "Physical Gold <span class=\"gold-gradient-text\">Delta-Neutral Hedging Calculator</span>",
+    hedge_calc_desc: "Calculate exact digital MT4/MT5 contract lot sizes, required margin collateral, and adverse volatility buffers for your shop's physical gold inventory in real time.",
+    hedge_label_flow: "Physical Inventory Transaction Flow",
+    hedge_flow_buy: "📥 Shop Buys Gold (Inventory UP)",
+    hedge_flow_sell: "📤 Shop Sells Gold (Inventory DOWN)",
+    hedge_label_unit: "Inventory Unit of Measure",
+    unit_damlung: "Damlung (តម្លឹង - 37.5g)",
+    unit_chi: "Chi (ជី - 3.75g)",
+    unit_grams: "Grams (g)",
+    unit_ounces: "Troy Ounces (oz)",
+    hedge_label_quantity: "Physical Quantity to Hedge",
+    hedge_label_spot: "Gold Spot Price ($USD/oz)",
+    hedge_label_leverage: "Clearing Leverage",
+    hedge_label_buffer: "Adverse Volatility Defense Buffer",
+    hedge_directive_title: "DIGITAL EXECUTION DIRECTIVE",
+    hedge_metric_lots: "Exact Contract Lots",
+    hedge_metric_margin: "Initial Margin Required",
+    hedge_metric_buffer: "Safe Buffer Deposit",
+    hedge_metric_weight: "Converted Weight",
+    hedge_btn_dispatch: "Dispatch Hedge Ticket to @MongsayFX",
+    hedge_pillars_tag: "DEALER RISK MANAGEMENT PLAYBOOK",
+    hedge_pillars_title: "Institutional <span class=\"gold-gradient-text\">Physical Gold Hedging Frameworks</span>",
+    hedge_pillars_desc: "Four mechanical pillars that transform physical gold retail from a volatile speculative gamble into a reliable, delta-neutral cash-flow enterprise.",
+    hedge_p1_title: "The Delta-Neutral Dealer Principle",
+    hedge_p1_desc: "Physical retail jewellers generate revenue purely through bid/ask spreads, design/casting markups, and minting premiums. Holding unhedged gold exposes inventory to macro price drops. By opening an equal and opposite digital short, the dealer's net market exposure remains exactly zero (Δ = 0).",
+    hedge_p1_badge: "Risk Elimination: Spot Variance Neutralized",
+    hedge_p2_title: "Weight Translation & Standard Lots",
+    hedge_p2_desc: "Traditional Cambodian gold merchants operate in Damlung (តម្លឹង = 37.5g) and Chi (ជី = 3.75g), while digital liquidity clearing is executed in Troy Ounces (31.1035g). We establish the institutional conversion ratio: exactly 82.9426 Damlung per 1.00 Standard Contract Lot (100 oz).",
+    hedge_p2_badge: "Exact Formula: Lots = Damlung / 82.9426",
+    hedge_p3_title: "Volatility Buffer & Drawdown Defense",
+    hedge_p3_desc: "A digital hedge requires margin collateral. If gold spikes while a short hedge is open, the physical inventory gains equal value, but the trading account must possess adequate cash buffer to avoid broker margin calls. We enforce a minimum ±$100/oz adverse volatility buffer for safety.",
+    hedge_p3_badge: "Buffer Standard: Margin + ($100 × Oz)",
+    hedge_p4_title: "Tier-1 Institutional Clearing via SAGFX",
+    hedge_p4_desc: "Hedging margins are destroyed by wide retail spreads and punitive overnight swaps. Through SAGFX.ORG institutional liquidity bridges, physical bullion desks clear contracts at raw interbank spreads (0.0–0.8 pips on XAU/USD) with swap-optimized institutional accounts.",
+    hedge_p4_badge: "Execution Rails: Raw Spreads & Weekly Rebates",
+    hedge_cases_tag: "EXECUTION CASE STUDIES",
+    hedge_cases_title: "Physical Shop Scenarios: <span class=\"gold-gradient-text\">Before & After Hedging</span>",
+    hedge_cases_desc: "How mechanical delta-neutral execution saves physical bullion merchants tens of thousands of dollars during violent gold market reversals.",
+    hedge_case1_title: "The Unhedged Flash Crash Trap",
+    hedge_case2_title: "Wholesale Replacement Surge Defense",
+    hedge_matrix_tag: "STANDARDIZED CONVERSION MATRIX",
+    hedge_matrix_title: "Cambodian Damlung to <span class=\"gold-gradient-text\">MT4/MT5 Contract Matrix</span>",
+    hedge_matrix_desc: "Quick-reference institutional conversion table based on standard $2,720 spot gold and 1:100 leverage with $100/oz drawdown defense buffer.",
+    th_damlung: "Cambodian Damlung",
+    th_chi: "Chi (ជី)",
+    th_grams: "Weight (Grams)",
+    th_oz: "Troy Ounces",
+    th_lots: "MT4/MT5 Lots",
+    th_margin: "Initial Margin (1:100)",
+    th_safe_balance: "Safe Buffer Balance",
+    hedge_consult_tag: "BULLION TREASURY ONBOARDING",
+    hedge_consult_title: "Establish a Dedicated <span class=\"gold-gradient-text\">Gold Hedging Desk</span>",
+    hedge_consult_desc: "Direct institutional setup with Mong Say for Cambodian physical gold merchants, jewelry wholesale houses, and pawn lenders looking to deploy automated delta-neutral risk mitigation with institutional SAGFX broker clearing.",
+
     // Cambodian Statutory Legal Protection & IP Notice
     legal_badge: "KINGDOM OF CAMBODIA STATUTORY PROTECTION & IP NOTICE",
     legal_statute_ref: "ROYAL KRAM NO. NS/RKM/0303/008 • NS/RKM/1119/017",
@@ -305,6 +369,7 @@ const I18N_DICTIONARY = {
     nav_overview: "ទិដ្ឋភាព",
     nav_ventures: "អាជីវកម្ម",
     nav_advisory: "ឈ្មួញជើងសាឈានមុខ",
+    nav_hedging: "ការពារហានិភ័យមាស",
     nav_media: "ផ្សព្វផ្សាយ",
     nav_library: "បណ្ណាល័យ",
     nav_contact: "ទំនាក់ទំនង",
@@ -474,6 +539,68 @@ const I18N_DICTIONARY = {
     faq_q5: "តើខ្ញុំអាចផ្ទៀងផ្ទាត់ការទំនាក់ទំនងផ្លូវការពីលោក ម៉ុង សាយ យ៉ាងដូចម្តេច?",
     faq_a5: "រាល់ការឆ្លើយឆ្លងផ្លូវការ ការពិគ្រោះយោបល់ និងការចុះឈ្មោះ Whitelist ត្រូវបានធ្វើឡើងផ្តាច់មុខតាមរយៈ Telegram ផ្ទាល់ខ្លួនដែលបានផ្ទៀងផ្ទាត់ <a href=\"https://t.me/MongsayFX\" target=\"_blank\" class=\"gold-text\">@MongsayFX</a> និងឆានែលសហគមន៍ផ្លូវការ <a href=\"https://t.me/mongsayhouse17\" target=\"_blank\" class=\"gold-text\">t.me/mongsayhouse17</a>។ សូមផ្ទៀងផ្ទាត់ឈ្មោះគណនីជានិច្ចដើម្បីជៀសវាងគណនីក្លែងបន្លំ។",
 
+    // Delta-Neutral Gold Hedging Architecture
+    hedge_hero_tag: "តុជួញដូរមាសស្ថាប័ន // រចនាសម្ព័ន្ធ DELTA-NEUTRAL",
+    hedge_hero_desc: "ការរៀបចំប្រព័ន្ធការពារហានិភ័យមាស Delta-Neutral សម្រាប់ហាងមាស អាជីវកម្មគ្រឿងអលង្ការ និងឃ្លាំងស្តុកមាស។ បន្សាបការប្រែប្រួលតម្លៃទីផ្សារមាស លុបបំបាត់ហានិភ័យស្តុក និងការពារប្រាក់ចំណេញពីថ្លៃឈ្នួល និងគម្លាតតម្លៃទិញ-លក់បាន ១០០%។",
+    hedge_badge_1: "⚖️ ១ តម្លឹង = ៣៧.៥០ ក្រាម ≈ ១.២០៥៦៥ Troy oz",
+    hedge_badge_2: "📐 ១.០០ Standard Lot = ៨២.៩៤២៦ តម្លឹង (៣,១១០.៣៥ ក្រាម)",
+    hedge_badge_3: "🛡️ សមីការ Delta-Neutral: Digital = −Physical",
+    hedge_badge_4: "⚡ ជម្រះកិច្ចសន្យាផ្ទាល់តាម SAGFX.ORG",
+    hedge_calc_tag: "ម៉ាស៊ីនគណនាការពារហានិភ័យមាសសម្រាប់ហាង",
+    hedge_calc_title: "ការគណនាការពារហានិភ័យមាសរូបវន្ត <span class=\"gold-gradient-text\">Delta-Neutral</span>",
+    hedge_calc_desc: "គណនាទំហំកិច្ចសន្យា MT4/MT5 (Lots) ប្រាក់កក់តម្កល់ Margin និងទុនបម្រុងសុវត្ថិភាពសម្រាប់ស្តុកមាសរូបវន្តនៃហាងរបស់អ្នកតាមពេលវេលាជាក់ស្តែង។",
+    hedge_label_flow: "ទិសដៅលំហូរស្តុកមាសរូបវន្ត",
+    hedge_flow_buy: "📥 ហាងទិញមាសចូល (ស្តុកកើនឡើង)",
+    hedge_flow_sell: "📤 ហាងលក់មាសចេញ (ស្តុកថយចុះ)",
+    hedge_label_unit: "ខ្នាតរង្វាស់ស្តុកមាស",
+    unit_damlung: "តម្លឹង (៣៧.៥ ក្រាម)",
+    unit_chi: "ជី (៣.៧៥ ក្រាម)",
+    unit_grams: "ក្រាម (g)",
+    unit_ounces: "Troy Ounces (oz)",
+    hedge_label_quantity: "បរិមាណមាសត្រូវការពារហានិភ័យ",
+    hedge_label_spot: "តម្លៃមាសពិភពលោក ($USD/oz)",
+    hedge_label_leverage: "អនុបាត Leverage",
+    hedge_label_buffer: "ទុនបម្រុងសុវត្ថិភាពការពារការប្រែប្រួលតម្លៃ",
+    hedge_directive_title: "បទបញ្ជាប្រតិបត្តិឌីជីថល",
+    hedge_metric_lots: "ទំហំកិច្ចសន្យា Lots",
+    hedge_metric_margin: "ប្រាក់កក់ Margin ដំបូង",
+    hedge_metric_buffer: "ទុនបម្រុងសុវត្ថិភាពសរុប",
+    hedge_metric_weight: "ទម្ងន់មាសបំប្លែង",
+    hedge_btn_dispatch: "ផ្ញើព័ត៌មាន Hedging ទៅកាន់ @MongsayFX",
+    hedge_pillars_tag: "សៀវភៅយុទ្ធសាស្ត្រគ្រប់គ្រងហានិភ័យហាងមាស",
+    hedge_pillars_title: "ក្របខ័ណ្ឌស្ថាប័ន <span class=\"gold-gradient-text\">ការពារហានិភ័យមាសរូបវន្ត</span>",
+    hedge_pillars_desc: "សសរស្តម្ភមេកានិកចំនួន ៤ ដែលបំប្លែងអាជីវកម្មលក់រាយមាសរូបវន្តពីការផ្សងព្រេងតម្លៃ ទៅជាសហគ្រាសរកចំណេញបែប Delta-Neutral ប្រកបដោយនិរន្តរភាព។",
+    hedge_p1_title: "គោលការណ៍ Delta-Neutral សម្រាប់ហាងមាស",
+    hedge_p1_desc: "ហាងលក់គ្រឿងអលង្ការរកប្រាក់ចំណេញពីគម្លាតតម្លៃទិញ-លក់ និងកម្រៃកែច្នៃ/ឈ្នួលជាង។ ការទុកស្តុកមាសដោយមិនការពារ ធ្វើឱ្យប្រឈមការខាតបង់ធំពេលមាសធ្លាក់ថ្លៃ។ ការបើកកិច្ចសន្យា Short ក្នុងទំហំស្មើគ្នា ធ្វើឱ្យហានិភ័យទីផ្សារសុទ្ធស្មើសូន្យ (Δ = 0)។",
+    hedge_p1_badge: "ការលុបបំបាត់ហានិភ័យ៖ បន្សាបការប្រែប្រួលតម្លៃ",
+    hedge_p2_title: "ការបំប្លែងទម្ងន់មាសខ្មែរទៅជាស្តង់ដារ Lots អន្តរជាតិ",
+    hedge_p2_desc: "អាជីវករខ្មែរប្រើខ្នាត តម្លឹង (៣៧.៥ ក្រាម) និង ជី (៣.៧៥ ក្រាម) ខណៈទីផ្សារហិរញ្ញវត្ថុអន្តរជាតិប្រើខ្នាត Troy Ounces (៣១.១០៣៥ ក្រាម)។ យើងបង្កើតសមាមាត្រស្ថាប័ន៖ ៨២.៩៤២៦ តម្លឹង ស្មើនឹង ១.០០ Standard Lot (១០០ oz)។",
+    hedge_p2_badge: "រូបមន្តជាក់លាក់៖ Lots = តម្លឹង / ៨២.៩៤២៦",
+    hedge_p3_title: "ទុនបម្រុងសុវត្ថិភាព & ការពារ Drawdown",
+    hedge_p3_desc: "ការការពារតាមប្រព័ន្ធឌីជីថលទាមទារប្រាក់កក់ Margin។ ប្រសិនបើតម្លៃមាសហក់ឡើងខ្លាំង ស្តុកមាសរូបវន្តឡើងថ្លៃ ប៉ុន្តែគណនីឌីជីថលត្រូវមានទុនបម្រុងគ្រប់គ្រាន់ដើម្បីជៀសវាង Margin Call។ យើងកំណត់ទុនបម្រុងយ៉ាងតិច ±$100/oz សម្រាប់សុវត្ថិភាព។",
+    hedge_p3_badge: "ស្តង់ដារទុនបម្រុង៖ Margin + ($100 × Oz)",
+    hedge_p4_title: "ការជម្រះកិច្ចសន្យាស្ថាប័ន Tier-1 តាមរយៈ SAGFX",
+    hedge_p4_desc: "ប្រាក់ចំណេញ Hedging អាចបាត់បង់ដោយសារ Spread ធំ និងថ្លៃ Swap ខ្ពស់របស់ឈ្មួញជើងសាលក់រាយ។ តាមរយៈ SAGFX.ORG ហាងមាសអាចជម្រះកិច្ចសន្យាក្នុង Spread ដើមពីធនាគារ (0.0–0.8 pips) និងគណនីអំណោយផល Swap។",
+    hedge_p4_badge: "ប្រព័ន្ធប្រតិបត្តិ៖ Raw Spread & Rebate ប្រចាំសប្តាហ៍",
+    hedge_cases_tag: "ករណីសិក្សាជាក់ស្តែង",
+    hedge_cases_title: "ស្ថានភាពហាងមាស៖ <span class=\"gold-gradient-text\">មុន និងក្រោយពេល Hedging</span>",
+    hedge_cases_desc: "របៀបដែលការអនុវត្ត Delta-Neutral ជួយសង្គ្រោះអាជីវករមាសពីការខាតបង់រាប់ពាន់ដុល្លារពេលទីផ្សារមាសប្រែប្រួលខ្លាំង។",
+    hedge_case1_title: "អន្ទាក់នៃការទិញមាសចូលដោយមិនការពារ",
+    hedge_case2_title: "ការការពារថ្លៃជំនួសស្តុកពេលមានការកុម្ម៉ង់ទុកមុន",
+    hedge_matrix_tag: "តារាងបំប្លែងស្តង់ដារ",
+    hedge_matrix_title: "តារាងបំប្លែងតម្លឹងខ្មែរទៅជា <span class=\"gold-gradient-text\">កិច្ចសន្យា MT4/MT5</span>",
+    hedge_matrix_desc: "តារាងបំប្លែងស្ថាប័នផ្អែកលើតម្លៃមាសជាក់ស្តែង $2,720 និង Leverage 1:100 ជាមួយទុនបម្រុង $100/oz។",
+    th_damlung: "តម្លឹងខ្មែរ",
+    th_chi: "ជី",
+    th_grams: "ទម្ងន់ (ក្រាម)",
+    th_oz: "Troy Ounces",
+    th_lots: "ទំហំ Lots (MT4/MT5)",
+    th_margin: "ប្រាក់កក់ Margin (1:100)",
+    th_safe_balance: "ទុនបម្រុងសុវត្ថិភាព",
+    hedge_consult_tag: "ការបង្កើតប្រព័ន្ធការពារហានិភ័យមាស",
+    hedge_consult_title: "បង្កើតតុជួញដូរ <span class=\"gold-gradient-text\">ការពារហានិភ័យមាសសម្រាប់ហាង</span>",
+    hedge_consult_desc: "ការរៀបចំប្រព័ន្ធស្ថាប័នផ្ទាល់ជាមួយ Mong Say សម្រាប់ហាងមាស អាជីវកម្មលក់ដុំគ្រឿងអលង្ការ និងសេវាបញ្ចាំនៅកម្ពុជា ដើម្បីការពារហានិភ័យ Delta-Neutral ជាមួយ SAGFX។",
+
     // Cambodian Statutory Legal Protection & IP Notice
     legal_badge: "សេចក្តីជូនដំណឹងស្តីពីកិច្ចការពារផ្លូវច្បាប់ & កម្មសិទ្ធិបញ្ញានៃព្រះរាជាណាចក្រកម្ពុជា",
     legal_statute_ref: "ព្រះរាជក្រមលេខ នស/រកម/០៣០៣/០០៨ • នស/រកម/១១១៩/០១៧",
@@ -495,6 +622,10 @@ const PHRASE_DICTIONARY_KH = {
   "Overview": "ទិដ្ឋភាព",
   "Ventures": "អាជីវកម្ម",
   "Lead Brokerage": "ឈ្មួញជើងសាឈានមុខ",
+  "Gold Hedging": "ការពារហានិភ័យមាស",
+  "Physical Gold Hedging": "ការពារហានិភ័យមាសរូបវន្ត",
+  "Gold Hedging Desk": "តុការពារហានិភ័យមាស",
+  "Physical Bullion Risk": "ហានិភ័យមាសដុំរូបវន្ត",
   "Advisory & BDM": "ឈ្មួញជើងសាឈានមុខ",
   "Media": "ផ្សព្វផ្សាយ",
   "Library": "បណ្ណាល័យ",
@@ -1865,6 +1996,206 @@ function initPositionSizeRiskCalculator() {
   if (assetSelect) assetSelect.addEventListener('change', calculateRisk);
 
   calculateRisk();
+}
+
+/* ---------------------------------------------------------
+   9B. Institutional Delta-Neutral Physical Gold Hedging Engine
+   --------------------------------------------------------- */
+function initHedgingCalculator() {
+  const flowButtons = document.querySelectorAll('#hedgeFlowToggle .hedge-flow-btn');
+  const unitButtons = document.querySelectorAll('#hedgeUnitToggle .hedge-unit-btn');
+  const quantityInput = document.getElementById('hedgeQuantityInput');
+  const quantitySlider = document.getElementById('hedgeQuantitySlider');
+  const quantityLabel = document.getElementById('hedgeQuantityLabel');
+  const quantityValDisplay = document.getElementById('hedgeQuantityVal');
+  const spotPriceInput = document.getElementById('hedgeSpotPriceInput');
+  const leverageSelect = document.getElementById('hedgeLeverageSelect');
+  const bufferSelect = document.getElementById('hedgeBufferSelect');
+
+  const actionCard = document.getElementById('hedgeActionCard');
+  const directionBadge = document.getElementById('hedgeDirectionBadge');
+  const commandOut = document.getElementById('hedgeCommandOut');
+  const explanationOut = document.getElementById('hedgeActionExplanation');
+  const lotsOut = document.getElementById('hedgeLotsOut');
+  const marginOut = document.getElementById('hedgeMarginOut');
+  const safeDepositOut = document.getElementById('hedgeSafeDepositOut');
+  const weightOut = document.getElementById('hedgeWeightOut');
+  const formulaCode = document.getElementById('hedgeFormulaCode');
+  const telegramLink = document.getElementById('hedgeTelegramLink');
+
+  if (!quantityInput || !commandOut) return;
+
+  let currentFlow = 'buy';
+  let currentUnit = 'damlung';
+
+  function updateUnitSliderLimits() {
+    if (currentUnit === 'damlung') {
+      quantitySlider.min = 1;
+      quantitySlider.max = 500;
+      quantitySlider.step = 1;
+      quantityInput.min = 0.1;
+      quantityInput.step = 0.5;
+      if (quantityLabel) quantityLabel.textContent = 'Physical Quantity to Hedge (Damlung)';
+    } else if (currentUnit === 'chi') {
+      quantitySlider.min = 5;
+      quantitySlider.max = 5000;
+      quantitySlider.step = 5;
+      quantityInput.min = 1;
+      quantityInput.step = 1;
+      if (quantityLabel) quantityLabel.textContent = 'Physical Quantity to Hedge (Chi / ជី)';
+    } else if (currentUnit === 'grams') {
+      quantitySlider.min = 10;
+      quantitySlider.max = 10000;
+      quantitySlider.step = 10;
+      quantityInput.min = 1;
+      quantityInput.step = 1;
+      if (quantityLabel) quantityLabel.textContent = 'Physical Quantity to Hedge (Grams)';
+    } else if (currentUnit === 'ounces') {
+      quantitySlider.min = 1;
+      quantitySlider.max = 300;
+      quantitySlider.step = 1;
+      quantityInput.min = 0.1;
+      quantityInput.step = 0.5;
+      if (quantityLabel) quantityLabel.textContent = 'Physical Quantity to Hedge (Troy Ounces)';
+    }
+  }
+
+  function recalculateHedge() {
+    const qty = parseFloat(quantityInput.value) || 0;
+    const spot = parseFloat(spotPriceInput ? spotPriceInput.value : 2720) || 2720;
+    const leverage = parseFloat(leverageSelect ? leverageSelect.value : 100) || 100;
+    const buffer = parseFloat(bufferSelect ? bufferSelect.value : 100) || 100;
+
+    let grams = 0;
+    let troyOz = 0;
+    let exactLots = 0;
+
+    if (currentUnit === 'damlung') {
+      grams = qty * 37.5;
+      troyOz = grams / 31.1034768;
+      exactLots = qty / 82.9426;
+      if (quantityValDisplay) quantityValDisplay.textContent = `${qty.toLocaleString('en-US', { maximumFractionDigits: 1 })} Damlung`;
+    } else if (currentUnit === 'chi') {
+      grams = qty * 3.75;
+      troyOz = grams / 31.1034768;
+      exactLots = qty / 829.426;
+      if (quantityValDisplay) quantityValDisplay.textContent = `${qty.toLocaleString('en-US', { maximumFractionDigits: 1 })} Chi`;
+    } else if (currentUnit === 'grams') {
+      grams = qty;
+      troyOz = grams / 31.1034768;
+      exactLots = grams / 3110.34768;
+      if (quantityValDisplay) quantityValDisplay.textContent = `${qty.toLocaleString('en-US', { maximumFractionDigits: 0 })} g`;
+    } else if (currentUnit === 'ounces') {
+      troyOz = qty;
+      grams = troyOz * 31.1034768;
+      exactLots = troyOz / 100;
+      if (quantityValDisplay) quantityValDisplay.textContent = `${qty.toLocaleString('en-US', { maximumFractionDigits: 1 })} oz`;
+    }
+
+    const roundedLots = Math.max(0.01, Math.round(exactLots * 100) / 100);
+    const initialMargin = (roundedLots * 100 * spot) / leverage;
+    const safeBufferBalance = initialMargin + (roundedLots * 100 * buffer);
+
+    if (weightOut) {
+      weightOut.textContent = `${grams.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 })} g / ${troyOz.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} oz`;
+    }
+
+    if (lotsOut) lotsOut.textContent = `${roundedLots.toFixed(2)} Lots`;
+    if (marginOut) marginOut.textContent = `$${initialMargin.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    if (safeDepositOut) safeDepositOut.textContent = `$${safeBufferBalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+    if (currentFlow === 'buy') {
+      if (directionBadge) {
+        directionBadge.textContent = 'NET INVENTORY: LONG';
+        directionBadge.style.borderColor = '#f43f5e';
+        directionBadge.style.color = '#f43f5e';
+        directionBadge.style.background = 'rgba(244, 63, 94, 0.2)';
+      }
+      if (commandOut) {
+        commandOut.textContent = `SELL ${roundedLots.toFixed(2)} LOTS XAU/USD`;
+        commandOut.style.color = '#f43f5e';
+        commandOut.style.textShadow = '0 0 16px rgba(244, 63, 94, 0.4)';
+      }
+      if (actionCard) {
+        actionCard.classList.remove('action-buy');
+      }
+      if (explanationOut) {
+        explanationOut.textContent = 'Shop is receiving physical gold inventory. Open Digital Short to eliminate spot market drop risk.';
+      }
+    } else {
+      if (directionBadge) {
+        directionBadge.textContent = 'NET INVENTORY: SHORT';
+        directionBadge.style.borderColor = '#10b981';
+        directionBadge.style.color = '#10b981';
+        directionBadge.style.background = 'rgba(16, 185, 129, 0.2)';
+      }
+      if (commandOut) {
+        commandOut.textContent = `BUY ${roundedLots.toFixed(2)} LOTS XAU/USD`;
+        commandOut.style.color = '#10b981';
+        commandOut.style.textShadow = '0 0 16px rgba(16, 185, 129, 0.4)';
+      }
+      if (actionCard) {
+        actionCard.classList.add('action-buy');
+      }
+      if (explanationOut) {
+        explanationOut.textContent = 'Shop is selling physical inventory or locking forward delivery. Open Digital Long to eliminate replacement price spikes.';
+      }
+    }
+
+    if (formulaCode) {
+      if (currentUnit === 'damlung') {
+        formulaCode.textContent = `Lots = ${qty} Damlung ÷ 82.9426 = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5`;
+      } else if (currentUnit === 'chi') {
+        formulaCode.textContent = `Lots = ${qty} Chi ÷ 829.426 = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5`;
+      } else if (currentUnit === 'grams') {
+        formulaCode.textContent = `Lots = ${qty} g ÷ 3,110.35 g = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5`;
+      } else if (currentUnit === 'ounces') {
+        formulaCode.textContent = `Lots = ${qty} oz ÷ 100 oz = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5`;
+      }
+    }
+
+    if (telegramLink) {
+      const action = currentFlow === 'buy' ? 'SELL' : 'BUY';
+      const msg = encodeURIComponent(`Hello Mong Say, I would like to establish an institutional physical gold hedging desk via SAGFX. Execution Request: ${action} ${roundedLots.toFixed(2)} Lots XAU/USD for ${qty} ${currentUnit} (${grams.toFixed(1)}g / ${troyOz.toFixed(2)}oz) at Spot $${spot}.`);
+      telegramLink.href = `https://t.me/MongsayFX?text=${msg}`;
+    }
+  }
+
+  flowButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      flowButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFlow = btn.getAttribute('data-flow') || 'buy';
+      recalculateHedge();
+    });
+  });
+
+  unitButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      unitButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentUnit = btn.getAttribute('data-unit') || 'damlung';
+      updateUnitSliderLimits();
+      recalculateHedge();
+    });
+  });
+
+  quantityInput.addEventListener('input', () => {
+    quantitySlider.value = quantityInput.value;
+    recalculateHedge();
+  });
+
+  quantitySlider.addEventListener('input', () => {
+    quantityInput.value = quantitySlider.value;
+    recalculateHedge();
+  });
+
+  if (spotPriceInput) spotPriceInput.addEventListener('input', recalculateHedge);
+  if (leverageSelect) leverageSelect.addEventListener('change', recalculateHedge);
+  if (bufferSelect) bufferSelect.addEventListener('change', recalculateHedge);
+
+  updateUnitSliderLimits();
+  recalculateHedge();
 }
 
 /* ---------------------------------------------------------
