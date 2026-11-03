@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.6.2">
+  <link rel="stylesheet" href="styles.css?v=3.6.3">
 </head>
 <body>
 
@@ -186,11 +186,11 @@
 
           <!-- Local Cambodian Physical Market Pricing Card -->
           <div class="local-cambodia-pricing-card">
-            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+            <div class="local-cambodia-header" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
               <div style="font-size: 0.84rem; text-transform: uppercase; color: var(--text-gold); font-weight: 800; letter-spacing: 0.05em;" data-i18n="hedge_local_title">
                 🇰🇭 តម្លៃផ្សារកម្ពុជាក្រៅឌីជីថល / LOCAL CAMBODIAN COUNTER VALUATION
               </div>
-              <div style="display: flex; align-items: center; gap: 6px;">
+              <div class="local-premium-wrap" style="display: flex; align-items: center; gap: 6px;">
                 <span style="font-size: 0.74rem; color: #cbd5e1;" data-i18n="hedge_local_premium_tag">Local Shop Premium:</span>
                 <div style="display: flex; align-items: center; background: rgba(0,0,0,0.5); border: 1px solid rgba(229,185,95,0.4); border-radius: 6px; padding: 2px 8px;">
                   <span style="font-size: 0.75rem; color: var(--text-gold); margin-right: 4px;">+$</span>
@@ -263,7 +263,7 @@
                   <label for="hedgeQuantityInput" id="hedgeQuantityLabel" data-i18n="hedge_label_quantity">Physical Quantity to Hedge (Damlung)</label>
                   <span class="calc-value-display" id="hedgeQuantityVal">50 Damlung</span>
                 </div>
-                <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 8px;">
+                <div class="hedge-quantity-row" style="display: flex; gap: 12px; align-items: center; margin-bottom: 8px;">
                   <input type="number" id="hedgeQuantityInput" class="form-input" value="50" min="0.1" step="0.5" style="max-width: 140px; font-weight: 800; font-size: 1.1rem;">
                   <input type="range" id="hedgeQuantitySlider" class="calc-slider-range" min="1" max="500" step="1" value="50" style="flex: 1;">
                 </div>
@@ -316,7 +316,7 @@
 
               <!-- Primary Action Directive Card -->
               <div class="risk-primary-stat hedge-action-card" id="hedgeActionCard">
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px;">
+                <div class="hedge-action-header" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
                   <span class="spec-title" style="color: rgba(255,255,255,0.8); font-weight: 700;" data-i18n="hedge_directive_title">DIGITAL EXECUTION DIRECTIVE</span>
                   <span class="badge" id="hedgeDirectionBadge" style="background: rgba(244, 63, 94, 0.2); border: 1px solid #f43f5e; color: #f43f5e; font-weight: 800; padding: 4px 10px; border-radius: 9999px; font-size: 0.72rem;">NET INVENTORY: LONG</span>
                 </div>
@@ -381,7 +381,7 @@
               </span>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center;">
+            <div class="capital-advisory-grid">
               <div class="calc-group" style="margin-bottom: 0;">
                 <label for="hedgeUserBalanceInput" style="font-size: 0.82rem;" data-i18n="hedge_user_balance_label">Your Current Trading Account Balance ($USD)</label>
                 <input type="number" id="hedgeUserBalanceInput" class="form-input" value="10000" min="100" step="500" style="font-weight: 800; color: #38bdf8; font-size: 1.15rem;">
@@ -542,7 +542,11 @@
           Quick-reference institutional conversion table based on standard $2,720 spot gold and 1:100 leverage with $100/oz drawdown defense buffer.
         </p>
 
-        <div style="overflow-x: auto; margin-top: 28px;">
+        <div class="gold-matrix-container">
+          <div class="mobile-table-scroll-hint">
+            <span style="font-size: 0.9rem;">⇄</span>
+            <span data-i18n="table_scroll_hint">Swipe horizontally to view full matrix</span>
+          </div>
           <table class="gold-matrix-table" style="width: 100%; border-collapse: collapse; text-align: left;">
             <thead>
               <tr>
@@ -732,6 +736,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=3.6.2"></script>
+  <script src="script.js?v=3.6.3"></script>
 </body>
 </html>
