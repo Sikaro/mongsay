@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mongsay | Institutional Financial Ecosystem</title>
+  <script>
+    (function() {
+      // Smart GitHub Pages Clean URL Routing Engine
+      var path = window.location.pathname;
+      var clean = path.replace(/^\/+|\/+$/g, '');
+      var segments = clean.split('/');
+      var route = segments[0] ? segments[0].toLowerCase() : '';
+      
+      var routeMap = {
+        '': 'homepage.html',
+        'home': 'homepage.html',
+        'homepage': 'homepage.html',
+        'index': 'homepage.html',
+        'hedging': 'hedging.html',
+        'hedge': 'hedging.html',
+        'gold': 'hedging.html',
+        'advisory': 'advisory.html',
+        'brokerage': 'advisory.html',
+        'ventures': 'ventures.html',
+        'media': 'media.html',
+        'books': 'books.html',
+        'library': 'books.html'
+      };
+
+      if (routeMap[route]) {
+        var target = '/' + routeMap[route] + window.location.search + window.location.hash;
+        window.location.replace(target);
+      } else {
+        window.location.replace('/homepage.html' + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+</head>
+<body style="background: #060b16; color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+  <div style="text-align: center; padding: 20px;">
+    <div style="font-size: 2.2rem; font-weight: 800; color: #eab308; margin-bottom: 8px;">Mongsay</div>
+    <div style="font-size: 1rem; color: #38bdf8; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Institutional Routing Desk</div>
+    <p style="font-size: 0.9rem; color: #94a3b8; margin: 0;">Redirecting to requested institutional section...</p>
+  </div>
+</body>
+</html>

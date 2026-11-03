@@ -14,6 +14,7 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initCleanUrls();
   initThemeToggle();
   initFxFreezeToggle();
   initLanguageToggle();
@@ -34,6 +35,39 @@ document.addEventListener('DOMContentLoaded', () => {
   initVideoBackground();
   initFaqAccordion();
 });
+
+/* ---------------------------------------------------------
+   0. Clean URL Engine & Modern Section Routing
+   Eliminates index.html / .html in browser address bars in production
+   and routes requests to clean modern section paths: /homepage, /hedging, etc.
+   --------------------------------------------------------- */
+function initCleanUrls() {
+  if (typeof window === 'undefined' || !window.location) return;
+
+  if (window.location.protocol === 'file:') {
+    // Local offline disk preview: map clean links back to .html so clicking works offline
+    document.querySelectorAll('a[href]').forEach(a => {
+      const href = a.getAttribute('href');
+      if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:') && !href.endsWith('.html')) {
+        const parts = href.split('#');
+        if (parts[0] && !parts[0].includes('.')) {
+          parts[0] = parts[0] + '.html';
+          a.setAttribute('href', parts.join('#'));
+        }
+      }
+    });
+  } else {
+    // Production HTTP/HTTPS:
+    const path = window.location.pathname;
+    if (path.endsWith('/index.html') || path === '/index') {
+      const cleanPath = path.replace(/\/index(\.html)?$/, '/homepage');
+      window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+    } else if (path.endsWith('.html')) {
+      const cleanPath = path.replace(/\.html$/, '');
+      window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+    }
+  }
+}
 
 /* ---------------------------------------------------------
    A. Theme Toggle: Dark Mode & Luxury High-Contrast Light Mode
