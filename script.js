@@ -341,6 +341,7 @@ const I18N_DICTIONARY = {
     hedge_label_unit: "Inventory Unit of Measure",
     unit_damlung: "Damlung (តម្លឹង - 37.5g)",
     unit_chi: "Chi (ជី - 3.75g)",
+    unit_kilograms: "Kilograms (គីឡូ - Kg)",
     unit_grams: "Grams (g)",
     unit_ounces: "Troy Ounces (oz)",
     hedge_label_quantity: "Physical Quantity to Hedge",
@@ -611,6 +612,7 @@ const I18N_DICTIONARY = {
     hedge_label_unit: "ខ្នាតរង្វាស់ស្តុកមាស",
     unit_damlung: "តម្លឹង (៣៧.៥ ក្រាម)",
     unit_chi: "ជី (៣.៧៥ ក្រាម)",
+    unit_kilograms: "គីឡូក្រាម (Kg)",
     unit_grams: "ក្រាម (g)",
     unit_ounces: "Troy Ounces (oz)",
     hedge_label_quantity: "បរិមាណមាសត្រូវការពារហានិភ័យ",
@@ -2224,13 +2226,34 @@ function initHedgingCalculator() {
     const pillsWrap = document.getElementById('presetPillsContainer');
     if (!pillsWrap) return;
     pillsWrap.innerHTML = '';
-    cfg.presets.forEach(p => {
+
+    let presets = cfg.presets;
+    let unitText = currentUnit === 'chi' ? 'ជី' : 'តម្លឹង';
+
+    if (currentUnit === 'kilograms') {
+      presets = currentMetal === 'gold' ? [0.5, 1, 2, 5, 10, 25] : [1, 5, 10, 25, 50, 100];
+      unitText = 'Kg';
+    } else if (currentUnit === 'grams') {
+      presets = currentMetal === 'gold' ? [100, 250, 500, 1000, 2500, 5000] : [500, 1000, 2500, 5000, 10000, 25000];
+      unitText = 'g';
+    } else if (currentUnit === 'ounces') {
+      presets = currentMetal === 'gold' ? [1, 5, 10, 50, 100, 300] : [10, 50, 100, 500, 1000, 5000];
+      unitText = 'oz';
+    } else if (currentUnit === 'chi') {
+      presets = currentMetal === 'gold' ? [10, 50, 100, 500, 1000, 5000] : [100, 500, 1000, 5000, 10000, 50000];
+      unitText = 'ជី';
+    } else {
+      presets = cfg.presets;
+      unitText = 'តម្លឹង';
+    }
+
+    presets.forEach(p => {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'preset-pill-btn';
       if (parseFloat(quantityInput.value) === p) btn.classList.add('active');
       btn.setAttribute('data-preset', p);
-      btn.textContent = `${p.toLocaleString('en-US')} ${currentUnit === 'chi' ? 'ជី' : 'តម្លឹង'}`;
+      btn.textContent = `${p.toLocaleString('en-US')} ${unitText}`;
       btn.addEventListener('click', () => {
         quantityInput.value = p;
         quantitySlider.value = p;
@@ -2258,6 +2281,13 @@ function initHedgingCalculator() {
       quantityInput.min = 1;
       quantityInput.step = 1;
       if (quantityLabel) quantityLabel.textContent = `Physical Quantity to Hedge (${cfg.symbol} Chi / ជី)`;
+    } else if (currentUnit === 'kilograms') {
+      quantitySlider.min = currentMetal === 'gold' ? 0.1 : 1;
+      quantitySlider.max = currentMetal === 'gold' ? 50 : 500;
+      quantitySlider.step = currentMetal === 'gold' ? 0.1 : 1;
+      quantityInput.min = 0.01;
+      quantityInput.step = currentMetal === 'gold' ? 0.1 : 1;
+      if (quantityLabel) quantityLabel.textContent = `Physical Quantity to Hedge (${cfg.symbol} Kilograms / គីឡូក្រាម)`;
     } else if (currentUnit === 'grams') {
       quantitySlider.min = currentMetal === 'gold' ? 10 : 100;
       quantitySlider.max = currentMetal === 'gold' ? 10000 : 100000;
@@ -2301,6 +2331,12 @@ function initHedgingCalculator() {
       troyOz = grams / 31.1034768;
       exactLots = qty / cfg.chiPerLot;
       if (quantityValDisplay) quantityValDisplay.textContent = `${qty.toLocaleString('en-US', { maximumFractionDigits: 1 })} Chi`;
+    } else if (currentUnit === 'kilograms') {
+      grams = qty * 1000;
+      totalDamlung = grams / 37.5;
+      troyOz = grams / 31.1034768;
+      exactLots = grams / cfg.gramsPerLot;
+      if (quantityValDisplay) quantityValDisplay.textContent = `${qty.toLocaleString('en-US', { minimumFractionDigits: (qty % 1 !== 0 ? 2 : 0), maximumFractionDigits: 2 })} Kg`;
     } else if (currentUnit === 'grams') {
       grams = qty;
       totalDamlung = grams / 37.5;
@@ -2403,6 +2439,9 @@ function initHedgingCalculator() {
         formulaCode.textContent = `Lots = ${qty} Damlung ÷ ${cfg.damlungPerLot.toFixed(2)} = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5 (${cfg.symbol})`;
       } else if (currentUnit === 'chi') {
         formulaCode.textContent = `Lots = ${qty} Chi ÷ ${cfg.chiPerLot.toFixed(2)} = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5 (${cfg.symbol})`;
+      } else if (currentUnit === 'kilograms') {
+        const kgPerLot = (cfg.gramsPerLot / 1000).toFixed(2);
+        formulaCode.textContent = `Lots = ${qty} Kg ÷ ${kgPerLot} Kg = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5 (${cfg.symbol})`;
       } else if (currentUnit === 'grams') {
         formulaCode.textContent = `Lots = ${qty} g ÷ ${cfg.gramsPerLot.toFixed(2)} g = ${exactLots.toFixed(4)} Lots → ${roundedLots.toFixed(2)} Lots MT4/MT5 (${cfg.symbol})`;
       } else if (currentUnit === 'ounces') {
@@ -2440,7 +2479,8 @@ function initHedgingCalculator() {
 
     if (telegramLink) {
       const action = currentFlow === 'buy' ? 'SELL' : 'BUY';
-      const msg = encodeURIComponent(`Hello Mong Say, I am establishing a physical ${currentMetal.toUpperCase()} hedging desk via SAGFX. Execution Request: ${action} ${roundedLots.toFixed(2)} Lots ${cfg.symbol} for ${qty} ${currentUnit} (${grams.toFixed(1)}g / ${troyOz.toFixed(2)}oz) at Spot $${spot}. Physical Value: $${Math.round(totalPhysicalCashVal).toLocaleString()}. Required Margin: $${initialMargin.toFixed(2)}.`);
+      const unitLabel = currentUnit === 'kilograms' ? 'Kg' : currentUnit;
+      const msg = encodeURIComponent(`Hello Mong Say, I am establishing a physical ${currentMetal.toUpperCase()} hedging desk via SAGFX. Execution Request: ${action} ${roundedLots.toFixed(2)} Lots ${cfg.symbol} for ${qty} ${unitLabel} (${grams.toFixed(1)}g / ${troyOz.toFixed(2)}oz) at Spot $${spot}. Physical Value: $${Math.round(totalPhysicalCashVal).toLocaleString()}. Required Margin: $${initialMargin.toFixed(2)}.`);
       telegramLink.href = `https://t.me/MongsayFX?text=${msg}`;
     }
   }
