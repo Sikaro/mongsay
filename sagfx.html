@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.7.5">
+  <link rel="stylesheet" href="styles.css?v=3.7.6">
 </head>
 <body class="sagfx-deck-page">
 
@@ -50,9 +50,28 @@
             <span class="lang-divider">|</span>
             <span class="lang-code" data-lang="kh">ខ្មែរ</span>
           </button>
-          <button class="nav-control-btn theme-toggle" id="themeToggleBtn" aria-label="Toggle Theme (Dark / Light)" title="Toggle Theme">
-            <span class="theme-icon icon-sun">☀️</span>
-            <span class="theme-icon icon-moon">🌙</span>
+          <button class="pin-theme-toggle theme-toggle" id="themeToggleBtn" aria-label="Toggle Theme (Dark / Light)" title="Toggle Theme" type="button">
+            <span class="pin-toggle-track">
+              <span class="pin-toggle-label label-light" data-i18n="theme_light_label">Light</span>
+              <span class="pin-toggle-label label-dark" data-i18n="theme_dark_label">Dark</span>
+            </span>
+            <span class="pin-toggle-orb" aria-hidden="true">
+              <span class="pin-orb-highlight"></span>
+              <svg class="pin-orb-icon pin-icon-moon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+              <svg class="pin-orb-icon pin-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4.2" fill="currentColor"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            </span>
           </button>
           <button class="nav-control-btn fx-toggle" id="fxToggleBtn" aria-label="Toggle Animations (FX / Eco Mode)" title="Toggle Animations">
             <span class="fx-icon icon-fx-on">✨ <span class="fx-label" data-i18n="fx_label">FX</span></span>
@@ -310,7 +329,7 @@
 
           <!-- 3D Basalt Pedestal Emblem Hero Showcase (Pristine SAGFX 3D Render) -->
           <div class="pin-pedestal-hero-wrap" title="SAGFX Central Clearing Node - 3D Levitation on Basalt Rock">
-            <img src="assets/sagfx-pedestal-emblem.jpg?v=3.7.5" alt="SAGFX 3D Metallic Levitation Emblem on Basalt Pedestal">
+            <img src="assets/sagfx-pedestal-emblem.jpg?v=3.7.6" alt="SAGFX 3D Metallic Levitation Emblem on Basalt Pedestal">
             <div class="pedestal-card-badge">
               <div class="pedestal-badge-tag" data-i18n="pedestal_badge_node">CENTRAL CLEARING NODE</div>
               <div class="pedestal-badge-title">
@@ -408,7 +427,7 @@
 
             <!-- Architectural Citation Figure -->
             <div class="pin-slide-3-figure-wrap" title="Mong Say // Lead Institutional Clearing Architect">
-              <img src="assets/mongsay-seated.jpg?v=3.7.5" alt="Mong Say Lead Architect" style="object-position: center top !important;">
+              <img src="assets/mongsay-seated.jpg?v=3.7.6" alt="Mong Say Lead Architect" style="object-position: center top !important;">
             </div>
           </div>
 
@@ -738,6 +757,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=3.7.5"></script>
+  <script src="script.js?v=3.7.6"></script>
 </body>
 </html>

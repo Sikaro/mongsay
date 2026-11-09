@@ -82,11 +82,14 @@ function initThemeToggle() {
 
   const themeBtns = document.querySelectorAll('.theme-toggle');
   themeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.setAttribute('aria-pressed', savedTheme === 'light' ? 'true' : 'false');
+    btn.addEventListener('click', (e) => {
+      if (e) e.preventDefault();
       const current = document.documentElement.getAttribute('data-theme') || 'dark';
       const nextTheme = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', nextTheme);
       localStorage.setItem('mongsay_theme', nextTheme);
+      themeBtns.forEach(b => b.setAttribute('aria-pressed', nextTheme === 'light' ? 'true' : 'false'));
       showToast(nextTheme === 'light' ? 'Switched to Dim Blue Sea Mode (Oceanic Sapphire)' : 'Switched to Institutional Dark Obsidian Mode');
     });
   });
@@ -162,6 +165,8 @@ function applyFxState(frozen, showToastNotice = false) {
    --------------------------------------------------------- */
 const I18N_DICTIONARY = {
   en: {
+    theme_light_label: "Light",
+    theme_dark_label: "Dark",
     nav_overview: "Overview",
     nav_ventures: "Ventures",
     nav_advisory: "Lead Brokerage",
@@ -559,6 +564,8 @@ const I18N_DICTIONARY = {
     legal_disclaimer: "<strong>Institutional Notice:</strong> Content published by Mong Say and Mongsay House is strictly educational and analytical research. It does not constitute retail financial advice, collective investment solicitation, or custodial deposit taking under the regulatory remits of the Securities and Exchange Regulator of Cambodia (SERC) or the National Bank of Cambodia (NBC). All trading in leveraged instruments involves substantial risk of capital loss."
   },
   kh: {
+    theme_light_label: "ពន្លឺ",
+    theme_dark_label: "ងងឹត",
     nav_overview: "ទិដ្ឋភាព",
     nav_ventures: "អាជីវកម្ម",
     nav_advisory: "ឈ្មួញជើងសាឈានមុខ",
