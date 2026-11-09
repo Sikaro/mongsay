@@ -6125,6 +6125,60 @@ html.fx-frozen .footer-legal-notice {
   object-fit: cover;
 }
 
+/* Glassmorphic Central Clearing Node Card Badge (Matches User Reference Image) */
+.pedestal-card-badge {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  right: 20px;
+  background: rgba(4, 9, 22, 0.78);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid rgba(56, 189, 248, 0.35);
+  border-radius: 18px;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(14, 165, 233, 0.2);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.pedestal-badge-tag {
+  font-family: var(--font-mono, 'Space Mono', monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: #38bdf8;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pedestal-badge-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: -0.01em;
+}
+
+.pedestal-live-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 14px #10b981;
+  animation: pedestalLiveDotPulse 2s ease-in-out infinite;
+}
+
+@keyframes pedestalLiveDotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; box-shadow: 0 0 10px #10b981; }
+  50% { transform: scale(1.3); opacity: 0.85; box-shadow: 0 0 18px #34d399; }
+}
+
 .pin-slide-2-callouts {
   display: grid;
   grid-template-columns: 1fr 1fr;
