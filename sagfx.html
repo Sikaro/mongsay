@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.8.2">
+  <link rel="stylesheet" href="styles.css?v=3.8.3">
 </head>
 <body class="sagfx-deck-page">
 
@@ -73,9 +73,14 @@
               </svg>
             </span>
           </button>
-          <button class="nav-control-btn fx-toggle" id="fxToggleBtn" aria-label="Toggle Animations (FX / Eco Mode)" title="Toggle Animations">
-            <span class="fx-icon icon-fx-on">✨ <span class="fx-label" data-i18n="fx_label">FX</span></span>
-            <span class="fx-icon icon-fx-off">⚡ <span class="fx-label" data-i18n="eco_label">ECO</span></span>
+          <button class="nav-control-btn fx-toggle" id="fxToggleBtn" aria-label="Toggle Animations (FX / Eco Mode)" title="Toggle Animations (FX / ECO Freeze)">
+            <span class="bubble-ambient-glow"></span>
+            <span class="bubble-sphere">
+              <span class="bubble-fluid-core"></span>
+              <span class="bubble-inner-depth"></span>
+              <span class="bubble-specular-rim"></span>
+              <span class="bubble-glint"></span>
+            </span>
           </button>
         </div>
 
@@ -97,9 +102,16 @@
           <span class="theme-icon icon-sun">☀️ Light</span>
           <span class="theme-icon icon-moon">🌙 Dark</span>
         </button>
-        <button class="nav-control-btn fx-toggle" style="flex: 1; justify-content: center;">
-          <span class="fx-icon icon-fx-on">✨ <span data-i18n="fx_mode_active">FX Active</span></span>
-          <span class="fx-icon icon-fx-off">⚡ <span data-i18n="fx_mode_eco">ECO Freeze</span></span>
+        <button class="nav-control-btn fx-toggle" style="flex: 1; justify-content: center;" aria-label="Toggle Animations (FX / Eco Mode)" title="Toggle Animations (FX / ECO Freeze)">
+          <span class="bubble-ambient-glow"></span>
+          <span class="bubble-sphere">
+            <span class="bubble-fluid-core"></span>
+            <span class="bubble-inner-depth"></span>
+            <span class="bubble-specular-rim"></span>
+            <span class="bubble-glint"></span>
+          </span>
+          <span class="fx-label-on" data-i18n="fx_mode_active">FX Active</span>
+          <span class="fx-label-off" data-i18n="fx_mode_eco">ECO Freeze</span>
         </button>
       </div>
       <a href="homepage" data-i18n="nav_overview">Overview</a>
@@ -332,7 +344,7 @@
 
           <!-- 3D Basalt Pedestal Emblem Hero Showcase (Pristine SAGFX 3D Render) -->
           <div class="pin-pedestal-hero-wrap" title="SAGFX Central Clearing Node - 3D Levitation on Basalt Rock">
-            <img src="assets/sagfx-pedestal-emblem.jpg?v=3.8.2" alt="SAGFX 3D Metallic Levitation Emblem on Basalt Pedestal">
+            <img src="assets/sagfx-pedestal-emblem.jpg?v=3.8.3" alt="SAGFX 3D Metallic Levitation Emblem on Basalt Pedestal">
             <div class="pedestal-card-badge">
               <div class="pedestal-badge-tag" data-i18n="pedestal_badge_node">CENTRAL CLEARING NODE</div>
               <div class="pedestal-badge-title">
@@ -430,7 +442,7 @@
 
             <!-- Architectural Citation Figure -->
             <div class="pin-slide-3-figure-wrap" title="Mong Say // Lead Institutional Clearing Architect">
-              <img src="assets/mongsay-seated.jpg?v=3.8.2" alt="Mong Say Lead Architect" style="object-position: center top !important;">
+              <img src="assets/mongsay-seated.jpg?v=3.8.3" alt="Mong Say Lead Architect" style="object-position: center top !important;">
             </div>
           </div>
 
@@ -1013,6 +1025,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=3.8.2"></script>
+  <script src="script.js?v=3.8.3"></script>
 </body>
 </html>
