@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initSagfxPlatformCalculator();
   initSagfxCardPop();
+  initSagfxSlideDeck();
+  initSagfxTimeframeRadar();
 });
 
 /* ---------------------------------------------------------
@@ -3027,5 +3029,182 @@ function initSagfxCardPop() {
     // Avoid triggering when clicking the internal telegram button
     if (e.target.closest('.hero-arch-action')) return;
     stage.classList.toggle('active-popup');
+  });
+}
+
+/* ---------------------------------------------------------
+   SAGFX Pinterest Presentation Deck - Interactive Slide Navigator
+   Handles:
+   - 4-Slide Scroll-Spy & Active Dot Tracking
+   - Slide Progress Bar & Live Counter (SLIDE 01 / 04)
+   - Prev / Next Navigation Buttons
+   - Keyboard Arrow Navigation (ArrowDown / ArrowUp / PageDown / PageUp)
+   - Interactive Slide Dock Indicator
+   --------------------------------------------------------- */
+function initSagfxSlideDeck() {
+  const slides = Array.from(document.querySelectorAll('.pin-slide-section'));
+  if (!slides || slides.length === 0) return;
+
+  const dots = document.querySelectorAll('.pin-dock-dot');
+  const counter = document.getElementById('pinDeckCounter');
+  const progressBar = document.getElementById('pinDeckProgressBar');
+  const prevBtn = document.getElementById('pinDeckPrev');
+  const nextBtn = document.getElementById('pinDeckNext');
+
+  let currentSlideIndex = 0;
+
+  function updateSlideUI(index) {
+    if (index < 0 || index >= slides.length) return;
+    currentSlideIndex = index;
+
+    // Update Counter
+    if (counter) {
+      counter.textContent = `SLIDE 0${index + 1} / 0${slides.length}`;
+    }
+
+    // Update Progress Bar
+    if (progressBar) {
+      const progress = ((index + 1) / slides.length) * 100;
+      progressBar.style.width = `${progress}%`;
+    }
+
+    // Update Dots
+    dots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  // IntersectionObserver to track active slide
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const index = slides.indexOf(entry.target);
+        if (index !== -1) {
+          updateSlideUI(index);
+        }
+      }
+    });
+  }, {
+    threshold: 0.45
+  });
+
+  slides.forEach((slide) => observer.observe(slide));
+
+  // Dock Dots Click
+  dots.forEach((dot) => {
+    dot.addEventListener('click', (e) => {
+      const targetId = dot.getAttribute('data-target');
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Prev & Next Buttons
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      if (currentSlideIndex > 0) {
+        slides[currentSlideIndex - 1].scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      if (currentSlideIndex < slides.length - 1) {
+        slides[currentSlideIndex + 1].scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  // Keyboard Navigation
+  window.addEventListener('keydown', (e) => {
+    // Only handle if in viewport of sagfx deck page
+    if (!document.body.classList.contains('sagfx-deck-page')) return;
+    if (['input', 'textarea', 'select'].includes(document.activeElement.tagName.toLowerCase())) return;
+
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+      if (currentSlideIndex < slides.length - 1) {
+        e.preventDefault();
+        slides[currentSlideIndex + 1].scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      if (currentSlideIndex > 0) {
+        e.preventDefault();
+        slides[currentSlideIndex - 1].scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+}
+
+/* ---------------------------------------------------------
+   SAGFX Slide 3 - Interactive Timeframe Performance Radar
+   --------------------------------------------------------- */
+function initSagfxTimeframeRadar() {
+  const tfBtns = document.querySelectorAll('.pin-tf-btn');
+  const splineLine = document.querySelector('.chart-spline-line');
+  const pulseDot = document.querySelector('.chart-pulse-dot');
+  const bigStat = document.querySelector('.pin-chart-big-stat');
+  const maxRebate = document.getElementById('pinRadarMaxRebate');
+
+  if (!tfBtns || tfBtns.length === 0 || !splineLine) return;
+
+  const radarData = {
+    '1M': {
+      d: 'M 0 100 Q 55 92, 105 68 T 195 42 T 275 16 L 320 10',
+      dotX: 320,
+      dotY: 10,
+      lots: '135K+',
+      rebate: '$45+'
+    },
+    '6M': {
+      d: 'M 0 110 Q 60 85, 120 70 T 210 35 T 280 20 L 320 8',
+      dotX: 320,
+      dotY: 8,
+      lots: '780K+',
+      rebate: '$45+'
+    },
+    '1Y': {
+      d: 'M 0 115 Q 70 95, 140 60 T 225 28 T 290 12 L 320 5',
+      dotX: 320,
+      dotY: 5,
+      lots: '1.65M+',
+      rebate: '$48+'
+    },
+    'ALL': {
+      d: 'M 0 118 Q 80 88, 150 50 T 235 22 T 300 8 L 320 3',
+      dotX: 320,
+      dotY: 3,
+      lots: '3.2M+',
+      rebate: '$50+'
+    }
+  };
+
+  tfBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      tfBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const tf = btn.getAttribute('data-tf') || '1M';
+      const data = radarData[tf];
+      if (!data) return;
+
+      splineLine.setAttribute('d', data.d);
+      if (pulseDot) {
+        pulseDot.setAttribute('cx', data.dotX);
+        pulseDot.setAttribute('cy', data.dotY);
+      }
+      if (bigStat) {
+        bigStat.textContent = data.lots;
+      }
+      if (maxRebate) {
+        maxRebate.textContent = data.rebate;
+      }
+    });
   });
 }

@@ -6588,3 +6588,327 @@ html.fx-frozen .pin-tech-card {
     height: 430px;
   }
 }
+
+/* ==========================================================================
+   PINTEREST SLIDE DECK INTERACTIVE CONTROLLER & DOCK ENGINE
+   ========================================================================== */
+
+/* Slide Deck Progress Indicator at top */
+.pin-deck-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 50%, #e5b95f 100%);
+  width: 25%;
+  z-index: 105;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+/* Floating Slide Navigator Dock (Right side) */
+.pin-deck-dock {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: rgba(6, 12, 24, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 9999px;
+  padding: 14px 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(14, 165, 233, 0.15);
+}
+
+.pin-dock-dot {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(148, 163, 184, 0.35);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.pin-dock-dot:hover {
+  background: #38bdf8;
+  transform: scale(1.25);
+  box-shadow: 0 0 12px #38bdf8;
+}
+
+.pin-dock-dot.active {
+  background: #38bdf8;
+  transform: scale(1.4);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.9);
+  border-color: #ffffff;
+}
+
+/* Tooltip on Hover */
+.pin-dock-tooltip {
+  position: absolute;
+  right: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: rgba(6, 14, 30, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: #f8fafc;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+}
+
+.pin-dock-dot:hover .pin-dock-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Floating Slide Pagination Controller (Bottom-Right) */
+.pin-deck-controls {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(6, 14, 30, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 9999px;
+  padding: 6px 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(14, 165, 233, 0.2);
+}
+
+.pin-deck-ctrl-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f8fafc;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.pin-deck-ctrl-btn:hover {
+  background: #38bdf8;
+  color: #020617;
+  border-color: #38bdf8;
+  box-shadow: 0 0 14px #38bdf8;
+  transform: scale(1.08);
+}
+
+.pin-deck-counter {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  color: #7dd3fc;
+  padding: 0 10px;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+/* Slide 1 Inset Portrait Card (Matches Pinterest Bottom-Right) */
+.pin-inset-portrait-card {
+  background: linear-gradient(145deg, rgba(10, 20, 42, 0.88) 0%, rgba(3, 7, 18, 0.96) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 20px;
+  padding: 14px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(14, 165, 233, 0.2);
+  width: 100%;
+  max-width: 250px;
+  margin-top: 14px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pin-inset-portrait-card:hover {
+  transform: translateY(-3px);
+  border-color: #38bdf8;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85), 0 0 35px rgba(56, 189, 248, 0.4);
+}
+
+.pin-portrait-img-wrap {
+  width: 100%;
+  height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.pin-portrait-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15% !important; /* CRITICAL: Full face framing so his face is 100% visible */
+  filter: contrast(1.08) brightness(0.98);
+  display: block;
+}
+
+.pin-portrait-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(3, 7, 18, 0.85) 100%);
+  pointer-events: none;
+}
+
+.pin-portrait-label-box {
+  padding-top: 10px;
+}
+
+.pin-portrait-name {
+  font-family: var(--font-accent);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pin-portrait-sub {
+  font-size: 0.72rem;
+  color: #38bdf8;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+/* Blueprint Indicator Line with Glowing Beacon */
+.pin-node-callout {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 16px;
+}
+
+.pin-node-line {
+  display: inline-block;
+  width: 24px;
+  height: 1.5px;
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+.pin-node-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  display: inline-block;
+  animation: pulse-dot 2s infinite;
+}
+
+.pin-capsule-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #e0f2fe;
+  letter-spacing: 0.06em;
+}
+
+/* Timeframe filter pills in Slide 3 */
+.pin-chart-timeframes {
+  display: flex;
+  gap: 6px;
+  background: rgba(6, 14, 28, 0.7);
+  padding: 4px;
+  border-radius: 9999px;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.pin-tf-btn {
+  background: transparent;
+  border: none;
+  border-radius: 9999px;
+  padding: 4px 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pin-tf-btn:hover {
+  color: #ffffff;
+}
+
+.pin-tf-btn.active {
+  background: #38bdf8;
+  color: #020617;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+}
+
+/* Responsive Overrides */
+@media (max-width: 960px) {
+  .pin-deck-dock {
+    display: none !important;
+  }
+  .pin-deck-controls {
+    bottom: 16px;
+    right: 16px;
+    padding: 4px 8px;
+  }
+  .pin-deck-ctrl-btn {
+    width: 28px;
+    height: 28px;
+  }
+  .pin-deck-counter {
+    font-size: 0.70rem;
+    padding: 0 6px;
+  }
+  .pin-slide-1-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .pin-slide-1-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+  }
+  .pin-inset-portrait-card {
+    max-width: 280px;
+  }
+}
