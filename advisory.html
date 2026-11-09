@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.7.8">
+  <link rel="stylesheet" href="styles.css?v=3.7.9">
 </head>
 <body>
 
@@ -136,6 +136,255 @@
       </div>
     </section>
 
+    <!-- ==========================================================================
+         INSTITUTIONAL BROKERAGE TERMINAL & 3D ECN GATEWAY SHOWCASE
+         (Pinterest Reference https://pin.it/3qQLEkg24)
+         ========================================================================== -->
+    <section class="broker-terminal-section" id="brokerTerminalSection">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 0.76rem; color: #38bdf8; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.22); padding: 4px 14px; border-radius: 999px; margin-bottom: 12px;">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: #38bdf8; box-shadow: 0 0 8px #38bdf8;"></span>
+          <span data-i18n="terminal_sec_tag">// DIRECT BROKERAGE TERMINAL &amp; ECN GATEWAY</span>
+        </div>
+        <h2 style="font-family: var(--font-heading, 'Outfit', sans-serif); font-size: 2.1rem; font-weight: 800; color: #fff; letter-spacing: -0.02em;" data-i18n="terminal_sec_title">
+          Next-Generation <span class="cyan-glow-text">Institutional Execution Rails</span>
+        </h2>
+        <p style="font-size: 0.95rem; color: var(--text-secondary, #94a3b8); max-width: 680px; margin: 10px auto 0;" data-i18n="terminal_sec_desc">
+          Direct fiber-optic cross-connect routing to whitelisted Tier-1 prime brokers with 0.0 raw spread, sub-millisecond latency, and automated weekly cashback.
+        </p>
+      </div>
+
+      <div class="terminal-scene-wrapper" id="terminalScene">
+        <div class="ambient-glow-mesh"></div>
+
+        <div class="terminal-3d-stage" id="terminalStage">
+          <!-- Base Monitor Screen -->
+          <div class="terminal-base-screen">
+            <div class="terminal-top-bar">
+              <div class="terminal-window-dots">
+                <span class="terminal-dot dot-red"></span>
+                <span class="terminal-dot dot-yellow"></span>
+                <span class="terminal-dot dot-green"></span>
+              </div>
+              
+              <div class="terminal-broker-whitelist-pills" id="brokerPills">
+                <span class="broker-pill active" data-broker="IC MARKETS">IC MARKETS</span>
+                <span class="broker-pill" data-broker="VANTAGE">VANTAGE</span>
+                <span class="broker-pill" data-broker="EXNESS">EXNESS</span>
+                <span class="broker-pill" data-broker="FP MARKETS">FP MARKETS</span>
+              </div>
+
+              <div class="terminal-ecn-status">
+                <span class="ecn-ping-pulse"></span>
+                <span>ECN BRIDGE: &lt;0.8ms</span>
+              </div>
+            </div>
+
+            <div class="terminal-body-grid">
+              <!-- Candlestick Chart Area -->
+              <div class="terminal-chart-area">
+                <div class="chart-header-metrics">
+                  <div class="chart-left-meta">
+                    <span class="chart-current-price" id="liveTerminalPrice">$2,748.65</span>
+                    <span class="chart-price-delta">+1.42% (+$38.50)</span>
+                  </div>
+                  <div class="chart-timeframe-selector">
+                    <button type="button" class="chart-tf-btn active">1M</button>
+                    <button type="button" class="chart-tf-btn">5M</button>
+                    <button type="button" class="chart-tf-btn">15M</button>
+                    <button type="button" class="chart-tf-btn">1H</button>
+                    <button type="button" class="chart-tf-btn">4H</button>
+                  </div>
+                </div>
+
+                <!-- SVG Candlesticks & Pitchfork Regression Channel -->
+                <div class="chart-svg-container">
+                  <svg width="100%" height="100%" viewBox="0 0 680 320" preserveAspectRatio="none">
+                    <!-- Background Horizontal Grid Lines -->
+                    <line x1="0" y1="50" x2="680" y2="50" class="chart-grid-line" />
+                    <line x1="0" y1="110" x2="680" y2="110" class="chart-grid-line" />
+                    <line x1="0" y1="170" x2="680" y2="170" class="chart-grid-line" />
+                    <line x1="0" y1="230" x2="680" y2="230" class="chart-grid-line" />
+
+                    <!-- Ascending Linear Regression Channel Corridor -->
+                    <polygon points="30,270 340,150 660,60 660,120 340,210 30,320" class="regression-corridor" />
+                    <line x1="30" y1="295" x2="660" y2="90" class="regression-median" />
+
+                    <!-- Dense Institutional Candlestick Sequence (22 Candles) -->
+                    <g class="candle-bull"><line x1="40" y1="260" x2="40" y2="305" class="candle-wick"/><rect x="35" y="272" width="10" height="22" class="candle-body"/></g>
+                    <g class="candle-bear"><line x1="68" y1="250" x2="68" y2="295" class="candle-wick"/><rect x="63" y="260" width="10" height="25" class="candle-body"/></g>
+                    <g class="candle-bull"><line x1="96" y1="235" x2="96" y2="280" class="candle-wick"/><rect x="91" y="245" width="10" height="26" class="candle-body"/></g>
+                    <g class="candle-bull"><line x1="124" y1="215" x2="124" y2="265" class="candle-wick"/><rect x="119" y="225" width="10" height="30" class="candle-body"/></g>
+                    <g class="candle-bear"><line x1="152" y1="205" x2="152" y2="245" class="candle-wick"/><rect x="147" y="215" width="10" height="20" class="candle-body"/></g>
+                    <g class="candle-bull"><line x1="180" y1="180" x2="180" y2="230" class="candle-wick"/><rect x="175" y="190" width="10" height="32" class="candle-body"/></g>
+                    <g class="candle-bull"><line x1="208" y1="165" x2="208" y2="210" class="candle-wick"/><rect x="203" y="175" width="10" height="28" class="candle-body"/></g>
+                    <g class="candle-bear"><line x1="236" y1="160" x2="236" y2="195" class="candle-wick"/><rect x="231" y="168" width="10" height="18" class="candle-body"/></g>
+                    <g class="candle-bull"><line x1="264" y1="140" x2="264" y2="185" class="candle-wick"/><rect x="259" y="150" width="10" height="26" class="candle-body"/></g>
+                    <g class="candle-bull"><line x1="292" y1="125" x2="292" y2="175" class="candle-wick"/><rect x="287" y="135" width="10" height="30" class="candle-body"/></g>
+                    <g class="candle-bull"><line x1="320" y1="110" x2="320" y2="155" class="candle-wick"/><rect x="315" y="120" width="10" height="28" class="candle-body"/></g>
+                    <g class="candle-bear"><line x1="348" y1="115" x2="348" y2="150" class="candle-wick"/><rect x="343" y="122" width="10" height="20" class="candle-body"/></g>
+                    <g class="candle-bull"><line x1="376" y1="95" x2="376" y2="140" class="candle-wick"/><rect x="371" y="105" width="10" height="25" class="candle-body"/></g>
+                    <g class="candle-bull"><line x1="404" y1="80" x2="404" y2="130" class="candle-wick"/><rect x="399" y="90" width="10" height="32" class="candle-body"/></g>
+                    <g class="candle-bear"><line x1="432" y1="85" x2="432" y2="120" class="candle-wick"/><rect x="427" y="92" width="10" height="18" class="candle-body"/></g>
+                    <g class="candle-bull"><line x1="460" y1="65" x2="460" y2="110" class="candle-wick"/><rect x="455" y="75" width="10" height="28" class="candle-body"/></g>
+                    <g class="candle-bull"><line x1="488" y1="52" x2="488" y2="98" class="candle-wick"/><rect x="483" y="62" width="10" height="26" class="candle-body"/></g>
+                    <g class="candle-bear"><line x1="516" y1="55" x2="516" y2="90" class="candle-wick"/><rect x="511" y="62" width="10" height="18" class="candle-body"/></g>
+                    <g class="candle-bull"><line x1="544" y1="38" x2="544" y2="82" class="candle-wick"/><rect x="539" y="48" width="10" height="25" class="candle-body"/></g>
+                    <g class="candle-bull"><line x1="572" y1="28" x2="572" y2="70" class="candle-wick"/><rect x="567" y="38" width="10" height="24" class="candle-body"/></g>
+                    <g class="candle-bull"><line x1="600" y1="20" x2="600" y2="60" class="candle-wick"/><rect x="595" y="28" width="10" height="22" class="candle-body"/></g>
+                    <g class="candle-bull" id="liveTerminalCandle">
+                      <line x1="628" y1="12" x2="628" y2="52" class="candle-wick"/>
+                      <rect x="623" y="18" width="10" height="20" class="candle-body"/>
+                    </g>
+
+                    <!-- Bottom Volume Histogram Bars -->
+                    <rect x="35" y="295" width="10" height="15" class="vol-bar" />
+                    <rect x="63" y="290" width="10" height="20" class="vol-bar" />
+                    <rect x="91" y="285" width="10" height="25" class="vol-bar" />
+                    <rect x="119" y="280" width="10" height="30" class="vol-bar" />
+                    <rect x="147" y="292" width="10" height="18" class="vol-bar" />
+                    <rect x="175" y="278" width="10" height="32" class="vol-bar" />
+                    <rect x="203" y="282" width="10" height="28" class="vol-bar" />
+                    <rect x="231" y="295" width="10" height="15" class="vol-bar" />
+                    <rect x="259" y="285" width="10" height="25" class="vol-bar" />
+                    <rect x="287" y="275" width="10" height="35" class="vol-bar" />
+                    <rect x="315" y="278" width="10" height="32" class="vol-bar" />
+                    <rect x="343" y="290" width="10" height="20" class="vol-bar" />
+                    <rect x="371" y="282" width="10" height="28" class="vol-bar" />
+                    <rect x="399" y="272" width="10" height="38" class="vol-bar" />
+                    <rect x="427" y="292" width="10" height="18" class="vol-bar" />
+                    <rect x="455" y="280" width="10" height="30" class="vol-bar" />
+                    <rect x="483" y="285" width="10" height="25" class="vol-bar" />
+                    <rect x="511" y="295" width="10" height="15" class="vol-bar" />
+                    <rect x="539" y="276" width="10" height="34" class="vol-bar" />
+                    <rect x="567" y="272" width="10" height="38" class="vol-bar" />
+                    <rect x="595" y="268" width="10" height="42" class="vol-bar" />
+                    <rect x="623" y="260" width="10" height="50" class="vol-bar" />
+                  </svg>
+                </div>
+
+                <div class="chart-axis-labels">
+                  <span>18:30</span>
+                  <span>19:00</span>
+                  <span>19:30</span>
+                  <span>20:00</span>
+                  <span>20:30</span>
+                  <span>21:00</span>
+                  <span>21:30</span>
+                </div>
+              </div>
+
+              <!-- Order Book / Depth Ladder -->
+              <div class="terminal-depth-ladder">
+                <div class="ladder-title">
+                  <span>ECN DEPTH</span>
+                  <span style="color: #38bdf8;">RAW 0.0</span>
+                </div>
+                <div class="ladder-row ask">
+                  <span class="price">2,750.10</span>
+                  <span class="size">48.5L</span>
+                  <div class="ladder-bar-bg" style="width: 75%;"></div>
+                </div>
+                <div class="ladder-row ask">
+                  <span class="price">2,749.60</span>
+                  <span class="size">32.0L</span>
+                  <div class="ladder-bar-bg" style="width: 50%;"></div>
+                </div>
+                <div class="ladder-row ask">
+                  <span class="price">2,749.15</span>
+                  <span class="size">18.2L</span>
+                  <div class="ladder-bar-bg" style="width: 30%;"></div>
+                </div>
+                <div class="ladder-row bid">
+                  <span class="price">2,748.65</span>
+                  <span class="size">65.0L</span>
+                  <div class="ladder-bar-bg" style="width: 90%;"></div>
+                </div>
+                <div class="ladder-row bid">
+                  <span class="price">2,748.20</span>
+                  <span class="size">42.8L</span>
+                  <div class="ladder-bar-bg" style="width: 65%;"></div>
+                </div>
+                <div class="ladder-row bid">
+                  <span class="price">2,747.75</span>
+                  <span class="size">29.4L</span>
+                  <div class="ladder-bar-bg" style="width: 45%;"></div>
+                </div>
+                <div class="ladder-row bid">
+                  <span class="price">2,747.30</span>
+                  <span class="size">19.0L</span>
+                  <div class="ladder-bar-bg" style="width: 28%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating 3D Frosted Glass Card -->
+          <div class="floating-glass-card" id="floatingGlassCard">
+            <div class="glass-card-header">
+              <div class="glass-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <div class="glass-card-titles">
+                <h4 id="cardBrokerTitle" data-i18n="terminal_card_title">IC Markets Gateway</h4>
+                <p id="cardBrokerMeta" data-i18n="terminal_card_meta">NODE 01 // FIX 4.4 ECN BRIDGE</p>
+              </div>
+            </div>
+
+            <div class="glass-input-row">
+              <div class="glass-input-field" id="fieldAccount">
+                <span class="masked-bullets">••••••••••••</span>
+                <span class="field-tag" id="fieldAccountTag" data-i18n="terminal_field_whitelabel">WHITELIST ID</span>
+              </div>
+            </div>
+
+            <div class="glass-input-row">
+              <div class="glass-input-field" id="fieldKey">
+                <span class="masked-bullets">••••••••••••••••</span>
+                <span class="field-tag" data-i18n="terminal_field_spread">RAW 0.0 PIP</span>
+              </div>
+            </div>
+
+            <div class="glass-options-row">
+              <label class="glass-checkbox-label">
+                <span class="custom-checkbox">✓</span>
+                <span data-i18n="terminal_remember">Remember me</span>
+              </label>
+              <a href="https://t.me/MongsayFX" target="_blank" class="forgot-link" data-i18n="terminal_forgot">Get Whitelist Key</a>
+            </div>
+
+            <button class="glass-cta-button" id="glassCtaBtn" aria-label="Connect Brokerage Rails">
+              <span id="btnCtaText" data-i18n="terminal_btn_connect">Connect Brokerage Rails</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div class="button-ripple-wave" id="btnRipple"></div>
+            </button>
+
+            <!-- Verified Toast Overlay -->
+            <div class="execution-toast-badge" id="executionToast">
+              <div class="toast-check-icon">✓</div>
+              <h4 style="font-size: 1.15rem; color: #fff; font-weight: 800;" data-i18n="terminal_toast_title">Bridge Connected</h4>
+              <p style="font-size: 0.76rem; color: #38bdf8; font-family: 'Space Mono', monospace;" data-i18n="terminal_toast_desc">ROUTING 0.0 RAW SPREAD LIVE</p>
+            </div>
+          </div>
+
+          <!-- Autonomous 3D Pointer Cursor -->
+          <div class="autonomous-pointer-cursor" id="autoCursor" aria-hidden="true">
+            <svg viewBox="0 0 32 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 4L13.5 32L17.5 20.5L29 16.5L4 4Z" fill="url(#cursorGrad)" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="cursorGrad" x1="4" y1="4" x2="29" y2="32" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#ffffff"/>
+                  <stop offset="0.6" stop-color="#38bdf8"/>
+                  <stop offset="1" stop-color="#0284c7"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- Advisory Frameworks -->
     <section class="pillars-section" style="padding: 10px 0 60px;">
       <div class="container">
@@ -218,7 +467,7 @@
             <div>
               <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
                 <div class="promo-ribbon">SAGFX.ORG PROMOTION</div>
-                <img src="assets/sagfx-3d-logo.jpg?v=3.7.8" alt="SAGFX 3D Official Logo" style="height: 38px; width: 38px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);">
+                <img src="assets/sagfx-3d-logo.jpg?v=3.7.9" alt="SAGFX 3D Official Logo" style="height: 38px; width: 38px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);">
               </div>
               <div class="promo-value-badge">💰 UP TO 85% BROKER REBATES</div>
               <h3 class="promo-title">Whitelisted ECN Rebates</h3>
@@ -415,6 +664,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=3.7.8"></script>
+  <script src="script.js?v=3.7.9"></script>
 </body>
 </html>

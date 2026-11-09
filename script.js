@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSagfxSlideDeck();
   initSagfxTimeframeRadar();
   initSagfxClearingLoop();
+  initBrokerTerminalShowcase();
 });
 
 /* ---------------------------------------------------------
@@ -560,6 +561,20 @@ const I18N_DICTIONARY = {
     loop_ch5_title: "Automated Settlements",
     loop_ch5_meta: "USDT • ABA / BAKONG • MT4/5",
 
+    // Brokerage Page: 3D Terminal & ECN Gateway (Pinterest Ref)
+    terminal_sec_tag: "// DIRECT BROKERAGE TERMINAL &amp; ECN GATEWAY",
+    terminal_sec_title: "Next-Generation <span class=\"cyan-glow-text\">Institutional Execution Rails</span>",
+    terminal_sec_desc: "Direct fiber-optic cross-connect routing to whitelisted Tier-1 prime brokers with 0.0 raw spread, sub-millisecond latency, and automated weekly cashback.",
+    terminal_card_title: "IC Markets Gateway",
+    terminal_card_meta: "NODE 01 // FIX 4.4 ECN BRIDGE",
+    terminal_field_whitelabel: "WHITELIST ID",
+    terminal_field_spread: "RAW 0.0 PIP",
+    terminal_remember: "Remember me",
+    terminal_forgot: "Get Whitelist Key",
+    terminal_btn_connect: "Connect Brokerage Rails",
+    terminal_toast_title: "Bridge Connected",
+    terminal_toast_desc: "ROUTING 0.0 RAW SPREAD LIVE",
+
     // Cambodian Statutory Legal Protection & IP Notice
     legal_badge: "KINGDOM OF CAMBODIA STATUTORY PROTECTION & IP NOTICE",
     legal_statute_ref: "ROYAL KRAM NO. NS/RKM/0303/008 • NS/RKM/1119/017",
@@ -915,6 +930,20 @@ const I18N_DICTIONARY = {
     loop_ch4_meta: "សងត្រឡប់ ៨៥% • $45+/LOT",
     loop_ch5_title: "ប្រព័ន្ធទូទាត់ស្វ័យប្រវត្ត",
     loop_ch5_meta: "USDT • ABA / BAKONG • MT4/5",
+
+    // Brokerage Page: 3D Terminal & ECN Gateway (Pinterest Ref)
+    terminal_sec_tag: "// ស្ថានីយជួញដូរផ្ទាល់ &amp; ច្រកតភ្ជាប់ ECN",
+    terminal_sec_title: "ប្រព័ន្ធប្រតិបត្តិការ <span class=\"cyan-glow-text\">កម្រិតស្ថាប័នជំនាន់ថ្មី</span>",
+    terminal_sec_desc: "ការតភ្ជាប់បណ្តាញអុបទិក Fiber ផ្ទាល់ទៅកាន់ Prime Broker កំពូលៗ Tier-1 ជាមួយ Raw Spread 0.0 pip ល្បឿនលឿនជាងមីលីវិនាទី និងប្រាក់ Cashback ស្វ័យប្រវត្តប្រចាំសប្តាហ៍។",
+    terminal_card_title: "ច្រកតភ្ជាប់ IC Markets",
+    terminal_card_meta: "ថ្នាំង ០១ // ស្ពាន FIX 4.4 ECN",
+    terminal_field_whitelabel: "លេខសម្គាល់ WHITELIST",
+    terminal_field_spread: "RAW 0.0 PIP",
+    terminal_remember: "ចងចាំគណនីខ្ញុំ",
+    terminal_forgot: "ស្នើសុំកូដ Whitelist",
+    terminal_btn_connect: "តភ្ជាប់បណ្តាញ Broker",
+    terminal_toast_title: "បានតភ្ជាប់ស្ពានជោគជ័យ",
+    terminal_toast_desc: "កំពុងដំណើរការ RAW SPREAD 0.0 ផ្ទាល់",
 
     // Cambodian Statutory Legal Protection & IP Notice
     legal_badge: "សេចក្តីជូនដំណឹងស្តីពីកិច្ចការពារផ្លូវច្បាប់ & កម្មសិទ្ធិបញ្ញានៃព្រះរាជាណាចក្រកម្ពុជា",
@@ -1760,6 +1789,11 @@ function applyLanguage(lang) {
   // Update real-time clearing loop telemetry card language
   if (typeof window.updateSagfxLoopLanguage === 'function') {
     window.updateSagfxLoopLanguage(lang);
+  }
+
+  // Update 3D Brokerage Terminal gateway card language
+  if (typeof window.updateBrokerTerminalLanguage === 'function') {
+    window.updateBrokerTerminalLanguage(lang);
   }
 }
 
@@ -3598,3 +3632,192 @@ function initSagfxClearingLoop() {
   setActiveNode(0, false);
   startAutoCycle();
 }
+
+/* ---------------------------------------------------------
+   Brokerage Page - 3D Institutional Terminal & ECN Gateway
+   (Autonomous 3D Cursor & Interactive Candlestick Showcase
+    Inspired by Pinterest Reference https://pin.it/3qQLEkg24)
+   --------------------------------------------------------- */
+const BROKER_TERMINAL_REGISTRY = {
+  en: [
+    { name: 'IC Markets', meta: 'NODE 01 // FIX 4.4 ECN BRIDGE', tag: 'IC MARKETS' },
+    { name: 'Vantage Markets', meta: 'NODE 02 // RAW SPREAD 0.0 PIP', tag: 'VANTAGE' },
+    { name: 'Exness Prime', meta: 'NODE 03 // INSTANT WITHDRAWAL', tag: 'EXNESS' },
+    { name: 'FP Markets', meta: 'NODE 04 // ASIA ECN LIQUIDITY', tag: 'FP MARKETS' }
+  ],
+  kh: [
+    { name: 'IC Markets', meta: 'ថ្នាំង ០១ // ស្ពាន FIX 4.4 ECN', tag: 'IC MARKETS' },
+    { name: 'Vantage Markets', meta: 'ថ្នាំង ០២ // RAW SPREAD 0.0 PIP', tag: 'VANTAGE' },
+    { name: 'Exness Prime', meta: 'ថ្នាំង ០៣ // ការដកប្រាក់ភ្លាមៗ', tag: 'EXNESS' },
+    { name: 'FP Markets', meta: 'ថ្នាំង ០៤ // សាច់ប្រាក់ ECN អាស៊ី', tag: 'FP MARKETS' }
+  ]
+};
+
+function initBrokerTerminalShowcase() {
+  const stage = document.getElementById('terminalStage');
+  if (!stage) return;
+
+  const card = document.getElementById('floatingGlassCard');
+  const cursor = document.getElementById('autoCursor');
+  const btn = document.getElementById('glassCtaBtn');
+  const ripple = document.getElementById('btnRipple');
+  const toast = document.getElementById('executionToast');
+  const fieldAccount = document.getElementById('fieldAccount');
+  const fieldKey = document.getElementById('fieldKey');
+  const livePrice = document.getElementById('liveTerminalPrice');
+  const cardBrokerTitle = document.getElementById('cardBrokerTitle');
+  const cardBrokerMeta = document.getElementById('cardBrokerMeta');
+  const fieldAccountTag = document.getElementById('fieldAccountTag');
+  const brokerPills = document.querySelectorAll('.broker-pill');
+  const tfBtns = document.querySelectorAll('.chart-tf-btn');
+  const scene = document.getElementById('terminalScene');
+
+  let currentBrokerIdx = 0;
+  let isUserHovered = false;
+  let choreographyTimer = null;
+
+  function getCurrentLang() {
+    return document.documentElement.getAttribute('lang') === 'kh' ? 'kh' : 'en';
+  }
+
+  // Live gold price micro-fluctuations
+  let currentGold = 2748.65;
+  setInterval(() => {
+    const delta = (Math.random() * 0.45 - 0.20).toFixed(2);
+    currentGold = (parseFloat(currentGold) + parseFloat(delta)).toFixed(2);
+    if (livePrice) {
+      livePrice.textContent = `$${Number(currentGold).toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+    }
+  }, 2200);
+
+  // Timeframe selector buttons
+  tfBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tfBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // Switch active broker pill & update card
+  function selectBroker(idx) {
+    currentBrokerIdx = idx;
+    brokerPills.forEach((p, i) => {
+      if (i === idx) p.classList.add('active');
+      else p.classList.remove('active');
+    });
+
+    const lang = getCurrentLang();
+    const dataList = BROKER_TERMINAL_REGISTRY[lang] || BROKER_TERMINAL_REGISTRY.en;
+    const b = dataList[idx] || dataList[0];
+
+    if (cardBrokerTitle) {
+      cardBrokerTitle.textContent = lang === 'kh' ? `ច្រកតភ្ជាប់ ${b.name}` : `${b.name} Gateway`;
+    }
+    if (cardBrokerMeta) cardBrokerMeta.textContent = b.meta;
+    if (fieldAccountTag) fieldAccountTag.textContent = b.tag;
+  }
+
+  brokerPills.forEach((p, i) => {
+    p.addEventListener('click', () => selectBroker(i));
+  });
+
+  // Click trigger on CTA button with tactile feedback
+  function triggerButtonClick() {
+    if (!btn || !ripple || !toast) return;
+    btn.classList.add('clicked');
+    ripple.classList.add('radiate');
+
+    setTimeout(() => {
+      btn.classList.remove('clicked');
+      ripple.classList.remove('radiate');
+      toast.classList.add('show');
+    }, 350);
+  }
+
+  if (btn) {
+    btn.addEventListener('click', () => {
+      triggerButtonClick();
+      setTimeout(() => {
+        if (toast) toast.classList.remove('show');
+      }, 3000);
+    });
+  }
+
+  // Choreography timeline for autonomous 3D pointer cursor
+  function runCursorChoreography() {
+    if (isUserHovered || window.innerWidth < 900) {
+      choreographyTimer = setTimeout(runCursorChoreography, 2000);
+      return;
+    }
+
+    if (!cursor || !fieldAccount || !fieldKey || !btn || !toast) return;
+
+    // Step 1: Cursor hovers down towards Account Field
+    cursor.style.transition = 'transform 1.2s cubic-bezier(0.25, 1, 0.5, 1)';
+    cursor.style.transform = 'translate3d(190px, 130px, 110px)';
+
+    choreographyTimer = setTimeout(() => {
+      if (isUserHovered) return;
+      fieldAccount.classList.add('focused');
+
+      // Step 2: Cursor glides to Key Field
+      cursor.style.transition = 'transform 0.9s cubic-bezier(0.25, 1, 0.5, 1)';
+      cursor.style.transform = 'translate3d(215px, 185px, 110px)';
+
+      choreographyTimer = setTimeout(() => {
+        if (isUserHovered) return;
+        fieldAccount.classList.remove('focused');
+        fieldKey.classList.add('focused');
+
+        // Step 3: Cursor swoops to CTA button center
+        cursor.style.transition = 'transform 1.1s cubic-bezier(0.16, 1, 0.3, 1)';
+        cursor.style.transform = 'translate3d(190px, 295px, 120px)';
+
+        choreographyTimer = setTimeout(() => {
+          if (isUserHovered) return;
+          fieldKey.classList.remove('focused');
+
+          // Step 4: Click button
+          triggerButtonClick();
+
+          // Step 5: Cursor glides away
+          choreographyTimer = setTimeout(() => {
+            cursor.style.transition = 'transform 1.4s cubic-bezier(0.25, 1, 0.5, 1)';
+            cursor.style.transform = 'translate3d(370px, 90px, 110px)';
+
+            // Reset Toast, cycle broker, and restart loop
+            choreographyTimer = setTimeout(() => {
+              toast.classList.remove('show');
+              const nextBroker = (currentBrokerIdx + 1) % 4;
+              selectBroker(nextBroker);
+              choreographyTimer = setTimeout(runCursorChoreography, 2500);
+            }, 3000);
+          }, 800);
+
+        }, 1200);
+      }, 1000);
+    }, 1300);
+  }
+
+  // Hover detection to pause autonomous cursor gracefully
+  if (scene) {
+    scene.addEventListener('mouseenter', () => {
+      isUserHovered = true;
+      if (cursor) cursor.style.opacity = '0.25';
+    });
+    scene.addEventListener('mouseleave', () => {
+      isUserHovered = false;
+      if (cursor) cursor.style.opacity = '1';
+    });
+  }
+
+  // Language update hook
+  window.updateBrokerTerminalLanguage = function() {
+    selectBroker(currentBrokerIdx);
+  };
+
+  // Initial broker selection & start loop
+  selectBroker(0);
+  setTimeout(runCursorChoreography, 1600);
+}
+
