@@ -554,11 +554,11 @@ img {
 }
 
 .site-nav {
-  max-width: 1240px;
+  max-width: 1360px;
   margin: 0 auto;
-  min-height: 62px;
+  min-height: 58px;
   height: auto;
-  background: rgba(8, 13, 26, 0.82);
+  background: rgba(8, 13, 26, 0.84);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
   border: 1px solid var(--border-card);
@@ -567,7 +567,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 24px;
+  padding: 6px 22px;
   transition: var(--transition-normal);
 }
 
@@ -4077,20 +4077,37 @@ html.fx-frozen[data-theme="light"] .fx-toggle .icon-fx-off {
   }
 }
 
-@media (max-width: 1260px) and (min-width: 961px) {
+@media (max-width: 1360px) and (min-width: 961px) {
   .site-nav {
     padding: 6px 16px;
+    gap: 8px;
   }
   .nav-links {
-    gap: 11px;
+    gap: 10px;
     margin: 0 6px;
   }
   .nav-links li a {
-    font-size: 0.82rem;
-    padding: 4px 2px;
+    font-size: 0.80rem;
+    padding: 5px 3px;
+    letter-spacing: 0.1px;
   }
   .brand-title {
-    font-size: 1.52rem;
+    font-size: 1.48rem;
+  }
+  .brand-lion-logo {
+    width: 38px;
+    height: 38px;
+  }
+  .nav-actions {
+    gap: 6px;
+  }
+  .nav-control-btn {
+    padding: 5px 10px;
+    font-size: 0.74rem;
+  }
+  .btn-nav-telegram {
+    padding: 5px 11px;
+    font-size: 0.72rem;
   }
 }
 
