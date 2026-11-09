@@ -8132,16 +8132,26 @@ html.fx-frozen .pulse-group {
 
 .broker-pill {
   font-family: 'Space Mono', monospace;
-  font-size: 0.70rem;
+  font-size: 0.72rem;
   font-weight: 700;
   color: #94a3b8;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 4px 10px;
-  border-radius: 6px;
+  padding: 5px 12px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.broker-pill svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
 }
 
 .broker-pill:hover {
@@ -8150,11 +8160,123 @@ html.fx-frozen .pulse-group {
   border-color: rgba(56, 189, 248, 0.25);
 }
 
+.broker-pill:hover svg {
+  transform: scale(1.15);
+}
+
 .broker-pill.active {
   color: #38bdf8;
   background: rgba(56, 189, 248, 0.14);
   border-color: #38bdf8;
   box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
+}
+
+.broker-pill[data-broker="MEGAFUSION"].active {
+  color: #00f0ff !important;
+  background: rgba(0, 240, 255, 0.16) !important;
+  border-color: #00f0ff !important;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.45) !important;
+}
+
+.broker-pill[data-broker="GTC GO"].active {
+  color: #fbbf24 !important;
+  background: rgba(245, 158, 11, 0.16) !important;
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.45) !important;
+}
+
+.broker-pill[data-broker="LITE FINANCE"].active {
+  color: #34d399 !important;
+  background: rgba(16, 185, 129, 0.16) !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.45) !important;
+}
+
+.broker-pill[data-broker="8EIGHTCAP"].active {
+  color: #a5b4fc !important;
+  background: rgba(99, 102, 241, 0.18) !important;
+  border-color: #818cf8 !important;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.45) !important;
+}
+
+/* Dynamic Condition Aura Shifts */
+#terminalStage[data-broker-theme="megafusion"] .floating-glass-card {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.82), 0 0 45px rgba(0, 240, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  border-color: rgba(0, 240, 255, 0.45);
+}
+#terminalStage[data-broker-theme="megafusion"] .glass-card-icon {
+  background: linear-gradient(135deg, #0099cc 0%, #00f0ff 100%);
+  box-shadow: 0 0 22px rgba(0, 240, 255, 0.7);
+}
+
+#terminalStage[data-broker-theme="gtcgo"] .floating-glass-card {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.82), 0 0 45px rgba(245, 158, 11, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  border-color: rgba(245, 158, 11, 0.45);
+}
+#terminalStage[data-broker-theme="gtcgo"] .glass-card-icon {
+  background: linear-gradient(135deg, #d97706 0%, #fbbf24 100%);
+  box-shadow: 0 0 22px rgba(245, 158, 11, 0.7);
+}
+
+#terminalStage[data-broker-theme="litefinance"] .floating-glass-card {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.82), 0 0 45px rgba(16, 185, 129, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  border-color: rgba(16, 185, 129, 0.45);
+}
+#terminalStage[data-broker-theme="litefinance"] .glass-card-icon {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  box-shadow: 0 0 22px rgba(16, 185, 129, 0.7);
+}
+
+#terminalStage[data-broker-theme="eightcap"] .floating-glass-card {
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.82), 0 0 45px rgba(99, 102, 241, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  border-color: rgba(99, 102, 241, 0.45);
+}
+#terminalStage[data-broker-theme="eightcap"] .glass-card-icon {
+  background: linear-gradient(135deg, #4f46e5 0%, #818cf8 100%);
+  box-shadow: 0 0 22px rgba(99, 102, 241, 0.7);
+}
+
+/* Official Broker Website Direct Link Chip */
+.card-broker-link-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: #00f0ff;
+  background: rgba(0, 240, 255, 0.12);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 1px 8px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  width: fit-content;
+}
+.card-broker-link-chip:hover {
+  background: rgba(0, 240, 255, 0.25);
+  border-color: #00f0ff;
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+.card-broker-link-chip svg {
+  width: 10px;
+  height: 10px;
+}
+
+/* 3D Flip animation for logo badge */
+.glass-card-icon.flipping {
+  animation: iconFlip 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes iconFlip {
+  0% { transform: scale(1) rotateY(0deg); }
+  50% { transform: scale(1.15) rotateY(180deg); }
+  100% { transform: scale(1) rotateY(360deg); }
+}
+
+/* Depth Ladder bar transition */
+.ladder-bar-bg {
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease;
 }
 
 .terminal-ecn-status {

@@ -502,7 +502,7 @@ const I18N_DICTIONARY = {
     sagfx_feat_2: "Zero Hidden Markups",
     sagfx_feat_3: "Automated Settlement",
     sagfx_tech_1_title: "Regulated Prime Brokers",
-    sagfx_tech_1_desc: "Direct bridge connections to IC Markets, Vantage, Exness, and FP Markets with multi-asset liquidity and tier-1 bank feeds.",
+    sagfx_tech_1_desc: "Direct bridge connections to Megafusion, GTC GO, LiteFinance, and 8Eightcap with multi-asset liquidity and tier-1 bank feeds.",
     sagfx_tech_2_title: "Automated Weekly Payouts",
     sagfx_tech_2_desc: "Returning up to 85% of institutional commission spread markups directly to traders with zero delays or withdrawal limits.",
     sagfx_tech_3_title: "Multi-Asset Depth",
@@ -551,7 +551,7 @@ const I18N_DICTIONARY = {
     sagfx_feat_2: "Zero Hidden Fees",
     sagfx_feat_3: "Automated Weekly Payouts",
     sagfx_tech_1_title: "Licensed Tier-1 Prime Brokers",
-    sagfx_tech_1_desc: "Direct connectivity to IC Markets, Vantage, Exness, and FP Markets with multi-asset liquidity and top-tier bank pricing.",
+    sagfx_tech_1_desc: "Direct connectivity to Megafusion, GTC GO, LiteFinance, and 8Eightcap with multi-asset liquidity and top-tier bank pricing.",
     sagfx_tech_2_title: "Automated Weekly Cashbacks",
     sagfx_tech_2_desc: "Up to 85% commission rebates returned directly to your account with zero delays or withdrawal limits.",
     sagfx_tech_3_title: "Multi-Asset Depth of Market",
@@ -574,7 +574,7 @@ const I18N_DICTIONARY = {
     faq_sagfx_q3: "Can I connect an existing live trading account to SAGFX?",
     faq_sagfx_a3: "Yes. If you already maintain an active account with any of our partner prime brokers, you do not need to create a new profile or close existing positions. You can easily request your broker support to transfer your account under the SAGFX institutional clearing code, or open an additional sub-account under our whitelist to begin earning rebates immediately.",
     faq_sagfx_q4: "Which global prime brokers are whitelisted under SAGFX?",
-    faq_sagfx_a4: "We maintain clearing partnerships with top Tier-1 regulated prime brokerages, including IC Markets (ASIC/FSA), Vantage Markets (ASIC/CIMA), Exness (FCA/CySEC), and FP Markets (ASIC/CySEC). Traders can link existing accounts or deploy new sub-accounts under the SAGFX whitelist.",
+    faq_sagfx_a4: "We maintain direct clearing partnerships with top regulated prime brokerages, including Megafusion (www.megafusion.com), GTC GO, LiteFinance, and 8Eightcap. Traders can link existing accounts or deploy new sub-accounts under the SAGFX whitelist.",
     faq_sagfx_q5: "How and when are weekly cashback distributions paid out?",
     faq_sagfx_a5: "All trading volume is calculated on Sunday midnight GMT. Cashback is credited automatically every Monday directly to your USDT (TRC20/BEP20) crypto wallet, Cambodian local bank transfer (ABA / Bakong), or routed back into your MT4/MT5 trading account balance with zero withdrawal delay.",
     faq_sagfx_q6: "How does SAGFX integrate with physical bullion hedging for gold shops?",
@@ -585,7 +585,7 @@ const I18N_DICTIONARY = {
     loop_sec_title: "Unified Institutional <span class=\"cyan-glow-text\">Clearing &amp; Liquidity Loop</span>",
     loop_sec_desc: "Continuous multi-channel volume ingestion routing Tier-1 interbank liquidity, high-volume retail trading, delta-neutral bullion hedging, and weekly rebate cashbacks into the SAGFX central clearing core.",
     loop_ch1_title: "Licensed Prime Brokers",
-    loop_ch1_meta: "IC MARKETS • VANTAGE • EXNESS",
+    loop_ch1_meta: "MEGAFUSION • GTC GO • LITEFINANCE • 8EIGHTCAP",
     loop_ch2_title: "High-Volume Traders",
     loop_ch2_meta: "GOLD (XAU/USD) • 0.0 RAW PIP",
     loop_ch3_title: "Bullion Hedging Desk",
@@ -599,13 +599,13 @@ const I18N_DICTIONARY = {
     terminal_sec_tag: "// DIRECT BROKERAGE TERMINAL &amp; ECN GATEWAY",
     terminal_sec_title: "Next-Generation <span class=\"cyan-glow-text\">Institutional Execution Rails</span>",
     terminal_sec_desc: "Direct fiber-optic cross-connect routing to whitelisted Tier-1 prime brokers with 0.0 raw spread, sub-millisecond latency, and automated weekly cashback.",
-    terminal_card_title: "IC Markets Gateway",
-    terminal_card_meta: "NODE 01 // FIX 4.4 ECN BRIDGE",
+    terminal_card_title: "Megafusion Gateway",
+    terminal_card_meta: "NODE 01 // FIX 4.4 LIQUIDITY BRIDGE",
     terminal_field_whitelabel: "WHITELIST ID",
     terminal_field_spread: "RAW 0.0 PIP",
     terminal_remember: "Remember me",
     terminal_forgot: "Get Whitelist Key",
-    terminal_btn_connect: "Connect Brokerage Rails",
+    terminal_btn_connect: "Connect Megafusion Rails",
     terminal_toast_title: "Bridge Connected",
     terminal_toast_desc: "ROUTING 0.0 RAW SPREAD LIVE",
 
@@ -1001,13 +1001,13 @@ const I18N_DICTIONARY = {
     terminal_sec_tag: "// ស្ថានីយជួញដូរផ្ទាល់ &amp; ច្រកតភ្ជាប់ ECN",
     terminal_sec_title: "ប្រព័ន្ធប្រតិបត្តិការ <span class=\"cyan-glow-text\">កម្រិតស្ថាប័នជំនាន់ថ្មី</span>",
     terminal_sec_desc: "ការតភ្ជាប់បណ្តាញអុបទិក Fiber ផ្ទាល់ទៅកាន់ Prime Broker កំពូលៗ Tier-1 ជាមួយ Raw Spread 0.0 pip ល្បឿនលឿនជាងមីលីវិនាទី និងប្រាក់ Cashback ស្វ័យប្រវត្តប្រចាំសប្តាហ៍។",
-    terminal_card_title: "ច្រកតភ្ជាប់ IC Markets",
-    terminal_card_meta: "ថ្នាំង ០១ // ស្ពាន FIX 4.4 ECN",
+    terminal_card_title: "ច្រកតភ្ជាប់ Megafusion",
+    terminal_card_meta: "ថ្នាំង ០១ // ស្ពានសាច់ប្រាក់ FIX 4.4",
     terminal_field_whitelabel: "លេខសម្គាល់ WHITELIST",
     terminal_field_spread: "RAW 0.0 PIP",
     terminal_remember: "ចងចាំគណនីខ្ញុំ",
     terminal_forgot: "ស្នើសុំកូដ Whitelist",
-    terminal_btn_connect: "តភ្ជាប់បណ្តាញ Broker",
+    terminal_btn_connect: "តភ្ជាប់ Megafusion Rails",
     terminal_toast_title: "បានតភ្ជាប់ស្ពានជោគជ័យ",
     terminal_toast_desc: "កំពុងដំណើរការ RAW SPREAD 0.0 ផ្ទាល់",
 
@@ -3435,7 +3435,7 @@ const SAGFX_LOOP_DATA = {
       latency: "< 1.2ms",
       throughput: "4 Global Prime Brokers",
       bullets: [
-        "<strong>Direct ECN Socket:</strong> Multi-asset connectivity to IC Markets, Vantage Markets, Exness & FP Markets.",
+        "<strong>Direct ECN Socket:</strong> Multi-asset connectivity to Megafusion, GTC GO, LiteFinance & 8Eightcap.",
         "<strong>Zero Spread Markup:</strong> Pure interbank spreads from 0.0 pips without synthetic retail widening.",
         "<strong>Deep Liquidity Feeds:</strong> Institutional liquidity aggregation from top global investment banks.",
         "<strong>Sub-Millisecond Execution:</strong> Fiber-optic cross-connect routing eliminating adverse slippage."
@@ -3716,16 +3716,160 @@ function initSagfxClearingLoop() {
    --------------------------------------------------------- */
 const BROKER_TERMINAL_REGISTRY = {
   en: [
-    { name: 'IC Markets', meta: 'NODE 01 // FIX 4.4 ECN BRIDGE', tag: 'IC MARKETS' },
-    { name: 'Vantage Markets', meta: 'NODE 02 // RAW SPREAD 0.0 PIP', tag: 'VANTAGE' },
-    { name: 'Exness Prime', meta: 'NODE 03 // INSTANT WITHDRAWAL', tag: 'EXNESS' },
-    { name: 'FP Markets', meta: 'NODE 04 // ASIA ECN LIQUIDITY', tag: 'FP MARKETS' }
+    {
+      id: 'megafusion',
+      name: 'Megafusion',
+      urlText: 'www.megafusion.com',
+      url: 'https://www.megafusion.com',
+      meta: 'NODE 01 // FIX 4.4 LIQUIDITY BRIDGE',
+      tag: 'MEGAFUSION',
+      latency: 'ECN BRIDGE: <0.4ms',
+      spreadTag: 'RAW 0.0 PIP // <0.4ms',
+      theme: 'megafusion',
+      toastMeta: 'ROUTING 0.0 RAW SPREAD VIA WWW.MEGAFUSION.COM',
+      depth: [
+        { askPrice: '2,750.10', askSize: '58.5L', askW: 78, bidPrice: '2,748.65', bidSize: '78.0L', bidW: 95 },
+        { askPrice: '2,749.60', askSize: '36.0L', askW: 52, bidPrice: '2,748.20', bidSize: '49.2L', bidW: 68 },
+        { askPrice: '2,749.15', askSize: '21.4L', askW: 32, bidPrice: '2,747.75', bidSize: '32.8L', bidW: 48 },
+        { askPrice: '2,748.70', askSize: '15.2L', askW: 24, bidPrice: '2,747.30', bidSize: '24.5L', bidW: 34 }
+      ],
+      logoSvg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5" stroke="#ffffff" stroke-width="2" fill="rgba(255, 255, 255, 0.25)"/><path d="M7 15L12 8L17 15M9.5 12H14.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    },
+    {
+      id: 'gtcgo',
+      name: 'GTC GO',
+      urlText: 'www.gtcfx.com',
+      url: 'https://www.gtcfx.com',
+      meta: 'NODE 02 // GLOBAL TRADE CAPITAL ECN',
+      tag: 'GTC GO',
+      latency: 'ECN BRIDGE: <0.6ms',
+      spreadTag: 'RAW 0.0 PIP // <0.6ms',
+      theme: 'gtcgo',
+      toastMeta: 'CONNECTED TO GTC GLOBAL TRADE CAPITAL POOL',
+      depth: [
+        { askPrice: '2,749.95', askSize: '42.0L', askW: 65, bidPrice: '2,748.50', bidSize: '64.2L', bidW: 84 },
+        { askPrice: '2,749.50', askSize: '31.5L', askW: 48, bidPrice: '2,748.10', bidSize: '42.0L', bidW: 58 },
+        { askPrice: '2,749.05', askSize: '19.8L', askW: 28, bidPrice: '2,747.65', bidSize: '28.5L', bidW: 42 },
+        { askPrice: '2,748.60', askSize: '14.0L', askW: 20, bidPrice: '2,747.20', bidSize: '18.0L', bidW: 28 }
+      ],
+      logoSvg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ffffff" stroke-width="2" fill="rgba(255, 255, 255, 0.25)"/><path d="M15 9A4.5 4.5 0 1 0 15 15H11.5V12.5H15" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    },
+    {
+      id: 'litefinance',
+      name: 'LiteFinance',
+      urlText: 'www.litefinance.com',
+      url: 'https://www.litefinance.com',
+      meta: 'NODE 03 // MULTI-ASSET ECN POOL',
+      tag: 'LITE FINANCE',
+      latency: 'ECN BRIDGE: <0.7ms',
+      spreadTag: 'RAW 0.0 PIP // <0.7ms',
+      theme: 'litefinance',
+      toastMeta: 'CONNECTED TO LITEFINANCE ECN CLEARING',
+      depth: [
+        { askPrice: '2,750.25', askSize: '36.8L', askW: 55, bidPrice: '2,748.70', bidSize: '52.4L', bidW: 72 },
+        { askPrice: '2,749.80', askSize: '28.0L', askW: 42, bidPrice: '2,748.30', bidSize: '38.0L', bidW: 50 },
+        { askPrice: '2,749.35', askSize: '16.5L', askW: 25, bidPrice: '2,747.85', bidSize: '24.0L', bidW: 36 },
+        { askPrice: '2,748.90', askSize: '11.0L', askW: 18, bidPrice: '2,747.40', bidSize: '16.5L', bidW: 24 }
+      ],
+      logoSvg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="#ffffff" stroke-width="2" fill="rgba(255, 255, 255, 0.25)"/><path d="M7 8V16H13M12 8H17M12 12H16" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    },
+    {
+      id: 'eightcap',
+      name: '8Eightcap',
+      urlText: 'www.eightcap.com',
+      url: 'https://www.eightcap.com',
+      meta: 'NODE 04 // TRADINGVIEW & ULTRA-LOW LATENCY',
+      tag: '8EIGHTCAP',
+      latency: 'ECN BRIDGE: <0.5ms',
+      spreadTag: 'RAW 0.0 PIP // <0.5ms',
+      theme: 'eightcap',
+      toastMeta: 'CONNECTED TO 8EIGHTCAP PRIME ROUTER',
+      depth: [
+        { askPrice: '2,749.60', askSize: '68.0L', askW: 86, bidPrice: '2,748.60', bidSize: '85.5L', bidW: 100 },
+        { askPrice: '2,749.20', askSize: '45.0L', askW: 60, bidPrice: '2,748.15', bidSize: '56.0L', bidW: 75 },
+        { askPrice: '2,748.80', askSize: '29.5L', askW: 38, bidPrice: '2,747.70', bidSize: '39.0L', bidW: 52 },
+        { askPrice: '2,748.40', askSize: '18.0L', askW: 24, bidPrice: '2,747.25', bidSize: '22.0L', bidW: 30 }
+      ],
+      logoSvg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="#ffffff" stroke-width="2" fill="rgba(255, 255, 255, 0.25)"/><circle cx="12" cy="8.5" r="3.5" stroke="#ffffff" stroke-width="2"/><circle cx="12" cy="15.5" r="4" stroke="#ffffff" stroke-width="2"/></svg>'
+    }
   ],
   kh: [
-    { name: 'IC Markets', meta: 'ថ្នាំង ០១ // ស្ពាន FIX 4.4 ECN', tag: 'IC MARKETS' },
-    { name: 'Vantage Markets', meta: 'ថ្នាំង ០២ // RAW SPREAD 0.0 PIP', tag: 'VANTAGE' },
-    { name: 'Exness Prime', meta: 'ថ្នាំង ០៣ // ការដកប្រាក់ភ្លាមៗ', tag: 'EXNESS' },
-    { name: 'FP Markets', meta: 'ថ្នាំង ០៤ // សាច់ប្រាក់ ECN អាស៊ី', tag: 'FP MARKETS' }
+    {
+      id: 'megafusion',
+      name: 'Megafusion',
+      urlText: 'www.megafusion.com',
+      url: 'https://www.megafusion.com',
+      meta: 'ថ្នាំង ០១ // ស្ពានសាច់ប្រាក់ FIX 4.4',
+      tag: 'MEGAFUSION',
+      latency: 'ស្ពាន ECN: <0.4ms',
+      spreadTag: 'RAW 0.0 PIP // <0.4ms',
+      theme: 'megafusion',
+      toastMeta: 'តភ្ជាប់ទៅកាន់ WWW.MEGAFUSION.COM ដោយជោគជ័យ',
+      depth: [
+        { askPrice: '2,750.10', askSize: '58.5L', askW: 78, bidPrice: '2,748.65', bidSize: '78.0L', bidW: 95 },
+        { askPrice: '2,749.60', askSize: '36.0L', askW: 52, bidPrice: '2,748.20', bidSize: '49.2L', bidW: 68 },
+        { askPrice: '2,749.15', askSize: '21.4L', askW: 32, bidPrice: '2,747.75', bidSize: '32.8L', bidW: 48 },
+        { askPrice: '2,748.70', askSize: '15.2L', askW: 24, bidPrice: '2,747.30', bidSize: '24.5L', bidW: 34 }
+      ],
+      logoSvg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5" stroke="#ffffff" stroke-width="2" fill="rgba(255, 255, 255, 0.25)"/><path d="M7 15L12 8L17 15M9.5 12H14.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    },
+    {
+      id: 'gtcgo',
+      name: 'GTC GO',
+      urlText: 'www.gtcfx.com',
+      url: 'https://www.gtcfx.com',
+      meta: 'ថ្នាំង ០២ // សាច់ប្រាក់ពាណិជ្ជកម្មសកល ECN',
+      tag: 'GTC GO',
+      latency: 'ស្ពាន ECN: <0.6ms',
+      spreadTag: 'RAW 0.0 PIP // <0.6ms',
+      theme: 'gtcgo',
+      toastMeta: 'តភ្ជាប់ទៅកាន់បណ្តុំសាច់ប្រាក់ GTC GLOBAL TRADE CAPITAL',
+      depth: [
+        { askPrice: '2,749.95', askSize: '42.0L', askW: 65, bidPrice: '2,748.50', bidSize: '64.2L', bidW: 84 },
+        { askPrice: '2,749.50', askSize: '31.5L', askW: 48, bidPrice: '2,748.10', bidSize: '42.0L', bidW: 58 },
+        { askPrice: '2,749.05', askSize: '19.8L', askW: 28, bidPrice: '2,747.65', bidSize: '28.5L', bidW: 42 },
+        { askPrice: '2,748.60', askSize: '14.0L', askW: 20, bidPrice: '2,747.20', bidSize: '18.0L', bidW: 28 }
+      ],
+      logoSvg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ffffff" stroke-width="2" fill="rgba(255, 255, 255, 0.25)"/><path d="M15 9A4.5 4.5 0 1 0 15 15H11.5V12.5H15" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    },
+    {
+      id: 'litefinance',
+      name: 'LiteFinance',
+      urlText: 'www.litefinance.com',
+      url: 'https://www.litefinance.com',
+      meta: 'ថ្នាំង ០៣ // បណ្តុំទ្រព្យចម្រុះ ECN POOL',
+      tag: 'LITE FINANCE',
+      latency: 'ស្ពាន ECN: <0.7ms',
+      spreadTag: 'RAW 0.0 PIP // <0.7ms',
+      theme: 'litefinance',
+      toastMeta: 'តភ្ជាប់ទៅកាន់ការទូទាត់ LITEFINANCE ECN',
+      depth: [
+        { askPrice: '2,750.25', askSize: '36.8L', askW: 55, bidPrice: '2,748.70', bidSize: '52.4L', bidW: 72 },
+        { askPrice: '2,749.80', askSize: '28.0L', askW: 42, bidPrice: '2,748.30', bidSize: '38.0L', bidW: 50 },
+        { askPrice: '2,749.35', askSize: '16.5L', askW: 25, bidPrice: '2,747.85', bidSize: '24.0L', bidW: 36 },
+        { askPrice: '2,748.90', askSize: '11.0L', askW: 18, bidPrice: '2,747.40', bidSize: '16.5L', bidW: 24 }
+      ],
+      logoSvg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="#ffffff" stroke-width="2" fill="rgba(255, 255, 255, 0.25)"/><path d="M7 8V16H13M12 8H17M12 12H16" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    },
+    {
+      id: 'eightcap',
+      name: '8Eightcap',
+      urlText: 'www.eightcap.com',
+      url: 'https://www.eightcap.com',
+      meta: 'ថ្នាំង ០៤ // TRADINGVIEW & ល្បឿនលឿនបំផុត',
+      tag: '8EIGHTCAP',
+      latency: 'ស្ពាន ECN: <0.5ms',
+      spreadTag: 'RAW 0.0 PIP // <0.5ms',
+      theme: 'eightcap',
+      toastMeta: 'តភ្ជាប់ទៅកាន់ 8EIGHTCAP PRIME ROUTER',
+      depth: [
+        { askPrice: '2,749.60', askSize: '68.0L', askW: 86, bidPrice: '2,748.60', bidSize: '85.5L', bidW: 100 },
+        { askPrice: '2,749.20', askSize: '45.0L', askW: 60, bidPrice: '2,748.15', bidSize: '56.0L', bidW: 75 },
+        { askPrice: '2,748.80', askSize: '29.5L', askW: 38, bidPrice: '2,747.70', bidSize: '39.0L', bidW: 52 },
+        { askPrice: '2,748.40', askSize: '18.0L', askW: 24, bidPrice: '2,747.25', bidSize: '22.0L', bidW: 30 }
+      ],
+      logoSvg: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="#ffffff" stroke-width="2" fill="rgba(255, 255, 255, 0.25)"/><circle cx="12" cy="8.5" r="3.5" stroke="#ffffff" stroke-width="2"/><circle cx="12" cy="15.5" r="4" stroke="#ffffff" stroke-width="2"/></svg>'
+    }
   ]
 };
 
@@ -3738,15 +3882,27 @@ function initBrokerTerminalShowcase() {
   const btn = document.getElementById('glassCtaBtn');
   const ripple = document.getElementById('btnRipple');
   const toast = document.getElementById('executionToast');
+  const toastMeta = document.getElementById('toastMeta');
   const fieldAccount = document.getElementById('fieldAccount');
   const fieldKey = document.getElementById('fieldKey');
   const livePrice = document.getElementById('liveTerminalPrice');
+  const cardBrokerLogo = document.getElementById('cardBrokerLogo');
   const cardBrokerTitle = document.getElementById('cardBrokerTitle');
+  const cardBrokerLinkChip = document.getElementById('cardBrokerLinkChip');
+  const cardBrokerUrlText = document.getElementById('cardBrokerUrlText');
   const cardBrokerMeta = document.getElementById('cardBrokerMeta');
   const fieldAccountTag = document.getElementById('fieldAccountTag');
-  const brokerPills = document.querySelectorAll('.broker-pill');
+  const fieldSpreadTag = document.getElementById('fieldSpreadTag');
+  const btnCtaText = document.getElementById('btnCtaText');
+  const ecnLatencyText = document.getElementById('ecnLatencyText');
+  const brokerPills = document.querySelectorAll('.terminal-broker-whitelist-pills .broker-pill');
   const tfBtns = document.querySelectorAll('.chart-tf-btn');
   const scene = document.getElementById('terminalScene');
+  const liveCandle = document.getElementById('liveTerminalCandle');
+
+  // Depth ladder rows
+  const depthLadder = document.querySelector('.terminal-depth-ladder');
+  const depthRows = depthLadder ? depthLadder.querySelectorAll('.ladder-row') : [];
 
   let currentBrokerIdx = 0;
   let isUserHovered = false;
@@ -3762,35 +3918,91 @@ function initBrokerTerminalShowcase() {
     const delta = (Math.random() * 0.45 - 0.20).toFixed(2);
     currentGold = (parseFloat(currentGold) + parseFloat(delta)).toFixed(2);
     if (livePrice) {
-      livePrice.textContent = `$${Number(currentGold).toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+      livePrice.textContent = '$' + Number(currentGold).toLocaleString('en-US', { minimumFractionDigits: 2 });
     }
   }, 2200);
 
   // Timeframe selector buttons
-  tfBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+  tfBtns.forEach(btnEl => {
+    btnEl.addEventListener('click', () => {
       tfBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      btnEl.classList.add('active');
     });
   });
 
-  // Switch active broker pill & update card
+  // Switch active broker pill & update card with condition-matching values
   function selectBroker(idx) {
     currentBrokerIdx = idx;
+    const lang = getCurrentLang();
+    const dataList = BROKER_TERMINAL_REGISTRY[lang] || BROKER_TERMINAL_REGISTRY.en;
+    const b = dataList[idx] || dataList[0];
+
+    // Update active class on pills
     brokerPills.forEach((p, i) => {
       if (i === idx) p.classList.add('active');
       else p.classList.remove('active');
     });
 
-    const lang = getCurrentLang();
-    const dataList = BROKER_TERMINAL_REGISTRY[lang] || BROKER_TERMINAL_REGISTRY.en;
-    const b = dataList[idx] || dataList[0];
+    // Update stage data-broker-theme for dynamic aura shifts
+    stage.setAttribute('data-broker-theme', b.theme);
+
+    // 3D Flip logo icon with fresh SVG
+    if (cardBrokerLogo) {
+      cardBrokerLogo.classList.remove('flipping');
+      void cardBrokerLogo.offsetWidth; // reflow
+      cardBrokerLogo.classList.add('flipping');
+      cardBrokerLogo.innerHTML = b.logoSvg;
+    }
 
     if (cardBrokerTitle) {
-      cardBrokerTitle.textContent = lang === 'kh' ? `ច្រកតភ្ជាប់ ${b.name}` : `${b.name} Gateway`;
+      cardBrokerTitle.textContent = lang === 'kh' ? ('ច្រកតភ្ជាប់ ' + b.name) : (b.name + ' Gateway');
     }
+    if (cardBrokerUrlText) cardBrokerUrlText.textContent = b.urlText;
+    if (cardBrokerLinkChip) cardBrokerLinkChip.href = b.url;
     if (cardBrokerMeta) cardBrokerMeta.textContent = b.meta;
     if (fieldAccountTag) fieldAccountTag.textContent = b.tag;
+    if (fieldSpreadTag) fieldSpreadTag.textContent = b.spreadTag;
+    if (btnCtaText) {
+      btnCtaText.textContent = lang === 'kh' ? ('តភ្ជាប់ ' + b.name + ' Rails') : ('Connect ' + b.name + ' Rails');
+    }
+    if (ecnLatencyText) ecnLatencyText.textContent = b.latency;
+    if (toastMeta) toastMeta.textContent = b.toastMeta;
+
+    // Update dynamic depth ladder condition values
+    if (b.depth && depthRows.length >= 7) {
+      // Ask rows: 0, 1, 2
+      for (let i = 0; i < 3; i++) {
+        const row = depthRows[i];
+        const d = b.depth[i];
+        if (row && d) {
+          const pEl = row.querySelector('.price');
+          const sEl = row.querySelector('.size');
+          const bEl = row.querySelector('.ladder-bar-bg');
+          if (pEl) pEl.textContent = d.askPrice;
+          if (sEl) sEl.textContent = d.askSize;
+          if (bEl) bEl.style.width = d.askW + '%';
+        }
+      }
+      // Bid rows: 3, 4, 5, 6
+      for (let i = 0; i < 4; i++) {
+        const row = depthRows[3 + i];
+        const d = b.depth[i];
+        if (row && d) {
+          const pEl = row.querySelector('.price');
+          const sEl = row.querySelector('.size');
+          const bEl = row.querySelector('.ladder-bar-bg');
+          if (pEl) pEl.textContent = d.bidPrice;
+          if (sEl) sEl.textContent = d.bidSize;
+          if (bEl) bEl.style.width = d.bidW + '%';
+        }
+      }
+    }
+
+    // Tick flash live candle
+    if (liveCandle) {
+      liveCandle.style.opacity = '0.4';
+      setTimeout(() => { liveCandle.style.opacity = '1'; }, 180);
+    }
   }
 
   brokerPills.forEach((p, i) => {
@@ -3828,7 +4040,7 @@ function initBrokerTerminalShowcase() {
 
     if (!cursor || !fieldAccount || !fieldKey || !btn || !toast) return;
 
-    // Step 1: Cursor hovers down towards Account Field
+    // Step 1: Cursor moves to Account field
     cursor.style.transition = 'transform 1.2s cubic-bezier(0.25, 1, 0.5, 1)';
     cursor.style.transform = 'translate3d(190px, 130px, 110px)';
 
@@ -3836,7 +4048,7 @@ function initBrokerTerminalShowcase() {
       if (isUserHovered) return;
       fieldAccount.classList.add('focused');
 
-      // Step 2: Cursor glides to Key Field
+      // Step 2: Cursor glides to Key field
       cursor.style.transition = 'transform 0.9s cubic-bezier(0.25, 1, 0.5, 1)';
       cursor.style.transform = 'translate3d(215px, 185px, 110px)';
 
@@ -3856,12 +4068,11 @@ function initBrokerTerminalShowcase() {
           // Step 4: Click button
           triggerButtonClick();
 
-          // Step 5: Cursor glides away
+          // Step 5: Cursor glides away and cycles broker
           choreographyTimer = setTimeout(() => {
             cursor.style.transition = 'transform 1.4s cubic-bezier(0.25, 1, 0.5, 1)';
             cursor.style.transform = 'translate3d(370px, 90px, 110px)';
 
-            // Reset Toast, cycle broker, and restart loop
             choreographyTimer = setTimeout(() => {
               toast.classList.remove('show');
               const nextBroker = (currentBrokerIdx + 1) % 4;
@@ -3896,8 +4107,6 @@ function initBrokerTerminalShowcase() {
   selectBroker(0);
   setTimeout(runCursorChoreography, 1600);
 }
-
-
 
 /* ---------------------------------------------------------
    3D Studio Display Cascading Bullion Ledger Stack (Pinterest 7jPuXi96A)

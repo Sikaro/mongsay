@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.8.3">
+  <link rel="stylesheet" href="styles.css?v=3.8.4">
 </head>
 <body>
 
@@ -169,7 +169,7 @@
       <div class="terminal-scene-wrapper" id="terminalScene">
         <div class="ambient-glow-mesh"></div>
 
-        <div class="terminal-3d-stage" id="terminalStage">
+        <div class="terminal-3d-stage" id="terminalStage" data-broker-theme="megafusion">
           <!-- Base Monitor Screen -->
           <div class="terminal-base-screen">
             <div class="terminal-top-bar">
@@ -180,15 +180,27 @@
               </div>
               
               <div class="terminal-broker-whitelist-pills" id="brokerPills">
-                <span class="broker-pill active" data-broker="IC MARKETS">IC MARKETS</span>
-                <span class="broker-pill" data-broker="VANTAGE">VANTAGE</span>
-                <span class="broker-pill" data-broker="EXNESS">EXNESS</span>
-                <span class="broker-pill" data-broker="FP MARKETS">FP MARKETS</span>
+                <span class="broker-pill active" data-broker="MEGAFUSION">
+                  <svg viewBox="0 0 24 24" fill="none"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5" stroke="#00f0ff" stroke-width="2" fill="rgba(0, 240, 255, 0.2)"/><path d="M7 15L12 8L17 15M9.5 12H14.5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>MEGAFUSION</span>
+                </span>
+                <span class="broker-pill" data-broker="GTC GO">
+                  <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#f59e0b" stroke-width="2" fill="rgba(245, 158, 11, 0.2)"/><path d="M15 9A4.5 4.5 0 1 0 15 15H11.5V12.5H15" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>GTC GO</span>
+                </span>
+                <span class="broker-pill" data-broker="LITE FINANCE">
+                  <svg viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="#10b981" stroke-width="2" fill="rgba(16, 185, 129, 0.2)"/><path d="M7 8V16H13M12 8H17M12 12H16" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>LITE FINANCE</span>
+                </span>
+                <span class="broker-pill" data-broker="8EIGHTCAP">
+                  <svg viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="#818cf8" stroke-width="2" fill="rgba(99, 102, 241, 0.2)"/><circle cx="12" cy="8.5" r="3.5" stroke="#ffffff" stroke-width="1.8"/><circle cx="12" cy="15.5" r="4" stroke="#ffffff" stroke-width="1.8"/></svg>
+                  <span>8EIGHTCAP</span>
+                </span>
               </div>
 
-              <div class="terminal-ecn-status">
-                <span class="ecn-ping-pulse"></span>
-                <span>ECN BRIDGE: &lt;0.8ms</span>
+              <div class="terminal-ecn-status" id="terminalEcnStatus">
+                <span class="ecn-ping-pulse" id="ecnPingPulse"></span>
+                <span id="ecnLatencyText">ECN BRIDGE: &lt;0.4ms</span>
               </div>
             </div>
 
@@ -334,12 +346,16 @@
           <!-- Floating 3D Frosted Glass Card -->
           <div class="floating-glass-card" id="floatingGlassCard">
             <div class="glass-card-header">
-              <div class="glass-card-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <div class="glass-card-icon" id="cardBrokerLogo">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5" stroke="#ffffff" stroke-width="2" fill="rgba(255, 255, 255, 0.25)"/><path d="M7 15L12 8L17 15M9.5 12H14.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
               <div class="glass-card-titles">
-                <h4 id="cardBrokerTitle" data-i18n="terminal_card_title">IC Markets Gateway</h4>
-                <p id="cardBrokerMeta" data-i18n="terminal_card_meta">NODE 01 // FIX 4.4 ECN BRIDGE</p>
+                <h4 id="cardBrokerTitle" data-i18n="terminal_card_title">Megafusion Gateway</h4>
+                <a href="https://www.megafusion.com" target="_blank" rel="noopener noreferrer" class="card-broker-link-chip" id="cardBrokerLinkChip" title="Visit official broker portal">
+                  <span id="cardBrokerUrlText">www.megafusion.com</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+                <p id="cardBrokerMeta" data-i18n="terminal_card_meta" style="margin-top: 4px;">NODE 01 // FIX 4.4 LIQUIDITY BRIDGE</p>
               </div>
             </div>
 
@@ -353,7 +369,7 @@
             <div class="glass-input-row">
               <div class="glass-input-field" id="fieldKey">
                 <span class="masked-bullets">••••••••••••••••</span>
-                <span class="field-tag" data-i18n="terminal_field_spread">RAW 0.0 PIP</span>
+                <span class="field-tag" id="fieldSpreadTag" data-i18n="terminal_field_spread">RAW 0.0 PIP // &lt;0.4ms</span>
               </div>
             </div>
 
@@ -366,7 +382,7 @@
             </div>
 
             <button class="glass-cta-button" id="glassCtaBtn" aria-label="Connect Brokerage Rails">
-              <span id="btnCtaText" data-i18n="terminal_btn_connect">Connect Brokerage Rails</span>
+              <span id="btnCtaText" data-i18n="terminal_btn_connect">Connect Megafusion Rails</span>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               <div class="button-ripple-wave" id="btnRipple"></div>
             </button>
@@ -375,7 +391,7 @@
             <div class="execution-toast-badge" id="executionToast">
               <div class="toast-check-icon">✓</div>
               <h4 style="font-size: 1.15rem; color: #fff; font-weight: 800;" data-i18n="terminal_toast_title">Bridge Connected</h4>
-              <p style="font-size: 0.76rem; color: #38bdf8; font-family: 'Space Mono', monospace;" data-i18n="terminal_toast_desc">ROUTING 0.0 RAW SPREAD LIVE</p>
+              <p style="font-size: 0.74rem; color: #00f0ff; font-family: 'Space Mono', monospace; text-align: center; padding: 0 10px;" id="toastMeta" data-i18n="terminal_toast_desc">ROUTING 0.0 RAW SPREAD VIA WWW.MEGAFUSION.COM</p>
             </div>
           </div>
 
@@ -479,7 +495,7 @@
             <div>
               <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
                 <div class="promo-ribbon">SAGFX.ORG PROMOTION</div>
-                <img src="assets/sagfx-3d-logo.jpg?v=3.8.3" alt="SAGFX 3D Official Logo" style="height: 38px; width: 38px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);">
+                <img src="assets/sagfx-3d-logo.jpg?v=3.8.4" alt="SAGFX 3D Official Logo" style="height: 38px; width: 38px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);">
               </div>
               <div class="promo-value-badge">💰 UP TO 85% BROKER REBATES</div>
               <h3 class="promo-title">Whitelisted ECN Rebates</h3>
@@ -676,6 +692,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=3.8.3"></script>
+  <script src="script.js?v=3.8.4"></script>
 </body>
 </html>
