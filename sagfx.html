@@ -9,16 +9,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.6.5">
+  <link rel="stylesheet" href="styles.css?v=3.6.6">
 </head>
 <body class="sagfx-deck-page">
 
-  <!-- Ambient Blue & Cyan Lighting Backdrop -->
+  <!-- Ambient Pure Blue & Cyan Lighting Backdrop (Zero Checkered Grid) -->
   <div class="sagfx-deck-bg"></div>
-  <div class="sagfx-grid-overlay"></div>
-
-  <!-- Ambient Canvas for subtle particles -->
-  <canvas id="matrixCanvas"></canvas>
 
   <!-- Minimalist Floating Capsule Navigation -->
   <div class="site-nav-outer">
@@ -94,20 +90,31 @@
   </div>
 
   <!-- ==========================================================================
-       SLIDE 1: HERO / FUTURISTIC WALLET TECH & REBATE RAILS (PINTEREST SLIDE 1)
+       SLIDE 1: HERO / 3D GLASS CARDS & REBATE RAILS (PINTEREST SLIDE 1)
        ========================================================================== -->
   <section class="pin-slide-section" id="sagfx-hero">
     <!-- Giant Watermark Typography -->
     <div class="pin-watermark-text">SAGFX RAILS</div>
 
     <div class="pin-slide-inner">
+      <!-- Presentation Template Header Bar -->
+      <div class="pin-slide-topbar">
+        <div class="pin-topbar-brand">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+          </svg>
+          <span>SAGFX ARCHITECTURE</span>
+        </div>
+        <div class="pin-topbar-tag">PRESENTATION 2026 // RAILS</div>
+      </div>
+
       <div class="pin-slide-tag">
         <span class="dot"></span>
         <span data-i18n="sagfx_hero_tag">INSTITUTIONAL PRESENTATION 2026 // SAGFX.ORG</span>
       </div>
 
       <div class="pin-slide-1-grid">
-        <!-- Left Column: Copy & Whitelist Action -->
+        <!-- Left Column: Copy & Action -->
         <div class="pin-slide-1-left">
           <h1 data-i18n="sagfx_hero_title">
             Modern Rebate Rails & <br>
@@ -126,52 +133,14 @@
           </div>
         </div>
 
-        <!-- Center Column: 3D Layered Floating Glass Cards -->
+        <!-- Center Column: Photorealistic 3D Glass Card Stack Visual -->
         <div class="pin-hero-cards-stage">
-          <div class="pin-glass-stack">
-            <!-- Back Card -->
-            <div class="pin-glass-card pin-glass-card-back">
-              <div class="pin-card-brand">
-                <div class="pin-card-chip"></div>
-                <div class="pin-card-tier">SAGFX CORE</div>
-              </div>
-              <div class="pin-card-meta">
-                LATENCY: &lt; 1.2MS<br>
-                BRIDGE: FIX 4.4 PRIME
-              </div>
-              <div class="pin-card-brand">
-                <span style="font-size: 0.75rem; color: #64748b;">NODE ID: 8848-CLEARING</span>
-                <span style="color: #38bdf8; font-size: 0.8rem; font-weight: 700;">ACTIVE</span>
-              </div>
-            </div>
-
-            <!-- Front Card -->
-            <div class="pin-glass-card pin-glass-card-front">
-              <div class="pin-card-brand">
-                <div class="pin-card-chip"></div>
-                <div class="pin-card-brand-logo">SAGFX</div>
-              </div>
-              <div style="margin: 20px 0;">
-                <div style="font-size: 0.72rem; color: #7dd3fc; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px;">CLEARING ACCOUNT</div>
-                <div style="font-family: 'Space Mono', monospace; font-size: 1.15rem; color: #ffffff; letter-spacing: 0.12em;">
-                  •••• •••• •••• 8848
-                </div>
-              </div>
-              <div class="pin-card-brand">
-                <div>
-                  <div style="font-size: 0.68rem; color: #94a3b8; text-transform: uppercase;">REBATE YIELD</div>
-                  <div style="font-size: 0.9rem; font-weight: 700; color: #ffffff;">UP TO 85%</div>
-                </div>
-                <div>
-                  <div style="font-size: 0.68rem; color: #94a3b8; text-transform: uppercase;">SPREAD MARKUP</div>
-                  <div style="font-size: 0.9rem; font-weight: 700; color: #38bdf8;">0.0 PIPS</div>
-                </div>
-              </div>
-            </div>
+          <div class="pin-hero-card-img-wrap">
+            <img src="assets/sagfx-hero-cards.jpg" alt="SAGFX 3D Translucent Glass Rails" class="pin-hero-cards-img">
           </div>
         </div>
 
-        <!-- Right Column: Technical Nodes, Indicator Callout & Executive Portrait -->
+        <!-- Right Column: Nodes, Callout Pin & Inset Portrait -->
         <div class="pin-slide-1-right">
           <div class="pin-node-callout">
             <span class="pin-node-line"></span>
@@ -198,7 +167,7 @@
   </section>
 
   <!-- ==========================================================================
-       SLIDE 2: MODERN REBATE ENGINE / 3D EMBLEM ON PEDESTAL (PINTEREST SLIDE 2)
+       SLIDE 2: MODERN REBATE ENGINE / 3D BASALT PEDESTAL HERO (PINTEREST SLIDE 2)
        ========================================================================== -->
   <section class="pin-slide-section" id="sagfx-engine">
     <div class="pin-slide-inner">
@@ -218,18 +187,30 @@
           </p>
         </div>
 
-        <!-- Center 3D Metallic SAGFX Logo on Pedestal -->
-        <div class="pin-pedestal-stage">
-          <div class="pin-pedestal-base"></div>
-          <div class="pin-floating-emblem">
-            <img src="assets/sagfx-3d-logo.jpg" alt="SAGFX 3D Metallic Chrome Logo">
-          </div>
+        <!-- Centerpiece: 3D Basalt Pedestal & Levitation Emblem -->
+        <div class="pin-pedestal-hero-wrap">
+          <img src="assets/sagfx-pedestal-emblem.jpg" alt="SAGFX 3D Metallic Emblem Levitation over Basalt Pedestal" class="pin-pedestal-img">
+        </div>
+
+        <!-- Pedestal Callout Action -->
+        <div>
+          <a href="https://sagfx.org" target="_blank" rel="noopener noreferrer" class="btn-pin-pill-outline">
+            <span class="pin-node-dot"></span>
+            <span data-i18n="sagfx_explore_btn">Explore SAGFX.org Official Gateway</span>
+          </a>
         </div>
 
         <!-- Radiating Side Callout Cards -->
         <div class="pin-slide-2-callouts">
-          <!-- Left Callout -->
+          <!-- Left Callout: Motif & Automated Rebates -->
           <div class="pin-side-card">
+            <div class="pin-side-motif">
+              <svg width="48" height="34" viewBox="0 0 60 40" fill="none">
+                <path d="M10 35 C15 15, 25 5, 30 5 C35 5, 25 25, 20 35" stroke="#38bdf8" stroke-width="2.5" fill="rgba(56, 189, 248, 0.2)"/>
+                <path d="M22 35 C28 12, 38 2, 44 2 C50 2, 38 22, 32 35" stroke="#7dd3fc" stroke-width="2.5" fill="rgba(125, 211, 252, 0.25)"/>
+                <path d="M34 35 C40 16, 48 8, 54 8 C60 8, 50 24, 44 35" stroke="#38bdf8" stroke-width="2.5" fill="rgba(56, 189, 248, 0.2)"/>
+              </svg>
+            </div>
             <div class="pin-slide-tag" style="margin-bottom: 12px; font-size: 0.7rem;">
               <span class="dot"></span> <span data-i18n="sagfx_wallet_tag">SMART REBATE RAILS</span>
             </div>
@@ -239,7 +220,7 @@
             </p>
           </div>
 
-          <!-- Right Callout -->
+          <!-- Right Callout: Direct Clearing -->
           <div class="pin-side-card">
             <div class="pin-slide-tag" style="margin-bottom: 12px; font-size: 0.7rem;">
               <span class="dot"></span> <span data-i18n="sagfx_security_tag">ZERO SPREAD MARKUP</span>
@@ -250,20 +231,12 @@
             </p>
           </div>
         </div>
-
-        <!-- Pedestal Action Button -->
-        <div style="margin-top: 36px;">
-          <a href="https://sagfx.org" target="_blank" rel="noopener noreferrer" class="btn-pin-pill-outline">
-            <span class="pin-node-dot"></span>
-            <span data-i18n="sagfx_explore_btn">Explore SAGFX.org Official Gateway</span>
-          </a>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       SLIDE 3: SMART LIQUIDITY & VOLUME ANALYTICS (PINTEREST SLIDE 3)
+       SLIDE 3: SMART LIQUIDITY & EXECUTIVE PORTRAIT (PINTEREST SLIDE 3)
        ========================================================================== -->
   <section class="pin-slide-section" id="sagfx-liquidity">
     <!-- Concentric Background Rings -->
@@ -275,7 +248,7 @@
 
     <div class="pin-slide-inner">
       <div class="pin-slide-3-grid">
-        <!-- Left Content -->
+        <!-- Left Content Column -->
         <div class="pin-slide-3-content">
           <div class="pin-slide-tag">
             <span class="dot"></span>
@@ -298,41 +271,48 @@
               </span>
             </a>
           </div>
+
+          <!-- Frosted Spline Chart Widget Overlapping Left Area -->
+          <div class="pin-chart-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span class="pin-capsule-badge">
+                <span class="pin-node-dot"></span>
+                <span data-i18n="sagfx_chart_badge">Volume Analytics</span>
+              </span>
+              <span style="font-size: 0.75rem; color: #38bdf8; font-weight: 700; letter-spacing: 0.1em;">LIVE RADAR</span>
+            </div>
+
+            <!-- Glowing SVG Spline Wave Chart -->
+            <svg class="pin-chart-svg" viewBox="0 0 320 120" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="splineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.45"/>
+                  <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0"/>
+                </linearGradient>
+              </defs>
+              <path d="M 0 100 Q 55 92, 105 68 T 195 42 T 275 16 L 320 10" class="chart-spline-line" />
+              <path d="M 0 100 Q 55 92, 105 68 T 195 42 T 275 16 L 320 10 L 320 120 L 0 120 Z" fill="url(#splineGradient)" />
+              <circle cx="320" cy="10" r="5" class="chart-pulse-dot" />
+            </svg>
+
+            <!-- Metrics -->
+            <div class="pin-chart-metrics">
+              <div>
+                <div class="pin-chart-big-stat">135K+</div>
+                <div class="pin-chart-stat-sub" data-i18n="sagfx_stat_monthly_lots">Lots Cleared Monthly</div>
+              </div>
+              <div style="text-align: right;">
+                <div class="pin-chart-big-stat" style="color: #38bdf8; font-size: 2rem;">$45+</div>
+                <div class="pin-chart-stat-sub" data-i18n="sagfx_stat_max_rebate">Max Rebate / Lot (Gold)</div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Right: Floating Frosted Glass Card with SVG Spline Chart -->
-        <div class="pin-chart-card">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <span class="pin-capsule-badge">
-              <span class="pin-node-dot"></span>
-              <span data-i18n="sagfx_chart_badge">Performance & Volume</span>
-            </span>
-            <span style="font-size: 0.75rem; color: #38bdf8; font-weight: 700; letter-spacing: 0.1em;">LIVE RADAR</span>
-          </div>
-
-          <!-- Glowing SVG Spline Wave Chart -->
-          <svg class="pin-chart-svg" viewBox="0 0 320 120" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="splineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.45"/>
-                <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0"/>
-              </linearGradient>
-            </defs>
-            <path d="M 0 100 Q 55 92, 105 68 T 195 42 T 275 16 L 320 10" class="chart-spline-line" />
-            <path d="M 0 100 Q 55 92, 105 68 T 195 42 T 275 16 L 320 10 L 320 120 L 0 120 Z" fill="url(#splineGradient)" />
-            <circle cx="320" cy="10" r="5" class="chart-pulse-dot" />
-          </svg>
-
-          <!-- Metric Breakdown -->
-          <div class="pin-chart-metrics">
-            <div>
-              <div class="pin-chart-big-stat">135K+</div>
-              <div class="pin-chart-stat-sub" data-i18n="sagfx_stat_monthly_lots">Lots Cleared Monthly</div>
-            </div>
-            <div style="text-align: right;">
-              <div class="pin-chart-big-stat" style="color: #38bdf8; font-size: 2rem;">$45+</div>
-              <div class="pin-chart-stat-sub" data-i18n="sagfx_stat_max_rebate">Max Rebate / Lot (Gold)</div>
-            </div>
+        <!-- Right Column: Atmospheric Navy Silhouette Portrait of Mong Say -->
+        <div>
+          <div class="pin-slide-3-figure-wrap">
+            <img src="assets/mongsay-slide3-navy.jpg" alt="Mong Say Lead Architect" class="pin-slide-3-img">
           </div>
         </div>
       </div>
@@ -598,6 +578,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=3.6.5"></script>
+  <script src="script.js?v=3.6.6"></script>
 </body>
 </html>

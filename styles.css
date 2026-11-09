@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    MONGSAY EXECUTIVE PORTFOLIO — HAUTE COUTURE LUXURY DESIGN SYSTEM
    Fonts: Playfair Display / Cormorant Garamond (Haute Couture Brand Serif),
           Outfit (Accents/Headings), Plus Jakarta Sans (Interface), Kantumruy Pro (Khmer)
@@ -5371,50 +5371,49 @@ html.fx-frozen .footer-legal-notice {
 }
 
 
+
 /* ==========================================================================
-   SAGFX FUTURISTIC FINTECH PRESENTATION DECK (PINTEREST SHOWCASE SPEC)
+   SAGFX FUTURISTIC FINTECH PRESENTATION DECK (PINTEREST SHOWCASE SPEC V2)
    Visual Architecture: Lunetra / Modern Wallet & Institutional Rails UI
+   Aesthetic: Deep Obsidian Black (#02050e - #030712), Volumetric Blue & Cyan Glow,
+              Zero Checkered Grid, High-Detail Presentation Elements
    ========================================================================== */
 .sagfx-deck-page {
   position: relative;
   overflow-x: hidden;
   color: #f8fafc;
-  background-color: #030712;
+  background-color: #02050e;
 }
 
-/* Ambient Blue & Cyan Lighting Backdrop */
+/* Ambient Blue & Cyan Lighting Backdrop (PURE VOLUMETRIC GLOW - NO GRID) */
 .sagfx-deck-bg {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: -1;
   background: 
-    radial-gradient(circle at 50% 10%, rgba(14, 165, 233, 0.16) 0%, transparent 60%),
-    radial-gradient(circle at 85% 40%, rgba(56, 189, 248, 0.09) 0%, transparent 50%),
-    radial-gradient(circle at 15% 70%, rgba(2, 132, 199, 0.12) 0%, transparent 55%),
-    #030712;
+    radial-gradient(ellipse 85% 55% at 50% -10%, rgba(14, 165, 233, 0.22) 0%, transparent 65%),
+    radial-gradient(circle at 85% 35%, rgba(56, 189, 248, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 15% 70%, rgba(2, 132, 199, 0.15) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(14, 165, 233, 0.1) 0%, transparent 60%),
+    #02050e;
 }
 
+/* Strictly ensure zero grid display */
 .sagfx-grid-overlay {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-  pointer-events: none;
+  display: none !important;
 }
 
-/* Slide Section Framing */
+/* Presentation Slide Framing */
 .pin-slide-section {
   position: relative;
-  min-height: 85vh;
+  min-height: 90vh;
   padding: 130px 24px 90px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.14);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.12);
   overflow: hidden;
 }
 
@@ -5426,7 +5425,43 @@ html.fx-frozen .footer-legal-notice {
   z-index: 2;
 }
 
-/* Presentation Meta Tag */
+/* Slide Top Header Bar (Matching Pinterest Template Header) */
+.pin-slide-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.12);
+}
+
+.pin-topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.pin-topbar-brand svg {
+  color: #38bdf8;
+  filter: drop-shadow(0 0 8px #38bdf8);
+}
+
+.pin-topbar-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: #7dd3fc;
+  text-transform: uppercase;
+}
+
+/* Presentation Meta Tag Pill */
 .pin-slide-tag {
   display: inline-flex;
   align-items: center;
@@ -5452,20 +5487,20 @@ html.fx-frozen .footer-legal-notice {
   animation: pulse-dot 2s infinite;
 }
 
-/* Enormous Watermark Typography */
+/* Watermark Background Typography */
 .pin-watermark-text {
   position: absolute;
-  top: 12%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(4.5rem, 13vw, 10.5rem);
+  font-size: clamp(4.5rem, 14vw, 11rem);
   font-weight: 900;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(56, 189, 248, 0.14);
-  text-shadow: 0 0 45px rgba(14, 165, 233, 0.12);
+  -webkit-text-stroke: 1.5px rgba(56, 189, 248, 0.12);
+  text-shadow: 0 0 50px rgba(14, 165, 233, 0.15);
   white-space: nowrap;
   pointer-events: none;
   z-index: 1;
@@ -5477,7 +5512,7 @@ html.fx-frozen .footer-legal-notice {
   background: linear-gradient(135deg, #ffffff 0%, #7dd3fc 45%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 25px rgba(56, 189, 248, 0.35);
+  text-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
 }
 
 /* Pin Pill Button with Circular Arrow Badge */
@@ -5485,8 +5520,8 @@ html.fx-frozen .footer-legal-notice {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  background: rgba(8, 18, 38, 0.88);
+  gap: 18px;
+  background: rgba(8, 18, 38, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(56, 189, 248, 0.45);
@@ -5497,15 +5532,15 @@ html.fx-frozen .footer-legal-notice {
   font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(14, 165, 233, 0.25);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 22px rgba(14, 165, 233, 0.28);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 
 .btn-pin-pill:hover {
-  background: rgba(14, 28, 58, 0.96);
+  background: rgba(14, 28, 58, 0.98);
   border-color: #38bdf8;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.65), 0 0 30px rgba(56, 189, 248, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.75), 0 0 35px rgba(56, 189, 248, 0.55);
   transform: translateY(-2px);
 }
 
@@ -5517,14 +5552,14 @@ html.fx-frozen .footer-legal-notice {
   height: 38px;
   border-radius: 50%;
   background: #ffffff;
-  color: #030712;
+  color: #02050e;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .btn-pin-pill:hover .pill-arrow-circle {
   transform: translateX(4px);
   background: #38bdf8;
-  color: #030712;
+  color: #02050e;
 }
 
 .btn-pin-pill-outline {
@@ -5545,19 +5580,19 @@ html.fx-frozen .footer-legal-notice {
 .btn-pin-pill-outline:hover {
   background: rgba(14, 165, 233, 0.2);
   border-color: #38bdf8;
-  box-shadow: 0 0 22px rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
   transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   SLIDE 1: HERO / 3D GLASS CARDS & CALLOUTS
+   SLIDE 1: HERO / 3D GLASS CARD STACK (HIGH DETAIL SHOWCASE)
    ========================================================================== */
 .pin-slide-1-grid {
   display: grid;
-  grid-template-columns: 1fr 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1.25fr 0.85fr;
   align-items: center;
   gap: 36px;
-  margin-top: 40px;
+  margin-top: 30px;
   position: relative;
 }
 
@@ -5576,102 +5611,31 @@ html.fx-frozen .footer-legal-notice {
   margin-bottom: 32px;
 }
 
-.pin-hero-cards-stage {
+/* 3D Hero Cards High-End Display Wrap */
+.pin-hero-card-img-wrap {
   position: relative;
-  height: 480px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1200px;
-}
-
-.pin-glass-stack {
-  position: relative;
-  width: 300px;
-  height: 420px;
-  transform-style: preserve-3d;
-  transform: rotateX(16deg) rotateY(-20deg) rotateZ(8deg);
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.pin-hero-cards-stage:hover .pin-glass-stack {
-  transform: rotateX(10deg) rotateY(-12deg) rotateZ(4deg);
-}
-
-.pin-glass-card {
-  position: absolute;
-  inset: 0;
-  border-radius: 24px;
-  backdrop-filter: blur(26px);
-  -webkit-backdrop-filter: blur(26px);
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(14, 165, 233, 0.28);
-}
-
-.pin-glass-card-back {
-  background: linear-gradient(135deg, rgba(8, 20, 46, 0.88) 0%, rgba(3, 7, 18, 0.96) 100%);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  transform: translateZ(-45px) translateX(-35px) translateY(-25px);
-  opacity: 0.85;
-}
-
-.pin-glass-card-front {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(14, 165, 233, 0.12) 50%, rgba(3, 7, 18, 0.65) 100%);
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 
-    0 35px 70px rgba(0, 0, 0, 0.85),
-    0 0 40px rgba(56, 189, 248, 0.4),
-    inset 0 1px 2px rgba(255, 255, 255, 0.45);
-  transform: translateZ(35px);
-}
-
-.pin-card-chip {
-  width: 44px;
-  height: 34px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #e0f2fe 0%, #38bdf8 50%, #0284c7 100%);
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.6), inset 0 1px 1px #ffffff;
-  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 380px;
+  border-radius: 28px;
   overflow: hidden;
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.95),
+    0 0 50px rgba(14, 165, 233, 0.35);
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  margin: 0 auto;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
 }
 
-.pin-card-chip::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(90deg, transparent, transparent 6px, rgba(0,0,0,0.2) 6px, rgba(0,0,0,0.2) 8px);
+.pin-hero-card-img-wrap:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 40px 95px rgba(0, 0, 0, 0.98), 0 0 65px rgba(56, 189, 248, 0.55);
 }
 
-.pin-card-brand {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.pin-card-brand-logo {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 1.1rem;
-  letter-spacing: 0.1em;
-  color: #ffffff;
-}
-
-.pin-card-tier {
-  font-size: 0.72rem;
-  color: #38bdf8;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.pin-card-meta {
-  font-family: 'Space Mono', monospace, sans-serif;
-  font-size: 0.78rem;
-  color: #cbd5e1;
-  letter-spacing: 0.08em;
+.pin-hero-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Coordinate Hairlines and Callouts */
@@ -5709,7 +5673,7 @@ html.fx-frozen .footer-legal-notice {
   align-items: center;
   gap: 8px;
   padding: 8px 18px;
-  background: rgba(14, 24, 48, 0.88);
+  background: rgba(12, 22, 46, 0.9);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(56, 189, 248, 0.35);
@@ -5717,18 +5681,18 @@ html.fx-frozen .footer-legal-notice {
   color: #e0f2fe;
   font-size: 0.82rem;
   font-weight: 600;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(14, 165, 233, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(14, 165, 233, 0.18);
 }
 
 .pin-inset-portrait-card {
-  background: rgba(10, 18, 38, 0.9);
+  background: rgba(10, 18, 38, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: 18px;
   padding: 12px;
   width: 220px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(14, 165, 233, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.65), 0 0 22px rgba(14, 165, 233, 0.22);
   margin-top: 24px;
 }
 
@@ -5751,7 +5715,7 @@ html.fx-frozen .footer-legal-notice {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(3, 7, 18, 0.92) 100%);
+  background: linear-gradient(180deg, transparent 40%, rgba(2, 5, 14, 0.92) 100%);
 }
 
 .pin-portrait-label {
@@ -5764,7 +5728,7 @@ html.fx-frozen .footer-legal-notice {
 }
 
 /* ==========================================================================
-   SLIDE 2: MODERN REBATE ENGINE / 3D EMBLEM ON PEDESTAL
+   SLIDE 2: MODERN REBATE ENGINE / 3D BASALT PEDESTAL HERO (PINTEREST SLIDE 2)
    ========================================================================== */
 .pin-slide-2-center {
   display: flex;
@@ -5772,13 +5736,13 @@ html.fx-frozen .footer-legal-notice {
   align-items: center;
   text-align: center;
   position: relative;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .pin-slide-2-header {
   text-align: center;
-  max-width: 780px;
-  margin: 0 auto 30px;
+  max-width: 820px;
+  margin: 0 auto 24px;
 }
 
 .pin-slide-2-header h2 {
@@ -5795,52 +5759,30 @@ html.fx-frozen .footer-legal-notice {
   line-height: 1.65;
 }
 
-.pin-pedestal-stage {
+/* High-Impact Pedestal Image Display */
+.pin-pedestal-hero-wrap {
   position: relative;
   width: 100%;
-  max-width: 620px;
+  max-width: 760px;
   height: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px auto;
-}
-
-.pin-pedestal-base {
-  position: absolute;
-  bottom: 15px;
-  width: 480px;
-  height: 130px;
-  background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.4) 0%, rgba(6, 14, 30, 0.85) 60%, transparent 80%);
-  border-radius: 50%;
-  filter: blur(10px);
-  pointer-events: none;
-}
-
-.pin-floating-emblem {
-  position: relative;
-  z-index: 3;
-  width: 270px;
-  height: 270px;
-  border-radius: 32px;
+  border-radius: 28px;
   overflow: hidden;
   box-shadow: 
-    0 25px 65px rgba(0, 0, 0, 0.85),
-    0 0 55px rgba(14, 165, 233, 0.45),
-    inset 0 1px 2px rgba(255, 255, 255, 0.4);
-  border: 1.5px solid rgba(56, 189, 248, 0.5);
-  animation: float-slow 6s ease-in-out infinite;
+    0 30px 85px rgba(0, 0, 0, 0.98),
+    0 0 55px rgba(14, 165, 233, 0.35);
+  border: 1.5px solid rgba(56, 189, 248, 0.35);
+  margin: 10px auto 25px;
+  transition: transform 0.5s ease;
 }
 
-.pin-floating-emblem img {
+.pin-pedestal-hero-wrap:hover {
+  transform: scale(1.015);
+}
+
+.pin-pedestal-hero-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
 }
 
 .pin-slide-2-callouts {
@@ -5854,14 +5796,18 @@ html.fx-frozen .footer-legal-notice {
 }
 
 .pin-side-card {
-  background: linear-gradient(145deg, rgba(10, 22, 44, 0.85) 0%, rgba(4, 9, 22, 0.95) 100%);
+  background: linear-gradient(145deg, rgba(10, 22, 44, 0.88) 0%, rgba(3, 7, 18, 0.96) 100%);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: 20px;
   padding: 26px 28px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(14, 165, 233, 0.18);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.65), 0 0 22px rgba(14, 165, 233, 0.2);
   text-align: left;
+}
+
+.pin-side-motif {
+  margin-bottom: 14px;
 }
 
 .pin-side-card h4 {
@@ -5879,11 +5825,11 @@ html.fx-frozen .footer-legal-notice {
 }
 
 /* ==========================================================================
-   SLIDE 3: SMART LIQUIDITY & PERFORMANCE SPLINE CHART
+   SLIDE 3: SMART LIQUIDITY & MONGSAY PORTRAIT (PINTEREST SLIDE 3)
    ========================================================================== */
 .pin-concentric-rings {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 20%;
   transform: translate(-50%, -50%);
   width: 650px;
@@ -5908,7 +5854,7 @@ html.fx-frozen .footer-legal-notice {
 .pin-slide-3-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 50px;
+  gap: 40px;
   align-items: center;
   position: relative;
   z-index: 2;
@@ -5929,19 +5875,42 @@ html.fx-frozen .footer-legal-notice {
   margin-bottom: 32px;
 }
 
+/* Portrait Figure Display in Slide 3 */
+.pin-slide-3-figure-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 520px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.95),
+    0 0 45px rgba(14, 165, 233, 0.3);
+  border: 1.5px solid rgba(56, 189, 248, 0.3);
+  margin: 0 auto;
+}
+
+.pin-slide-3-figure-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Chart Widget Floating in Slide 3 */
 .pin-chart-card {
-  background: linear-gradient(145deg, rgba(12, 24, 50, 0.88) 0%, rgba(4, 9, 22, 0.96) 100%);
+  background: linear-gradient(145deg, rgba(12, 24, 50, 0.9) 0%, rgba(3, 7, 18, 0.98) 100%);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
-  border: 1.5px solid rgba(56, 189, 248, 0.38);
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
   border-radius: 28px;
-  padding: 36px 32px;
+  padding: 32px 28px;
   box-shadow: 
-    0 30px 65px rgba(0, 0, 0, 0.85),
-    0 0 40px rgba(14, 165, 233, 0.28),
-    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+    0 30px 70px rgba(0, 0, 0, 0.9),
+    0 0 45px rgba(14, 165, 233, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
   position: relative;
   overflow: hidden;
+  margin-top: 30px;
 }
 
 .pin-chart-card::before {
@@ -5956,8 +5925,8 @@ html.fx-frozen .footer-legal-notice {
 
 .pin-chart-svg {
   width: 100%;
-  height: 140px;
-  margin: 22px 0 16px;
+  height: 130px;
+  margin: 18px 0 14px;
   overflow: visible;
 }
 
@@ -5979,14 +5948,14 @@ html.fx-frozen .footer-legal-notice {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 8px;
   border-top: 1px solid rgba(56, 189, 248, 0.15);
-  padding-top: 18px;
+  padding-top: 16px;
 }
 
 .pin-chart-big-stat {
   font-family: 'Outfit', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   font-weight: 800;
   color: #ffffff;
   line-height: 1;
@@ -6029,10 +5998,10 @@ html.fx-frozen .footer-legal-notice {
 }
 
 .pin-tech-card {
-  background: linear-gradient(160deg, rgba(10, 20, 42, 0.82) 0%, rgba(3, 7, 18, 0.96) 100%);
+  background: linear-gradient(160deg, rgba(10, 20, 42, 0.85) 0%, rgba(2, 5, 14, 0.98) 100%);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(56, 189, 248, 0.22);
+  border: 1px solid rgba(56, 189, 248, 0.25);
   border-radius: 20px;
   padding: 28px 24px;
   position: relative;
@@ -6042,8 +6011,8 @@ html.fx-frozen .footer-legal-notice {
 
 .pin-tech-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(56, 189, 248, 0.55);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(14, 165, 233, 0.3);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75), 0 0 28px rgba(14, 165, 233, 0.35);
 }
 
 .pin-tech-number {
@@ -6072,13 +6041,13 @@ html.fx-frozen .footer-legal-notice {
 
 /* Interactive SAGFX Live Rebate Calculator */
 .sagfx-calc-widget {
-  background: linear-gradient(160deg, rgba(10, 24, 48, 0.9) 0%, rgba(3, 8, 20, 0.98) 100%);
+  background: linear-gradient(160deg, rgba(10, 24, 48, 0.92) 0%, rgba(2, 6, 18, 0.99) 100%);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
-  border: 1.5px solid rgba(56, 189, 248, 0.35);
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
   border-radius: 28px;
   padding: 42px 46px;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), 0 0 45px rgba(14, 165, 233, 0.28);
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.9), 0 0 50px rgba(14, 165, 233, 0.3);
   max-width: 940px;
   margin: 0 auto;
 }
@@ -6138,7 +6107,7 @@ html.fx-frozen .footer-legal-notice {
 
 .calc-select-pill {
   width: 100%;
-  background: rgba(8, 18, 38, 0.8);
+  background: rgba(8, 18, 38, 0.85);
   border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: 12px;
   padding: 12px 16px;
@@ -6150,13 +6119,13 @@ html.fx-frozen .footer-legal-notice {
 }
 
 .calc-select-pill option {
-  background: #040814;
+  background: #02050e;
   color: #ffffff;
 }
 
 .calc-results-panel {
-  background: rgba(6, 14, 30, 0.7);
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  background: rgba(5, 12, 28, 0.75);
+  border: 1px solid rgba(56, 189, 248, 0.28);
   border-radius: 20px;
   padding: 28px;
   text-align: center;
@@ -6175,7 +6144,7 @@ html.fx-frozen .footer-legal-notice {
   font-size: 2.6rem;
   font-weight: 900;
   color: #38bdf8;
-  text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.55);
   line-height: 1.1;
   margin-bottom: 14px;
 }
@@ -6192,10 +6161,6 @@ html.fx-frozen .footer-legal-notice {
   background-color: #06152d;
 }
 
-[data-theme="light"] .pin-glass-card-back {
-  background: linear-gradient(135deg, rgba(14, 30, 60, 0.92) 0%, rgba(6, 16, 36, 0.98) 100%);
-}
-
 [data-theme="light"] .pin-tech-card {
   background: linear-gradient(160deg, rgba(14, 30, 60, 0.88) 0%, rgba(6, 16, 36, 0.98) 100%);
 }
@@ -6205,11 +6170,10 @@ html.fx-frozen .footer-legal-notice {
 }
 
 /* FX Freeze / Reduced Motion */
-html.fx-frozen .pin-floating-emblem {
-  animation: none !important;
+html.fx-frozen .pin-pedestal-hero-wrap:hover {
+  transform: none !important;
 }
 
-html.fx-frozen .pin-glass-card,
 html.fx-frozen .pin-chart-card,
 html.fx-frozen .sagfx-calc-widget,
 html.fx-frozen .pin-tech-card {
@@ -6227,8 +6191,8 @@ html.fx-frozen .pin-tech-card {
     max-width: 650px;
     margin: 0 auto;
   }
-  .pin-hero-cards-stage {
-    margin: 30px 0;
+  .pin-hero-card-img-wrap {
+    margin: 25px auto;
   }
   .pin-tech-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -6253,21 +6217,19 @@ html.fx-frozen .pin-tech-card {
   .pin-slide-section {
     padding: 100px 18px 70px;
   }
+  .pin-hero-card-img-wrap {
+    height: 260px;
+  }
+  .pin-pedestal-hero-wrap {
+    height: 250px;
+  }
+  .pin-slide-3-figure-wrap {
+    height: 380px;
+  }
   .pin-tech-grid {
     grid-template-columns: 1fr;
   }
   .sagfx-calc-widget {
     padding: 24px 18px;
-  }
-  .pin-glass-stack {
-    width: 250px;
-    height: 350px;
-  }
-  .pin-floating-emblem {
-    width: 210px;
-    height: 210px;
-  }
-  .pin-pedestal-base {
-    width: 320px;
   }
 }
