@@ -1316,16 +1316,17 @@ html.fx-frozen[data-theme="light"] .fx-toggle .icon-fx-off {
 
 .portrait-img {
   width: 100%;
-  height: 460px;
+  height: 480px;
   object-fit: cover;
-  object-position: center top;
+  object-position: center top !important;
   filter: contrast(1.05) brightness(0.98);
+  display: block;
 }
 
 .portrait-overlay-glow {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(5, 7, 11, 0) 60%, rgba(5, 7, 11, 0.94) 100%);
+  background: linear-gradient(180deg, rgba(5, 7, 11, 0) 65%, rgba(5, 7, 11, 0.94) 100%);
   pointer-events: none;
 }
 
@@ -2934,6 +2935,13 @@ html.fx-frozen[data-theme="light"] .fx-toggle .icon-fx-off {
   color: #fff;
 }
 
+.preset-pill-btn.active {
+  background: rgba(229, 185, 95, 0.3);
+  border-color: var(--text-gold);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(229, 185, 95, 0.4);
+}
+
 /* Shop Capital & Balance Advisory Card */
 .shop-capital-card {
   background: rgba(8, 14, 28, 0.9);
@@ -4498,6 +4506,15 @@ html.fx-frozen[data-theme="light"] .fx-toggle .icon-fx-off {
   .hero-section {
     padding: 85px 0 45px;
   }
+  .hero-visual-card {
+    max-width: 330px;
+    margin: 0 auto;
+  }
+  .portrait-img {
+    height: 420px;
+    object-fit: cover;
+    object-position: center top !important;
+  }
   .hero-title {
     font-size: clamp(1.85rem, 7.5vw, 2.35rem);
   }
@@ -4583,6 +4600,15 @@ html.fx-frozen[data-theme="light"] .fx-toggle .icon-fx-off {
   .mobile-toggle {
     font-size: 1.05rem;
     padding: 1px 3px;
+  }
+  .hero-visual-card {
+    max-width: 290px;
+    margin: 0 auto;
+  }
+  .portrait-img {
+    height: 380px;
+    object-fit: cover;
+    object-position: center top !important;
   }
 }
 

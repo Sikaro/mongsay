@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    MONGSAY EXECUTIVE PORTFOLIO — INTERACTIVE ENGINE
    Features:
    - Starlight Beaming & Golden Caustic Canvas Engine
@@ -2936,9 +2936,33 @@ function initSagfxPlatformCalculator() {
     }
   }
 
-  volumeRange.addEventListener('input', recalculate);
+  volumeRange.addEventListener('input', () => {
+    recalculate();
+    // Update active preset button if any match
+    document.querySelectorAll('.sagfx-preset-btn').forEach(b => {
+      if (b.getAttribute('data-lots') === volumeRange.value) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+  });
+
   if (assetSelect) {
     assetSelect.addEventListener('change', recalculate);
   }
+
+  document.querySelectorAll('.sagfx-preset-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const val = btn.getAttribute('data-lots');
+      if (val) {
+        volumeRange.value = val;
+        document.querySelectorAll('.sagfx-preset-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        recalculate();
+      }
+    });
+  });
+
   recalculate();
 }

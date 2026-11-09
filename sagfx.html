@@ -1,27 +1,42 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SAGFX Platform | Institutional Broker Rebates & Clearing Rails</title>
-  <meta name="description" content="Institutional broker rebate rails, Tier-1 prime clearing bridges, and raw 0.0 pip spreads. Trade, Save, Rebate via SAGFX with Mong Say.">
-  <link rel="icon" href="assets/sagfx-favicon.png" type="image/png">
+  <title>SAGFX Platform | Institutional Broker Rebates & Prime Clearing Rails</title>
+  <meta name="description" content="Institutional broker rebate rails, Tier-1 prime clearing bridges, and raw 0.0 pip spreads. Connect trading accounts and recover up to 85% cashback with Mong Say.">
+  <link rel="icon" href="assets/lion-logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.6.7">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=3.6.8">
 </head>
-<body class="sagfx-deck-page">
+<body>
 
-  <!-- Ambient Pure Blue & Cyan Lighting Backdrop (Zero Checkered Grid) -->
-  <div class="sagfx-deck-bg"></div>
+  <!-- Background Video Container -->
+  <div class="site-bg-wrapper">
+    <video autoplay muted loop playsinline preload="auto" poster="assets/lion-gold-strokes.jpg" class="site-bg-video">
+      <source src="assets/lion-bg.webm" type="video/webm">
+      <source src="assets/lion-bg.mp4" type="video/mp4">
+      <source src="assets/lion-gold-strokes.webm" type="video/webm">
+      <source src="assets/lion-gold-strokes.mp4" type="video/mp4">
+    </video>
+    <div class="site-bg-overlay"></div>
+    <div class="bg-god-rays"></div>
+    <div class="bg-gold-light-sweep"></div>
+    <div class="bg-starlight-layer"></div>
+    <div class="bg-aura-layer"></div>
+    <div class="bg-spotlight-layer"></div>
+  </div>
+
+  <canvas id="matrixCanvas"></canvas>
 
   <!-- Minimalist Floating Capsule Navigation -->
   <div class="site-nav-outer">
     <nav class="site-nav">
-      <!-- Chinese Lion Crest & Luxury Typography -->
+      <!-- Chinese Lion Face Logo + Luxury Brand Font -->
       <a href="homepage" class="brand-wrapper">
-        <img src="assets/lion-logo.png" alt="Mongsay Lion Crest" class="brand-lion-logo">
+        <img src="assets/lion-logo.png" alt="Mongsay Chinese Lion Crest" class="brand-lion-logo">
         <span class="brand-title"><span class="brand-cap">M</span>ongsay</span>
       </a>
 
@@ -39,12 +54,12 @@
       <div class="nav-actions">
         <!-- Bilingual & Theme Controls -->
         <div class="nav-controls">
-          <button class="nav-control-btn lang-toggle" id="langToggleBtn" aria-label="Switch Language (English / Khmer)" title="Switch Language">
+          <button class="nav-control-btn lang-toggle" id="langToggleBtn" aria-label="Switch Language" title="Switch Language">
             <span class="lang-code active" data-lang="en">EN</span>
             <span class="lang-divider">|</span>
             <span class="lang-code" data-lang="kh">ខ្មែរ</span>
           </button>
-          <button class="nav-control-btn theme-toggle" id="themeToggleBtn" aria-label="Toggle Theme (Dark / Light)" title="Toggle Theme">
+          <button class="nav-control-btn theme-toggle" id="themeToggleBtn" aria-label="Toggle Theme" title="Toggle Theme">
             <span class="theme-icon icon-sun">☀️</span>
             <span class="theme-icon icon-moon">🌙</span>
           </button>
@@ -62,7 +77,7 @@
       </div>
     </nav>
 
-    <!-- Mobile Navigation Drawer -->
+    <!-- Mobile Drawer -->
     <div class="nav-mobile-menu" id="mobileNavMenu">
       <div style="display: flex; gap: 8px; margin-bottom: 12px; justify-content: center;">
         <button class="nav-control-btn lang-toggle" style="flex: 1; justify-content: center;">
@@ -89,427 +104,405 @@
     </div>
   </div>
 
-  <!-- ==========================================================================
-       SLIDE 1: HERO / 3D GLASS CARDS & REBATE RAILS (PINTEREST SLIDE 1)
-       ========================================================================== -->
-  <section class="pin-slide-section" id="sagfx-hero">
-    <!-- Giant Watermark Typography -->
-    <div class="pin-watermark-text">SAGFX RAILS</div>
-
-    <div class="pin-slide-inner">
-      <!-- Presentation Template Header Bar -->
-      <div class="pin-slide-topbar">
-        <div class="pin-topbar-brand">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-          </svg>
-          <span>SAGFX ARCHITECTURE</span>
-        </div>
-        <div class="pin-topbar-tag">PRESENTATION 2026 // RAILS</div>
-      </div>
-
-      <div class="pin-slide-tag">
-        <span class="dot"></span>
-        <span data-i18n="sagfx_hero_tag">INSTITUTIONAL PRESENTATION 2026 // SAGFX.ORG</span>
-      </div>
-
-      <div class="pin-slide-1-grid">
-        <!-- Left Column: Copy & Action -->
-        <div class="pin-slide-1-left">
-          <h1 data-i18n="sagfx_hero_title">
-            Modern Rebate Rails & <br>
-            <span class="cyan-glow-text">Institutional Liquidity.</span>
-          </h1>
-          <p data-i18n="sagfx_hero_desc">
-            Smart finance solutions engineered to eliminate trading fee drag, deliver direct Tier-1 interbank clearing, and automate weekly cashback settlements for modern high-volume traders.
-          </p>
-          <div>
-            <a href="https://sagfx.org" target="_blank" rel="noopener noreferrer" class="btn-pin-pill">
-              <span data-i18n="sagfx_cta_whitelist">Start Whitelisting</span>
-              <span class="pill-arrow-circle">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Center Column: Photorealistic 3D Glass Card Stack Visual -->
-        <div class="pin-hero-cards-stage">
-          <div class="pin-hero-card-img-wrap">
-            <img src="assets/sagfx-hero-cards.jpg" alt="SAGFX 3D Translucent Glass Rails" class="pin-hero-cards-img">
-          </div>
-        </div>
-
-        <!-- Right Column: Nodes, Callout Pin & Inset Portrait -->
-        <div class="pin-slide-1-right">
-          <div class="pin-node-callout">
-            <span class="pin-node-line"></span>
-            <span class="pin-node-dot"></span>
-            <span data-i18n="sagfx_stat_users">+15K Active Traders</span>
-          </div>
-
-          <div style="margin-bottom: 24px;">
-            <span class="pin-capsule-badge">
-              <span class="pin-node-dot"></span>
-              <span data-i18n="sagfx_badge_secure">0.0 Pip Raw Spreads</span>
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION: DUAL-COLUMN GRID WITH EXECUTIVE PORTRAIT & SAGFX RAILS
+         ========================================================================== -->
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-entity-badges">
+            <span class="entity-pill gold-pill">
+              <span>SAGFX RAILS</span>
+            </span>
+            <span class="entity-pill">
+              <span>RAW 0.0 PIPS</span>
+            </span>
+            <span class="entity-pill amber-pill">
+              <span>WEEKLY CASHBACK</span>
             </span>
           </div>
 
-          <div class="pin-inset-portrait-card">
-            <div class="pin-portrait-img-wrap">
-              <img src="assets/portrait.jpg" alt="Mong Say Lead Architect">
-            </div>
-            <div class="pin-portrait-label">Mong Say // Lead Architect</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          <div class="section-tag" style="margin-top: 14px;"><span class="dot"></span> TIER-1 INSTITUTIONAL BROKERAGE RAILS</div>
 
-  <!-- ==========================================================================
-       SLIDE 2: MODERN REBATE ENGINE / 3D BASALT PEDESTAL HERO (PINTEREST SLIDE 2)
-       ========================================================================== -->
-  <section class="pin-slide-section" id="sagfx-engine">
-    <div class="pin-slide-inner">
-      <div class="pin-slide-2-center">
-        <div class="pin-slide-tag">
-          <span class="dot"></span>
-          <span data-i18n="sagfx_engine_tag">CENTRAL REBATE CLEARING ENGINE</span>
-        </div>
+          <h1 class="hero-title">
+            Modern Rebate Rails & <br>
+            <span class="gold-gradient-text">Institutional Liquidity.</span>
+          </h1>
 
-        <div class="pin-slide-2-header">
-          <h2 data-i18n="sagfx_engine_title">
-            Modern Rebate Engine <br>
-            <span class="cyan-glow-text">For Seamless Institutional Clearing</span>
-          </h2>
-          <p data-i18n="sagfx_engine_desc">
-            Institutional-grade infrastructure routing high-volume trade flow through direct prime broker bridges, returning spreads directly to traders every single week.
-          </p>
-        </div>
-
-        <!-- Centerpiece: 3D Basalt Pedestal & Levitation Emblem -->
-        <div class="pin-pedestal-hero-wrap">
-          <img src="assets/sagfx-pedestal-emblem.jpg" alt="SAGFX 3D Metallic Emblem Levitation over Basalt Pedestal" class="pin-pedestal-img">
-        </div>
-
-        <!-- Pedestal Callout Action -->
-        <div>
-          <a href="https://sagfx.org" target="_blank" rel="noopener noreferrer" class="btn-pin-pill-outline">
-            <span class="pin-node-dot"></span>
-            <span data-i18n="sagfx_explore_btn">Explore SAGFX.org Official Gateway</span>
-          </a>
-        </div>
-
-        <!-- Radiating Side Callout Cards -->
-        <div class="pin-slide-2-callouts">
-          <!-- Left Callout: Motif & Automated Rebates -->
-          <div class="pin-side-card">
-            <div class="pin-side-motif">
-              <svg width="48" height="34" viewBox="0 0 60 40" fill="none">
-                <path d="M10 35 C15 15, 25 5, 30 5 C35 5, 25 25, 20 35" stroke="#38bdf8" stroke-width="2.5" fill="rgba(56, 189, 248, 0.2)"/>
-                <path d="M22 35 C28 12, 38 2, 44 2 C50 2, 38 22, 32 35" stroke="#7dd3fc" stroke-width="2.5" fill="rgba(125, 211, 252, 0.25)"/>
-                <path d="M34 35 C40 16, 48 8, 54 8 C60 8, 50 24, 44 35" stroke="#38bdf8" stroke-width="2.5" fill="rgba(56, 189, 248, 0.2)"/>
-              </svg>
-            </div>
-            <div class="pin-slide-tag" style="margin-bottom: 12px; font-size: 0.7rem;">
-              <span class="dot"></span> <span data-i18n="sagfx_wallet_tag">SMART REBATE RAILS</span>
-            </div>
-            <h4 data-i18n="sagfx_wallet_title">Automated Weekly Cashback</h4>
-            <p data-i18n="sagfx_wallet_desc">
-              Direct settlement to your USDT wallet, Cambodian local bank account, or straight into your MT4/MT5 trading account balance every Monday.
-            </p>
-          </div>
-
-          <!-- Right Callout: Direct Clearing -->
-          <div class="pin-side-card">
-            <div class="pin-slide-tag" style="margin-bottom: 12px; font-size: 0.7rem;">
-              <span class="dot"></span> <span data-i18n="sagfx_security_tag">ZERO SPREAD MARKUP</span>
-            </div>
-            <h4 data-i18n="sagfx_security_title">Direct Prime Clearing</h4>
-            <p data-i18n="sagfx_security_desc">
-              100% pass-through interbank spreads from regulated global brokers. We never widen spreads or add latency to fund cashback.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SLIDE 3: SMART LIQUIDITY & EXECUTIVE PORTRAIT (PINTEREST SLIDE 3)
-       ========================================================================== -->
-  <section class="pin-slide-section" id="sagfx-liquidity">
-    <!-- Concentric Background Rings -->
-    <div class="pin-concentric-rings">
-      <div class="pin-ring pin-ring-1"></div>
-      <div class="pin-ring pin-ring-2"></div>
-      <div class="pin-ring pin-ring-3"></div>
-    </div>
-
-    <div class="pin-slide-inner">
-      <div class="pin-slide-3-grid">
-        <!-- Left Content Column -->
-        <div class="pin-slide-3-content">
-          <div class="pin-slide-tag">
-            <span class="dot"></span>
-            <span data-i18n="sagfx_volume_tag">LIQUIDITY & YIELD METRICS</span>
-          </div>
-
-          <h2 data-i18n="sagfx_volume_title">
-            Smart Liquidity <br>
-            <span class="cyan-glow-text">For High-Volume Traders</span>
-          </h2>
-          <p data-i18n="sagfx_volume_desc">
-            Manage your volume with simple, secure, and automated institutional rebate rails. Real-time transparent trade volume auditing, zero broker conflict, and instant reconciliation.
+          <p class="hero-paragraph">
+            Smart finance solutions engineered to eliminate trading fee drag, deliver direct Tier-1 interbank clearing, and automate weekly cashback settlements. Connect your high-volume trading accounts, algorithmic systems, or bullion desk to regulated global prime brokers with up to 85% commission returned directly to you every Monday.
           </p>
 
-          <div>
-            <a href="https://sagfx.org" target="_blank" rel="noopener noreferrer" class="btn-pin-pill">
-              <span data-i18n="sagfx_view_platform">Launch SAGFX Portal</span>
-              <span class="pill-arrow-circle">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
+          <div class="hero-cta-group">
+            <a href="https://sagfx.org" target="_blank" rel="noopener noreferrer" class="btn-primary">
+              Launch SAGFX.org Portal
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="https://t.me/MongsayFX" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              Consult VIP Desk @MongsayFX
             </a>
           </div>
 
-          <!-- Frosted Spline Chart Widget Overlapping Left Area -->
-          <div class="pin-chart-card">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span class="pin-capsule-badge">
-                <span class="pin-node-dot"></span>
-                <span data-i18n="sagfx_chart_badge">Volume Analytics</span>
-              </span>
-              <span style="font-size: 0.75rem; color: #38bdf8; font-weight: 700; letter-spacing: 0.1em;">LIVE RADAR</span>
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <div class="metric-num"><span class="counter-val" data-target="85" data-prefix="Up to " data-suffix="%">Up to 85%</span></div>
+              <div class="metric-label">Trader Rebate Yield</div>
             </div>
-
-            <!-- Glowing SVG Spline Wave Chart -->
-            <svg class="pin-chart-svg" viewBox="0 0 320 120" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="splineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.45"/>
-                  <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.0"/>
-                </linearGradient>
-              </defs>
-              <path d="M 0 100 Q 55 92, 105 68 T 195 42 T 275 16 L 320 10" class="chart-spline-line" />
-              <path d="M 0 100 Q 55 92, 105 68 T 195 42 T 275 16 L 320 10 L 320 120 L 0 120 Z" fill="url(#splineGradient)" />
-              <circle cx="320" cy="10" r="5" class="chart-pulse-dot" />
-            </svg>
-
-            <!-- Metrics -->
-            <div class="pin-chart-metrics">
-              <div>
-                <div class="pin-chart-big-stat">135K+</div>
-                <div class="pin-chart-stat-sub" data-i18n="sagfx_stat_monthly_lots">Lots Cleared Monthly</div>
-              </div>
-              <div style="text-align: right;">
-                <div class="pin-chart-big-stat" style="color: #38bdf8; font-size: 2rem;">$45+</div>
-                <div class="pin-chart-stat-sub" data-i18n="sagfx_stat_max_rebate">Max Rebate / Lot (Gold)</div>
-              </div>
+            <div class="metric-item">
+              <div class="metric-num"><span class="counter-val" data-target="0" data-prefix="" data-suffix=".0 Pips">0.0 Pips</span></div>
+              <div class="metric-label">Raw ECN Spreads</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-num"><span class="counter-val" data-target="1" data-prefix="< " data-suffix=".2ms">&lt; 1.2ms</span></div>
+              <div class="metric-label">Execution Latency</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-num"><span class="counter-val" data-target="15" data-prefix="+" data-suffix="K">+15K</span></div>
+              <div class="metric-label">Active Traders Served</div>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Atmospheric Navy Silhouette Portrait of Mong Say -->
-        <div>
-          <div class="pin-slide-3-figure-wrap">
-            <img src="assets/mongsay-slide3-navy.jpg" alt="Mong Say Lead Architect" class="pin-slide-3-img">
+        <!-- Right Column: Perfectly Framed Executive Portrait -->
+        <div class="hero-visual-card">
+          <div class="portrait-frame">
+            <img src="assets/portrait.jpg" alt="Mong Say - Lead Architect & Founder of SAGFX" class="portrait-img">
+            <div class="portrait-overlay-glow"></div>
+            <div class="portrait-badge-bottom">
+              <div class="badge-info">
+                <h4>Mong Say</h4>
+                <p>Lead Architect & Founder • SAGFX</p>
+              </div>
+              <img src="assets/lion-logo.png" alt="Lion Emblem" class="badge-seal-mini">
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==========================================================================
-       SLIDE 4: TECHNICAL ARCHITECTURE & LIVE REBATE CALCULATOR (PINTEREST SLIDE 4)
-       ========================================================================== -->
-  <section class="pin-slide-section" id="sagfx-architecture">
-    <div class="pin-slide-inner">
-      <div class="pin-slide-4-header">
-        <div class="pin-slide-tag">
-          <span class="dot"></span>
-          <span data-i18n="sagfx_nodes_tag">SECURE SYSTEM ARCHITECTURE</span>
+    <!-- Global Institutional Trading Sessions Clock Bar -->
+    <div class="container">
+      <div class="market-sessions-bar">
+        <div class="market-sessions-title">
+          <span class="status-dot gold-glow"></span>
+          Institutional Trading Sessions (Live Schedule)
         </div>
+        <div class="market-sessions-list">
+          <div class="session-badge" id="sessionSydney"><span class="status-dot"></span> Sydney (22:00–07:00 UTC)</div>
+          <div class="session-badge" id="sessionTokyo"><span class="status-dot"></span> Tokyo (00:00–09:00 UTC)</div>
+          <div class="session-badge" id="sessionLondon"><span class="status-dot"></span> London Open (08:00–17:00 UTC)</div>
+          <div class="session-badge" id="sessionNY"><span class="status-dot"></span> New York (13:00–22:00 UTC)</div>
+          <div class="session-badge killzone" id="sessionKillzone"><span class="status-dot online"></span> NY/London Killzone (XAU/USD)</div>
+        </div>
+      </div>
+    </div>
 
-        <h2 data-i18n="sagfx_nodes_title">
-          Secure Institutional Rails <br>
-          <span class="cyan-glow-text">Engineered for Zero Slippage</span>
+    <!-- ==========================================================================
+         SECTION 1: 4 CORE INSTITUTIONAL CLEARING PILLARS
+         ========================================================================== -->
+    <section class="pillars-section" style="padding: 40px 0 60px;">
+      <div class="container">
+        <div class="section-tag"><span class="dot"></span> CORE CLEARING INFRASTRUCTURE</div>
+        <h2 class="section-title">
+          Institutional Pillars of <span class="gold-gradient-text">The SAGFX Ecosystem</span>
         </h2>
-        <p data-i18n="sagfx_nodes_desc">
-          Built for fast execution, raw interbank spreads, and automated weekly rebate settlements across top-tier clearing brokers.
+        <p class="section-desc">
+          Bridging active market participants directly to global interbank liquidity providers with absolute transparency, verified speed, and zero retail spread markups.
         </p>
 
-        <!-- Technical Coordinate Badges -->
-        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
-          <span class="pin-capsule-badge"><span class="pin-node-dot"></span> <span data-i18n="sagfx_feat_1">Direct ECN Bridges</span></span>
-          <span class="pin-capsule-badge"><span class="pin-node-dot"></span> <span data-i18n="sagfx_feat_2">Zero Hidden Markups</span></span>
-          <span class="pin-capsule-badge"><span class="pin-node-dot"></span> <span data-i18n="sagfx_feat_3">Automated Settlement</span></span>
-        </div>
-      </div>
-
-      <!-- 4-Card Technology Architecture Grid -->
-      <div class="pin-tech-grid">
-        <div class="pin-tech-card">
-          <div class="pin-tech-number">01 // CLEARING BRIDGES</div>
-          <h4 data-i18n="sagfx_tech_1_title">Regulated Prime Brokers</h4>
-          <p data-i18n="sagfx_tech_1_desc">Direct bridge connections to IC Markets, Vantage, Exness, and FP Markets with multi-asset liquidity and tier-1 bank feeds.</p>
-        </div>
-
-        <div class="pin-tech-card">
-          <div class="pin-tech-number">02 // REBATE ENGINE</div>
-          <h4 data-i18n="sagfx_tech_2_title">Automated Weekly Payouts</h4>
-          <p data-i18n="sagfx_tech_2_desc">Returning up to 85% of institutional commission spread markups directly to traders with zero delays or withdrawal limits.</p>
-        </div>
-
-        <div class="pin-tech-card">
-          <div class="pin-tech-number">03 // RAW SPREADS</div>
-          <h4 data-i18n="sagfx_tech_3_title">Multi-Asset Depth</h4>
-          <p data-i18n="sagfx_tech_3_desc">Raw Gold (XAU/USD) spreads from 0.0 pips, major FX pairs, and global indices with pure institutional market mechanics.</p>
-        </div>
-
-        <div class="pin-tech-card">
-          <div class="pin-tech-number">04 // DESK SYNC</div>
-          <h4 data-i18n="sagfx_tech_4_title">Bullion Hedging Interlink</h4>
-          <p data-i18n="sagfx_tech_4_desc">Seamless bridge to Mongsay House Delta-Neutral physical gold hedging rails for local jewellery shops and bullion merchants.</p>
-        </div>
-      </div>
-
-      <!-- Interactive SAGFX Live Rebate Calculator -->
-      <div class="sagfx-calc-widget">
-        <div style="text-align: center; margin-bottom: 32px;">
-          <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 6px;" data-i18n="calc_widget_title">Interactive Rebate Yield Simulator</h3>
-          <p style="color: #94a3b8; font-size: 0.9rem;" data-i18n="calc_widget_desc">Slide your monthly trading volume to compute your guaranteed weekly and annual cashback payout.</p>
-        </div>
-
-        <div class="sagfx-calc-grid">
-          <!-- Left: Controls -->
-          <div>
-            <div class="calc-control-group">
-              <label>
-                <span data-i18n="calc_vol_label">Monthly Volume (Lots)</span>
-                <span class="calc-control-value" id="sagfxVolumeValue">100 Lots</span>
-              </label>
-              <input type="range" class="calc-range-slider" id="sagfxVolumeRange" min="10" max="2500" step="10" value="100">
-            </div>
-
-            <div class="calc-control-group">
-              <label><span data-i18n="calc_asset_label">Primary Trading Asset</span></label>
-              <select class="calc-select-pill" id="sagfxAssetSelect">
-                <option value="35">Gold (XAU/USD) — $35 / Lot Institutional Rebate</option>
-                <option value="10">Forex Majors (EUR/USD, GBP/USD) — $10 / Lot</option>
-                <option value="15">Equity Indices (US30, NAS100) — $15 / Lot</option>
-              </select>
-            </div>
+        <div class="pillars-grid" style="margin-top: 36px;">
+          <!-- Pillar 1 -->
+          <div class="pillar-card">
+            <div class="pillar-num">01 / PRIME CLEARING</div>
+            <h3>Tier-1 Prime Broker Bridges</h3>
+            <p>
+              Direct institutional FIX 4.4 routing to world-class regulated brokers including <strong>IC Markets</strong>, <strong>Vantage</strong>, <strong>Exness</strong>, and <strong>FP Markets</strong>. Client funds remain held in segregated Tier-1 custodial bank accounts under strict global regulatory oversight (ASIC, FCA, CySEC).
+            </p>
           </div>
 
-          <!-- Right: Computed Results -->
-          <div class="calc-results-panel">
-            <div class="calc-result-title" data-i18n="calc_weekly_title">Guaranteed Weekly Cashback</div>
-            <div class="calc-result-amount" id="sagfxWeeklyCashback">$875.00</div>
+          <!-- Pillar 2 -->
+          <div class="pillar-card">
+            <div class="pillar-num">02 / CASHBACK ENGINE</div>
+            <h3>Automated Weekly Rebates</h3>
+            <p>
+              Up to 85% of spread commissions returned automatically every Monday. Settle your trading cashback directly into your <strong>USDT</strong> wallet (TRC20/ERC20), direct deposit to <strong>Cambodian local banks</strong> (ABA Bank / Bakong KHQR), or straight into your MT4/MT5 balance.
+            </p>
+          </div>
 
-            <div class="calc-result-sub">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
-                <span data-i18n="calc_monthly_title">Monthly Cashback:</span>
-                <strong style="color: #ffffff;" id="sagfxMonthlyCashback">$3,500.00</strong>
+          <!-- Pillar 3 -->
+          <div class="pillar-card">
+            <div class="pillar-num">03 / RAW SPREADS</div>
+            <h3>Raw ECN Feeds & Zero Markups</h3>
+            <p>
+              100% pass-through institutional spreads from prime interbank liquidity pools. Trade Gold (XAU/USD) and FX Majors from <strong>0.0 pips</strong>. We never widen spreads or inject execution latency to fund rebates; you receive the rawest market pricing available.
+            </p>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="pillar-card">
+            <div class="pillar-num">04 / BULLION DESK</div>
+            <h3>Physical Gold Hedging Interlink</h3>
+            <p>
+              Integrated delta-neutral hedging execution for Cambodian gold shop owners and physical bullion vaults. Neutralize spot market inventory depreciation using calibrated digital short positions, earning weekly rebates that offset financing and holding costs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 2: INTERACTIVE SAGFX REBATE YIELD SIMULATOR
+         ========================================================================== -->
+    <section class="calculator-section" id="rebate-simulator" style="padding: 20px 0 60px;">
+      <div class="container">
+        <div class="rebate-calc-container">
+          <div class="section-tag"><span class="dot"></span> REAL-TIME CASHBACK CALCULATOR</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 12px;">
+            <h2 class="section-title" style="margin-bottom: 0;">
+              Interactive SAGFX <span class="gold-gradient-text">Rebate Yield Simulator</span>
+            </h2>
+            <img src="assets/sagfx-3d-logo.jpg" alt="SAGFX 3D Official Emblem" style="height: 44px; width: 44px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);">
+          </div>
+          <p class="section-desc" style="margin-bottom: 26px;">
+            Calculate your estimated weekly cashback payouts, monthly retained commissions, and annual recovered trading capital based on your trading volume and preferred asset class.
+          </p>
+
+          <div class="rebate-calc-grid">
+            <!-- Left Column: Controls & Presets -->
+            <div class="calc-inputs-col">
+              <div class="calc-group">
+                <div class="calc-group-header">
+                  <label for="sagfxVolumeRange">Monthly Trading Volume</label>
+                  <span class="calc-value-display" id="sagfxVolumeValue">100 Lots</span>
+                </div>
+                <input type="range" min="10" max="2500" value="100" step="10" class="calc-slider-range" id="sagfxVolumeRange">
+                
+                <!-- Quick Volume Presets -->
+                <div class="preset-pills-row">
+                  <button type="button" class="preset-pill-btn sagfx-preset-btn" data-lots="50">50 Lots</button>
+                  <button type="button" class="preset-pill-btn sagfx-preset-btn active" data-lots="100">100 Lots</button>
+                  <button type="button" class="preset-pill-btn sagfx-preset-btn" data-lots="250">250 Lots</button>
+                  <button type="button" class="preset-pill-btn sagfx-preset-btn" data-lots="500">500 Lots</button>
+                  <button type="button" class="preset-pill-btn sagfx-preset-btn" data-lots="1000">1,000 Lots</button>
+                </div>
               </div>
-              <div style="display: flex; justify-content: space-between;">
-                <span data-i18n="calc_annual_title">Annual Recovered:</span>
-                <strong style="color: #38bdf8;" id="sagfxAnnualCashback">$42,000.00</strong>
+
+              <div class="calc-group">
+                <div class="calc-group-header">
+                  <label for="sagfxAssetSelect">Traded Asset Class & Rebate Tier</label>
+                </div>
+                <select id="sagfxAssetSelect" class="form-input" style="background: rgba(8, 14, 28, 0.9); border: 1px solid var(--border-card); color: #fff; border-radius: var(--radius-sm); padding: 12px 14px; font-size: 0.9rem;">
+                  <option value="35">Gold (XAU/USD) — $3.50 / Lot ($35.00 / 10 Lots)</option>
+                  <option value="30">Forex Majors (EUR/USD, GBP/USD) — $3.00 / Lot ($30.00 / 10 Lots)</option>
+                  <option value="25">Crypto & Global Indices (BTC, US30) — $2.50 / Lot ($25.00 / 10 Lots)</option>
+                </select>
+              </div>
+
+              <div style="background: rgba(56, 189, 248, 0.06); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: var(--radius-sm); padding: 14px 16px;">
+                <div style="font-size: 0.78rem; font-weight: 700; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;">Institutional Execution Guarantee</div>
+                <p style="font-size: 0.78rem; color: #cbd5e1; line-height: 1.45; margin: 0;">
+                  Rebates are calculated per round-turn lot executed. Cashbacks are credited automatically every Monday without trade duration restrictions or minimum holding periods.
+                </p>
               </div>
             </div>
 
-            <a href="https://t.me/MongsayFX" target="_blank" rel="noopener noreferrer" class="btn-pin-pill" style="width: 100%; justify-content: center; margin-top: 22px;">
-              <span data-i18n="calc_cta_whitelist">Claim Whitelist via @MongsayFX</span>
-              <span class="pill-arrow-circle">
+            <!-- Right Column: Live Calculated Outputs -->
+            <div class="calc-results-col">
+              <div class="calc-result-header">
+                <h4>Automated Weekly Rebate Settlement</h4>
+                <div class="calc-highlight-metric" id="sagfxWeeklyCashback">$875.00</div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">
+                  Reconciled every weekend and distributed directly every Monday.
+                </p>
+              </div>
+
+              <div class="calc-submetrics-grid">
+                <div class="calc-submetric-card">
+                  <div class="label">Monthly Cumulative Rebate</div>
+                  <div class="val" id="sagfxMonthlyCashback" style="color: var(--text-gold);">$3,500.00</div>
+                </div>
+                <div class="calc-submetric-card">
+                  <div class="label">Annual Retained Capital</div>
+                  <div class="val" id="sagfxAnnualCashback" style="color: #38bdf8;">$42,000.00</div>
+                </div>
+              </div>
+
+              <a href="https://sagfx.org" target="_blank" rel="noopener noreferrer" class="btn-primary" style="justify-content: center; margin-top: 10px;">
+                Whitelist Trading Account on SAGFX.org
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </a>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ==========================================================================
-       SECTION 5: FAQ & CAMBODIAN STATUTORY LEGAL SAFEGUARDS
-       ========================================================================== -->
-  <section class="pin-slide-section" id="sagfx-faq" style="border-bottom: none;">
-    <div class="pin-slide-inner">
-      <div class="pin-slide-4-header">
-        <div class="pin-slide-tag">
-          <span class="dot"></span>
-          <span data-i18n="faq_tag">KNOWLEDGE REPOSITORY</span>
-        </div>
-        <h2 data-i18n="faq_title">Frequently Asked Questions</h2>
-        <p data-i18n="faq_desc">Clear, candid answers regarding broker rebate mechanics, safety of funds, and institutional clearing.</p>
-      </div>
-
-      <!-- FAQ Accordion -->
-      <div class="faq-container" style="max-width: 900px; margin: 0 auto 50px;">
-        <div class="faq-item">
-          <button class="faq-question">
-            <span data-i18n="faq_q1">How do broker rebates work and why does SAGFX pay them?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p data-i18n="faq_a1">When you trade through a broker, the broker charges a commission or spread mark-up. As an institutional partner, SAGFX receives wholesale volume clearing compensation from the broker. Rather than keeping all fees, SAGFX passes up to 85% of this revenue directly back to you as weekly cashback. You trade identical conditions, but recover significant transaction costs.</p>
+    <!-- ==========================================================================
+         SECTION 3: CLEARING ARCHITECTURE & 3D METALLIC EMBLEM SHOWCASE
+         ========================================================================== -->
+    <section class="pillars-section" style="padding: 20px 0 60px;">
+      <div class="container">
+        <div class="crest-showcase" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+          <!-- Left Column: 3D Emblem Image Frame -->
+          <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; border: 1.5px solid rgba(56, 189, 248, 0.35); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(14, 165, 233, 0.25);">
+            <img src="assets/sagfx-pedestal-emblem.jpg" alt="SAGFX 3D Metallic Levitation Emblem on Basalt Pedestal" style="width: 100%; height: 380px; object-fit: cover; display: block;">
+            <div style="position: absolute; bottom: 14px; left: 14px; right: 14px; background: rgba(5, 10, 22, 0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: var(--radius-sm); padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-size: 0.72rem; color: #38bdf8; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">Central Clearing Node</div>
+                <div style="font-size: 0.88rem; color: #fff; font-weight: 700;">SAGFX Fix 4.4 Prime Bridge</div>
+              </div>
+              <span class="status-dot online"></span>
+            </div>
           </div>
-        </div>
 
-        <div class="faq-item">
-          <button class="faq-question">
-            <span data-i18n="faq_q2">Does registering through SAGFX widen my trading spreads?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p data-i18n="faq_a2">Absolutely not. SAGFX operates on strict Tier-1 direct interbank rails with zero spread mark-ups. Your spreads, execution speeds, and fill conditions are identical (or superior) to opening an account directly with the prime broker. Our cashback comes entirely from institutional volume share, not by inflating your costs.</p>
-          </div>
-        </div>
+          <!-- Right Column: Technical Specifications -->
+          <div>
+            <div class="section-tag"><span class="dot"></span> INFRASTRUCTURE SPECIFICATIONS</div>
+            <h2 style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.25;">
+              Sub-Millisecond Routing & <br>
+              <span class="gold-gradient-text">Tier-1 Liquidity Bridges</span>
+            </h2>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 24px;">
+              Engineered specifically for quantitative trading systems, EA algorithms, and institutional capital allocators who cannot compromise on latency or pricing integrity.
+            </p>
 
-        <div class="faq-item">
-          <button class="faq-question">
-            <span data-i18n="faq_q3">Which global brokers are whitelisted under SAGFX?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p data-i18n="faq_a3">We maintain clearing partnerships with top tier-1 regulated prime brokers, including IC Markets (ASIC/FSA), Vantage Markets (ASIC/CIMA), Exness (FCA/CySEC), and FP Markets (ASIC/CySEC). Traders can link existing accounts or deploy new sub-accounts under the SAGFX whitelist.</p>
-          </div>
-        </div>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: rgba(229, 185, 95, 0.15); border: 1px solid var(--text-gold); display: flex; align-items: center; justify-content: center; color: var(--text-gold); font-size: 0.75rem; font-weight: 800; flex-shrink: 0; margin-top: 2px;">✓</div>
+                <div>
+                  <h4 style="font-size: 0.95rem; color: #fff; margin-bottom: 2px;">Sub-Millisecond Execution</h4>
+                  <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0;">Co-located fiber cross-connects in Equinix LD4 (London) and NY4 (New York) reducing bridge latency below 1.2ms.</p>
+                </div>
+              </div>
 
-        <div class="faq-item">
-          <button class="faq-question">
-            <span data-i18n="faq_q4">How and when are weekly cashback distributions paid out?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p data-i18n="faq_a4">All trading volume is calculated on Sunday midnight GMT. Cashback is credited automatically every Monday directly to your USDT (TRC20/BEP20) crypto wallet, Cambodian local bank transfer (ABA / Bakong), or routed back into your MT4/MT5 trading account balance with zero withdrawal delay.</p>
-          </div>
-        </div>
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: rgba(56, 189, 248, 0.15); border: 1px solid #38bdf8; display: flex; align-items: center; justify-content: center; color: #38bdf8; font-size: 0.75rem; font-weight: 800; flex-shrink: 0; margin-top: 2px;">✓</div>
+                <div>
+                  <h4 style="font-size: 0.95rem; color: #fff; margin-bottom: 2px;">FIX 4.4 Bridge Integration</h4>
+                  <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0;">Standardized interbank protocol compatible with MetaTrader 4/5, cTrader, and custom algorithmic trade execution engines.</p>
+                </div>
+              </div>
 
-        <div class="faq-item">
-          <button class="faq-question">
-            <span data-i18n="faq_q5">How does SAGFX integrate with physical Gold Hedging for bullion shops?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p data-i18n="faq_a5">Gold shops and jewellery merchants utilizing Mongsay House Delta-Neutral Hedging Desk execute synthetic short contracts on XAU/USD through SAGFX. This provides local physical merchants with raw 0.0 pip spreads, ultra-low carrying fees, and substantial volume rebates that lower the net cost of risk mitigation to near-zero.</p>
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; display: flex; align-items: center; justify-content: center; color: #10b981; font-size: 0.75rem; font-weight: 800; flex-shrink: 0; margin-top: 2px;">✓</div>
+                <div>
+                  <h4 style="font-size: 0.95rem; color: #fff; margin-bottom: 2px;">Automated Weekly Reconciliation</h4>
+                  <p style="font-size: 0.82rem; color: var(--text-secondary); margin: 0;">Real-time ledger audit reconciling every executed ticket with multi-channel payouts to USDT, Cambodian local banks, or trading balances.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 28px;">
+              <a href="https://t.me/MongsayFX" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: inline-flex;">
+                Consult Institutional Desk via @MongsayFX
+              </a>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Statutory Cambodian Protection & Legal Notice -->
-      <div class="footer-legal-notice" style="max-width: 900px; margin: 0 auto;">
+    <!-- ==========================================================================
+         SECTION 4: INSTITUTIONAL FAQ ACCORDION
+         ========================================================================== -->
+    <section class="pillars-section" style="padding: 20px 0 60px;">
+      <div class="container">
+        <div class="section-tag"><span class="dot"></span> KNOWLEDGE REPOSITORY</div>
+        <h2 class="section-title">
+          Institutional Broker Rebates <span class="gold-gradient-text">FAQ</span>
+        </h2>
+        <p class="section-desc">
+          Key operational questions answered regarding brokerage clearing, spread safety, settlement methods, and account whitelist activation.
+        </p>
+
+        <div class="faq-container" style="margin-top: 36px;">
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-header" aria-expanded="false">
+              <span>What is SAGFX and how does the institutional broker rebate system work?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>
+                SAGFX acts as an institutional liquidity clearing bridge between active traders and globally regulated prime brokers (such as IC Markets, Vantage, Exness, and FP Markets). In exchange for aggregating high trading volume, prime brokers return a significant portion of their trading commissions to SAGFX. Instead of keeping this revenue, SAGFX passes up to 85% of these commission spreads directly back to you every single week as cashback.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-header" aria-expanded="false">
+              <span>Does receiving weekly rebates widen my trading spreads or increase execution fees?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>
+                No, absolutely not. Your trading account receives 100% genuine raw ECN spreads (starting from 0.0 pips on Gold XAU/USD and EUR/USD). Your trading spreads, swap rates, and execution conditions remain identical or tighter than standard retail accounts. We strictly prohibit synthetic markup; your trading costs are substantially lowered because you receive cashback on every closed lot.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-header" aria-expanded="false">
+              <span>How and when are rebate payouts settled in Cambodia and internationally?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>
+                All trading volumes are automatically reconciled over the weekend, and payouts are distributed every Monday. Traders in Cambodia and across Southeast Asia can receive their payouts via <strong>USDT</strong> (TRC20 / ERC20), direct deposit to <strong>Cambodian local banks</strong> (ABA Bank or Bakong KHQR in USD), or directly credited into their live MT4/MT5 trading account balance.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-header" aria-expanded="false">
+              <span>Can I connect an existing live trading account to SAGFX?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>
+                Yes. If you already maintain an active account with any of our partner prime brokers, you do not need to create a new profile or close existing positions. You can easily request your broker support to transfer your account under the SAGFX institutional clearing code, or open an additional sub-account under our whitelist to begin earning rebates immediately.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-header" aria-expanded="false">
+              <span>How does SAGFX integrate with physical bullion hedging for gold shops?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-body">
+              <p>
+                SAGFX provides the low-latency execution bridge that connects local Cambodian physical gold shops and bullion merchants directly to Tier-1 interbank liquidity. By executing calculated digital short hedge positions on MT4/MT5 via SAGFX, merchants neutralize inventory price drops during market downturns, while receiving weekly rebate cashbacks that offset broker financing costs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 5: CAMBODIAN STATUTORY COMPLIANCE & LEGAL NOTICE
+         ========================================================================== -->
+    <section class="container">
+      <div class="footer-legal-notice">
         <div class="legal-badge-pill">
-          <span class="legal-code" data-i18n="legal_pill">KINGDOM OF CAMBODIA • STATUTORY COMPLIANCE & LEGAL NOTICE</span>
+          <span class="legal-dot"></span>
+          <span>CAMBODIAN STATUTORY COMPLIANCE & LEGAL NOTICE</span>
         </div>
-        <p class="legal-quote-text" data-i18n="legal_quote">
+        <p class="legal-quote-text">
           "The legal rights and published intellectual frameworks of <strong>Mongsay Website</strong> (mongsay.com) and <strong>SAGFX</strong> are protected under the <em>Law on Commercial Enterprises</em> and the <em>Law on E-Commerce</em> of the Kingdom of Cambodia. Unauthorized reproduction, programmatic scraping, or redistribution of institutional proprietary clearing models is strictly prohibited."
         </p>
-        <p class="legal-disclaimer-sub" data-i18n="legal_disclaimer">
+        <p class="legal-disclaimer-sub">
           <strong>Institutional Notice:</strong> Content published by Mong Say and Mongsay House is strictly educational and analytical research. It does not constitute retail financial advice, collective investment solicitation, or custodial deposit taking under the regulatory remits of the Securities and Exchange Regulator of Cambodia (SERC) or the National Bank of Cambodia (NBC). All trading in leveraged instruments involves substantial risk of capital loss.
         </p>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- ==========================================================================
        STANDARD LUXURY FOOTER
@@ -578,6 +571,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=3.6.7"></script>
+  <script src="script.js?v=3.6.8"></script>
 </body>
 </html>
