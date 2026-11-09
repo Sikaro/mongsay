@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.6.8">
+  <link rel="stylesheet" href="styles.css?v=3.6.9">
 </head>
 <body>
 
@@ -164,17 +164,112 @@
           </div>
         </div>
 
-        <!-- Right Column: Perfectly Framed Executive Portrait -->
-        <div class="hero-visual-card">
-          <div class="portrait-frame">
-            <img src="assets/portrait.jpg" alt="Mong Say - Lead Architect & Founder of SAGFX" class="portrait-img">
-            <div class="portrait-overlay-glow"></div>
-            <div class="portrait-badge-bottom">
-              <div class="badge-info">
-                <h4>Mong Say</h4>
-                <p>Lead Architect & Founder • SAGFX</p>
+        <!-- Right Column: Interactive 3D Pop-Up Credit Cards Showcase with View Toggle -->
+        <div class="hero-visual-showcase">
+          <!-- Interactive View Mode Toggle -->
+          <div class="hero-view-toggle">
+            <button type="button" class="view-toggle-btn active" id="btnShowCards">
+              <span>💳</span> 3D Clearing Card
+            </button>
+            <button type="button" class="view-toggle-btn" id="btnShowPortrait">
+              <span>👤</span> Lead Architect
+            </button>
+          </div>
+
+          <!-- Pane 1: 3D Credit Cards Pop-Up Stage (Active by Default) -->
+          <div class="hero-visual-pane active" id="paneCards">
+            <div class="pin-hero-cards-stage" id="sagfxCardsStage" title="Hover or tap to pop up cards in 3D">
+              <div class="pin-glass-stack" id="sagfxGlassStack">
+                <!-- Back Card (FIX 4.4 Clearing Node) -->
+                <div class="pin-glass-card pin-glass-card-back">
+                  <div class="pin-card-brand">
+                    <div class="pin-card-chip"></div>
+                    <div class="pin-card-tier">SAGFX CORE</div>
+                  </div>
+                  <div class="pin-card-meta">
+                    <div>BRIDGE: FIX 4.4 PRIME</div>
+                    <div>LATENCY: &lt; 1.2MS</div>
+                    <div>SERVERS: EQUINIX LD4 / NY4</div>
+                  </div>
+                  <div class="pin-card-brand">
+                    <span class="card-node-id">NODE: 8848-CLEARING</span>
+                    <span class="card-active-status"><span class="pulse-dot online"></span> ACTIVE</span>
+                  </div>
+                </div>
+
+                <!-- Front Card (Institutional Clearing Visa-Grade Card) -->
+                <div class="pin-glass-card pin-glass-card-front" id="sagfxFrontCard">
+                  <!-- Specular Shimmer Layer -->
+                  <div class="card-shimmer-sweep"></div>
+
+                  <div class="pin-card-brand">
+                    <div class="pin-card-chip-wrap">
+                      <div class="pin-card-chip"></div>
+                      <!-- Contactless NFC Wave Icon -->
+                      <svg class="pin-card-nfc" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M8.5 16.5a5 5 0 0 1 0-7"/>
+                        <path d="M12 19a8.5 8.5 0 0 0 0-14"/>
+                        <path d="M15.5 21.5a12 12 0 0 0 0-21"/>
+                      </svg>
+                    </div>
+                    <div class="pin-card-brand-logo">SAGFX</div>
+                  </div>
+
+                  <div class="pin-card-mid">
+                    <div class="pin-card-type-tag">INSTITUTIONAL CLEARING ACCOUNT</div>
+                    <div class="pin-card-digits">
+                      <span>••••</span>
+                      <span>••••</span>
+                      <span>••••</span>
+                      <span class="gold-digits">8848</span>
+                    </div>
+                  </div>
+
+                  <div class="pin-card-brand pin-card-bottom-row">
+                    <div>
+                      <div class="pin-card-sublabel">REBATE YIELD</div>
+                      <div class="pin-card-subval gold">UP TO 85%</div>
+                    </div>
+                    <div>
+                      <div class="pin-card-sublabel">SPREAD MARKUP</div>
+                      <div class="pin-card-subval cyan">0.0 PIPS</div>
+                    </div>
+                    <div>
+                      <div class="pin-card-sublabel">EXPIRES</div>
+                      <div class="pin-card-subval">12/29</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <img src="assets/lion-logo.png" alt="Lion Emblem" class="badge-seal-mini">
+
+              <!-- Floating Architect Verification Pill -->
+              <div class="hero-card-architect-badge">
+                <div class="hero-arch-avatar-wrap">
+                  <img src="assets/portrait.jpg" alt="Mong Say Lead Architect" class="hero-arch-avatar">
+                </div>
+                <div class="hero-arch-meta">
+                  <div class="hero-arch-name">Mong Say <span class="badge-check">✓</span></div>
+                  <div class="hero-arch-role">Lead Architect &amp; Founder • SAGFX</div>
+                </div>
+                <a href="https://t.me/MongsayFX" target="_blank" rel="noopener noreferrer" class="hero-arch-action" title="Connect on Telegram">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 2: Executive Portrait Frame (Face 100% Framed) -->
+          <div class="hero-visual-pane" id="panePortrait">
+            <div class="portrait-frame">
+              <img src="assets/portrait.jpg" alt="Mong Say - Lead Architect & Founder of SAGFX" class="portrait-img">
+              <div class="portrait-overlay-glow"></div>
+              <div class="portrait-badge-bottom">
+                <div class="badge-info">
+                  <h4>Mong Say</h4>
+                  <p>Lead Architect &amp; Founder • SAGFX</p>
+                </div>
+                <img src="assets/lion-logo.png" alt="Lion Emblem" class="badge-seal-mini">
+              </div>
             </div>
           </div>
         </div>
@@ -571,6 +666,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=3.6.8"></script>
+  <script src="script.js?v=3.6.9"></script>
 </body>
 </html>

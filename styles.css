@@ -5640,120 +5640,414 @@ html.fx-frozen .footer-legal-notice {
   margin-bottom: 32px;
 }
 
-/* 3D Hero Cards High-End Display Wrap */
-.pin-hero-card-img-wrap {
+/* ==========================================================================
+   3D POP-UP CREDIT CARDS & CLEARING RAILS STAGE
+   ========================================================================== */
+.hero-visual-showcase {
   position: relative;
   width: 100%;
-  max-width: 520px;
-  height: 380px;
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: 
-    0 30px 80px rgba(0, 0, 0, 0.95),
-    0 0 50px rgba(14, 165, 233, 0.35);
-  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  max-width: 440px;
   margin: 0 auto;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
 }
 
-.pin-hero-card-img-wrap:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 40px 95px rgba(0, 0, 0, 0.98), 0 0 65px rgba(56, 189, 248, 0.55);
-}
-
-.pin-hero-card-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Coordinate Hairlines and Callouts */
-.pin-node-callout {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #e0f2fe;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  margin-bottom: 22px;
-}
-
-.pin-node-line {
-  display: inline-block;
-  width: 32px;
-  height: 1px;
-  background: #38bdf8;
-  box-shadow: 0 0 8px #38bdf8;
-}
-
-.pin-node-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #38bdf8;
-  box-shadow: 0 0 10px #38bdf8;
-  animation: pulse-dot 2s infinite;
-}
-
-.pin-capsule-badge {
+/* Interactive View Mode Toggle */
+.hero-view-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 18px;
-  background: rgba(12, 22, 46, 0.9);
+  background: rgba(8, 14, 28, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(56, 189, 248, 0.35);
-  border-radius: 9999px;
-  color: #e0f2fe;
+  border-radius: var(--radius-full);
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.view-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-primary);
   font-size: 0.82rem;
-  font-weight: 600;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(14, 165, 233, 0.18);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.pin-inset-portrait-card {
-  background: rgba(10, 18, 38, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  border-radius: 18px;
-  padding: 12px;
-  width: 220px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.65), 0 0 22px rgba(14, 165, 233, 0.22);
-  margin-top: 24px;
+.view-toggle-btn.active {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.25) 0%, rgba(14, 165, 233, 0.5) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.55);
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
 }
 
-.pin-portrait-img-wrap {
-  width: 100%;
-  height: 150px;
-  border-radius: 12px;
-  overflow: hidden;
+.view-toggle-btn:hover:not(.active) {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-visual-pane {
+  display: none;
+  animation: fadeInPane 0.4s ease forwards;
+}
+
+.hero-visual-pane.active {
+  display: block;
+}
+
+@keyframes fadeInPane {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 3D Cards Stage Container */
+.pin-hero-cards-stage {
   position: relative;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  cursor: pointer;
 }
 
-.pin-portrait-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: contrast(1.1) brightness(0.9);
+/* The 3D Glass Stack */
+.pin-glass-stack {
+  position: relative;
+  width: 310px;
+  height: 420px;
+  transform-style: preserve-3d;
+  transform: rotateX(15deg) rotateY(-18deg) rotateZ(6deg);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: cardIdleLevitate 6s ease-in-out infinite;
 }
 
-.pin-portrait-img-wrap::after {
+@keyframes cardIdleLevitate {
+  0%, 100% {
+    transform: rotateX(15deg) rotateY(-18deg) rotateZ(6deg) translateY(0);
+  }
+  50% {
+    transform: rotateX(17deg) rotateY(-15deg) rotateZ(8deg) translateY(-14px);
+  }
+}
+
+/* Hover & Active Pop-Up Elevation */
+.pin-hero-cards-stage:hover .pin-glass-stack,
+.pin-hero-cards-stage.active-popup .pin-glass-stack {
+  animation-play-state: paused;
+  transform: rotateX(8deg) rotateY(-10deg) rotateZ(3deg) scale(1.04);
+}
+
+/* Base Glass Card */
+.pin-glass-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(14, 165, 233, 0.3);
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Back Card (FIX 4.4 Clearing Node) */
+.pin-glass-card-back {
+  background: linear-gradient(135deg, rgba(8, 20, 46, 0.92) 0%, rgba(2, 6, 16, 0.98) 100%);
+  border: 1.5px solid rgba(56, 189, 248, 0.35);
+  transform: translateZ(-45px) translateX(-38px) translateY(-28px);
+  opacity: 0.88;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, box-shadow 0.5s ease;
+}
+
+.pin-hero-cards-stage:hover .pin-glass-card-back,
+.pin-hero-cards-stage.active-popup .pin-glass-card-back {
+  transform: translateZ(-65px) translateX(-55px) translateY(-38px) rotateZ(-7deg);
+  opacity: 0.96;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.9), 0 0 45px rgba(14, 165, 233, 0.4);
+}
+
+/* Front Card (Institutional Clearing Visa-Grade Card) */
+.pin-glass-card-front {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(14, 165, 233, 0.14) 45%, rgba(2, 6, 18, 0.75) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 35px 75px rgba(0, 0, 0, 0.9),
+    0 0 45px rgba(56, 189, 248, 0.45),
+    inset 0 1px 2px rgba(255, 255, 255, 0.55);
+  transform: translateZ(35px);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, border-color 0.5s ease;
+}
+
+/* Front Card POPS UP */
+.pin-hero-cards-stage:hover .pin-glass-card-front,
+.pin-hero-cards-stage.active-popup .pin-glass-card-front {
+  transform: translateZ(75px) translateY(-22px) rotateX(-4deg) rotateY(6deg);
+  box-shadow: 
+    0 50px 100px rgba(0, 0, 0, 0.98),
+    0 0 65px rgba(56, 189, 248, 0.6),
+    0 0 30px rgba(229, 185, 95, 0.4),
+    inset 0 1px 3px rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+/* Holographic Diagonal Shimmer Sweep */
+.card-shimmer-sweep {
+  position: absolute;
+  inset: -100%;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.22) 48%,
+    rgba(56, 189, 248, 0.35) 52%,
+    rgba(229, 185, 95, 0.25) 56%,
+    transparent 68%
+  );
+  transform: rotate(35deg);
+  animation: cardShimmerSweep 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes cardShimmerSweep {
+  0% { transform: translateX(-150%) rotate(35deg); }
+  35%, 100% { transform: translateX(150%) rotate(35deg); }
+}
+
+/* Metallic Gold/Cyan EMV Chip */
+.pin-card-chip-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pin-card-chip {
+  width: 44px;
+  height: 34px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #fef08a 0%, #eab308 40%, #ca8a04 100%);
+  box-shadow: 0 0 15px rgba(234, 179, 8, 0.65), inset 0 1px 1px #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.pin-card-chip::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(2, 5, 14, 0.92) 100%);
+  background: repeating-linear-gradient(90deg, transparent, transparent 6px, rgba(0, 0, 0, 0.25) 6px, rgba(0, 0, 0, 0.25) 8px),
+              repeating-linear-gradient(0deg, transparent, transparent 6px, rgba(0, 0, 0, 0.25) 6px, rgba(0, 0, 0, 0.25) 8px);
 }
 
-.pin-portrait-label {
-  padding: 10px 4px 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
+.pin-card-nfc {
+  color: #7dd3fc;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.6));
+}
+
+.pin-card-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pin-card-brand-logo {
+  font-family: var(--font-accent);
+  font-weight: 900;
+  font-size: 1.25rem;
   letter-spacing: 0.12em;
+  color: #ffffff;
+  text-shadow: 0 0 18px rgba(56, 189, 248, 0.7);
+}
+
+.pin-card-tier {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.74rem;
   color: #38bdf8;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+}
+
+.pin-card-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.76rem;
+  color: #94a3b8;
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+  border-top: 1px solid rgba(56, 189, 248, 0.18);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.18);
+  padding: 14px 0;
+}
+
+.card-node-id {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.74rem;
+  color: #64748b;
+  letter-spacing: 0.08em;
+}
+
+.card-active-status {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #10b981;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Front Card Digits & Labels */
+.pin-card-mid {
+  margin: 18px 0;
+}
+
+.pin-card-type-tag {
+  font-size: 0.70rem;
+  color: #7dd3fc;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.pin-card-digits {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.18rem;
+  color: #ffffff;
+  letter-spacing: 0.14em;
+  display: flex;
+  gap: 8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 12px rgba(56, 189, 248, 0.4);
+}
+
+.pin-card-digits .gold-digits {
+  color: var(--text-gold);
+  text-shadow: 0 0 14px rgba(229, 185, 95, 0.6);
+}
+
+.pin-card-bottom-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 14px;
+}
+
+.pin-card-sublabel {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.pin-card-subval {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.pin-card-subval.gold {
+  color: var(--text-gold);
+}
+
+.pin-card-subval.cyan {
+  color: #38bdf8;
+}
+
+/* Floating Architect Badge below cards */
+.hero-card-architect-badge {
+  margin-top: 22px;
+  background: rgba(8, 14, 28, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(229, 185, 95, 0.35);
+  border-radius: var(--radius-full);
+  padding: 6px 14px 6px 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(229, 185, 95, 0.2);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  max-width: 330px;
+  width: 100%;
+}
+
+.hero-card-architect-badge:hover {
+  transform: translateY(-2px);
+  border-color: var(--text-gold);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(229, 185, 95, 0.35);
+}
+
+.hero-arch-avatar-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid var(--text-gold);
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(229, 185, 95, 0.5);
+}
+
+.hero-arch-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top !important; /* Top-of-head framing so his face is 100% visible */
+  display: block;
+}
+
+.hero-arch-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-arch-name {
+  font-family: var(--font-accent);
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-arch-name .badge-check {
+  color: #38bdf8;
+  font-size: 0.8rem;
+}
+
+.hero-arch-role {
+  font-size: 0.72rem;
+  color: var(--text-gold);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-arch-action {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+  transition: transform 0.2s ease;
+}
+
+.hero-arch-action:hover {
+  transform: scale(1.1);
 }
 
 /* ==========================================================================
@@ -6260,5 +6554,20 @@ html.fx-frozen .pin-tech-card {
   }
   .sagfx-calc-widget {
     padding: 24px 18px;
+  }
+  .pin-glass-stack {
+    width: 270px;
+    height: 370px;
+  }
+  .pin-glass-card {
+    padding: 20px 18px;
+    border-radius: 20px;
+  }
+  .pin-card-digits {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+  .pin-hero-cards-stage {
+    height: 430px;
   }
 }

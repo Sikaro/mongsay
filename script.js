@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initVideoBackground();
   initFaqAccordion();
   initSagfxPlatformCalculator();
+  initSagfxCardPop();
 });
 
 /* ---------------------------------------------------------
@@ -2965,4 +2966,66 @@ function initSagfxPlatformCalculator() {
   });
 
   recalculate();
+}
+
+/* ---------------------------------------------------------
+   SAGFX 3D Credit Cards Pop-Up Engine & Dynamic Parallax Tilt
+   --------------------------------------------------------- */
+function initSagfxCardPop() {
+  const stage = document.getElementById('sagfxCardsStage');
+  const stack = document.getElementById('sagfxGlassStack');
+  const btnCards = document.getElementById('btnShowCards');
+  const btnPortrait = document.getElementById('btnShowPortrait');
+  const paneCards = document.getElementById('paneCards');
+  const panePortrait = document.getElementById('panePortrait');
+
+  // Interactive View Toggle (3D Cards vs Lead Architect Portrait)
+  if (btnCards && btnPortrait && paneCards && panePortrait) {
+    btnCards.addEventListener('click', () => {
+      btnCards.classList.add('active');
+      btnPortrait.classList.remove('active');
+      paneCards.classList.add('active');
+      panePortrait.classList.remove('active');
+    });
+
+    btnPortrait.addEventListener('click', () => {
+      btnPortrait.classList.add('active');
+      btnCards.classList.remove('active');
+      panePortrait.classList.add('active');
+      paneCards.classList.remove('active');
+    });
+  }
+
+  if (!stage || !stack) return;
+
+  let isHovered = false;
+
+  // 3D Parallax Tilt with Mouse Movement
+  stage.addEventListener('mouseenter', () => {
+    isHovered = true;
+    stack.style.animationPlayState = 'paused';
+  });
+
+  stage.addEventListener('mousemove', (e) => {
+    if (!isHovered) return;
+    const rect = stage.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    const rotX = (-(y / (rect.height / 2)) * 14 + 10).toFixed(2);
+    const rotY = ((x / (rect.width / 2)) * 16 - 12).toFixed(2);
+    stack.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) rotateZ(3deg) scale(1.03)`;
+  });
+
+  stage.addEventListener('mouseleave', () => {
+    isHovered = false;
+    stack.style.transform = '';
+    stack.style.animationPlayState = 'running';
+  });
+
+  // Mobile Tap-to-Pop Toggle
+  stage.addEventListener('click', (e) => {
+    // Avoid triggering when clicking the internal telegram button
+    if (e.target.closest('.hero-arch-action')) return;
+    stage.classList.toggle('active-popup');
+  });
 }
