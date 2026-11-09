@@ -481,81 +481,68 @@ const I18N_DICTIONARY = {
     calc_monthly_title: "Monthly Cashback:",
     calc_annual_title: "Annual Recovered:",
     calc_cta_whitelist: "Claim Whitelist via @MongsayFX",
-    faq_tag: "KNOWLEDGE REPOSITORY",
-    faq_title: "Frequently Asked Questions",
-    faq_desc: "Clear, candid answers regarding broker rebate mechanics, safety of funds, and institutional clearing.",
-    faq_q1: "How do broker rebates work and why does SAGFX pay them?",
-    faq_a1: "When you trade through a broker, the broker charges a commission or spread mark-up. As an institutional partner, SAGFX receives wholesale volume clearing compensation from the broker. Rather than keeping all fees, SAGFX passes up to 85% of this revenue directly back to you as weekly cashback. You trade identical conditions, but recover significant transaction costs.",
-    faq_q2: "Does registering through SAGFX widen my trading spreads?",
-    faq_a2: "Absolutely not. SAGFX operates on strict Tier-1 direct interbank rails with zero spread mark-ups. Your spreads, execution speeds, and fill conditions are identical (or superior) to opening an account directly with the prime broker. Our cashback comes entirely from institutional volume share, not by inflating your costs.",
-    faq_q3: "Which global brokers are whitelisted under SAGFX?",
-    faq_a3: "We maintain clearing partnerships with top tier-1 regulated prime brokers, including IC Markets (ASIC/FSA), Vantage Markets (ASIC/CIMA), Exness (FCA/CySEC), and FP Markets (ASIC/CySEC). Traders can link existing accounts or deploy new sub-accounts under the SAGFX whitelist.",
-    faq_q4: "How and when are weekly cashback distributions paid out?",
-    faq_a4: "All trading volume is calculated on Sunday midnight GMT. Cashback is credited automatically every Monday directly to your USDT (TRC20/BEP20) crypto wallet, Cambodian local bank transfer (ABA / Bakong), or routed back into your MT4/MT5 trading account balance with zero withdrawal delay.",
-    faq_q5: "How does SAGFX integrate with physical Gold Hedging for bullion shops?",
-    faq_a5: "Gold shops and jewellery merchants utilizing Mongsay House Delta-Neutral Hedging Desk execute synthetic short contracts on XAU/USD through SAGFX. This provides local physical merchants with raw 0.0 pip spreads, ultra-low carrying fees, and substantial volume rebates that lower the net cost of risk mitigation to near-zero.",
 
-    // SAGFX Futuristic Fintech Presentation Showcase (Khmer)
-    sagfx_hero_tag: "បទបង្ហាញស្ថាប័ន ២០២៦ // SAGFX.ORG",
-    sagfx_hero_title: "ប្រព័ន្ធ Rebate ទំនើប & <br><span class=\"cyan-glow-text\">សាច់ប្រាក់ងាយស្រួលស្ថាប័ន</span>",
-    sagfx_hero_desc: "ដំណោះស្រាយហិរញ្ញវត្ថុឆ្លាតវៃ បង្កើតឡើងដើម្បីកាត់បន្ថយថ្លៃដើមប្រតិបត្តិការ ផ្ដល់នូវការទូទាត់ផ្ទាល់កម្រិត Tier-1 អន្តរធនាគារ និងសងត្រឡប់ប្រាក់ Rebate ប្រចាំសប្តាហ៍ដោយស្វ័យប្រវត្តិ។",
-    sagfx_cta_whitelist: "ចាប់ផ្ដើមចុះឈ្មោះ Whitelist",
-    sagfx_stat_users: "+១៥,០០០+ ពាណិជ្ជករសកម្ម",
-    sagfx_badge_secure: "Spread សុទ្ធចាប់ពី 0.0 Pip",
-    sagfx_engine_tag: "ម៉ាស៊ីនទូទាត់ REBATE កណ្ដាល",
-    sagfx_engine_title: "ម៉ាស៊ីន Rebate ទំនើប <br><span class=\"cyan-glow-text\">សម្រាប់ការទូទាត់កម្រិតស្ថាប័នរលូនបំផុត</span>",
-    sagfx_engine_desc: "ហេដ្ឋារចនាសម្ព័ន្ធកម្រិតស្ថាប័នដែលបញ្ជូនបរិមាណជួញដូរធំៗតាមរយៈស្ពាន Broker ផ្ទាល់ ដោយសងប្រាក់ spread ត្រឡប់មក trader វិញរៀងរាល់សប្តាហ៍។",
-    pedestal_badge_node: "ថ្នាំងទូទាត់កណ្ដាល",
-    pedestal_badge_title: "ស្ពាន SAGFX Fix 4.4 Prime",
-    sagfx_wallet_tag: "ប្រព័ន្ធ REBATE ឆ្លាតវៃ",
-    sagfx_wallet_title: "ប្រាក់ត្រឡប់មកវិញប្រចាំសប្តាហ៍ស្វ័យប្រវត្តិ",
-    sagfx_wallet_desc: "ទូទាត់ដោយផ្ទាល់ទៅកាន់កាបូប USDT គណនីធនាគារក្នុងស្រុក (ABA/Bakong) ឬចូលទៅក្នុងសមតុល្យគណនី MT4/MT5 រៀងរាល់ថ្ងៃចន្ទ។",
-    sagfx_security_tag: "គ្មានការដំឡើង SPREAD",
-    sagfx_security_title: "ការទូទាត់ផ្ទាល់កម្រិត Prime",
-    sagfx_security_desc: "Spread អន្តរធនាគារសុទ្ធ ១០០% ពី Broker ពិភពលោកដែលមានអាជ្ញាប័ណ្ណត្រឹមត្រូវ។ គ្មានការបំប៉ោង spread ឬពន្យារពេលបញ្ជាទិញឡើយ។",
-    sagfx_explore_btn: "ចូលមើលគេហទំព័រផ្លូវការ SAGFX.org",
-    sagfx_volume_tag: "ស្ថិតិសាច់ប្រាក់ងាយស្រួល និងទិន្នផល",
-    sagfx_volume_title: "សាច់ប្រាក់ងាយស្រួលឆ្លាតវៃ <br><span class=\"cyan-glow-text\">សម្រាប់ពាណិជ្ជករបរិមាណធំ</span>",
-    sagfx_volume_desc: "គ្រប់គ្រងបរិមាណជួញដូររបស់អ្នកជាមួយប្រព័ន្ធ Rebate ស្ថាប័នដ៏មានសុវត្ថិភាព តម្លាភាព ១០០% គ្មានជម្លោះផលប្រយោជន៍ និងទូទាត់រហ័សទាន់ចិត្ត។",
-    sagfx_view_platform: "បើកប្រព័ន្ធ SAGFX Portal",
-    sagfx_chart_badge: "ប្រសិទ្ធភាព និងបរិមាណ",
-    sagfx_stat_monthly_lots: "ទំហំ Lot ទូទាត់ប្រចាំខែ",
-    sagfx_stat_max_rebate: "Rebate អតិបរមា / Lot (មាស)",
-    sagfx_nodes_tag: "ស្ថាបត្យកម្មប្រព័ន្ធសុវត្ថិភាព",
-    sagfx_nodes_title: "ហេដ្ឋារចនាសម្ព័ន្ធស្ថាប័នសុវត្ថិភាព <br><span class=\"cyan-glow-text\">រចនាឡើងដើម្បីកាត់បន្ថយ Slippage ដល់សូន្យ</span>",
-    sagfx_nodes_desc: "បង្កើតឡើងសម្រាប់ការបញ្ជាទិញលឿនបំផុត spread អន្តរធនាគារសុទ្ធ និងការទូទាត់ប្រាក់ rebate ប្រចាំសប្តាហ៍ជាមួយ Prime Broker លំដាប់កំពូល។",
-    sagfx_feat_1: "ស្ពាន ECN ផ្ទាល់",
-    sagfx_feat_2: "គ្មានការបំប៉ោងថ្លៃលាក់កំបាំង",
-    sagfx_feat_3: "ការទូទាត់ស្វ័យប្រវត្តិ",
-    sagfx_tech_1_title: "Prime Broker មានអាជ្ញាប័ណ្ណពិភពលោក",
-    sagfx_tech_1_desc: "តភ្ជាប់ផ្ទាល់ទៅកាន់ IC Markets, Vantage, Exness និង FP Markets ជាមួយសាច់ប្រាក់ងាយស្រួលទ្រព្យសម្បត្តិច្រើន និងតម្លៃពីធនាគារលំដាប់កំពូល។",
-    sagfx_tech_2_title: "ទូទាត់ប្រាក់ប្រចាំសប្តាហ៍ស្វ័យប្រវត្តិ",
-    sagfx_tech_2_desc: "សងត្រឡប់រហូតដល់ ៨៥% នៃកម្រៃជើងសារទៅ trader ផ្ទាល់ដោយគ្មានការពន្យារពេល ឬកំណត់ដែនដកប្រាក់ឡើយ។",
-    sagfx_tech_3_title: "ជម្រៅទីផ្សារពហុទ្រព្យសកម្ម",
-    sagfx_tech_3_desc: "Spread មាស (XAU/USD) ចាប់ពី 0.0 pip គូរូបិយប័ណ្ណសំខាន់ៗ និងសន្ទស្សន៍សកល ស្របតាមយន្តការទីផ្សារស្ថាប័នពិតប្រាកដ។",
-    sagfx_tech_4_title: "ការតភ្ជាប់ការពារហានិភ័យមាស",
-    sagfx_tech_4_desc: "ស្ពានតភ្ជាប់រលូនទៅកាន់តុការពារហានិភ័យមាសសុទ្ធ Delta-Neutral របស់ Mongsay House សម្រាប់ហាងលក់មាសក្នុងស្រុក។",
-    calc_widget_title: "ឧបករណ៍គណនាប្រាក់ចំណេញ Rebate ជាក់ស្តែង",
-    calc_widget_desc: "រំកិលទំហំ Lot ជួញដូរប្រចាំខែរបស់អ្នក ដើម្បីគណនាប្រាក់ត្រឡប់មកវិញប្រចាំសប្តាហ៍ និងប្រចាំឆ្នាំ។",
-    calc_vol_label: "ទំហំជួញដូរប្រចាំខែ (Lots)",
-    calc_asset_label: "ប្រភេទទ្រព្យសកម្មចម្បង",
-    calc_weekly_title: "ប្រាក់ Rebate ធានាប្រចាំសប្តាហ៍",
-    calc_monthly_title: "សរុបប្រចាំខែ៖",
-    calc_annual_title: "សរុបប្រចាំឆ្នាំដែលសន្សំបាន៖",
-    calc_cta_whitelist: "ស្នើសុំ Whitelist តាម @MongsayFX",
-    faq_tag: "ឃ្លាំងចំណេះដឹង",
-    faq_title: "សំណួរដែលសួរញឹកញាប់",
-    faq_desc: "ចម្លើយច្បាស់លាស់ ត្រង់ទៅត្រង់មក អំពីយន្តការ Broker Rebate សុវត្ថិភាពមូលនិធិ និងការទូទាត់កម្រិតស្ថាប័ន។",
-    faq_q1: "តើ Broker Rebate ដំណើរការដូចម្តេច ហើយហេតុអ្វី SAGFX បង់ប្រាក់ត្រឡប់មកវិញ?",
-    faq_a1: "នៅពេលអ្នកជួញដូរតាមរយៈ Broker ពួកគេនឹងគិតថ្លៃកម្រៃជើងសារ ឬ Spread។ ក្នុងនាមជាដៃគូស្ថាប័ន SAGFX ទទួលបានចំណែកចំណូលបរិមាណពី Broker។ ជំនួសឱ្យការរក្សាទុកទាំងអស់ SAGFX បានបង្វែររហូតដល់ ៨៥% នៃប្រាក់ចំណូលនេះសងត្រឡប់ទៅកាន់អ្នកវិញជារៀងរាល់សប្តាហ៍។ អ្នកទទួលបានលក្ខខណ្ឌជួញដូរដូចគ្នាទាំងស្រុង ប៉ុន្តែកាត់បន្ថយថ្លៃដើមយ៉ាងច្រើន។",
-    faq_q2: "តើការចុះឈ្មោះតាម SAGFX ធ្វើឱ្យ spread រីកធំជាងមុនឬទេ?",
-    faq_a2: "មិនមានជាដាច់ខាត។ SAGFX ដំណើរការលើប្រព័ន្ធ Tier-1 ECN ផ្ទាល់ដោយគ្មានការដំឡើង Spread សូម្បីតែបន្តិច។ Spread ល្បឿនប្រតិបត្តិការ និងលក្ខខណ្ឌរបស់អ្នកគឺដូចគ្នា ១០០% ទៅនឹងការបើកគណនីផ្ទាល់ជាមួយ Prime Broker។ ប្រាក់ Cashback របស់យើងបានមកពីកម្រៃជើងសារស្ថាប័ន មិនមែនដោយសារការបំប៉ោងតម្លៃរបស់អ្នកឡើយ។",
-    faq_q3: "តើ Broker ពិភពលោកណាខ្លះស្ថិតនៅក្រោមប្រព័ន្ធ Whitelist របស់ SAGFX?",
-    faq_a3: "យើងមានកិច្ចសហការជាមួយ Prime Broker ដែលមានអាជ្ញាប័ណ្ណ Tier-1 ដូចជា IC Markets (ASIC/FSA), Vantage Markets (ASIC/CIMA), Exness (FCA/CySEC) និង FP Markets (ASIC/CySEC)។ អ្នកអាចភ្ជាប់គណនីដែលមានស្រាប់ ឬបង្កើតគណនីថ្មីក្រោមប្រព័ន្ធ SAGFX។",
-    faq_q4: "តើការទូទាត់ប្រាក់ Cashback ប្រចាំសប្តាហ៍ធ្វើឡើងរបៀបណា និងពេលណា?",
-    faq_a4: "បរិមាណជួញដូរទាំងអស់ត្រូវបានគណនាបញ្ចប់ត្រឹមរាត្រីថ្ងៃអាទិត្យ (GMT)។ ប្រាក់ Cashback នឹងត្រូវផ្ទេរដោយស្វ័យប្រវត្តិនារៀងរាល់ថ្ងៃចន្ទ ទៅកាន់កាបូប USDT (TRC20/BEP20) គណនីធនាគារក្នុងស្រុក (ABA / Bakong) ឬបញ្ចូលទៅក្នុងសមតុល្យគណនី MT4/MT5 របស់អ្នកផ្ទាល់។",
-    faq_q5: "តើ SAGFX ជួយដល់ការការពារហានិភ័យមាស (Hedging) សម្រាប់ហាងមាសយ៉ាងដូចម្តេច?",
-    faq_a5: "ហាងមាស និងអាជីវករគ្រឿងអលង្ការដែលប្រើប្រាស់តុការពារហានិភ័យ Delta-Neutral របស់ Mongsay House អាចបើកកិច្ចសន្យា Short លើ XAU/USD តាមរយៈ SAGFX។ ប្រព័ន្ធនេះផ្តល់នូវ Raw Spread 0.0 pip ថ្លៃសេវាទាបបំផុត និងទទួលបានប្រាក់ Rebate ត្រឡប់មកវិញ ដែលជួយកាត់បន្ថយថ្លៃដើមការពារហានិភ័យស្ទើរតែស្មើនឹងសូន្យ។",
+    // SAGFX Presentation Deck (English)
+    sagfx_hero_tag: "INSTITUTIONAL PRESENTATION 2026 // SAGFX.ORG",
+    sagfx_hero_title: "Modern Rebate Rails & <br><span class=\"cyan-glow-text\">Institutional Liquidity.</span>",
+    sagfx_hero_desc: "Smart finance solutions engineered to eliminate trading fee drag, deliver direct Tier-1 interbank clearing, and automate weekly cashback settlements for modern high-volume traders.",
+    sagfx_cta_whitelist: "Start Whitelisting",
+    sagfx_stat_users: "+15,000+ Active Traders",
+    sagfx_badge_secure: "Raw Spreads from 0.0 Pips",
+    sagfx_engine_tag: "CENTRAL CLEARING ENGINE",
+    sagfx_engine_title: "Cutting-Edge Rebate Engine <br><span class=\"cyan-glow-text\">Engineered for Seamless Volume Clearing.</span>",
+    sagfx_engine_desc: "Institutional-grade infrastructure routing high-volume trade flow through direct prime broker bridges, returning spreads directly to traders every single week.",
+    pedestal_badge_node: "CENTRAL CLEARING NODE",
+    pedestal_badge_title: "SAGFX Fix 4.4 Prime Bridge",
+    sagfx_wallet_tag: "SMART CASHBACK RAILS",
+    sagfx_wallet_title: "Automated Weekly Distributions",
+    sagfx_wallet_desc: "Direct settlements routed into USDT wallets, Cambodian local bank transfer (ABA / Bakong), or back into your MT4/MT5 trading balance every Monday.",
+    sagfx_security_tag: "ZERO SPREAD MARKUPS",
+    sagfx_security_title: "Direct Prime Clearing",
+    sagfx_security_desc: "100% genuine interbank spreads from top regulated tier-1 prime brokers worldwide. Zero markups, zero execution artificial delays.",
+    sagfx_explore_btn: "Explore Official SAGFX.org Portal",
+    sagfx_volume_tag: "LIQUIDITY METRICS & VOLUME YIELD",
+    sagfx_volume_title: "Smart Liquidity Flow <br><span class=\"cyan-glow-text\">For High-Volume Traders</span>",
+    sagfx_volume_desc: "Manage your volume with simple, secure, and automated institutional rebate rails. Real-time transparent trade volume auditing, zero broker conflict, and instant reconciliation.",
+    sagfx_view_platform: "Launch SAGFX Portal",
+    sagfx_chart_badge: "Performance & Volume",
+    sagfx_stat_monthly_lots: "Lots Cleared Monthly",
+    sagfx_stat_max_rebate: "Max Rebate / Lot (Gold)",
+    sagfx_nodes_tag: "HARDENED SECURITY ARCHITECTURE",
+    sagfx_nodes_title: "Security & Infrastructure <br><span class=\"cyan-glow-text\">Engineered for Zero Slippage</span>",
+    sagfx_nodes_desc: "Built from the ground up for ultra-low latency execution, raw interbank spreads, and automated weekly rebate distributions with tier-1 prime brokers.",
+    sagfx_feat_1: "Direct ECN Bridge",
+    sagfx_feat_2: "Zero Hidden Fees",
+    sagfx_feat_3: "Automated Weekly Payouts",
+    sagfx_tech_1_title: "Licensed Tier-1 Prime Brokers",
+    sagfx_tech_1_desc: "Direct connectivity to IC Markets, Vantage, Exness, and FP Markets with multi-asset liquidity and top-tier bank pricing.",
+    sagfx_tech_2_title: "Automated Weekly Cashbacks",
+    sagfx_tech_2_desc: "Up to 85% commission rebates returned directly to your account with zero delays or withdrawal limits.",
+    sagfx_tech_3_title: "Multi-Asset Depth of Market",
+    sagfx_tech_3_desc: "Gold (XAU/USD) spreads from 0.0 pips, major FX pairs, and global indices aligned with institutional market structure.",
+    sagfx_tech_4_title: "Bullion Hedging Desk Bridge",
+    sagfx_tech_4_desc: "Seamless execution bridge to Mongsay House Delta-Neutral physical gold hedging for local jewelry merchants.",
+    calc_widget_title: "Interactive Rebate Calculator",
+    calc_widget_desc: "Slide your monthly trading volume to calculate your estimated weekly and annual cashback returns.",
+    calc_vol_label: "Monthly Volume (Lots)",
+    calc_asset_label: "Primary Traded Asset",
+
+    // SAGFX Institutional FAQ Repository (English)
+    faq_sagfx_tag: "KNOWLEDGE REPOSITORY",
+    faq_sagfx_title: "Frequently Asked <span class=\"cyan-glow-text\">Questions</span>",
+    faq_sagfx_desc: "Clear, candid answers regarding broker rebate mechanics, safety of funds, and institutional clearing.",
+    faq_sagfx_q1: "How do broker rebates work and why does SAGFX pay them?",
+    faq_sagfx_a1: "When you trade through a broker, the broker charges a commission or spread mark-up. As an institutional partner, SAGFX receives wholesale volume clearing compensation from the broker. Rather than keeping all fees, SAGFX passes up to 85% of this revenue directly back to you as weekly cashback. You trade identical conditions, but recover significant transaction costs.",
+    faq_sagfx_q2: "Does registering through SAGFX widen my trading spreads?",
+    faq_sagfx_a2: "No, absolutely not. Your spreads, slippage, and execution speeds remain 100% untouched and identical to opening an account directly with the prime broker. In fact, SAGFX accounts frequently benefit from custom ECN pool routing and zero-swap institutional profiles unavailable to regular retail clients.",
+    faq_sagfx_q3: "Can I connect an existing live trading account to SAGFX?",
+    faq_sagfx_a3: "Yes. If you already maintain an active account with any of our partner prime brokers, you do not need to create a new profile or close existing positions. You can easily request your broker support to transfer your account under the SAGFX institutional clearing code, or open an additional sub-account under our whitelist to begin earning rebates immediately.",
+    faq_sagfx_q4: "Which global prime brokers are whitelisted under SAGFX?",
+    faq_sagfx_a4: "We maintain clearing partnerships with top Tier-1 regulated prime brokerages, including IC Markets (ASIC/FSA), Vantage Markets (ASIC/CIMA), Exness (FCA/CySEC), and FP Markets (ASIC/CySEC). Traders can link existing accounts or deploy new sub-accounts under the SAGFX whitelist.",
+    faq_sagfx_q5: "How and when are weekly cashback distributions paid out?",
+    faq_sagfx_a5: "All trading volume is calculated on Sunday midnight GMT. Cashback is credited automatically every Monday directly to your USDT (TRC20/BEP20) crypto wallet, Cambodian local bank transfer (ABA / Bakong), or routed back into your MT4/MT5 trading account balance with zero withdrawal delay.",
+    faq_sagfx_q6: "How does SAGFX integrate with physical bullion hedging for gold shops?",
+    faq_sagfx_a6: "SAGFX provides the low-latency execution bridge that connects local Cambodian physical gold shops and bullion merchants directly to Tier-1 interbank liquidity. By executing calculated digital short hedge positions on MT4/MT5 via SAGFX, merchants neutralize inventory price drops during market downturns, while receiving weekly rebate cashbacks that offset broker financing costs.",
 
     // Cambodian Statutory Legal Protection & IP Notice
     legal_badge: "KINGDOM OF CAMBODIA STATUTORY PROTECTION & IP NOTICE",
@@ -831,6 +818,72 @@ const I18N_DICTIONARY = {
     hedge_consult_tag: "ការបង្កើតប្រព័ន្ធការពារហានិភ័យមាស",
     hedge_consult_title: "បង្កើតតុជួញដូរ <span class=\"gold-gradient-text\">ការពារហានិភ័យមាសសម្រាប់ហាង</span>",
     hedge_consult_desc: "ការរៀបចំប្រព័ន្ធស្ថាប័នផ្ទាល់ជាមួយ Mong Say សម្រាប់ហាងមាស អាជីវកម្មលក់ដុំគ្រឿងអលង្ការ និងសេវាបញ្ចាំនៅកម្ពុជា ដើម្បីការពារហានិភ័យ Delta-Neutral ជាមួយ SAGFX។",
+
+    // SAGFX Presentation Deck (Khmer)
+    sagfx_hero_tag: "បទបង្ហាញស្ថាប័ន ២០២៦ // SAGFX.ORG",
+    sagfx_hero_title: "ប្រព័ន្ធ Rebate ទំនើប & <br><span class=\"cyan-glow-text\">សាច់ប្រាក់ងាយស្រួលស្ថាប័ន</span>",
+    sagfx_hero_desc: "ដំណោះស្រាយហិរញ្ញវត្ថុឆ្លាតវៃ បង្កើតឡើងដើម្បីកាត់បន្ថយថ្លៃដើមប្រតិបត្តិការ ផ្ដល់នូវការទូទាត់ផ្ទាល់កម្រិត Tier-1 អន្តរធនាគារ និងសងត្រឡប់ប្រាក់ Rebate ប្រចាំសប្តាហ៍ដោយស្វ័យប្រវត្តិ។",
+    sagfx_cta_whitelist: "ចាប់ផ្ដើមចុះឈ្មោះ Whitelist",
+    sagfx_stat_users: "+១៥,០០០+ ពាណិជ្ជករសកម្ម",
+    sagfx_badge_secure: "Spread សុទ្ធចាប់ពី 0.0 Pip",
+    sagfx_engine_tag: "ម៉ាស៊ីនទូទាត់ REBATE កណ្ដាល",
+    sagfx_engine_title: "ម៉ាស៊ីន Rebate ទំនើប <br><span class=\"cyan-glow-text\">សម្រាប់ការទូទាត់កម្រិតស្ថាប័នរលូនបំផុត</span>",
+    sagfx_engine_desc: "ហេដ្ឋារចនាសម្ព័ន្ធកម្រិតស្ថាប័នដែលបញ្ជូនបរិមាណជួញដូរធំៗតាមរយៈស្ពាន Broker ផ្ទាល់ ដោយសងប្រាក់ spread ត្រឡប់មក trader វិញរៀងរាល់សប្តាហ៍។",
+    pedestal_badge_node: "ថ្នាំងទូទាត់កណ្ដាល",
+    pedestal_badge_title: "ស្ពាន SAGFX Fix 4.4 Prime",
+    sagfx_wallet_tag: "ប្រព័ន្ធ REBATE ឆ្លាតវៃ",
+    sagfx_wallet_title: "ប្រាក់ត្រឡប់មកវិញប្រចាំសប្តាហ៍ស្វ័យប្រវត្តិ",
+    sagfx_wallet_desc: "ទូទាត់ដោយផ្ទាល់ទៅកាន់កាបូប USDT គណនីធនាគារក្នុងស្រុក (ABA/Bakong) ឬចូលទៅក្នុងសមតុល្យគណនី MT4/MT5 រៀងរាល់ថ្ងៃចន្ទ។",
+    sagfx_security_tag: "គ្មានការដំឡើង SPREAD",
+    sagfx_security_title: "ការទូទាត់ផ្ទាល់កម្រិត Prime",
+    sagfx_security_desc: "Spread អន្តរធនាគារសុទ្ធ ១០០% ពី Broker ពិភពលោកដែលមានអាជ្ញាប័ណ្ណត្រឹមត្រូវ។ គ្មានការបំប៉ោង spread ឬពន្យារពេលបញ្ជាទិញឡើយ។",
+    sagfx_explore_btn: "ចូលមើលគេហទំព័រផ្លូវការ SAGFX.org",
+    sagfx_volume_tag: "ស្ថិតិសាច់ប្រាក់ងាយស្រួល និងទិន្នផល",
+    sagfx_volume_title: "សាច់ប្រាក់ងាយស្រួលឆ្លាតវៃ <br><span class=\"cyan-glow-text\">សម្រាប់ពាណិជ្ជករបរិមាណធំ</span>",
+    sagfx_volume_desc: "គ្រប់គ្រងបរិមាណជួញដូររបស់អ្នកជាមួយប្រព័ន្ធ Rebate ស្ថាប័នដ៏មានសុវត្ថិភាព តម្លាភាព ១០០% គ្មានជម្លោះផលប្រយោជន៍ និងទូទាត់រហ័សទាន់ចិត្ត។",
+    sagfx_view_platform: "បើកប្រព័ន្ធ SAGFX Portal",
+    sagfx_chart_badge: "ប្រសិទ្ធភាព និងបរិមាណ",
+    sagfx_stat_monthly_lots: "ទំហំ Lot ទូទាត់ប្រចាំខែ",
+    sagfx_stat_max_rebate: "Rebate អតិបរមា / Lot (មាស)",
+    sagfx_nodes_tag: "ស្ថាបត្យកម្មប្រព័ន្ធសុវត្ថិភាព",
+    sagfx_nodes_title: "ហេដ្ឋារចនាសម្ព័ន្ធស្ថាប័នសុវត្ថិភាព <br><span class=\"cyan-glow-text\">រចនាឡើងដើម្បីកាត់បន្ថយ Slippage ដល់សូន្យ</span>",
+    sagfx_nodes_desc: "បង្កើតឡើងសម្រាប់ការបញ្ជាទិញលឿនបំផុត spread អន្តរធនាគារសុទ្ធ និងការទូទាត់ប្រាក់ rebate ប្រចាំសប្តាហ៍ជាមួយ Prime Broker លំដាប់កំពូល។",
+    sagfx_feat_1: "ស្ពាន ECN ផ្ទាល់",
+    sagfx_feat_2: "គ្មានការបំប៉ោងថ្លៃលាក់កំបាំង",
+    sagfx_feat_3: "ការទូទាត់ស្វ័យប្រវត្តិ",
+    sagfx_tech_1_title: "Prime Broker មានអាជ្ញាប័ណ្ណពិភពលោក",
+    sagfx_tech_1_desc: "តភ្ជាប់ផ្ទាល់ទៅកាន់ IC Markets, Vantage, Exness និង FP Markets ជាមួយសាច់ប្រាក់ងាយស្រួលទ្រព្យសម្បត្តិច្រើន និងតម្លៃពីធនាគារលំដាប់កំពូល។",
+    sagfx_tech_2_title: "ទូទាត់ប្រាក់ប្រចាំសប្តាហ៍ស្វ័យប្រវត្តិ",
+    sagfx_tech_2_desc: "សងត្រឡប់រហូតដល់ ៨៥% នៃកម្រៃជើងសារទៅ trader ផ្ទាល់ដោយគ្មានការពន្យារពេល ឬកំណត់ដែនដកប្រាក់ឡើយ។",
+    sagfx_tech_3_title: "ជម្រៅទីផ្សារពហុទ្រព្យសកម្ម",
+    sagfx_tech_3_desc: "Spread មាស (XAU/USD) ចាប់ពី 0.0 pip គូរូបិយប័ណ្ណសំខាន់ៗ និងសន្ទស្សន៍សកល ស្របតាមយន្តការទីផ្សារស្ថាប័នពិតប្រាកដ។",
+    sagfx_tech_4_title: "ការតភ្ជាប់ការពារហានិភ័យមាស",
+    sagfx_tech_4_desc: "ស្ពានតភ្ជាប់រលូនទៅកាន់តុការពារហានិភ័យមាសសុទ្ធ Delta-Neutral របស់ Mongsay House សម្រាប់ហាងលក់មាសក្នុងស្រុក។",
+    calc_widget_title: "ឧបករណ៍គណនាប្រាក់ចំណេញ Rebate ជាក់ស្តែង",
+    calc_widget_desc: "រំកិលទំហំ Lot ជួញដូរប្រចាំខែរបស់អ្នក ដើម្បីគណនាប្រាក់ត្រឡប់មកវិញប្រចាំសប្តាហ៍ និងប្រចាំឆ្នាំ។",
+    calc_vol_label: "ទំហំជួញដូរប្រចាំខែ (Lots)",
+    calc_asset_label: "ប្រភេទទ្រព្យសកម្មចម្បង",
+    calc_weekly_title: "ប្រាក់ Rebate ធានាប្រចាំសប្តាហ៍",
+    calc_monthly_title: "សរុបប្រចាំខែ៖",
+    calc_annual_title: "សរុបប្រចាំឆ្នាំដែលសន្សំបាន៖",
+    calc_cta_whitelist: "ស្នើសុំ Whitelist តាម @MongsayFX",
+
+    // SAGFX Institutional FAQ Repository (Khmer)
+    faq_sagfx_tag: "ឃ្លាំងចំណេះដឹង",
+    faq_sagfx_title: "សំណួរដែលសួរ <span class=\"cyan-glow-text\">ញឹកញាប់ (FAQ)</span>",
+    faq_sagfx_desc: "ចម្លើយច្បាស់លាស់ ត្រង់ទៅត្រង់មក អំពីយន្តការ Broker Rebate សុវត្ថិភាពមូលនិធិ និងការទូទាត់កម្រិតស្ថាប័ន។",
+    faq_sagfx_q1: "តើ Broker Rebate ដំណើរការដូចម្តេច ហើយហេតុអ្វី SAGFX បង់ប្រាក់ត្រឡប់មកវិញ?",
+    faq_sagfx_a1: "នៅពេលអ្នកជួញដូរតាមរយៈ Broker ពួកគេនឹងគិតថ្លៃកម្រៃជើងសារ ឬ Spread។ ក្នុងនាមជាដៃគូស្ថាប័ន SAGFX ទទួលបានចំណែកចំណូលបរិមាណពី Broker។ ជំនួសឱ្យការរក្សាទុកទាំងអស់ SAGFX បានបង្វែររហូតដល់ ៨៥% នៃប្រាក់ចំណូលនេះសងត្រឡប់ទៅកាន់អ្នកវិញជារៀងរាល់សប្តាហ៍។ អ្នកទទួលបានលក្ខខណ្ឌជួញដូរដូចគ្នាទាំងស្រុង ប៉ុន្តែកាត់បន្ថយថ្លៃដើមយ៉ាងច្រើន។",
+    faq_sagfx_q2: "តើការចុះឈ្មោះតាម SAGFX ធ្វើឱ្យ spread រីកធំជាងមុនឬទេ?",
+    faq_sagfx_a2: "មិនមានជាដាច់ខាត។ SAGFX ដំណើរការលើប្រព័ន្ធ Tier-1 ECN ផ្ទាល់ដោយគ្មានការដំឡើង Spread សូម្បីតែបន្តិច។ Spread ល្បឿនប្រតិបត្តិការ និងលក្ខខណ្ឌរបស់អ្នកគឺដូចគ្នា ១០០% ទៅនឹងការបើកគណនីផ្ទាល់ជាមួយ Prime Broker។ ប្រាក់ Cashback របស់យើងបានមកពីកម្រៃជើងសារស្ថាប័ន មិនមែនដោយសារការបំប៉ោងតម្លៃរបស់អ្នកឡើយ។",
+    faq_sagfx_q3: "តើខ្ញុំអាចភ្ជាប់គណនីជួញដូរផ្ទាល់ដែលមានស្រាប់ទៅកាន់ SAGFX បានទេ?",
+    faq_sagfx_a3: "បាទ/ចាស។ ប្រសិនបើអ្នកមានគណនីសកម្មរួចហើយជាមួយ Prime Broker ដៃគូណាមួយរបស់យើង អ្នកមិនចាំបាច់បង្កើតគណនីថ្មី ឬបិទការជួញដូរដែលមានស្រាប់ឡើយ។ អ្នកអាចស្នើសុំផ្នែកគាំទ្ររបស់ Broker ដើម្បីផ្ទេរគណនីរបស់អ្នកក្រោមលេខកូដ SAGFX ឬបើកគណនីរងបន្ថែមក្រោមប្រព័ន្ធ Whitelist របស់យើងដើម្បីចាប់ផ្តើមទទួលប្រាក់ Rebate ភ្លាមៗ។",
+    faq_sagfx_q4: "តើ Broker ពិភពលោកណាខ្លះស្ថិតនៅក្រោមប្រព័ន្ធ Whitelist របស់ SAGFX?",
+    faq_sagfx_a4: "យើងមានកិច្ចសហការជាមួយ Prime Broker ដែលមានអាជ្ញាប័ណ្ណ Tier-1 ដូចជា IC Markets (ASIC/FSA), Vantage Markets (ASIC/CIMA), Exness (FCA/CySEC) និង FP Markets (ASIC/CySEC)។ អ្នកអាចភ្ជាប់គណនីដែលមានស្រាប់ ឬបង្កើតគណនីថ្មីក្រោមប្រព័ន្ធ SAGFX។",
+    faq_sagfx_q5: "តើការទូទាត់ប្រាក់ Cashback ប្រចាំសប្តាហ៍ធ្វើឡើងរបៀបណា និងពេលណា?",
+    faq_sagfx_a5: "បរិមាណជួញដូរទាំងអស់ត្រូវបានគណនាបញ្ចប់ត្រឹមរាត្រីថ្ងៃអាទិត្យ (GMT)។ ប្រាក់ Cashback នឹងត្រូវផ្ទេរដោយស្វ័យប្រវត្តិនារៀងរាល់ថ្ងៃចន្ទ ទៅកាន់កាបូប USDT (TRC20/BEP20) គណនីធនាគារក្នុងស្រុក (ABA / Bakong) ឬបញ្ចូលទៅក្នុងសមតុល្យគណនី MT4/MT5 របស់អ្នកផ្ទាល់។",
+    faq_sagfx_q6: "តើ SAGFX ជួយដល់ការការពារហានិភ័យមាស (Hedging) សម្រាប់ហាងមាសយ៉ាងដូចម្តេច?",
+    faq_sagfx_a6: "ហាងមាស និងអាជីវករគ្រឿងអលង្ការដែលប្រើប្រាស់តុការពារហានិភ័យ Delta-Neutral របស់ Mongsay House អាចបើកកិច្ចសន្យា Short លើ XAU/USD តាមរយៈ SAGFX។ ប្រព័ន្ធនេះផ្តល់នូវ Raw Spread 0.0 pip ថ្លៃសេវាទាបបំផុត និងទទួលបានប្រាក់ Rebate ត្រឡប់មកវិញ ដែលជួយកាត់បន្ថយថ្លៃដើមការពារហានិភ័យស្ទើរតែស្មើនឹងសូន្យ។",
 
     // Cambodian Statutory Legal Protection & IP Notice
     legal_badge: "សេចក្តីជូនដំណឹងស្តីពីកិច្ចការពារផ្លូវច្បាប់ & កម្មសិទ្ធិបញ្ញានៃព្រះរាជាណាចក្រកម្ពុជា",
@@ -2874,19 +2927,22 @@ function initFaqAccordion() {
   if (!faqItems.length) return;
 
   faqItems.forEach(item => {
-    const header = item.querySelector('.faq-header');
-    const body = item.querySelector('.faq-body');
+    const header = item.querySelector('.faq-header') || item.querySelector('.faq-question') || item.querySelector('button');
+    const body = item.querySelector('.faq-body') || item.querySelector('.faq-answer');
     if (!header || !body) return;
 
-    header.addEventListener('click', () => {
+    header.addEventListener('click', (e) => {
+      if (e) e.preventDefault();
       const isExpanded = header.getAttribute('aria-expanded') === 'true';
+      const parentAccordion = item.closest('.faq-accordion') || document;
+      const siblingItems = parentAccordion.querySelectorAll('.faq-item');
 
-      // Close all other open items
-      faqItems.forEach(otherItem => {
+      // Close all other open items in this accordion
+      siblingItems.forEach(otherItem => {
         if (otherItem !== item && otherItem.classList.contains('active')) {
           otherItem.classList.remove('active');
-          const otherHeader = otherItem.querySelector('.faq-header');
-          const otherBody = otherItem.querySelector('.faq-body');
+          const otherHeader = otherItem.querySelector('.faq-header') || otherItem.querySelector('button');
+          const otherBody = otherItem.querySelector('.faq-body') || otherItem.querySelector('.faq-answer');
           if (otherHeader) otherHeader.setAttribute('aria-expanded', 'false');
           if (otherBody) otherBody.style.maxHeight = null;
         }
@@ -2907,10 +2963,10 @@ function initFaqAccordion() {
 
   // Recalculate heights on resize
   window.addEventListener('resize', () => {
-    const activeBody = document.querySelector('.faq-item.active .faq-body');
-    if (activeBody) {
+    const activeBodies = document.querySelectorAll('.faq-item.active .faq-body, .faq-item.active .faq-answer');
+    activeBodies.forEach(activeBody => {
       activeBody.style.maxHeight = activeBody.scrollHeight + 'px';
-    }
+    });
   });
 }
 
