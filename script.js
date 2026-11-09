@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSagfxClearingLoop();
   initBrokerTerminalShowcase();
   initHedgingLedgerStack();
+  initLibraryReadingStack();
 });
 
 /* ---------------------------------------------------------
@@ -346,6 +347,23 @@ const I18N_DICTIONARY = {
 
     // Delta-Neutral Gold Hedging Architecture
     // 3D Studio Display Cascading Ledger Stack
+    // 3D Studio Display Cascading Reading Console (Library)
+    lib_stack_tag: "// INTELLECTUAL CAPITAL & READING VAULT",
+    lib_stack_headline: "Decades of wisdom.<br><span class=\"blue-gradient-text\">One reading console.</span>",
+    lib_stack_desc: "Search seminal texts, key mental models, and chapter takeaways across Quantitative Finance, Trading Psychology, Asymmetric Risk, and Macro Market Architecture.",
+    lib_stack_badge: "8 Seminal Master Volumes Curated",
+    lib_stack_brand_left: "MONGSAY // EXECUTIVE READING VAULT",
+    lib_stack_brand_right: "CURATED VOLUMES: 8 TITLES",
+    lib_stack_card_6_title: "Trading in the Zone (Mark Douglas)",
+    lib_stack_card_5_title: "The Psychology of Money (Morgan Housel)",
+    lib_stack_card_4_title: "Reminiscences of a Stock Operator",
+    lib_stack_card_3_title: "Principles: Life and Work (Ray Dalio)",
+    lib_stack_card_2_title: "Antifragile (Nassim Nicholas Taleb)",
+    lib_stack_card_1_title: "The Sovereign Individual (Rees-Mogg)",
+    lib_stack_query_btn: "QUERY VAULT &#8629;",
+    lib_stack_metric_vols: "Volumes:",
+    lib_stack_metric_doctrine: "Doctrine:",
+    lib_stack_metric_framework: "Framework:",
     hedge_stack_tag: "// DELTA-NEUTRAL BULLION VAULT LEDGER",
     hedge_stack_headline: "Years of inventory.<br><span class=\"blue-gradient-text\">One hedge.</span>",
     hedge_stack_desc: "Consolidate physical gold shop balances, historical bullion risk ledgers, and Cambodian Damlung (តម្លឹង) & Chi (ជី) metrics into a unified, zero-downside delta-neutral execution terminal.",
@@ -776,6 +794,23 @@ const I18N_DICTIONARY = {
 
     // Delta-Neutral Gold Hedging Architecture
     // 3D Studio Display Cascading Ledger Stack
+    // 3D Studio Display Cascading Reading Console (Library)
+    lib_stack_tag: "// បណ្ណាល័យមូលធនបញ្ញា & ទស្សនវិជ្ជាស្នូល",
+    lib_stack_headline: "ប្រាជ្ញារាប់ទសវត្សរ៍។<br><span class=\"blue-gradient-text\">ផ្ទាំងអានតែមួយកន្លែង។</span>",
+    lib_stack_desc: "ស្វែងរកស្នាដៃឯក គំរូផ្នត់គំនិតសំខាន់ៗ និងខ្លឹមសារសង្ខេបជំពូកជុំវិញ ហិរញ្ញវត្ថុបរិមាណ ចិត្តវិទ្យាជួញដូរ ហានិភ័យមិនស៊ីមេទ្រី និងរចនាសម្ព័ន្ធទីផ្សារម៉ាក្រូ។",
+    lib_stack_badge: "សៀវភៅស្នូលទាំង ៨ ក្បាលត្រូវបានរៀបចំយ៉ាងហ្មត់ចត់",
+    lib_stack_brand_left: "MONGSAY // បណ្ណាល័យថ្នាក់ដឹកនាំ",
+    lib_stack_brand_right: "សៀវភៅស្នូល៖ ៨ ក្បាល",
+    lib_stack_card_6_title: "Trading in the Zone (Mark Douglas)",
+    lib_stack_card_5_title: "The Psychology of Money (Morgan Housel)",
+    lib_stack_card_4_title: "Reminiscences of a Stock Operator",
+    lib_stack_card_3_title: "Principles: Life and Work (Ray Dalio)",
+    lib_stack_card_2_title: "Antifragile (Nassim Nicholas Taleb)",
+    lib_stack_card_1_title: "The Sovereign Individual (Rees-Mogg)",
+    lib_stack_query_btn: "ស្វែងរក &#8629;",
+    lib_stack_metric_vols: "ចំនួនសៀវភៅ:",
+    lib_stack_metric_doctrine: "ទស្សនវិជ្ជា:",
+    lib_stack_metric_framework: "រចនាសម្ព័ន្ធ:",
     hedge_stack_tag: "// បញ្ជីគណនេយ្យការពារហានិភ័យមាស DELTA-NEUTRAL",
     hedge_stack_headline: "ស្តុកមាសរាប់ឆ្នាំ។<br><span class=\"blue-gradient-text\">ការពារតែមួយប្រព័ន្ធ។</span>",
     hedge_stack_desc: "បង្រួបបង្រួមសមតុល្យហាងមាសរូបវន្ត បញ្ជីហានិភ័យមាសប្រវត្តិសាស្ត្រ និងរូបមន្តគណនាតម្លឹង និងជី នៃប្រទេសកម្ពុជា ទៅក្នុងប្រព័ន្ធការពារហានិភ័យ Delta-Neutral គ្មានការខាតបង់។",
@@ -1830,6 +1865,11 @@ function applyLanguage(lang) {
   // Update 3D Bullion Ledger Cascading Stack typewriter queries language
   if (typeof window.updateHedgingStackLanguage === 'function') {
     window.updateHedgingStackLanguage(lang);
+  }
+
+  // Update 3D Library Reading Console typewriter queries language
+  if (typeof window.updateLibraryStackLanguage === 'function') {
+    window.updateLibraryStackLanguage(lang);
   }
 }
 
@@ -3966,6 +4006,146 @@ function initHedgingLedgerStack() {
 
   // Global language switch subscriber
   window.updateHedgingStackLanguage = function(lang) {
+    activeQueries = lang === 'kh' ? QUERIES_KH : QUERIES_EN;
+    charIdx = 0;
+    isDeleting = false;
+    if (typewriterEl) {
+      typewriterEl.textContent = activeQueries[queryIdx] || '';
+    }
+  };
+}
+
+
+/* ---------------------------------------------------------
+   3D Studio Display Cascading Reading Console (Library - Pinterest 7jPuXi96A)
+   Dynamic typewriter carousel, interactive book filtering & bilingual prompt engine
+   --------------------------------------------------------- */
+function initLibraryReadingStack() {
+  const section = document.getElementById('libraryShowcaseSection');
+  if (!section) return;
+
+  const typewriterEl = document.getElementById('libTypewriterText');
+  if (!typewriterEl) return;
+
+  const cards = section.querySelectorAll('.library-folder-card');
+  const executeBtn = document.getElementById('libSearchExecuteBtn');
+  const bookSearchInput = document.getElementById('bookSearchInput');
+
+  const QUERIES_EN = [
+    "Search key takeaways in Trading in the Zone...",
+    "Explore Antifragile asymmetric convex payoffs...",
+    "Query The Psychology of Money on capital survival...",
+    "Analyze Ray Dalio causal feedback machines...",
+    "Study Edwin Lefèvre institutional tape reading...",
+    "Review The Sovereign Individual monetary rails..."
+  ];
+
+  const QUERIES_KH = [
+    "ស្វែងរកខ្លឹមសារសំខាន់ក្នុង Trading in the Zone...",
+    "ស្វែងយល់ពីផលចំណេញអសមកាលក្នុង Antifragile...",
+    "ស្វែងរកទ្រឹស្តីរក្សាទ្រព្យក្នុង The Psychology of Money...",
+    "វិភាគប្រព័ន្ធស្វ័យប្រវត្តិកម្មរបស់ Ray Dalio...",
+    "សិក្សាពីការអានរលកសន្ទនីយភាពរបស់ Edwin Lefèvre...",
+    "ស្វែងរកប្រព័ន្ធរូបិយវត្ថុក្នុង The Sovereign Individual..."
+  ];
+
+  function getCurrentQueries() {
+    const isKh = document.documentElement.getAttribute('lang') === 'kh';
+    return isKh ? QUERIES_KH : QUERIES_EN;
+  }
+
+  let activeQueries = getCurrentQueries();
+  let queryIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+  let typeTimeout = null;
+  let isPausedForManualInput = false;
+
+  function tick() {
+    if (document.documentElement.classList.contains('fx-frozen') || isPausedForManualInput) {
+      typeTimeout = setTimeout(tick, 1000);
+      return;
+    }
+
+    const currentQuery = activeQueries[queryIdx];
+    if (!currentQuery) {
+      queryIdx = 0;
+      typeTimeout = setTimeout(tick, 300);
+      return;
+    }
+
+    if (isDeleting) {
+      charIdx--;
+      typewriterEl.textContent = currentQuery.substring(0, charIdx);
+      if (charIdx <= 0) {
+        isDeleting = false;
+        queryIdx = (queryIdx + 1) % activeQueries.length;
+        typeTimeout = setTimeout(tick, 450);
+        return;
+      }
+      typeTimeout = setTimeout(tick, 35);
+    } else {
+      charIdx++;
+      typewriterEl.textContent = currentQuery.substring(0, charIdx);
+      if (charIdx >= currentQuery.length) {
+        isDeleting = true;
+        typeTimeout = setTimeout(tick, 2200); // Read pause
+        return;
+      }
+      typeTimeout = setTimeout(tick, 65);
+    }
+  }
+
+  typeTimeout = setTimeout(tick, 800);
+
+  // Allow clicking any card to inject its prompt into the console and filter books
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const prompt = card.getAttribute('data-prompt');
+      const bookQuery = card.getAttribute('data-book-query');
+      if (prompt) {
+        isPausedForManualInput = true;
+        if (typeTimeout) clearTimeout(typeTimeout);
+        typewriterEl.textContent = prompt;
+
+        // Card flash highlight
+        card.style.borderColor = '#e5b95f';
+        card.style.boxShadow = '0 0 35px rgba(229, 185, 95, 0.6)';
+
+        // If there's an archive input, synchronize and highlight
+        if (bookSearchInput && bookQuery) {
+          bookSearchInput.value = bookQuery;
+          bookSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+
+        setTimeout(() => {
+          card.style.borderColor = '';
+          card.style.boxShadow = '';
+          isPausedForManualInput = false;
+          isDeleting = true;
+          charIdx = prompt.length;
+          tick();
+        }, 3200);
+      }
+    });
+  });
+
+  // Action button scrolls down to library grid
+  if (executeBtn) {
+    executeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector('.books-section');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (bookSearchInput) {
+          setTimeout(() => bookSearchInput.focus(), 600);
+        }
+      }
+    });
+  }
+
+  // Global language switch subscriber
+  window.updateLibraryStackLanguage = function(lang) {
     activeQueries = lang === 'kh' ? QUERIES_KH : QUERIES_EN;
     charIdx = 0;
     isDeleting = false;
