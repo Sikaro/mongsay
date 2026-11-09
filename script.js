@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSagfxTimeframeRadar();
   initSagfxClearingLoop();
   initBrokerTerminalShowcase();
+  initHedgingLedgerStack();
 });
 
 /* ---------------------------------------------------------
@@ -344,6 +345,21 @@ const I18N_DICTIONARY = {
     faq_a5: "All official correspondence, direct consultations, and whitelist enrollments are conducted exclusively through verified personal Telegram handle <a href=\"https://t.me/MongsayFX\" target=\"_blank\" class=\"gold-text\">@MongsayFX</a> and official community channel <a href=\"https://t.me/mongsayhouse17\" target=\"_blank\" class=\"gold-text\">t.me/mongsayhouse17</a>. Always verify handles carefully to protect against impersonators.",
 
     // Delta-Neutral Gold Hedging Architecture
+    // 3D Studio Display Cascading Ledger Stack
+    hedge_stack_tag: "// DELTA-NEUTRAL BULLION VAULT LEDGER",
+    hedge_stack_headline: "Years of inventory.<br><span class=\"blue-gradient-text\">One hedge.</span>",
+    hedge_stack_desc: "Consolidate physical gold shop balances, historical bullion risk ledgers, and Cambodian Damlung (តម្លឹង) & Chi (ជី) metrics into a unified, zero-downside delta-neutral execution terminal.",
+    hedge_stack_badge: "Active across Cambodian Bullion Desks",
+    hedge_stack_card_6_title: "Weekly Rebate Cashflow Recovery",
+    hedge_stack_card_5_title: "Zero-Spread Volatility Shield",
+    hedge_stack_card_4_title: "Interbank XAU/USD Short Routing",
+    hedge_stack_card_3_title: "Physical Store Inventory Audit",
+    hedge_stack_card_2_title: "Damlung & Chi Formula",
+    hedge_stack_card_1_title: "Real-Time Delta-Neutral Defense",
+    hedge_stack_return_btn: "RETURN &Delta; = 0",
+    hedge_stack_metric_exposure: "Exposure:",
+    hedge_stack_metric_collat: "Collat:",
+    hedge_stack_metric_downside: "Downside:",
     hedge_hero_tag: "QUANTITATIVE BULLION DESK // DELTA-NEUTRAL ARCHITECTURE",
     hedge_hero_desc: "Engineering delta-neutral liquidity execution for physical gold shops, jewelry merchants, and bullion vaults. Neutralize spot market price swings, eliminate directional inventory risk, and lock in 100% of dealer spreads and fabrication premiums.",
     hedge_badge_1: "⚖️ 1 Damlung (តម្លឹង) = 37.50 g ≈ 1.20565 Troy oz",
@@ -759,6 +775,21 @@ const I18N_DICTIONARY = {
     faq_a5: "រាល់ការឆ្លើយឆ្លងផ្លូវការ ការពិគ្រោះយោបល់ និងការចុះឈ្មោះ Whitelist ត្រូវបានធ្វើឡើងផ្តាច់មុខតាមរយៈ Telegram ផ្ទាល់ខ្លួនដែលបានផ្ទៀងផ្ទាត់ <a href=\"https://t.me/MongsayFX\" target=\"_blank\" class=\"gold-text\">@MongsayFX</a> និងឆានែលសហគមន៍ផ្លូវការ <a href=\"https://t.me/mongsayhouse17\" target=\"_blank\" class=\"gold-text\">t.me/mongsayhouse17</a>។ សូមផ្ទៀងផ្ទាត់ឈ្មោះគណនីជានិច្ចដើម្បីជៀសវាងគណនីក្លែងបន្លំ។",
 
     // Delta-Neutral Gold Hedging Architecture
+    // 3D Studio Display Cascading Ledger Stack
+    hedge_stack_tag: "// បញ្ជីគណនេយ្យការពារហានិភ័យមាស DELTA-NEUTRAL",
+    hedge_stack_headline: "ស្តុកមាសរាប់ឆ្នាំ។<br><span class=\"blue-gradient-text\">ការពារតែមួយប្រព័ន្ធ។</span>",
+    hedge_stack_desc: "បង្រួបបង្រួមសមតុល្យហាងមាសរូបវន្ត បញ្ជីហានិភ័យមាសប្រវត្តិសាស្ត្រ និងរូបមន្តគណនាតម្លឹង និងជី នៃប្រទេសកម្ពុជា ទៅក្នុងប្រព័ន្ធការពារហានិភ័យ Delta-Neutral គ្មានការខាតបង់។",
+    hedge_stack_badge: "កំពុងដំណើរការនៅតាមបណ្តាហាងមាសកម្ពុជា",
+    hedge_stack_card_6_title: "ប្រាក់ Rebate ប្រចាំសប្តាហ៍ដើម្បីទូទាត់ចំណាយ",
+    hedge_stack_card_5_title: "ខែលការពារការប្រែប្រួលតម្លៃ Zero-Spread",
+    hedge_stack_card_4_title: "ការបញ្ជូន Short XAU/USD ទៅប្រព័ន្ធអន្តរធនាគារ",
+    hedge_stack_card_3_title: "សវនកម្មស្តុកមាសជាក់ស្តែងក្នុងហាង",
+    hedge_stack_card_2_title: "រូបមន្តបម្លែង តម្លឹង និង ជី",
+    hedge_stack_card_1_title: "ប្រព័ន្ធការពារ Delta-Neutral ពេលវេលាជាក់ស្តែង",
+    hedge_stack_return_btn: "ដំណើរការ &Delta; = 0",
+    hedge_stack_metric_exposure: "ទំហំ Short:",
+    hedge_stack_metric_collat: "ប្រាក់តម្កល់:",
+    hedge_stack_metric_downside: "ហានិភ័យ:",
     hedge_hero_tag: "តុជួញដូរមាសស្ថាប័ន // រចនាសម្ព័ន្ធ DELTA-NEUTRAL",
     hedge_hero_desc: "ការរៀបចំប្រព័ន្ធការពារហានិភ័យមាស Delta-Neutral សម្រាប់ហាងមាស អាជីវកម្មគ្រឿងអលង្ការ និងឃ្លាំងស្តុកមាស។ បន្សាបការប្រែប្រួលតម្លៃទីផ្សារមាស លុបបំបាត់ហានិភ័យស្តុក និងការពារប្រាក់ចំណេញពីថ្លៃឈ្នួល និងគម្លាតតម្លៃទិញ-លក់បាន ១០០%។",
     hedge_badge_1: "⚖️ ១ តម្លឹង = ៣៧.៥០ ក្រាម ≈ ១.២០៥៦៥ Troy oz",
@@ -1794,6 +1825,11 @@ function applyLanguage(lang) {
   // Update 3D Brokerage Terminal gateway card language
   if (typeof window.updateBrokerTerminalLanguage === 'function') {
     window.updateBrokerTerminalLanguage(lang);
+  }
+
+  // Update 3D Bullion Ledger Cascading Stack typewriter queries language
+  if (typeof window.updateHedgingStackLanguage === 'function') {
+    window.updateHedgingStackLanguage(lang);
   }
 }
 
@@ -3821,3 +3857,120 @@ function initBrokerTerminalShowcase() {
   setTimeout(runCursorChoreography, 1600);
 }
 
+
+
+/* ---------------------------------------------------------
+   3D Studio Display Cascading Bullion Ledger Stack (Pinterest 7jPuXi96A)
+   Dynamic typewriter carousel, interactive card focusing, & bilingual prompt engine
+   --------------------------------------------------------- */
+function initHedgingLedgerStack() {
+  const section = document.getElementById('hedgingShowcaseSection');
+  if (!section) return;
+
+  const typewriterEl = document.getElementById('hedgingTypewriterText');
+  if (!typewriterEl) return;
+
+  const cards = section.querySelectorAll('.ledger-folder-card');
+
+  const QUERIES_EN = [
+    "Hedge 50 Damlung Gold Inventory...",
+    "Convert 120 Chi into MT4/MT5 Short lot size...",
+    "Compute Delta-Neutral spot crash offset...",
+    "Route XAU/USD raw 0.0 pip liquidity via SAGFX...",
+    "Balance 24K jewelry inventory price risk...",
+    "Calculate weekly rebate cashbacks offset..."
+  ];
+
+  const QUERIES_KH = [
+    "ការពារហានិភ័យស្តុកមាស ៥០ តម្លឹង...",
+    "បម្លែង ១២០ ជី ទៅជាទំហំកិច្ចសន្យា MT4/MT5 Short...",
+    "គណនាទំហំទូទាត់ពេលតម្លៃមាសពិភពលោកធ្លាក់ចុះ...",
+    "បញ្ជូនបរិមាណ XAU/USD គម្លាត 0.0 pip តាម SAGFX...",
+    "ការពារតម្លៃគ្រឿងអលង្ការមាសទឹកដប់ (២៤ការ៉ាត)...",
+    "គណនាប្រាក់ Rebate សងត្រឡប់ប្រចាំសប្តាហ៍..."
+  ];
+
+  function getCurrentQueries() {
+    const isKh = document.documentElement.getAttribute('lang') === 'kh';
+    return isKh ? QUERIES_KH : QUERIES_EN;
+  }
+
+  let activeQueries = getCurrentQueries();
+  let queryIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+  let typeTimeout = null;
+  let isPausedForManualInput = false;
+
+  function tick() {
+    if (document.documentElement.classList.contains('fx-frozen') || isPausedForManualInput) {
+      typeTimeout = setTimeout(tick, 1000);
+      return;
+    }
+
+    const currentQuery = activeQueries[queryIdx];
+    if (!currentQuery) {
+      queryIdx = 0;
+      typeTimeout = setTimeout(tick, 300);
+      return;
+    }
+
+    if (isDeleting) {
+      charIdx--;
+      typewriterEl.textContent = currentQuery.substring(0, charIdx);
+      if (charIdx <= 0) {
+        isDeleting = false;
+        queryIdx = (queryIdx + 1) % activeQueries.length;
+        typeTimeout = setTimeout(tick, 450);
+        return;
+      }
+      typeTimeout = setTimeout(tick, 35);
+    } else {
+      charIdx++;
+      typewriterEl.textContent = currentQuery.substring(0, charIdx);
+      if (charIdx >= currentQuery.length) {
+        isDeleting = true;
+        typeTimeout = setTimeout(tick, 2200); // Read pause
+        return;
+      }
+      typeTimeout = setTimeout(tick, 65);
+    }
+  }
+
+  typeTimeout = setTimeout(tick, 800);
+
+  // Allow clicking any card to inject its prompt into the console
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const prompt = card.getAttribute('data-prompt');
+      if (prompt) {
+        isPausedForManualInput = true;
+        if (typeTimeout) clearTimeout(typeTimeout);
+        typewriterEl.textContent = prompt;
+
+        // Card flash highlight
+        card.style.borderColor = '#e5b95f';
+        card.style.boxShadow = '0 0 35px rgba(229, 185, 95, 0.6)';
+
+        setTimeout(() => {
+          card.style.borderColor = '';
+          card.style.boxShadow = '';
+          isPausedForManualInput = false;
+          isDeleting = true;
+          charIdx = prompt.length;
+          tick();
+        }, 3200);
+      }
+    });
+  });
+
+  // Global language switch subscriber
+  window.updateHedgingStackLanguage = function(lang) {
+    activeQueries = lang === 'kh' ? QUERIES_KH : QUERIES_EN;
+    charIdx = 0;
+    isDeleting = false;
+    if (typewriterEl) {
+      typewriterEl.textContent = activeQueries[queryIdx] || '';
+    }
+  };
+}

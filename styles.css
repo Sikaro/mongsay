@@ -8436,3 +8436,563 @@ html.fx-frozen .autonomous-pointer-cursor {
     align-items: flex-start;
   }
 }
+
+
+/* ==============================================================================
+   3D STUDIO DISPLAY CASCADING BULLION LEDGER STACK (PINTEREST 7jPuXi96A)
+   ============================================================================== */
+.hedging-showcase-section {
+  position: relative;
+  width: 100%;
+  padding: 40px 20px 70px;
+  overflow: visible;
+}
+
+.hedging-showcase-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  align-items: center;
+  gap: 50px;
+  position: relative;
+}
+
+/* Left Column Typography */
+.showcase-left-info {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  z-index: 5;
+}
+
+.showcase-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #e5b95f;
+  background: rgba(229, 185, 95, 0.1);
+  border: 1px solid rgba(229, 185, 95, 0.28);
+  padding: 5px 14px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.tag-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e5b95f;
+  box-shadow: 0 0 8px #e5b95f;
+  animation: pulseGoldDot 1.8s infinite;
+}
+
+@keyframes pulseGoldDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.8); opacity: 0.4; }
+}
+
+.showcase-headline {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+}
+
+.showcase-headline .blue-gradient-text {
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 60%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.showcase-desc {
+  font-size: 1.04rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  max-width: 480px;
+}
+
+.showcase-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 9px 20px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #e0f2fe;
+  width: fit-content;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+.badge-cyan-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+/* Right Column: Studio Display & Cascading Glass Stack */
+.showcase-right-scene {
+  position: relative;
+  width: 100%;
+  min-height: 580px;
+  perspective: 1400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scene-ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.32) 0%, rgba(30, 58, 138, 0.18) 50%, transparent 75%);
+  filter: blur(85px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Studio Display Monitor Frame */
+.monitor-hardware-frame {
+  position: relative;
+  width: 620px;
+  height: 510px;
+  background: #080d1a;
+  border: 3.5px solid #1e293b;
+  border-radius: 22px;
+  box-shadow: 
+    0 45px 110px rgba(0, 0, 0, 0.95),
+    0 0 50px rgba(14, 165, 233, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  z-index: 2;
+  transform: rotateY(-8deg) rotateX(5deg);
+  transition: transform 0.5s ease;
+}
+
+.showcase-right-scene:hover .monitor-hardware-frame {
+  transform: rotateY(-3deg) rotateX(2deg);
+}
+
+/* Monitor Stand */
+.monitor-stand-neck {
+  position: absolute;
+  bottom: -65px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 65px;
+  background: linear-gradient(to bottom, #1e293b 0%, #0f172a 100%);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: -1;
+}
+
+.monitor-stand-base {
+  position: absolute;
+  bottom: -78px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 240px;
+  height: 14px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.95);
+  z-index: -1;
+}
+
+/* Monitor Display Surface */
+.monitor-screen-surface {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 65% 25%, #0e1c3b 0%, #040813 100%);
+  border-radius: 18px;
+  padding: 16px 22px;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+.screen-top-brand {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+/* The 3D Cascading Folder Stack */
+.cascading-cards-stack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  margin-top: 8px;
+}
+
+.ledger-folder-card {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 60%, rgba(56, 189, 248, 0.08) 100%), rgba(9, 20, 42, 0.85);
+  border: 1.5px solid rgba(56, 189, 248, 0.32);
+  border-radius: 16px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(14, 165, 233, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ledger-folder-card:hover {
+  border-color: #38bdf8;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.88),
+    0 0 35px rgba(56, 189, 248, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transform: translateX(-50%) translateY(-6px) translateZ(15px);
+}
+
+.folder-tab-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  height: 44px;
+}
+
+.folder-tab-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(56, 189, 248, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38bdf8;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.folder-year-badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 2px 7px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.folder-tab-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.90rem;
+  color: #f1f5f9;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.folder-tab-status {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+/* Precise Layering & Stacking Geometry */
+.card-layer-6 {
+  top: 10px;
+  width: 410px;
+  height: 52px;
+  z-index: 1;
+  opacity: 0.6;
+  transform: translateX(-50%) translateZ(-90px);
+}
+
+.card-layer-5 {
+  top: 50px;
+  width: 430px;
+  height: 52px;
+  z-index: 2;
+  opacity: 0.7;
+  transform: translateX(-50%) translateZ(-70px);
+}
+
+.card-layer-4 {
+  top: 90px;
+  width: 450px;
+  height: 52px;
+  z-index: 3;
+  opacity: 0.8;
+  transform: translateX(-50%) translateZ(-50px);
+}
+
+.card-layer-3 {
+  top: 130px;
+  width: 470px;
+  height: 52px;
+  z-index: 4;
+  opacity: 0.88;
+  transform: translateX(-50%) translateZ(-30px);
+}
+
+.card-layer-2 {
+  top: 170px;
+  width: 490px;
+  height: 52px;
+  z-index: 5;
+  opacity: 0.94;
+  transform: translateX(-50%) translateZ(-10px);
+}
+
+.card-layer-1 {
+  top: 210px;
+  width: 510px;
+  height: 52px;
+  z-index: 6;
+  opacity: 0.98;
+  transform: translateX(-50%) translateZ(10px);
+}
+
+.card-layer-0 {
+  top: 250px;
+  width: 530px;
+  padding: 20px 22px;
+  z-index: 10;
+  opacity: 1;
+  transform: translateX(-50%) translateZ(40px);
+  border-color: #38bdf8;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 60%, rgba(56, 189, 248, 0.12) 100%), rgba(8, 17, 36, 0.92);
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.9),
+    0 0 45px rgba(56, 189, 248, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Console Search Bar */
+.console-search-bar {
+  position: relative;
+  width: 100%;
+  height: 52px;
+  background: rgba(4, 9, 22, 0.85);
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
+  border-radius: 999px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), inset 0 0 14px rgba(56, 189, 248, 0.18);
+}
+
+.search-icon-symbol {
+  width: 20px;
+  height: 20px;
+  color: #38bdf8;
+  flex-shrink: 0;
+}
+
+.typewriter-query-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.86rem;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  flex: 1;
+  letter-spacing: -0.01em;
+}
+
+.blinking-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  background: #38bdf8;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blinkCursorBar 0.9s infinite;
+  box-shadow: 0 0 6px #38bdf8;
+}
+
+@keyframes blinkCursorBar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.search-execute-pill {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.70rem;
+  font-weight: 700;
+  color: #030712;
+  background: linear-gradient(135deg, #e5b95f 0%, #fcd34d 100%);
+  padding: 6px 14px;
+  border-radius: 999px;
+  flex-shrink: 0;
+  box-shadow: 0 0 14px rgba(229, 185, 95, 0.55);
+}
+
+/* Live Telemetry Data Ticker */
+.console-metrics-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(56, 189, 248, 0.18);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.74rem;
+}
+
+.metric-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #94a3b8;
+}
+
+.metric-item strong {
+  color: #38bdf8;
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] .showcase-headline {
+  color: #0f172a;
+}
+
+[data-theme="light"] .showcase-desc {
+  color: #475569;
+}
+
+[data-theme="light"] .monitor-hardware-frame {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  box-shadow: 
+    0 35px 80px rgba(0, 0, 0, 0.12),
+    0 0 40px rgba(14, 165, 233, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .monitor-screen-surface {
+  background: radial-gradient(circle at 65% 25%, #e2e8f0 0%, #f8fafc 100%);
+}
+
+[data-theme="light"] .monitor-stand-neck {
+  background: linear-gradient(to bottom, #cbd5e1 0%, #94a3b8 100%);
+}
+
+[data-theme="light"] .monitor-stand-base {
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .ledger-folder-card {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(14, 165, 233, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .folder-tab-title {
+  color: #0f172a;
+}
+
+[data-theme="light"] .card-layer-0 {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #0284c7;
+  box-shadow: 0 20px 50px rgba(14, 165, 233, 0.2);
+}
+
+[data-theme="light"] .console-search-bar {
+  background: #f1f5f9;
+  border-color: rgba(14, 165, 233, 0.5);
+}
+
+[data-theme="light"] .typewriter-query-text {
+  color: #0f172a;
+}
+
+[data-theme="light"] .metric-item {
+  color: #64748b;
+}
+
+/* ECO Freeze Mode Overrides */
+html.fx-frozen .tag-pulse-dot,
+html.fx-frozen .blinking-cursor {
+  animation: none !important;
+}
+
+html.fx-frozen .ledger-folder-card {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html.fx-frozen .monitor-hardware-frame {
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .hedging-showcase-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .showcase-left-info {
+    align-items: center;
+  }
+  .showcase-desc {
+    max-width: 600px;
+  }
+  .monitor-hardware-frame {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hedging-showcase-section {
+    padding: 20px 10px 50px;
+  }
+  .monitor-hardware-frame {
+    width: 100%;
+    height: 520px;
+  }
+  .ledger-folder-card {
+    width: 92% !important;
+  }
+  .showcase-headline {
+    font-size: 2.2rem;
+  }
+  .console-metrics-row {
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+  }
+}
