@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    MONGSAY EXECUTIVE PORTFOLIO — HAUTE COUTURE LUXURY DESIGN SYSTEM
    Fonts: Playfair Display / Cormorant Garamond (Haute Couture Brand Serif),
           Outfit (Accents/Headings), Plus Jakarta Sans (Interface), Kantumruy Pro (Khmer)
@@ -717,10 +717,10 @@ img {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
   list-style: none;
   flex-wrap: nowrap;
-  margin: 0 12px;
+  margin: 0 10px;
 }
 
 .nav-links li {
@@ -733,7 +733,7 @@ img {
   font-weight: 600;
   color: var(--text-secondary);
   position: relative;
-  padding: 6px 2px;
+  padding: 6px 3px;
   letter-spacing: 0.2px;
   white-space: nowrap !important;
   display: inline-flex;
@@ -750,7 +750,7 @@ img {
 .nav-links li a.active::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -3px;
   left: 0;
   width: 100%;
   height: 2px;
@@ -4069,17 +4069,20 @@ html.fx-frozen[data-theme="light"] .fx-toggle .icon-fx-off {
   }
 }
 
-@media (max-width: 1180px) and (min-width: 961px) {
+@media (max-width: 1260px) and (min-width: 961px) {
   .site-nav {
     padding: 6px 16px;
   }
   .nav-links {
-    gap: 12px;
-    margin: 0 8px;
+    gap: 11px;
+    margin: 0 6px;
   }
   .nav-links li a {
-    font-size: 0.80rem;
-    padding: 4px 1px;
+    font-size: 0.82rem;
+    padding: 4px 2px;
+  }
+  .brand-title {
+    font-size: 1.52rem;
   }
 }
 
