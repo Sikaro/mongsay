@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSagfxCardPop();
   initSagfxSlideDeck();
   initSagfxTimeframeRadar();
+  initSagfxClearingLoop();
 });
 
 /* ---------------------------------------------------------
@@ -544,6 +545,21 @@ const I18N_DICTIONARY = {
     faq_sagfx_q6: "How does SAGFX integrate with physical bullion hedging for gold shops?",
     faq_sagfx_a6: "SAGFX provides the low-latency execution bridge that connects local Cambodian physical gold shops and bullion merchants directly to Tier-1 interbank liquidity. By executing calculated digital short hedge positions on MT4/MT5 via SAGFX, merchants neutralize inventory price drops during market downturns, while receiving weekly rebate cashbacks that offset broker financing costs.",
 
+    // Slide 5: Clearing Nexus Loop
+    loop_sec_tag: "// 05 MULTI-CHANNEL CLEARING LOOP",
+    loop_sec_title: "Unified Institutional <span class=\"cyan-glow-text\">Clearing &amp; Liquidity Loop</span>",
+    loop_sec_desc: "Continuous multi-channel volume ingestion routing Tier-1 interbank liquidity, high-volume retail trading, delta-neutral bullion hedging, and weekly rebate cashbacks into the SAGFX central clearing core.",
+    loop_ch1_title: "Licensed Prime Brokers",
+    loop_ch1_meta: "IC MARKETS • VANTAGE • EXNESS",
+    loop_ch2_title: "High-Volume Traders",
+    loop_ch2_meta: "GOLD (XAU/USD) • 0.0 RAW PIP",
+    loop_ch3_title: "Bullion Hedging Desk",
+    loop_ch3_meta: "DELTA-NEUTRAL INVENTORY",
+    loop_ch4_title: "Rebate Yield Engine",
+    loop_ch4_meta: "85% PASS-THROUGH • $45+/LOT",
+    loop_ch5_title: "Automated Settlements",
+    loop_ch5_meta: "USDT • ABA / BAKONG • MT4/5",
+
     // Cambodian Statutory Legal Protection & IP Notice
     legal_badge: "KINGDOM OF CAMBODIA STATUTORY PROTECTION & IP NOTICE",
     legal_statute_ref: "ROYAL KRAM NO. NS/RKM/0303/008 • NS/RKM/1119/017",
@@ -884,6 +900,21 @@ const I18N_DICTIONARY = {
     faq_sagfx_a5: "បរិមាណជួញដូរទាំងអស់ត្រូវបានគណនាបញ្ចប់ត្រឹមរាត្រីថ្ងៃអាទិត្យ (GMT)។ ប្រាក់ Cashback នឹងត្រូវផ្ទេរដោយស្វ័យប្រវត្តិនារៀងរាល់ថ្ងៃចន្ទ ទៅកាន់កាបូប USDT (TRC20/BEP20) គណនីធនាគារក្នុងស្រុក (ABA / Bakong) ឬបញ្ចូលទៅក្នុងសមតុល្យគណនី MT4/MT5 របស់អ្នកផ្ទាល់។",
     faq_sagfx_q6: "តើ SAGFX ជួយដល់ការការពារហានិភ័យមាស (Hedging) សម្រាប់ហាងមាសយ៉ាងដូចម្តេច?",
     faq_sagfx_a6: "ហាងមាស និងអាជីវករគ្រឿងអលង្ការដែលប្រើប្រាស់តុការពារហានិភ័យ Delta-Neutral របស់ Mongsay House អាចបើកកិច្ចសន្យា Short លើ XAU/USD តាមរយៈ SAGFX។ ប្រព័ន្ធនេះផ្តល់នូវ Raw Spread 0.0 pip ថ្លៃសេវាទាបបំផុត និងទទួលបានប្រាក់ Rebate ត្រឡប់មកវិញ ដែលជួយកាត់បន្ថយថ្លៃដើមការពារហានិភ័យស្ទើរតែស្មើនឹងសូន្យ។",
+
+    // Slide 5: Clearing Nexus Loop
+    loop_sec_tag: "// ០៥ ប្រព័ន្ធទូទាត់ចរន្តពហុបណ្តាញ",
+    loop_sec_title: "ប្រព័ន្ធចរន្តទូទាត់ <span class=\"cyan-glow-text\">និងសាច់ប្រាក់ងាយស្រួលស្ថាប័នរួម</span>",
+    loop_sec_desc: "ការបញ្ជូនបរិមាណពហុបណ្តាញជាបន្តបន្ទាប់ តភ្ជាប់សាច់ប្រាក់អន្តរធនាគារ Tier-1 ការជួញដូរបរិមាណធំ ការការពារហានិភ័យមាស និងប្រាក់ Rebate ចូលទៅក្នុងស្នូលទូទាត់កណ្តាល SAGFX។",
+    loop_ch1_title: "Prime Broker មានអាជ្ញាប័ណ្ណ",
+    loop_ch1_meta: "IC MARKETS • VANTAGE • EXNESS",
+    loop_ch2_title: "ពាណិជ្ជករបរិមាណធំ",
+    loop_ch2_meta: "មាស (XAU/USD) • 0.0 RAW PIP",
+    loop_ch3_title: "តុការពារហានិភ័យមាស",
+    loop_ch3_meta: "ការពារស្តុកបែប DELTA-NEUTRAL",
+    loop_ch4_title: "ម៉ាស៊ីនទិន្នផល Rebate",
+    loop_ch4_meta: "សងត្រឡប់ ៨៥% • $45+/LOT",
+    loop_ch5_title: "ប្រព័ន្ធទូទាត់ស្វ័យប្រវត្ត",
+    loop_ch5_meta: "USDT • ABA / BAKONG • MT4/5",
 
     // Cambodian Statutory Legal Protection & IP Notice
     legal_badge: "សេចក្តីជូនដំណឹងស្តីពីកិច្ចការពារផ្លូវច្បាប់ & កម្មសិទ្ធិបញ្ញានៃព្រះរាជាណាចក្រកម្ពុជា",
@@ -1724,6 +1755,11 @@ function applyLanguage(lang) {
   const activeFaqBody = document.querySelector('.faq-item.active .faq-body');
   if (activeFaqBody) {
     activeFaqBody.style.maxHeight = activeFaqBody.scrollHeight + 'px';
+  }
+
+  // Update real-time clearing loop telemetry card language
+  if (typeof window.updateSagfxLoopLanguage === 'function') {
+    window.updateSagfxLoopLanguage(lang);
   }
 }
 
@@ -3274,4 +3310,291 @@ function initSagfxTimeframeRadar() {
       }
     });
   });
+}
+
+/* ---------------------------------------------------------
+   SAGFX Slide 5 - Real-Time Clearing Nexus Loop Engine
+   (Multi-Channel Funnel Loop Inspired by Pinterest Reference)
+   --------------------------------------------------------- */
+const SAGFX_LOOP_DATA = {
+  en: [
+    {
+      title: "Licensed Prime Brokers",
+      subtitle: "NODE 01 // FIX 4.4 ECN BRIDGE",
+      status: "TIER-1 BRIDGE LIVE",
+      latency: "< 1.2ms",
+      throughput: "4 Global Prime Brokers",
+      bullets: [
+        "<strong>Direct ECN Socket:</strong> Multi-asset connectivity to IC Markets, Vantage Markets, Exness & FP Markets.",
+        "<strong>Zero Spread Markup:</strong> Pure interbank spreads from 0.0 pips without synthetic retail widening.",
+        "<strong>Deep Liquidity Feeds:</strong> Institutional liquidity aggregation from top global investment banks.",
+        "<strong>Sub-Millisecond Execution:</strong> Fiber-optic cross-connect routing eliminating adverse slippage."
+      ]
+    },
+    {
+      title: "High-Volume Traders",
+      subtitle: "NODE 02 // VOLUME EXECUTION FLOW",
+      status: "TRADING FLOW ACTIVE",
+      latency: "< 0.8ms",
+      throughput: "135,000+ Lots Cleared",
+      bullets: [
+        "<strong>Gold (XAU/USD) Prime:</strong> Tight institutional fills tailored for heavy-lot scalping & swing traders.",
+        "<strong>Trade Volume Audit:</strong> Immutable real-time auditing of every closed lot through MT4/MT5 bridge.",
+        "<strong>Whitelist ECN Pools:</strong> Dedicated liquidity pools shielding traders from broker B-book conflicts.",
+        "<strong>Identical Conditions:</strong> Execution speed, slippage and margin specs match direct accounts 100%."
+      ]
+    },
+    {
+      title: "Bullion Hedging Desk",
+      subtitle: "NODE 03 // PHYSICAL INVENTORY DEFENSE",
+      status: "DELTA-NEUTRAL SYNC",
+      latency: "< 2.0ms",
+      throughput: "100% Downside Immunity",
+      bullets: [
+        "<strong>Cambodian Metric Translation:</strong> Mechanical conversion of Damlung (តម្លឹង) & Chi (ជី) into exact lot sizes.",
+        "<strong>Delta-Neutral Balance:</strong> Digital short positions neutralize physical store inventory price drops.",
+        "<strong>Swap-Advantaged Rails:</strong> Institutional clearing rates minimize overnight financing carrying costs.",
+        "<strong>Weekly Cash Rebates:</strong> Volume cashback payouts offset hedging execution expenses to near-zero."
+      ]
+    },
+    {
+      title: "Rebate Yield Engine",
+      subtitle: "NODE 04 // ALGORITHMIC CASHBACK ENGINE",
+      status: "YIELD ENGINE COMPUTING",
+      latency: "Real-Time Ledger",
+      throughput: "Up to $45+ / Lot Cash",
+      bullets: [
+        "<strong>85% Fee Pass-Through:</strong> Wholesale broker volume revenue returned directly to traders every week.",
+        "<strong>Transparent Weekly Audits:</strong> Sunday midnight GMT ledger reconciliation with detailed trade breakdowns.",
+        "<strong>Substantial Fee Recovery:</strong> High-volume accounts recover thousands in trading drag annually.",
+        "<strong>Zero Client Cost:</strong> Free whitelist membership funded strictly by prime broker volume compensation."
+      ]
+    },
+    {
+      title: "Automated Multi-Rail Settlement",
+      subtitle: "NODE 05 // MULTI-RAIL DISPATCH CORE",
+      status: "AUTOMATED SETTLEMENT",
+      latency: "Every Monday 09:00",
+      throughput: "100% On-Time Weekly",
+      bullets: [
+        "<strong>Crypto Rails (USDT):</strong> Instant low-fee payouts via TRC20 and BEP20 blockchain networks.",
+        "<strong>Cambodian Local Banking:</strong> Direct automated transfers into ABA Bank and Bakong QR rails.",
+        "<strong>MT4/MT5 Trading Credit:</strong> Direct routing back into broker account balance for compounding liquidity.",
+        "<strong>Zero Delays & Limits:</strong> Automated execution without withdrawal thresholds or holding periods."
+      ]
+    }
+  ],
+  kh: [
+    {
+      title: "Prime Broker មានអាជ្ញាប័ណ្ណ",
+      subtitle: "ថ្នាំង ០១ // ស្ពានតភ្ជាប់ FIX 4.4 ECN",
+      status: "ស្ពាន TIER-1 សកម្ម",
+      latency: "< 1.2ms",
+      throughput: "Prime Broker ពិភពលោក ៤",
+      bullets: [
+        "<strong>រន្ធ ECN ផ្ទាល់៖</strong> ការតភ្ជាប់ពហុទ្រព្យសកម្មទៅកាន់ IC Markets, Vantage Markets, Exness & FP Markets។",
+        "<strong>គ្មានការតម្លើង Spread៖</strong> Spread អន្តរធនាគារសុទ្ធចាប់ពី 0.0 pip ដោយគ្មានការកើនឡើងសម្រាប់លក់រាយឡើយ។",
+        "<strong>ប្រភពសាច់ប្រាក់ងាយស្រួលជ្រៅ៖</strong> ការប្រមូលផ្តុំសាច់ប្រាក់ងាយស្រួលកម្រិតស្ថាប័នពីធនាគារវិនិយោគពិភពលោកកំពូលៗ។",
+        "<strong>ប្រតិបត្តិការលឿនជាងមីលីវិនាទី៖</strong> ការបញ្ជូនតាមរយៈបណ្តាញអុបទិក Fiber កាត់បន្ថយ Slippage ដល់កម្រិតសូន្យ។"
+      ]
+    },
+    {
+      title: "ពាណិជ្ជករបរិមាណធំ",
+      subtitle: "ថ្នាំង ០២ // ចរន្តប្រតិបត្តិការបរិមាណ",
+      status: "ចរន្តជួញដូរសកម្ម",
+      latency: "< 0.8ms",
+      throughput: "ទូទាត់លើសពី ១៣៥,០០០+ Lot",
+      bullets: [
+        "<strong>ជួញដូរមាស (XAU/USD) Prime៖</strong> ការបំពេញការបញ្ជាទិញកម្រិតស្ថាប័នយ៉ាងរលូនសម្រាប់ Scalper និង Swing Trader។",
+        "<strong>សវនកម្មបរិមាណជាក់ស្តែង៖</strong> ការធ្វើសវនកម្មផ្ទាល់រាល់ Lot ដែលបានបិទតាមរយៈស្ពាន MT4/MT5 ដោយតម្លាភាព។",
+        "<strong>អាងសាច់ប្រាក់ ECN Whitelist៖</strong> អាងសាច់ប្រាក់ពិសេសការពារពាណិជ្ជករពីទំនាស់ផលប្រយោជន៍ B-Book របស់ Broker។",
+        "<strong>លក្ខខណ្ឌដូចគ្នា ១០០%៖</strong> ល្បឿនប្រតិបត្តិការ Slippage និង Margin ដូចគ្នាបេះបិទនឹងការបើកគណនីផ្ទាល់ជាមួយ Broker។"
+      ]
+    },
+    {
+      title: "តុការពារហានិភ័យមាស",
+      subtitle: "ថ្នាំង ០៣ // ការពារស្តុកមាសជាក់ស្តែង",
+      status: "ធ្វើសមកាលកម្ម DELTA-NEUTRAL",
+      latency: "< 2.0ms",
+      throughput: "ការពារការធ្លាក់ចុះ ១០០%",
+      bullets: [
+        "<strong>ការបម្លែងរង្វាស់ខ្នាតខ្មែរ៖</strong> ការគណនាបម្លែងខ្នាត «តម្លឹង» និង «ជី» ទៅជាទំហំ Lot អន្តរជាតិយ៉ាងសុក្រឹត។",
+        "<strong>សមតុល្យ Delta-Neutral៖</strong> បើកកិច្ចសន្យា Short ឌីជីថល ដើម្បីទប់ទល់នឹងការធ្លាក់ថ្លៃនៃស្តុកមាសក្នុងហាង។",
+        "<strong>អត្រា Swap ពិសេស៖</strong> អត្រាទូទាត់កម្រិតស្ថាប័នជួយកាត់បន្ថយថ្លៃរក្សាទុកកិច្ចសន្យាឆ្លងយប់ (Swap)។",
+        "<strong>ប្រាក់ Rebate ប្រចាំសប្តាហ៍៖</strong> ប្រាក់ Cashback ពីបរិមាណជួញដូរជួយទូទាត់ថ្លៃដើមការពារហានិភ័យស្ទើរតែស្មើនឹងសូន្យ។"
+      ]
+    },
+    {
+      title: "ម៉ាស៊ីនទិន្នផល Rebate",
+      subtitle: "ថ្នាំង ០៤ // ម៉ាស៊ីន CASHBACK ស្វ័យប្រវត្ត",
+      status: "ម៉ាស៊ីនទិន្នផលកំពុងដំណើរការ",
+      latency: "បញ្ជីទូទាត់ពេលវេលាជាក់ស្តែង",
+      throughput: "រហូតដល់ $45+ / Lot",
+      bullets: [
+        "<strong>សងត្រឡប់កម្រៃជើងសារ ៨៥%៖</strong> ប្រាក់ចំណូលកម្រៃជើងសារលក់ដុំពី Broker ត្រូវបានប្រគល់ជូនពាណិជ្ជករវិញជារៀងរាល់សប្តាហ៍។",
+        "<strong>សវនកម្មប្រចាំសប្តាហ៍ច្បាស់លាស់៖</strong> ការផ្ទៀងផ្ទាត់បញ្ជីទូទាត់នៅរាត្រីថ្ងៃអាទិត្យ (GMT) ជាមួយរបាយការណ៍លម្អិត។",
+        "<strong>ការស្តារថ្លៃដើមបានយ៉ាងច្រើន៖</strong> គណនីបរិមាណធំអាចសន្សំសំចៃបានរាប់ពាន់ដុល្លារពីថ្លៃសេវាជួញដូរប្រចាំឆ្នាំ។",
+        "<strong>ឥតគិតថ្លៃសម្រាប់អតិថិជន៖</strong> សមាជិកភាព Whitelist ឥតគិតថ្លៃ ឧបត្ថម្ភដោយផ្ទាល់ពីកម្រៃជើងសាររបស់ Prime Broker។"
+      ]
+    },
+    {
+      title: "ប្រព័ន្ធទូទាត់ពហុបណ្តាញស្វ័យប្រវត្ត",
+      subtitle: "ថ្នាំង ០៥ // ស្នូលបញ្ជូនទូទាត់ប្រាក់",
+      status: "ទូទាត់ស្វ័យប្រវត្ត",
+      latency: "រៀងរាល់ថ្ងៃចន្ទ ម៉ោង ០៩:០០",
+      throughput: "ទាន់ពេលវេលា ១០០% ប្រចាំសប្តាហ៍",
+      bullets: [
+        "<strong>បណ្តាញ Crypto (USDT)៖</strong> ទូទាត់រហ័ស ថ្លៃសេវាទាបបំផុត តាមរយៈបណ្តាញ TRC20 និង BEP20។",
+        "<strong>ធនាគារក្នុងស្រុកកម្ពុជា៖</strong> ផ្ទេរប្រាក់ដោយស្វ័យប្រវត្តិចូលធនាគារ ABA និងប្រព័ន្ធ Bakong QR ផ្ទាល់។",
+        "<strong>បញ្ចូលទៅក្នុង MT4/MT5៖</strong> បញ្ចូលប្រាក់ត្រឡប់ទៅក្នុងសមតុល្យជួញដូរលើ Broker វិញសម្រាប់បង្កើនដើមទុន។",
+        "<strong>គ្មានការពន្យារពេល ឬកម្រិតកំណត់៖</strong> ប្រតិបត្តិការទូទាត់ស្វ័យប្រវត្តដោយគ្មានកម្រិតដកប្រាក់អប្បបរមាឡើយ។"
+      ]
+    }
+  ]
+};
+
+function initSagfxClearingLoop() {
+  const container = document.getElementById('sagfxLoopContainer');
+  if (!container) return;
+
+  const cards = document.querySelectorAll('.sagfx-loop-card');
+  const beams = document.querySelectorAll('.loop-beam-path');
+  const pulseGroups = document.querySelectorAll('.pulse-group');
+  const hubTitle = document.getElementById('hubTitle');
+  const hubSubtitle = document.getElementById('hubSubtitle');
+  const hubStatus = document.getElementById('hubStatus');
+  const hubLatency = document.getElementById('hubLatency');
+  const hubThroughput = document.getElementById('hubThroughput');
+  const hubTelemetryList = document.getElementById('hubTelemetryList');
+
+  let currentIndex = 0;
+  let autoTimer = null;
+  let isPaused = false;
+
+  function getCurrentLang() {
+    return document.documentElement.getAttribute('lang') === 'kh' ? 'kh' : 'en';
+  }
+
+  function renderHub(index, animate = true) {
+    const lang = getCurrentLang();
+    const dataList = SAGFX_LOOP_DATA[lang] || SAGFX_LOOP_DATA.en;
+    const data = dataList[index] || dataList[0];
+
+    if (!animate) {
+      if (hubTitle) hubTitle.textContent = data.title;
+      if (hubSubtitle) hubSubtitle.textContent = data.subtitle;
+      if (hubStatus) hubStatus.textContent = data.status;
+      if (hubLatency) hubLatency.textContent = data.latency;
+      if (hubThroughput) hubThroughput.textContent = data.throughput;
+      if (hubTelemetryList) {
+        hubTelemetryList.innerHTML = data.bullets.map(bullet => `
+          <li class="hub-telemetry-item">
+            <span class="hub-item-bullet"></span>
+            <span>${bullet}</span>
+          </li>
+        `).join('');
+      }
+      return;
+    }
+
+    if (hubTitle) hubTitle.style.opacity = '0';
+    if (hubTelemetryList) hubTelemetryList.style.opacity = '0';
+
+    setTimeout(() => {
+      if (hubTitle) hubTitle.textContent = data.title;
+      if (hubSubtitle) hubSubtitle.textContent = data.subtitle;
+      if (hubStatus) hubStatus.textContent = data.status;
+      if (hubLatency) hubLatency.textContent = data.latency;
+      if (hubThroughput) hubThroughput.textContent = data.throughput;
+      if (hubTelemetryList) {
+        hubTelemetryList.innerHTML = data.bullets.map(bullet => `
+          <li class="hub-telemetry-item">
+            <span class="hub-item-bullet"></span>
+            <span>${bullet}</span>
+          </li>
+        `).join('');
+      }
+      if (hubTitle) hubTitle.style.opacity = '1';
+      if (hubTelemetryList) hubTelemetryList.style.opacity = '1';
+    }, 140);
+  }
+
+  function setActiveNode(index, animateHub = true) {
+    if (index < 0 || index >= 5) return;
+    currentIndex = index;
+
+    // Update left node cards
+    cards.forEach((card, i) => {
+      if (i === index) {
+        card.classList.add('active');
+      } else {
+        card.classList.remove('active');
+      }
+    });
+
+    // Update middle SVG beams & pulse photons
+    beams.forEach((beam, i) => {
+      if (i === index) {
+        beam.classList.add('active');
+      } else {
+        beam.classList.remove('active');
+      }
+    });
+
+    pulseGroups.forEach((pg, i) => {
+      if (i === index) {
+        pg.classList.add('active');
+      } else {
+        pg.classList.remove('active');
+      }
+    });
+
+    renderHub(index, animateHub);
+  }
+
+  function startAutoCycle() {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = setInterval(() => {
+      if (!isPaused) {
+        const nextIndex = (currentIndex + 1) % 5;
+        setActiveNode(nextIndex);
+      }
+    }, 3500);
+  }
+
+  // Interactive card event listeners
+  cards.forEach((card) => {
+    const idx = parseInt(card.getAttribute('data-index'), 10);
+    card.addEventListener('click', () => {
+      setActiveNode(idx);
+      startAutoCycle();
+    });
+    card.addEventListener('mouseenter', () => {
+      isPaused = true;
+      setActiveNode(idx);
+    });
+    card.addEventListener('mouseleave', () => {
+      isPaused = false;
+    });
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        setActiveNode(idx);
+        startAutoCycle();
+      }
+    });
+  });
+
+  // Pause cycling on container hover
+  container.addEventListener('mouseenter', () => { isPaused = true; });
+  container.addEventListener('mouseleave', () => { isPaused = false; });
+
+  // Expose global hook for real-time language toggling
+  window.updateSagfxLoopLanguage = function() {
+    renderHub(currentIndex, false);
+  };
+
+  // Initial activation
+  setActiveNode(0, false);
+  startAutoCycle();
 }
