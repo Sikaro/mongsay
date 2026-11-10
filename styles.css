@@ -1118,11 +1118,16 @@ body.lang-kh .nav-links {
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
+  isolation: isolate;
+  transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
+  clip-path: circle(50% at 50% 50%);
+  -webkit-clip-path: circle(50% at 50% 50%);
   box-shadow: 
     0 4px 14px rgba(0, 0, 0, 0.6),
     0 0 12px rgba(56, 189, 248, 0.45),
     inset 0 0 1px 1.5px rgba(255, 255, 255, 0.65);
-  transform-style: preserve-3d;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   display: block;
 }
@@ -1130,8 +1135,12 @@ body.lang-kh .nav-links {
 /* Swirling Chromatic Liquid Core */
 .fx-toggle .bubble-fluid-core {
   position: absolute;
-  inset: -45%;
+  inset: 0.5px;
   border-radius: 50%;
+  clip-path: circle(50% at 50% 50%);
+  -webkit-clip-path: circle(50% at 50% 50%);
+  -webkit-mask-image: radial-gradient(circle, #000 62%, transparent 71%);
+  mask-image: radial-gradient(circle, #000 62%, transparent 71%);
   background: conic-gradient(
     from 0deg,
     #38bdf8 0deg,
@@ -1141,17 +1150,14 @@ body.lang-kh .nav-links {
     #60a5fa 288deg,
     #38bdf8 360deg
   );
-  filter: blur(4px);
-  opacity: 0.88;
+  opacity: 0.92;
   animation: rotateFluidSwirl 4.5s linear infinite;
-  mix-blend-mode: screen;
   display: block;
 }
 
 @keyframes rotateFluidSwirl {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.08); }
-  100% { transform: rotate(360deg) scale(1); }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Internal Depth & Specular Meniscus */
