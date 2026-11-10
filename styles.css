@@ -12132,3 +12132,303 @@ html.fx-frozen .pin-liquid-bolt {
     height: 62px;
   }
 }
+
+/* ==========================================================================
+   GOLD HEDGING PAGE: INTERACTIVE DELTA-NEUTRAL EQUILIBRIUM CHAMBER
+   Unique quantitative physical vs digital balance engine (replaces monitor stack)
+   ========================================================================== */
+.hedge-quantum-chamber {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  border-radius: 26px;
+  background: radial-gradient(120% 95% at 80% 10%, rgba(229, 185, 95, 0.14) 0%, rgba(14, 165, 233, 0.10) 45%, rgba(6, 11, 24, 0.96) 100%);
+  border: 1.5px solid rgba(229, 185, 95, 0.36);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.88),
+    0 0 42px rgba(229, 185, 95, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  padding: 18px 20px;
+  overflow: hidden;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+.hedge-gyro-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 340px;
+  height: 340px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px dashed rgba(229, 185, 95, 0.18);
+  pointer-events: none;
+  animation: hedgeGyroSpin 28s linear infinite;
+}
+
+.hedge-gyro-aura::before {
+  content: '';
+  position: absolute;
+  inset: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.14);
+}
+
+@keyframes hedgeGyroSpin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.hedge-engine-topbar {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.hedge-sim-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.70rem;
+  font-weight: 700;
+  color: #e5b95f;
+  letter-spacing: 0.04em;
+}
+
+.hedge-sim-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseGreen 1.8s infinite;
+}
+
+.hedge-lock-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+  cursor: pointer;
+  border: 1px solid rgba(16, 185, 129, 0.55);
+  background: rgba(16, 185, 129, 0.16);
+  color: #6ee7b7;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.25);
+  transition: transform 0.18s ease;
+}
+
+.hedge-lock-btn:active {
+  transform: scale(0.96);
+}
+
+.hedge-lock-btn.unhedged {
+  border-color: rgba(244, 63, 94, 0.65);
+  background: rgba(244, 63, 94, 0.18);
+  color: #fda4af;
+  box-shadow: 0 0 18px rgba(244, 63, 94, 0.35);
+}
+
+/* Center Quantum Balance Stage */
+.hedge-balance-stage {
+  position: relative;
+  z-index: 4;
+  margin: 14px 0 12px;
+  background: rgba(3, 7, 16, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 12px 12px 10px;
+}
+
+.hedge-balance-svg {
+  width: 100%;
+  height: auto;
+  max-height: 205px;
+  display: block;
+  overflow: visible;
+}
+
+.hedge-beam-group {
+  transform-origin: 210px 92px;
+  transition: transform 0.65s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+.hedge-pan-mover {
+  transition: transform 0.65s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+.hedge-energy-stream {
+  fill: none;
+  stroke: url(#hedgeBridgeFlowGrad);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 8 10;
+  animation: hedgePhotonFlow 1.2s linear infinite;
+}
+
+@keyframes hedgePhotonFlow {
+  0% { stroke-dashoffset: 36; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.hedge-quantum-chamber.is-unhedged .hedge-energy-stream {
+  opacity: 0.12;
+  animation: none;
+}
+
+/* Scenario Shock Pills */
+.hedge-shock-controls {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.hedge-shock-btn {
+  padding: 8px 6px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #94a3b8;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease;
+  text-align: center;
+}
+
+.hedge-shock-btn:active {
+  transform: scale(0.97);
+}
+
+.hedge-shock-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: #ffffff;
+}
+
+.hedge-shock-btn.active[data-shock="-120"] {
+  background: rgba(244, 63, 94, 0.18);
+  border-color: rgba(244, 63, 94, 0.58);
+  color: #fda4af;
+  box-shadow: 0 0 16px rgba(244, 63, 94, 0.25);
+}
+
+.hedge-shock-btn.active[data-shock="0"] {
+  background: rgba(56, 189, 248, 0.18);
+  border-color: rgba(56, 189, 248, 0.58);
+  color: #7dd3fc;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+}
+
+.hedge-shock-btn.active[data-shock="120"] {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: rgba(16, 185, 129, 0.58);
+  color: #6ee7b7;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.25);
+}
+
+/* Bottom Synchronized Vault Telemetry Grid */
+.hedge-live-telemetry {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.hedge-tel-card {
+  background: rgba(4, 9, 20, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  padding: 10px 10px;
+  text-align: center;
+  min-width: 0;
+}
+
+.hedge-tel-card.net-protected {
+  border-color: rgba(16, 185, 129, 0.45);
+  background: rgba(6, 28, 22, 0.55);
+}
+
+.hedge-tel-card.net-exposed {
+  border-color: rgba(244, 63, 94, 0.55);
+  background: rgba(38, 10, 18, 0.55);
+}
+
+.hedge-tel-lbl {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.60rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #94a3b8;
+  margin-bottom: 3px;
+}
+
+.hedge-tel-val {
+  display: block;
+  font-family: var(--font-accent);
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-theme="light"] .hedge-quantum-chamber {
+  background: radial-gradient(120% 95% at 80% 10%, rgba(56, 189, 248, 0.22) 0%, rgba(8, 28, 56, 0.92) 50%, rgba(4, 15, 34, 0.97) 100%);
+  border-color: rgba(56, 189, 248, 0.48);
+}
+
+html.fx-frozen .hedge-gyro-aura,
+html.fx-frozen .hedge-sim-dot,
+html.fx-frozen .hedge-energy-stream {
+  animation: none !important;
+}
+
+html.fx-frozen .hedge-quantum-chamber {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+@media (max-width: 640px) {
+  .hedge-quantum-chamber {
+    padding: 16px 12px;
+    border-radius: 20px;
+  }
+  .hedge-shock-btn {
+    font-size: 0.62rem;
+    padding: 7px 4px;
+  }
+  .hedge-live-telemetry {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .hedge-tel-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+  }
+  .hedge-tel-lbl {
+    margin-bottom: 0;
+  }
+}

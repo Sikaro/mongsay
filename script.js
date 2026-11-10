@@ -4112,119 +4112,176 @@ function initBrokerTerminalShowcase() {
 }
 
 /* ---------------------------------------------------------
-   3D Studio Display Cascading Bullion Ledger Stack (Pinterest 7jPuXi96A)
-   Dynamic typewriter carousel, interactive card focusing, & bilingual prompt engine
+   Interactive Delta-Neutral Bullion Equilibrium Chamber (hedging.html)
+   Live balance fulcrum, shock variance simulation, & hedge lock toggle
    --------------------------------------------------------- */
 function initHedgingLedgerStack() {
-  const section = document.getElementById('hedgingShowcaseSection');
-  if (!section) return;
+  const chamber = document.getElementById('hedgeDeltaEngine');
+  if (!chamber) return;
 
-  const typewriterEl = document.getElementById('hedgingTypewriterText');
-  if (!typewriterEl) return;
+  const lockBtn = document.getElementById('hedgeLockToggleBtn');
+  const lockTxt = document.getElementById('hedgeLockTxt');
+  const simDot = document.getElementById('hedgeSimDot');
+  const beamGroup = document.getElementById('hedgeBeamGroup');
+  const leftMover = document.getElementById('hedgeLeftMover');
+  const rightMover = document.getElementById('hedgeRightMover');
+  const svgPhysVal = document.getElementById('hedgeSvgPhysVal');
+  const svgDigVal = document.getElementById('hedgeSvgDigVal');
+  const centerRing = document.getElementById('hedgeCenterRing');
+  const centerDeltaTxt = document.getElementById('hedgeCenterDeltaText');
+  const shockControls = document.getElementById('hedgeShockControls');
 
-  const cards = section.querySelectorAll('.ledger-folder-card');
+  const telPhys = document.getElementById('hedgeTelPhys');
+  const telDig = document.getElementById('hedgeTelDig');
+  const telNet = document.getElementById('hedgeTelNet');
+  const telNetCard = document.getElementById('hedgeTelNetCard');
 
-  const QUERIES_EN = [
-    "Hedge 50 Damlung Gold Inventory...",
-    "Convert 120 Chi into MT4/MT5 Short lot size...",
-    "Compute Delta-Neutral spot crash offset...",
-    "Route XAU/USD raw 0.0 pip liquidity via SAGFX...",
-    "Balance 24K jewelry inventory price risk...",
-    "Calculate weekly rebate cashbacks offset..."
-  ];
+  const BASE_VAULT_USD = 239750;
+  const TROY_OZ_50_DAMLUNG = 60.2825; // 50 * 1.20565 troy oz
 
-  const QUERIES_KH = [
-    "ការពារហានិភ័យស្តុកមាស ៥០ តម្លឹង...",
-    "បម្លែង ១២០ ជី ទៅជាទំហំកិច្ចសន្យា MT4/MT5 Short...",
-    "គណនាទំហំទូទាត់ពេលតម្លៃមាសពិភពលោកធ្លាក់ចុះ...",
-    "បញ្ជូនបរិមាណ XAU/USD គម្លាត 0.0 pip តាម SAGFX...",
-    "ការពារតម្លៃគ្រឿងអលង្ការមាសទឹកដប់ (២៤ការ៉ាត)...",
-    "គណនាប្រាក់ Rebate សងត្រឡប់ប្រចាំសប្តាហ៍..."
-  ];
+  let currentShock = -120;
+  let isHedged = true;
+  let manualUserControl = false;
 
-  function getCurrentQueries() {
-    const isKh = document.documentElement.getAttribute('lang') === 'kh';
-    return isKh ? QUERIES_KH : QUERIES_EN;
+  function fmtSignedUsd(val) {
+    const abs = Math.round(Math.abs(val)).toLocaleString('en-US');
+    if (Math.round(val) === 0) return '$0.00';
+    return (val > 0 ? '+$' : '-$') + abs;
   }
 
-  let activeQueries = getCurrentQueries();
-  let queryIdx = 0;
-  let charIdx = 0;
-  let isDeleting = false;
-  let typeTimeout = null;
-  let isPausedForManualInput = false;
+  function renderSimulationState() {
+    const physPnl = currentShock * TROY_OZ_50_DAMLUNG;
+    const digPnl = isHedged ? -physPnl : 0;
+    const netPnl = physPnl + digPnl;
+    const netEquity = BASE_VAULT_USD + netPnl;
 
-  function tick() {
-    if (document.documentElement.classList.contains('fx-frozen') || isPausedForManualInput) {
-      typeTimeout = setTimeout(tick, 1000);
-      return;
-    }
-
-    const currentQuery = activeQueries[queryIdx];
-    if (!currentQuery) {
-      queryIdx = 0;
-      typeTimeout = setTimeout(tick, 300);
-      return;
-    }
-
-    if (isDeleting) {
-      charIdx--;
-      typewriterEl.textContent = currentQuery.substring(0, charIdx);
-      if (charIdx <= 0) {
-        isDeleting = false;
-        queryIdx = (queryIdx + 1) % activeQueries.length;
-        typeTimeout = setTimeout(tick, 450);
-        return;
+    // SVG Pan vertical offsets & Fulcrum tilt
+    if (beamGroup) {
+      if (isHedged) {
+        beamGroup.style.transform = 'rotate(0deg)';
+      } else {
+        const tiltDeg = currentShock < 0 ? -12 : (currentShock > 0 ? 12 : 0);
+        beamGroup.style.transform = `rotate(${tiltDeg}deg)`;
       }
-      typeTimeout = setTimeout(tick, 35);
+    }
+
+    if (leftMover && rightMover) {
+      const physShift = currentShock < 0 ? 10 : (currentShock > 0 ? -10 : 0);
+      const digShift = isHedged ? -physShift : 0;
+      leftMover.style.transform = `translateY(${physShift}px)`;
+      rightMover.style.transform = `translateY(${digShift}px)`;
+    }
+
+    const physColor = physPnl < 0 ? '#fb7185' : (physPnl > 0 ? '#34d399' : '#ffffff');
+    const digColor = !isHedged ? '#64748b' : (digPnl > 0 ? '#34d399' : (digPnl < 0 ? '#fb7185' : '#ffffff'));
+
+    if (svgPhysVal) {
+      svgPhysVal.textContent = fmtSignedUsd(physPnl);
+      svgPhysVal.setAttribute('fill', physColor);
+    }
+    if (svgDigVal) {
+      svgDigVal.textContent = isHedged ? fmtSignedUsd(digPnl) : 'OFF ($0)';
+      svgDigVal.setAttribute('fill', digColor);
+    }
+
+    if (telPhys) {
+      telPhys.textContent = fmtSignedUsd(physPnl);
+      telPhys.style.color = physColor;
+    }
+    if (telDig) {
+      telDig.textContent = isHedged ? fmtSignedUsd(digPnl) : '$0 (OFF)';
+      telDig.style.color = digColor;
+    }
+
+    if (isHedged) {
+      chamber.classList.remove('is-unhedged');
+      if (lockBtn) {
+        lockBtn.classList.remove('unhedged');
+        lockBtn.setAttribute('aria-pressed', 'true');
+      }
+      if (lockTxt) lockTxt.textContent = 'HEDGE ON: \u0394 = 0';
+      if (simDot) {
+        simDot.style.background = '#10b981';
+        simDot.style.boxShadow = '0 0 10px #10b981';
+      }
+      if (centerRing) centerRing.setAttribute('stroke', '#10b981');
+      if (centerDeltaTxt) {
+        centerDeltaTxt.textContent = '\u0394 = 0';
+        centerDeltaTxt.setAttribute('fill', '#34d399');
+      }
+      if (telNetCard) {
+        telNetCard.classList.add('net-protected');
+        telNetCard.classList.remove('net-exposed');
+      }
+      if (telNet) {
+        telNet.textContent = `$${BASE_VAULT_USD.toLocaleString('en-US')} LOCKED`;
+        telNet.style.color = '#10b981';
+      }
     } else {
-      charIdx++;
-      typewriterEl.textContent = currentQuery.substring(0, charIdx);
-      if (charIdx >= currentQuery.length) {
-        isDeleting = true;
-        typeTimeout = setTimeout(tick, 2200); // Read pause
-        return;
+      chamber.classList.add('is-unhedged');
+      if (lockBtn) {
+        lockBtn.classList.add('unhedged');
+        lockBtn.setAttribute('aria-pressed', 'false');
       }
-      typeTimeout = setTimeout(tick, 65);
+      if (lockTxt) lockTxt.textContent = 'UNHEDGED EXPOSED';
+      if (simDot) {
+        simDot.style.background = '#f43f5e';
+        simDot.style.boxShadow = '0 0 10px #f43f5e';
+      }
+      if (centerRing) centerRing.setAttribute('stroke', '#f43f5e');
+      if (centerDeltaTxt) {
+        centerDeltaTxt.textContent = currentShock === 0 ? '\u0394 = 0' : 'RISK!';
+        centerDeltaTxt.setAttribute('fill', '#fb7185');
+      }
+      if (telNetCard) {
+        telNetCard.classList.remove('net-protected');
+        telNetCard.classList.toggle('net-exposed', currentShock < 0);
+      }
+      if (telNet) {
+        telNet.textContent = `$${Math.round(netEquity).toLocaleString('en-US')} (${fmtSignedUsd(netPnl)})`;
+        telNet.style.color = netPnl < 0 ? '#fb7185' : (netPnl > 0 ? '#34d399' : '#ffffff');
+      }
+    }
+
+    if (shockControls) {
+      shockControls.querySelectorAll('.hedge-shock-btn').forEach(btn => {
+        const s = parseInt(btn.getAttribute('data-shock') || '0', 10);
+        btn.classList.toggle('active', s === currentShock);
+      });
     }
   }
 
-  typeTimeout = setTimeout(tick, 800);
-
-  // Allow clicking any card to inject its prompt into the console
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      const prompt = card.getAttribute('data-prompt');
-      if (prompt) {
-        isPausedForManualInput = true;
-        if (typeTimeout) clearTimeout(typeTimeout);
-        typewriterEl.textContent = prompt;
-
-        // Card flash highlight
-        card.style.borderColor = '#e5b95f';
-        card.style.boxShadow = '0 0 35px rgba(229, 185, 95, 0.6)';
-
-        setTimeout(() => {
-          card.style.borderColor = '';
-          card.style.boxShadow = '';
-          isPausedForManualInput = false;
-          isDeleting = true;
-          charIdx = prompt.length;
-          tick();
-        }, 3200);
-      }
+  if (lockBtn) {
+    lockBtn.addEventListener('click', () => {
+      manualUserControl = true;
+      isHedged = !isHedged;
+      renderSimulationState();
     });
-  });
+  }
 
-  // Global language switch subscriber
-  window.updateHedgingStackLanguage = function(lang) {
-    activeQueries = lang === 'kh' ? QUERIES_KH : QUERIES_EN;
-    charIdx = 0;
-    isDeleting = false;
-    if (typewriterEl) {
-      typewriterEl.textContent = activeQueries[queryIdx] || '';
-    }
-  };
+  if (shockControls) {
+    shockControls.querySelectorAll('.hedge-shock-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        manualUserControl = true;
+        currentShock = parseInt(btn.getAttribute('data-shock') || '0', 10);
+        renderSimulationState();
+      });
+    });
+  }
+
+  renderSimulationState();
+
+  // Gentle auto-cycle across spot shock states until user interacts
+  const shockSequence = [-120, 0, 120];
+  let seqIdx = 0;
+  setInterval(() => {
+    if (manualUserControl || document.documentElement.classList.contains('fx-frozen')) return;
+    seqIdx = (seqIdx + 1) % shockSequence.length;
+    currentShock = shockSequence[seqIdx];
+    renderSimulationState();
+  }, 3600);
+
+  window.updateHedgingStackLanguage = function() {};
 }
 
 
