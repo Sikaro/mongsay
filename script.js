@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLibraryReadingStack();
   initPinterestMobileHud();
   initDisciplineLoopAnimation();
+  initMobileBottomDock();
 });
 
 /* ---------------------------------------------------------
@@ -4789,5 +4790,127 @@ function initDisciplineLoopAnimation() {
     renderAt('discipline', 1);
   } else {
     rafId = requestAnimationFrame(frameLoop);
+  }
+}
+
+/* ==========================================================================
+   FLOATING iOS GLASSMORPHIC MOBILE BOTTOM TAB DOCK (https://pin.it/1Upf5WvRC)
+   5-item thumb dock + Elevated Center FAB Quick Action Sheet across all pages
+   ========================================================================== */
+function initMobileBottomDock() {
+  if (typeof document === 'undefined' || !document.body) return;
+  if (document.getElementById('mobilePinDockWrap')) return;
+
+  const isFileProto = window.location.protocol === 'file:';
+  const routeUrl = (slug) => (isFileProto ? `${slug}.html` : slug);
+  const pathSlug = (window.location.pathname.split('/').pop() || 'index').replace('.html', '').toLowerCase();
+
+  const isHome = pathSlug === '' || pathSlug === 'index' || pathSlug === 'homepage';
+  const isSagfx = pathSlug === 'sagfx';
+  const isHedge = pathSlug === 'hedging';
+  const isLibrary = pathSlug === 'books';
+
+  const backdrop = document.createElement('div');
+  backdrop.className = 'pin-dock-backdrop';
+  backdrop.id = 'pinDockBackdrop';
+
+  const dockWrap = document.createElement('div');
+  dockWrap.className = 'mobile-pin-dock-wrap';
+  dockWrap.id = 'mobilePinDockWrap';
+  dockWrap.setAttribute('role', 'navigation');
+  dockWrap.setAttribute('aria-label', 'Mobile Bottom Navigation');
+
+  dockWrap.innerHTML = `
+    <div class="pin-dock-sheet" id="pinDockSheet" aria-hidden="true">
+      <div class="pin-sheet-grid">
+        <a href="https://t.me/MongsayFX" target="_blank" rel="noopener noreferrer" class="pin-sheet-link vip-highlight">
+          <span style="display:flex;align-items:center;gap:10px;">
+            <span class="sheet-ico">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/></svg>
+            </span>
+            <span>Connect VIP (@MongsayFX)</span>
+          </span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="${routeUrl('advisory')}" class="pin-sheet-link">
+          <span class="sheet-ico">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M3 3v18h18"/><path d="M18 9l-5 5-4-4-3 3"/></svg>
+          </span>
+          <span>Brokerage</span>
+        </a>
+        <a href="${routeUrl('ventures')}" class="pin-sheet-link">
+          <span class="sheet-ico">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </span>
+          <span>Ventures</span>
+        </a>
+        <a href="${routeUrl('media')}" class="pin-sheet-link">
+          <span class="sheet-ico">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </span>
+          <span>Media Hub</span>
+        </a>
+        <a href="${routeUrl('sagfx')}" class="pin-sheet-link">
+          <span class="sheet-ico">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </span>
+          <span>Rebate Desk</span>
+        </a>
+      </div>
+    </div>
+
+    <nav class="mobile-pin-dock">
+      <div class="pin-dock-crown" aria-hidden="true"></div>
+      <a href="${routeUrl(isFileProto ? 'index' : 'homepage')}" class="pin-dock-item${isHome ? ' active' : ''}" aria-label="Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="dock-lbl">Home</span>
+      </a>
+      <a href="${routeUrl('sagfx')}" class="pin-dock-item${isSagfx ? ' active' : ''}" aria-label="SAGFX Prime">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <span class="dock-lbl">SAGFX</span>
+      </a>
+      <div class="pin-dock-fab-slot">
+        <button type="button" class="pin-dock-fab" id="pinDockFabBtn" aria-label="Open Quick Menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <span class="pin-dock-fab-label">Menu</span>
+      </div>
+      <a href="${routeUrl('hedging')}" class="pin-dock-item${isHedge ? ' active' : ''}" aria-label="Gold Hedging">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span class="dock-lbl">Hedge</span>
+      </a>
+      <a href="${routeUrl('books')}" class="pin-dock-item${isLibrary ? ' active' : ''}" aria-label="Library">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span class="dock-lbl">Library</span>
+      </a>
+    </nav>
+  `;
+
+  document.body.appendChild(backdrop);
+  document.body.appendChild(dockWrap);
+
+  const fabBtn = document.getElementById('pinDockFabBtn');
+  const sheet = document.getElementById('pinDockSheet');
+
+  function toggleSheet(forceState) {
+    const nextOpen = typeof forceState === 'boolean' ? forceState : !sheet.classList.contains('open');
+    sheet.classList.toggle('open', nextOpen);
+    sheet.setAttribute('aria-hidden', nextOpen ? 'false' : 'true');
+    fabBtn.classList.toggle('open', nextOpen);
+    fabBtn.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
+    backdrop.classList.toggle('open', nextOpen);
+  }
+
+  if (fabBtn && sheet) {
+    fabBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleSheet();
+    });
+    backdrop.addEventListener('click', () => toggleSheet(false));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && sheet.classList.contains('open')) {
+        toggleSheet(false);
+      }
+    });
   }
 }

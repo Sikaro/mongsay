@@ -9966,71 +9966,96 @@ main, section, footer {
   .site-nav {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 6px 12px !important;
+    padding: 6px 10px !important;
     gap: 6px !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
   }
   .brand-wrapper {
-    gap: 8px !important;
+    gap: 6px !important;
     min-width: 0 !important;
     flex-shrink: 1 !important;
+    overflow: hidden !important;
   }
   .brand-lion-logo {
-    width: 30px !important;
-    height: 30px !important;
+    width: 28px !important;
+    height: 28px !important;
   }
   .brand-title {
     display: inline-flex !important;
-    font-size: 1.08rem !important;
+    font-size: 0.94rem !important;
     margin-right: 0 !important;
   }
   .brand-title .brand-cap {
-    font-size: 1.28rem !important;
+    font-size: 1.12rem !important;
   }
   .nav-actions {
-    gap: 6px !important;
+    gap: 5px !important;
     min-width: 0 !important;
     flex-shrink: 0 !important;
   }
   .nav-controls {
-    gap: 5px !important;
+    gap: 4px !important;
   }
   /* Telegram pill stays inside drawer + Hero CTAs on small phones so hamburger is never clipped */
   .site-nav .btn-nav-telegram {
     display: none !important;
   }
+  .fx-toggle {
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+    min-height: 26px !important;
+    max-width: 26px !important;
+    max-height: 26px !important;
+  }
   .mobile-toggle {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 32px !important;
-    height: 32px !important;
+    width: 30px !important;
+    height: 30px !important;
     padding: 0 !important;
     border-radius: 50% !important;
-    background: rgba(255, 255, 255, 0.06) !important;
-    border: 1px solid rgba(255, 255, 255, 0.14) !important;
-    font-size: 1.15rem !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    font-size: 1.05rem !important;
     color: #fff !important;
     flex-shrink: 0 !important;
   }
   .pin-theme-toggle.theme-toggle {
-    width: 62px !important;
-    min-width: 62px !important;
-    max-width: 62px !important;
-    height: 28px !important;
+    width: 64px !important;
+    min-width: 64px !important;
+    max-width: 64px !important;
+    height: 26px !important;
+  }
+  .pin-theme-toggle .pin-toggle-track {
+    height: 24px !important;
   }
   .pin-theme-toggle .pin-toggle-orb {
-    width: 28px !important;
-    height: 28px !important;
+    width: 26px !important;
+    height: 26px !important;
+    top: 0 !important;
+    left: -1px !important;
   }
   [data-theme="light"] .pin-theme-toggle .pin-toggle-orb {
-    transform: translateX(36px) !important;
+    transform: translateX(39px) !important;
+  }
+  .pin-theme-toggle .pin-toggle-label {
+    font-size: 0.60rem !important;
+  }
+  .pin-theme-toggle .pin-toggle-label.label-light {
+    right: 8px !important;
+  }
+  .pin-theme-toggle .pin-toggle-label.label-dark {
+    left: 8px !important;
   }
   .lang-toggle {
-    height: 28px !important;
-    padding: 0 7px !important;
-    font-size: 0.68rem !important;
+    height: 26px !important;
+    min-height: 26px !important;
+    max-height: 26px !important;
+    padding: 0 6px !important;
+    font-size: 0.64rem !important;
   }
 
   /* Global Section Tag & Pill Wrapping on Mobile */
@@ -10299,21 +10324,27 @@ main, section, footer {
 
 @media (max-width: 360px) {
   .brand-title {
-    font-size: 0.94rem !important;
+    font-size: 0.90rem !important;
   }
   .brand-title .brand-cap {
-    font-size: 1.12rem !important;
+    font-size: 1.08rem !important;
   }
   .pin-theme-toggle.theme-toggle {
-    width: 54px !important;
-    min-width: 54px !important;
-    max-width: 54px !important;
+    width: 58px !important;
+    min-width: 58px !important;
+    max-width: 58px !important;
   }
   .pin-theme-toggle .pin-toggle-label {
     font-size: 0.56rem !important;
   }
   [data-theme="light"] .pin-theme-toggle .pin-toggle-orb {
-    transform: translateX(28px) !important;
+    transform: translateX(32px) !important;
+  }
+}
+
+@media (max-width: 350px) {
+  .brand-title {
+    display: none !important;
   }
 }
 
@@ -11375,5 +11406,327 @@ html.fx-frozen .discipline-metrics-strip {
   .discipline-phase-btn {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   FLOATING iOS GLASSMORPHIC MOBILE BOTTOM TAB DOCK (https://pin.it/1Upf5WvRC)
+   Combines 02 Glassmorphism + 03 Floating Detached + 05 Pill Highlight + 06 Center FAB
+   Strictly rendered on mobile & tablet screens (<= 768px)
+   ========================================================================== */
+.mobile-pin-dock-wrap,
+.pin-dock-backdrop {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding-bottom: 96px !important;
+  }
+
+  /* Prevent overlap with bottom pagination dock on sagfx.html */
+  .pin-deck-controls {
+    bottom: 92px !important;
+  }
+
+  .pin-dock-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 5, 12, 0.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 988;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s ease;
+  }
+
+  .pin-dock-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-pin-dock-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    z-index: 990;
+    pointer-events: none;
+  }
+
+  /* Quick Action Drawer Sheet popped above Dock by Center FAB */
+  .pin-dock-sheet {
+    pointer-events: none;
+    width: 100%;
+    max-width: 420px;
+    margin-bottom: 14px;
+    background: linear-gradient(165deg, rgba(8, 16, 32, 0.97) 0%, rgba(4, 8, 18, 0.99) 100%);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid rgba(229, 185, 95, 0.36);
+    border-radius: 24px;
+    padding: 16px;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    transform: translateY(18px) scale(0.95);
+    opacity: 0;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .pin-dock-sheet.open {
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  .pin-sheet-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .pin-sheet-link {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 11px 12px;
+    min-height: 48px;
+    color: #f8fafc;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  }
+
+  .pin-sheet-link:active {
+    transform: scale(0.96);
+  }
+
+  .pin-sheet-link.vip-highlight {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    background: linear-gradient(135deg, rgba(229, 185, 95, 0.22) 0%, rgba(56, 189, 248, 0.14) 100%);
+    border-color: rgba(229, 185, 95, 0.45);
+    color: #fff2c6;
+  }
+
+  .pin-sheet-link .sheet-ico {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #38bdf8;
+  }
+
+  .pin-sheet-link.vip-highlight .sheet-ico {
+    background: var(--accent-gold-gradient);
+    color: #04060a;
+  }
+
+  /* Main Floating Detached Dock Bar */
+  .mobile-pin-dock {
+    pointer-events: auto;
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    height: 64px;
+    background: linear-gradient(165deg, rgba(16, 28, 52, 0.80) 0%, rgba(5, 10, 22, 0.92) 100%);
+    backdrop-filter: blur(26px) saturate(180%);
+    -webkit-backdrop-filter: blur(26px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 28px;
+    padding: 0 8px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    box-shadow:
+      0 18px 42px rgba(0, 0, 0, 0.80),
+      0 0 24px rgba(56, 189, 248, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  }
+
+  /* Subtle Elevated Arch Dome Contour behind Center FAB */
+  .pin-dock-crown {
+    position: absolute;
+    left: 50%;
+    top: -12px;
+    transform: translateX(-50%);
+    width: 68px;
+    height: 16px;
+    background: linear-gradient(180deg, rgba(16, 28, 52, 0.88) 0%, rgba(16, 28, 52, 0) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .pin-dock-item {
+    position: relative;
+    z-index: 2;
+    min-width: 48px;
+    min-height: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    text-decoration: none;
+    color: #94a3b8;
+    border-radius: 16px;
+    padding: 4px 2px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .pin-dock-item svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
+  }
+
+  .pin-dock-item .dock-lbl {
+    font-family: var(--font-accent);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* Active Pill Highlight + Glow Indicator (05 + 09 Style Fusion) */
+  .pin-dock-item.active {
+    color: #ffffff;
+    background: linear-gradient(180deg, rgba(229, 185, 95, 0.18) 0%, rgba(229, 185, 95, 0.05) 100%);
+    box-shadow: inset 0 1px 0 rgba(229, 185, 95, 0.35);
+  }
+
+  .pin-dock-item.active svg {
+    color: #e5b95f;
+    transform: translateY(-1px) scale(1.08);
+    filter: drop-shadow(0 0 8px rgba(229, 185, 95, 0.65));
+  }
+
+  .pin-dock-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 2.5px;
+    border-radius: 999px;
+    background: #e5b95f;
+    box-shadow: 0 0 8px #e5b95f;
+  }
+
+  .pin-dock-item:active {
+    transform: scale(0.92);
+  }
+
+  /* Center Elevated Circular FAB Slot */
+  .pin-dock-fab-slot {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pin-dock-fab {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    margin-top: -24px;
+    border: 3px solid rgba(7, 13, 26, 0.95);
+    background: linear-gradient(135deg, #fef08a 0%, #f59e0b 55%, #d97706 100%);
+    color: #04060a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow:
+      0 8px 22px rgba(229, 185, 95, 0.55),
+      0 0 16px rgba(245, 158, 11, 0.45),
+      inset 0 2px 3px rgba(255, 255, 255, 0.75);
+    transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .pin-dock-fab svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .pin-dock-fab.open svg {
+    transform: rotate(45deg);
+  }
+
+  .pin-dock-fab-label {
+    font-family: var(--font-accent);
+    font-size: 0.60rem;
+    font-weight: 800;
+    color: #e5b95f;
+    margin-top: 3px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+
+  /* Light Mode Overrides for Mobile Dock */
+  [data-theme="light"] .mobile-pin-dock {
+    background: linear-gradient(165deg, rgba(10, 30, 62, 0.88) 0%, rgba(5, 18, 38, 0.95) 100%);
+    border-color: rgba(56, 189, 248, 0.42);
+    box-shadow: 0 18px 42px rgba(2, 6, 23, 0.75), 0 0 24px rgba(56, 189, 248, 0.22);
+  }
+
+  [data-theme="light"] .pin-dock-item.active {
+    background: linear-gradient(180deg, rgba(56, 189, 248, 0.24) 0%, rgba(56, 189, 248, 0.06) 100%);
+    box-shadow: inset 0 1px 0 rgba(56, 189, 248, 0.45);
+  }
+
+  [data-theme="light"] .pin-dock-item.active svg {
+    color: #38bdf8;
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.75));
+  }
+
+  [data-theme="light"] .pin-dock-item.active::after {
+    background: #38bdf8;
+    box-shadow: 0 0 8px #38bdf8;
+  }
+
+  [data-theme="light"] .pin-dock-fab {
+    background: linear-gradient(135deg, #bae6fd 0%, #38bdf8 55%, #0284c7 100%);
+    box-shadow: 0 8px 22px rgba(14, 165, 233, 0.55), inset 0 2px 3px rgba(255, 255, 255, 0.85);
+  }
+
+  [data-theme="light"] .pin-dock-fab-label {
+    color: #38bdf8;
+  }
+
+  [data-theme="light"] .pin-dock-sheet {
+    background: linear-gradient(165deg, rgba(8, 28, 56, 0.94) 0%, rgba(4, 16, 36, 0.98) 100%);
+    border-color: rgba(56, 189, 248, 0.45);
+  }
+
+  html.fx-frozen .mobile-pin-dock,
+  html.fx-frozen .pin-dock-sheet,
+  html.fx-frozen .pin-dock-backdrop {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 }
