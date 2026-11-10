@@ -11730,3 +11730,399 @@ html.fx-frozen .discipline-metrics-strip {
     -webkit-backdrop-filter: none !important;
   }
 }
+
+/* ==========================================================================
+   HOMEPAGE OVERVIEWS: PINTEREST 2v2CK3zZv (COBALT CRYSTAL BEVEL CARDS)
+   & PINTEREST 6EweXEdqW (AMBIENT SAPPHIRE TELEMETRY WIDGETS)
+   ========================================================================== */
+.promo-card.pin-cobalt-feature-card {
+  background: radial-gradient(120% 90% at 50% 0%, rgba(30, 64, 175, 0.34) 0%, rgba(8, 22, 54, 0.88) 48%, rgba(4, 10, 26, 0.96) 100%) !important;
+  border: 1.5px solid rgba(96, 165, 250, 0.42) !important;
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.85),
+    0 0 28px rgba(37, 99, 235, 0.22),
+    inset 0 1px 1px rgba(191, 219, 254, 0.42) !important;
+}
+
+.promo-card.pin-cobalt-feature-card::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border-radius: calc(var(--radius-lg) - 4px);
+  border: 1px solid rgba(147, 197, 253, 0.16);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.promo-card.pin-cobalt-feature-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(96, 165, 250, 0.85) !important;
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.92),
+    0 0 42px rgba(59, 130, 246, 0.45),
+    inset 0 1px 2px rgba(219, 234, 254, 0.65) !important;
+}
+
+.pin-feature-visual {
+  position: relative;
+  width: 100%;
+  height: 76px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(15, 38, 88, 0.45) 0%, rgba(6, 16, 40, 0.65) 100%);
+  border: 1px solid rgba(96, 165, 250, 0.24);
+  margin-bottom: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* Feature 1: Harmonic Flowing Light Waves (2v2CK3zZv Card 1) */
+.pin-wave-ribbon-svg {
+  width: 118%;
+  height: 100%;
+  display: block;
+}
+
+.pin-wave-line {
+  fill: none;
+  stroke: #60a5fa;
+  stroke-width: 1.15;
+  animation: pinWaveSlide 5.5s ease-in-out infinite;
+}
+
+@keyframes pinWaveSlide {
+  0% { transform: translateX(0) scaleY(1); }
+  50% { transform: translateX(-14px) scaleY(1.06); }
+  100% { transform: translateX(0) scaleY(1); }
+}
+
+/* Feature 2: Stepped Ascending Rebate Blocks (2v2CK3zZv Card 2) */
+.pin-step-bars-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  height: 54px;
+  width: 100%;
+}
+
+.pin-step-col {
+  width: 26px;
+  border-radius: 7px 7px 3px 3px;
+  background: linear-gradient(180deg, rgba(96, 165, 250, 0.65) 0%, rgba(30, 64, 175, 0.28) 100%);
+  border: 1px solid rgba(147, 197, 253, 0.45);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.28);
+  animation: pinStepGlow 3.2s ease-in-out infinite;
+}
+
+.pin-step-col.s1 { height: 22px; animation-delay: 0s; opacity: 0.58; }
+.pin-step-col.s2 { height: 32px; animation-delay: 0.4s; opacity: 0.72; }
+.pin-step-col.s3 { height: 42px; animation-delay: 0.8s; opacity: 0.86; }
+.pin-step-col.s4 { height: 52px; animation-delay: 1.2s; opacity: 1; border-color: #93c5fd; }
+
+@keyframes pinStepGlow {
+  0%, 100% { transform: scaleY(0.92); filter: brightness(0.95); }
+  50% { transform: scaleY(1.06); filter: brightness(1.3); box-shadow: 0 0 18px rgba(96, 165, 250, 0.65); }
+}
+
+/* Feature 3: Stepped Market Trendline Arrow (2v2CK3zZv Card 3) */
+.pin-trend-arrow-svg {
+  width: 140px;
+  height: 58px;
+  overflow: visible;
+}
+
+.pin-trend-path {
+  fill: none;
+  stroke: #60a5fa;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 6px rgba(96, 165, 250, 0.85));
+  animation: pinTrendGlow 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes pinTrendGlow {
+  0% { opacity: 0.65; filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.5)); }
+  100% { opacity: 1; filter: drop-shadow(0 0 12px rgba(96, 165, 250, 1)); }
+}
+
+/* ==========================================================================
+   VENTURE OVERVIEW CARDS: PINTEREST 6EweXEdqW (ABYSS ELECTRIC BLUE TELEMETRY)
+   ========================================================================== */
+.venture-card.pin-abyss-telemetry-card {
+  background: radial-gradient(125% 100% at 80% 100%, rgba(29, 78, 216, 0.34) 0%, rgba(7, 17, 46, 0.90) 48%, rgba(3, 7, 18, 0.96) 100%) !important;
+  border: 1.5px solid rgba(59, 130, 246, 0.38) !important;
+  box-shadow:
+    0 24px 55px rgba(0, 0, 0, 0.88),
+    0 0 34px rgba(37, 99, 235, 0.24),
+    inset 0 1px 0 rgba(191, 219, 254, 0.28) !important;
+}
+
+.venture-card.pin-abyss-telemetry-card:hover {
+  border-color: rgba(96, 165, 250, 0.78) !important;
+  box-shadow:
+    0 30px 65px rgba(0, 0, 0, 0.92),
+    0 0 46px rgba(59, 130, 246, 0.45) !important;
+}
+
+.pin-telemetry-stage {
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  background: radial-gradient(circle at 75% 85%, rgba(37, 99, 235, 0.36) 0%, rgba(8, 20, 52, 0.85) 55%, rgba(4, 10, 26, 0.96) 100%);
+  border: 1px solid rgba(96, 165, 250, 0.28);
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Card 1 Telemetry: Killzone Session Vector + Animated Equalizer Bars */
+.pin-route-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.pin-route-labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.70rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.pin-route-track {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.pin-route-fill {
+  height: 100%;
+  width: 72%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #1d4ed8 0%, #38bdf8 70%, #ffffff 100%);
+  box-shadow: 0 0 12px #38bdf8;
+  animation: pinRoutePulse 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes pinRoutePulse {
+  0% { width: 58%; opacity: 0.85; }
+  100% { width: 84%; opacity: 1; }
+}
+
+.pin-eq-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.pin-eq-bars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 36px;
+  flex: 1;
+}
+
+.pin-eq-bar {
+  width: 3.5px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #38bdf8 0%, #2563eb 100%);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.65);
+  animation: pinEqDance 1.3s ease-in-out infinite alternate;
+}
+
+@keyframes pinEqDance {
+  0% { transform: scaleY(0.35); opacity: 0.65; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+
+.pin-eq-orb-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #040814;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.22), 0 0 18px rgba(56, 189, 248, 0.65);
+  flex-shrink: 0;
+  animation: pinOrbHalo 2.4s ease-in-out infinite;
+}
+
+@keyframes pinOrbHalo {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2), 0 0 14px rgba(56, 189, 248, 0.55); }
+  50% { box-shadow: 0 0 0 8px rgba(56, 189, 248, 0.35), 0 0 24px rgba(56, 189, 248, 0.9); }
+}
+
+/* Card 2 Telemetry: 85% Clearing Ring + Liquid Battery Core (6EweXEdqW Card 1) */
+.pin-charge-split {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.pin-charge-ring-box {
+  position: relative;
+  width: 82px;
+  height: 82px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pin-charge-ring-box svg {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+
+.pin-charge-pct {
+  font-family: var(--font-accent);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.pin-charge-sub {
+  font-size: 0.56rem;
+  color: #93c5fd;
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+/* Translucent Liquid Energy Tank Cell */
+.pin-liquid-battery-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.pin-liquid-cell {
+  position: relative;
+  width: 48px;
+  height: 70px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.72);
+  border: 1.5px solid rgba(147, 197, 253, 0.35);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: inset 0 2px 8px rgba(255, 255, 255, 0.14), 0 0 18px rgba(37, 99, 235, 0.35);
+}
+
+.pin-liquid-fill {
+  position: absolute;
+  left: -25%;
+  right: -25%;
+  bottom: 0;
+  height: 76%;
+  background: linear-gradient(180deg, #38bdf8 0%, #2563eb 55%, #1e3a8a 100%);
+  border-radius: 42% 45% 0 0;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.75);
+  animation: pinLiquidWave 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes pinLiquidWave {
+  0% { transform: translateX(-6%) rotate(-3deg); height: 74%; }
+  100% { transform: translateX(6%) rotate(3deg); height: 80%; }
+}
+
+.pin-liquid-bolt {
+  position: relative;
+  z-index: 3;
+  color: #ffffff;
+  font-size: 1.15rem;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95));
+  animation: pinBoltPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pinBoltPulse {
+  0%, 100% { transform: scale(0.95); opacity: 0.9; }
+  50% { transform: scale(1.12); opacity: 1; }
+}
+
+.pin-charge-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.pin-charge-caption strong {
+  font-size: 0.84rem;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.pin-charge-caption span {
+  font-size: 0.70rem;
+  color: #93c5fd;
+  line-height: 1.35;
+}
+
+/* Light Mode Integration for Homepage Overview Cards */
+[data-theme="light"] .promo-card.pin-cobalt-feature-card {
+  background: radial-gradient(120% 90% at 50% 0%, rgba(14, 165, 233, 0.32) 0%, rgba(6, 20, 46, 0.92) 55%, rgba(4, 14, 34, 0.96) 100%) !important;
+  border-color: rgba(56, 189, 248, 0.48) !important;
+}
+
+[data-theme="light"] .venture-card.pin-abyss-telemetry-card {
+  background: radial-gradient(125% 100% at 80% 100%, rgba(14, 165, 233, 0.34) 0%, rgba(6, 22, 48, 0.92) 52%, rgba(4, 15, 36, 0.97) 100%) !important;
+  border-color: rgba(56, 189, 248, 0.45) !important;
+}
+
+/* ECO Freeze Compatibility */
+html.fx-frozen .pin-wave-line,
+html.fx-frozen .pin-step-col,
+html.fx-frozen .pin-trend-path,
+html.fx-frozen .pin-route-fill,
+html.fx-frozen .pin-eq-bar,
+html.fx-frozen .pin-eq-orb-btn,
+html.fx-frozen .pin-liquid-fill,
+html.fx-frozen .pin-liquid-bolt {
+  animation: none !important;
+}
+
+@media (max-width: 580px) {
+  .pin-feature-visual {
+    height: 66px;
+  }
+  .pin-telemetry-stage {
+    padding: 12px;
+  }
+  .pin-charge-ring-box {
+    width: 72px;
+    height: 72px;
+  }
+  .pin-charge-pct {
+    font-size: 1.05rem;
+  }
+  .pin-liquid-cell {
+    width: 42px;
+    height: 62px;
+  }
+}
