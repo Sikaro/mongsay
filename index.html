@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.8.5">
+  <link rel="stylesheet" href="styles.css?v=3.8.6">
 </head>
 <body>
 
@@ -431,6 +431,142 @@
       </div>
     </div>
 
+    <!-- Pinterest Motivation vs Discipline Behavioral Equity Curve (https://pin.it/4EWCD5mPw) -->
+    <section class="discipline-loop-section" id="disciplineShowcase" aria-label="Execution Discipline vs Motivation Equity Curve">
+      <div class="container">
+        <div class="discipline-loop-grid">
+          <!-- Left Column: Narrative & Interactive Telemetry -->
+          <div class="discipline-copy-col">
+            <div class="section-tag"><span class="dot"></span> <span>EXECUTION EDGE // BEHAVIORAL EQUITY CURVE</span></div>
+            <h2 class="section-title" style="margin-bottom: 4px;">
+              Emotion Burns.<br>
+              <span class="gold-gradient-text">Discipline Compounds.</span>
+            </h2>
+            <p class="section-desc" style="margin-bottom: 6px;">
+              Retail <strong>Motivation</strong> spikes impulsively on hype and blows up under uncontrolled leverage. Institutional <strong>Discipline</strong> compounds steadily through mechanical market structure, fixed 1% risk sizing, and repeatable execution.
+            </p>
+
+            <div class="discipline-phase-pills">
+              <button type="button" class="discipline-phase-btn" data-phase="motivation" id="discBtnMotivation">
+                <span class="p-dot"></span>
+                <span>01 MOTIVATION // BOOM &amp; BUST</span>
+              </button>
+              <button type="button" class="discipline-phase-btn active" data-phase="discipline" id="discBtnDiscipline">
+                <span class="p-dot"></span>
+                <span>02 DISCIPLINE // EXPONENTIAL EDGE</span>
+              </button>
+            </div>
+
+            <div class="discipline-metrics-strip" id="discMetricsStrip">
+              <div class="disc-metric-cell">
+                <span class="lbl">Risk Model</span>
+                <span class="val" id="discMetricRisk" style="color: #4ade80;">1% Fixed Fractional</span>
+              </div>
+              <div class="disc-metric-cell">
+                <span class="lbl">Structure</span>
+                <span class="val" id="discMetricStruct" style="color: #38bdf8;">Higher Highs / Lows</span>
+              </div>
+              <div class="disc-metric-cell">
+                <span class="lbl">Outcome</span>
+                <span class="val" id="discMetricOutcome" style="color: #4ade80;">Asymmetric Breakout</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Dark Obsidian Animated Stage with Glossy Floor Reflection -->
+          <div class="pin-discipline-stage-card state-compound" id="pinDisciplineStage">
+            <div class="pin-floor-sheen" aria-hidden="true"></div>
+            <div class="pin-stage-phase-header">
+              <div class="pin-stage-title" id="pinStageTitle">DISCIPLINE</div>
+            </div>
+
+            <div class="pin-stage-svg-wrap">
+              <svg class="pin-discipline-svg" viewBox="0 0 360 325" id="pinDisciplineSvg" aria-hidden="true">
+                <defs>
+                  <filter id="pinCurveGlow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feGaussianBlur stdDeviation="3.5" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  <filter id="pinAxisGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="2.2" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  <filter id="pinFloorBlur" x="-25%" y="-25%" width="150%" height="150%">
+                    <feGaussianBlur stdDeviation="6.5" />
+                  </filter>
+                  <clipPath id="pinGridClip">
+                    <rect x="42" y="58" width="276" height="192" />
+                  </clipPath>
+                  <clipPath id="pinFloorClip">
+                    <rect x="0" y="252" width="360" height="73" />
+                  </clipPath>
+                  <linearGradient id="pinAreaGreen" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#22c55e" stop-opacity="0.28" />
+                    <stop offset="100%" stop-color="#22c55e" stop-opacity="0.01" />
+                  </linearGradient>
+                  <linearGradient id="pinAreaRed" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#ef4444" stop-opacity="0.32" />
+                    <stop offset="100%" stop-color="#ef4444" stop-opacity="0.01" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Background Coordinate Micro-Grid (42..318, 58..250) -->
+                <g id="pinGridLines" stroke="rgba(255,255,255,0.06)" stroke-width="1">
+                  <!-- Horizontal Gridlines -->
+                  <line x1="42" y1="58" x2="318" y2="58" />
+                  <line x1="42" y1="90" x2="318" y2="90" />
+                  <line x1="42" y1="122" x2="318" y2="122" />
+                  <line x1="42" y1="154" x2="318" y2="154" />
+                  <line x1="42" y1="186" x2="318" y2="186" />
+                  <line x1="42" y1="218" x2="318" y2="218" />
+                  <!-- Vertical Gridlines -->
+                  <line x1="88" y1="58" x2="88" y2="250" />
+                  <line x1="134" y1="58" x2="134" y2="250" />
+                  <line x1="180" y1="58" x2="180" y2="250" />
+                  <line x1="226" y1="58" x2="226" y2="250" />
+                  <line x1="272" y1="58" x2="272" y2="250" />
+                  <line x1="318" y1="58" x2="318" y2="250" />
+                </g>
+                <!-- Subtle Grid Intersection Dots -->
+                <g id="pinGridDots" fill="rgba(255,255,255,0.22)"></g>
+
+                <!-- Glossy Obsidian Floor Reflection below y=250 -->
+                <g clip-path="url(#pinFloorClip)" opacity="0.46">
+                  <g transform="translate(0, 500) scale(1, -1)" filter="url(#pinFloorBlur)">
+                    <path id="pinReflectPath" d="" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" />
+                    <polygon id="pinReflectArrow" points="-6,-5 7,0 -6,5" fill="#22c55e" />
+                  </g>
+                </g>
+
+                <!-- Glowing Area Fill under Curve Clipped to Grid Box -->
+                <g clip-path="url(#pinGridClip)">
+                  <path id="pinAreaFillPath" d="" fill="url(#pinAreaGreen)" opacity="0.85" />
+                </g>
+
+                <!-- Glowing White Coordinate L-Axes -->
+                <g filter="url(#pinAxisGlow)">
+                  <line x1="42" y1="56" x2="42" y2="250" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" />
+                  <line x1="42" y1="250" x2="318" y2="250" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" />
+                </g>
+
+                <!-- Active Vector Equity Curve & Oriented Arrowhead Tip -->
+                <g filter="url(#pinCurveGlow)">
+                  <path id="pinCurveMainPath" d="" fill="none" stroke="#22c55e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+                  <polygon id="pinCurveArrow" points="-6,-5 8,0 -6,5" fill="#22c55e" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Strategic Promotions & Commercial Incentives Section -->
     <section class="promotions-section" id="promotions">
       <div class="container">
@@ -468,7 +604,7 @@
             <div>
               <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
                 <div class="promo-ribbon" data-i18n="promo_2_ribbon">PROMO 02 // SAGFX.ORG</div>
-                <img src="assets/sagfx-3d-logo.jpg?v=3.8.5" alt="SAGFX 3D Official Emblem" style="height: 36px; width: 36px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);">
+                <img src="assets/sagfx-3d-logo.jpg?v=3.8.6" alt="SAGFX 3D Official Emblem" style="height: 36px; width: 36px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);">
               </div>
               <div class="promo-value-badge" data-i18n="promo_2_badge">💰 RECOVER UP TO 85% TRADING COMMISSIONS</div>
               <h3 class="promo-title" data-i18n="promo_2_title">Tier-1 Institutional Rebate Whitelist</h3>
@@ -570,7 +706,7 @@
               <div class="venture-header">
                 <span class="venture-badge-role" data-i18n="venture_2_role">Lead Institutional Brokerage</span>
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <img src="assets/sagfx-3d-logo.jpg?v=3.8.5" alt="SAGFX 3D Official Emblem" style="height: 42px; width: 42px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);">
+                  <img src="assets/sagfx-3d-logo.jpg?v=3.8.6" alt="SAGFX 3D Official Emblem" style="height: 42px; width: 42px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);">
                   <span style="font-weight: 800; font-size: 1.05rem; color: #38bdf8; text-shadow: 0 0 12px rgba(56, 189, 248, 0.6);">SAG<span style="color: #7dd3fc;">FX</span></span>
                 </div>
               </div>
@@ -649,7 +785,7 @@
         <div class="section-tag"><span class="dot"></span> <span data-i18n="calc_tag">QUANTITATIVE COST REDUCTION ENGINE</span></div>
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 12px;">
           <h2 class="section-title" style="margin-bottom: 0;" data-i18n="calc_title">SAGFX Interactive <span class="gold-gradient-text">Broker Rebate Yield</span></h2>
-          <img src="assets/sagfx-3d-logo.jpg?v=3.8.5" alt="SAGFX 3D Official Emblem" style="height: 44px; width: 44px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);">
+          <img src="assets/sagfx-3d-logo.jpg?v=3.8.6" alt="SAGFX 3D Official Emblem" style="height: 44px; width: 44px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);">
         </div>
         <p class="section-desc" data-i18n="calc_desc">
           Calculate real-time monthly cashback and trading cost reductions across institutional tier-1 partner brokers powered by SAGFX.ORG.
@@ -1298,6 +1434,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=3.8.5"></script>
+  <script src="script.js?v=3.8.6"></script>
 </body>
 </html>

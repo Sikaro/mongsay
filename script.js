@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHedgingLedgerStack();
   initLibraryReadingStack();
   initPinterestMobileHud();
+  initDisciplineLoopAnimation();
 });
 
 /* ---------------------------------------------------------
@@ -4521,4 +4522,272 @@ function initPinterestMobileHud() {
       tabBtns.forEach((b, i) => b.classList.toggle('active', i === clampedIdx));
     }, 60);
   }, { passive: true });
+}
+
+/* ==========================================================================
+   PINTEREST MOTIVATION VS DISCIPLINE EQUITY CURVE ENGINE (pin.it/4EWCD5mPw)
+   Pre-sampled Bezier points, dynamic green->crimson burn, moving arrow,
+   live wet-floor reflection, interactive phase pills, and ECO freeze safe
+   ========================================================================== */
+function initDisciplineLoopAnimation() {
+  const stageCard = document.getElementById('pinDisciplineStage');
+  const svg = document.getElementById('pinDisciplineSvg');
+  const mainPath = document.getElementById('pinCurveMainPath');
+  const reflectPath = document.getElementById('pinReflectPath');
+  const areaPath = document.getElementById('pinAreaFillPath');
+  const arrowTip = document.getElementById('pinCurveArrow');
+  const reflectArrow = document.getElementById('pinReflectArrow');
+  const phaseTitle = document.getElementById('pinStageTitle');
+  const gridDots = document.getElementById('pinGridDots');
+
+  const btnMotivation = document.getElementById('discBtnMotivation');
+  const btnDiscipline = document.getElementById('discBtnDiscipline');
+  const metricRisk = document.getElementById('discMetricRisk');
+  const metricStruct = document.getElementById('discMetricStruct');
+  const metricOutcome = document.getElementById('discMetricOutcome');
+
+  if (!stageCard || !svg || !mainPath || !areaPath) return;
+
+  // 1. Render subtle coordinate intersection dots
+  if (gridDots && gridDots.children.length === 0) {
+    const xs = [88, 134, 180, 226, 272, 318];
+    const ys = [58, 90, 122, 154, 186, 218];
+    xs.forEach(x => {
+      ys.forEach(y => {
+        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        dot.setAttribute('cx', x);
+        dot.setAttribute('cy', y);
+        dot.setAttribute('r', '1.1');
+        gridDots.appendChild(dot);
+      });
+    });
+  }
+
+  // 2. Define high-fidelity Bezier curves matching Pinterest Motivation/Discipline motion
+  const D_MOTIVATION = 'M 42 250 C 68 175 94 72 126 72 C 154 72 162 168 190 168 C 210 168 216 126 232 126 C 260 126 284 188 314 250';
+  const D_DISCIPLINE = 'M 42 250 L 50 247 C 68 238 82 214 98 214 C 110 214 114 224 124 222 C 142 218 156 184 174 184 C 186 184 190 194 202 190 C 222 184 240 144 264 118 C 290 88 308 42 326 4';
+
+  function samplePathPoints(dString, steps = 110) {
+    const temp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    temp.setAttribute('d', dString);
+    svg.appendChild(temp);
+    const total = temp.getTotalLength();
+    const pts = [];
+    for (let i = 0; i <= steps; i++) {
+      const len = (total * i) / steps;
+      const p = temp.getPointAtLength(len);
+      const pPrev = temp.getPointAtLength(Math.max(0, len - 2.5));
+      const ang = (Math.atan2(p.y - pPrev.y, p.x - pPrev.x) * 180) / Math.PI;
+      pts.push({ x: +p.x.toFixed(1), y: +p.y.toFixed(1), ang: +ang.toFixed(1) });
+    }
+    svg.removeChild(temp);
+    return pts;
+  }
+
+  const ptsMotivation = samplePathPoints(D_MOTIVATION);
+  const ptsDiscipline = samplePathPoints(D_DISCIPLINE);
+
+  function buildPolyD(pts, count) {
+    const sliceEnd = Math.max(1, Math.min(pts.length - 1, count));
+    let d = `M ${pts[0].x} ${pts[0].y}`;
+    for (let i = 1; i <= sliceEnd; i++) {
+      d += ` L ${pts[i].x} ${pts[i].y}`;
+    }
+    return {
+      lineD: d,
+      areaD: `${d} L ${pts[sliceEnd].x} 250 L ${pts[0].x} 250 Z`,
+      tip: pts[sliceEnd]
+    };
+  }
+
+  function lerpColorRGB(t) {
+    // Smooth interpolation from Neon Green (#22c55e) -> Amber -> Neon Red (#ef4444)
+    const r = Math.round(34 + (239 - 34) * t);
+    const g = Math.round(197 + (68 - 197) * t);
+    const b = Math.round(94 + (68 - 94) * t);
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+
+  let currentPhase = 'motivation';
+  let phaseStartTs = null;
+  let rafId = null;
+  let manualHold = false;
+
+  const PHASE_DUR_MS = 3800; // ~3.8s per phase (draw ~2.9s + hold ~0.9s)
+  const DRAW_RATIO = 0.76;
+
+  function setPhaseMeta(phase, isCrashColor) {
+    if (phase === 'motivation') {
+      if (phaseTitle && phaseTitle.textContent !== 'MOTIVATION') {
+        phaseTitle.textContent = 'MOTIVATION';
+      }
+      if (btnMotivation) btnMotivation.classList.add('active');
+      if (btnDiscipline) btnDiscipline.classList.remove('active');
+      if (isCrashColor) {
+        stageCard.classList.add('state-crash');
+        stageCard.classList.remove('state-compound');
+      } else {
+        stageCard.classList.remove('state-crash');
+        stageCard.classList.add('state-compound');
+      }
+      if (metricRisk) {
+        metricRisk.textContent = 'Over-Leveraged';
+        metricRisk.style.color = isCrashColor ? '#f87171' : '#4ade80';
+      }
+      if (metricStruct) {
+        metricStruct.textContent = isCrashColor ? 'Liquidity Wipeout' : 'Euphoria Spike';
+        metricStruct.style.color = isCrashColor ? '#fca5a5' : '#38bdf8';
+      }
+      if (metricOutcome) {
+        metricOutcome.textContent = isCrashColor ? '-100% Margin Call' : 'Temporary High';
+        metricOutcome.style.color = isCrashColor ? '#ef4444' : '#fbbf24';
+      }
+    } else {
+      if (phaseTitle && phaseTitle.textContent !== 'DISCIPLINE') {
+        phaseTitle.textContent = 'DISCIPLINE';
+      }
+      if (btnDiscipline) btnDiscipline.classList.add('active');
+      if (btnMotivation) btnMotivation.classList.remove('active');
+      stageCard.classList.remove('state-crash');
+      stageCard.classList.add('state-compound');
+
+      if (metricRisk) {
+        metricRisk.textContent = '1% Fixed Risk';
+        metricRisk.style.color = '#4ade80';
+      }
+      if (metricStruct) {
+        metricStruct.textContent = 'Higher Highs / Lows';
+        metricStruct.style.color = '#38bdf8';
+      }
+      if (metricOutcome) {
+        metricOutcome.textContent = 'Compound Edge';
+        metricOutcome.style.color = '#4ade80';
+      }
+    }
+  }
+
+  function renderAt(phase, progress) {
+    const pts = phase === 'motivation' ? ptsMotivation : ptsDiscipline;
+    const drawP = Math.min(1, progress / DRAW_RATIO);
+    // Ease out slightly on discipline breakout
+    const easedP = phase === 'discipline' ? Math.pow(drawP, 0.96) : drawP;
+    const idx = Math.max(1, Math.round(easedP * (pts.length - 1)));
+    const poly = buildPolyD(pts, idx);
+
+    let strokeColor = '#22c55e';
+    let areaFill = 'url(#pinAreaGreen)';
+    let isCrash = false;
+
+    if (phase === 'motivation') {
+      // Transition from green -> crimson red as curve drops past first peak (easedP 0.42 -> 0.56)
+      if (easedP >= 0.42) {
+        const burnT = Math.min(1, (easedP - 0.42) / 0.14);
+        strokeColor = lerpColorRGB(burnT);
+        isCrash = burnT > 0.5;
+        if (isCrash) areaFill = 'url(#pinAreaRed)';
+      }
+    } else {
+      // Subtle red tick at very start of discipline curve (0 -> 0.04) matching Pinterest clip
+      if (easedP < 0.04) {
+        strokeColor = '#ef4444';
+      }
+    }
+
+    mainPath.setAttribute('d', poly.lineD);
+    mainPath.setAttribute('stroke', strokeColor);
+    reflectPath.setAttribute('d', poly.lineD);
+    reflectPath.setAttribute('stroke', strokeColor);
+    areaPath.setAttribute('d', poly.areaD);
+    areaPath.setAttribute('fill', areaFill);
+
+    // Position oriented arrowhead tip
+    const showArrow = easedP > 0.01 && (phase === 'motivation' ? easedP < 0.99 : poly.tip.y > 14);
+    if (arrowTip && reflectArrow) {
+      if (showArrow) {
+        const tr = `translate(${poly.tip.x}, ${poly.tip.y}) rotate(${poly.tip.ang})`;
+        arrowTip.setAttribute('transform', tr);
+        arrowTip.setAttribute('fill', strokeColor);
+        arrowTip.style.opacity = '1';
+        reflectArrow.setAttribute('transform', tr);
+        reflectArrow.setAttribute('fill', strokeColor);
+        reflectArrow.style.opacity = '1';
+      } else {
+        arrowTip.style.opacity = '0';
+        reflectArrow.style.opacity = '0';
+      }
+    }
+
+    setPhaseMeta(phase, isCrash);
+  }
+
+  function frameLoop(ts) {
+    if (manualHold) {
+      rafId = null;
+      return;
+    }
+    if (document.documentElement.classList.contains('fx-frozen')) {
+      renderAt('discipline', 1);
+      rafId = null;
+      return;
+    }
+
+    if (!phaseStartTs) phaseStartTs = ts;
+    const elapsed = ts - phaseStartTs;
+    if (elapsed >= PHASE_DUR_MS) {
+      currentPhase = currentPhase === 'motivation' ? 'discipline' : 'motivation';
+      phaseStartTs = ts;
+      renderAt(currentPhase, 0.01);
+    } else {
+      renderAt(currentPhase, elapsed / PHASE_DUR_MS);
+    }
+
+    rafId = requestAnimationFrame(frameLoop);
+  }
+
+  function jumpToPhase(phase) {
+    manualHold = false;
+    currentPhase = phase;
+    phaseStartTs = performance.now();
+    renderAt(currentPhase, document.documentElement.classList.contains('fx-frozen') ? 1 : 0.01);
+    if (!rafId && !document.documentElement.classList.contains('fx-frozen')) {
+      rafId = requestAnimationFrame(frameLoop);
+    }
+  }
+
+  if (btnMotivation) {
+    btnMotivation.addEventListener('click', () => jumpToPhase('motivation'));
+  }
+  if (btnDiscipline) {
+    btnDiscipline.addEventListener('click', () => jumpToPhase('discipline'));
+  }
+
+  // Direct phase/progress hook for deterministic visual inspection
+  stageCard.setPhaseProgress = (phase, progress, lock = true) => {
+    manualHold = lock;
+    currentPhase = phase;
+    renderAt(phase, progress);
+  };
+
+  // Resume smoothly if Eco Freeze toggled off
+  const fxObserver = new MutationObserver(() => {
+    const frozen = document.documentElement.classList.contains('fx-frozen');
+    if (frozen) {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+      renderAt('discipline', 1);
+    } else if (!rafId) {
+      phaseStartTs = performance.now();
+      rafId = requestAnimationFrame(frameLoop);
+    }
+  });
+  fxObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+  // Kick off live loop
+  if (document.documentElement.classList.contains('fx-frozen')) {
+    renderAt('discipline', 1);
+  } else {
+    rafId = requestAnimationFrame(frameLoop);
+  }
 }

@@ -11135,3 +11135,245 @@ html.fx-frozen .pin-speedo-panel {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
+
+/* ==========================================================================
+   PINTEREST MOTIVATION VS DISCIPLINE EQUITY CURVE SHOWCASE (pin.it/4EWCD5mPw)
+   Dark Obsidian Stage, Animated Neon Curves, Glossy Floor Reflection & Telemetry
+   ========================================================================== */
+.discipline-loop-section {
+  position: relative;
+  width: 100%;
+  padding: 26px 0 58px;
+  overflow-x: clip;
+}
+
+.discipline-loop-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.discipline-loop-grid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.discipline-copy-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.discipline-phase-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.discipline-phase-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(8, 14, 28, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.discipline-phase-btn .p-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #64748b;
+  transition: all 0.3s ease;
+}
+
+.discipline-phase-btn.active[data-phase="motivation"] {
+  background: rgba(239, 68, 68, 0.14);
+  border-color: rgba(239, 68, 68, 0.55);
+  color: #fca5a5;
+  box-shadow: 0 0 22px rgba(239, 68, 68, 0.25);
+}
+
+.discipline-phase-btn.active[data-phase="motivation"] .p-dot {
+  background: #ef4444;
+  box-shadow: 0 0 10px #ef4444;
+}
+
+.discipline-phase-btn.active[data-phase="discipline"] {
+  background: rgba(34, 197, 94, 0.14);
+  border-color: rgba(34, 197, 94, 0.55);
+  color: #86efac;
+  box-shadow: 0 0 22px rgba(34, 197, 94, 0.25);
+}
+
+.discipline-phase-btn.active[data-phase="discipline"] .p-dot {
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+}
+
+.discipline-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.disc-metric-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.disc-metric-cell .lbl {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.disc-metric-cell .val {
+  font-family: var(--font-accent);
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+/* Cinema Obsidian Chart Stage */
+.pin-discipline-stage-card {
+  position: relative;
+  background: radial-gradient(circle at 50% 34%, #090e16 0%, #020306 72%, #000000 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 26px;
+  padding: 26px 20px 18px;
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.92),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 0 38px rgba(16, 185, 129, 0.12);
+  overflow: hidden;
+  transition: box-shadow 0.45s ease, border-color 0.45s ease;
+}
+
+.pin-discipline-stage-card.state-crash {
+  border-color: rgba(239, 68, 68, 0.35);
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.92),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 0 42px rgba(239, 68, 68, 0.22);
+}
+
+.pin-discipline-stage-card.state-compound {
+  border-color: rgba(34, 197, 94, 0.38);
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.92),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 0 44px rgba(34, 197, 94, 0.24);
+}
+
+.pin-stage-phase-header {
+  text-align: center;
+  position: relative;
+  z-index: 4;
+  margin-bottom: -16px;
+}
+
+.pin-stage-title {
+  font-family: var(--font-accent);
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.55);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.pin-stage-svg-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  z-index: 3;
+}
+
+.pin-discipline-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+/* Glossy Wet Obsidian Floor Sheen beneath X-Axis */
+.pin-floor-sheen {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 4%;
+  height: 28%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(34, 197, 94, 0.26) 0%, rgba(34, 197, 94, 0.05) 48%, transparent 78%);
+  filter: blur(22px);
+  pointer-events: none;
+  z-index: 1;
+  transition: background 0.4s ease, opacity 0.4s ease;
+}
+
+.pin-discipline-stage-card.state-crash .pin-floor-sheen {
+  background: radial-gradient(ellipse at 50% 0%, rgba(239, 68, 68, 0.34) 0%, rgba(239, 68, 68, 0.08) 48%, transparent 78%);
+}
+
+[data-theme="light"] .pin-discipline-stage-card {
+  background: radial-gradient(circle at 50% 34%, #081224 0%, #030712 85%);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+html.fx-frozen .pin-discipline-stage-card,
+html.fx-frozen .discipline-metrics-strip {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+@media (max-width: 960px) {
+  .discipline-loop-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+}
+
+@media (max-width: 640px) {
+  .discipline-loop-section {
+    padding: 16px 0 40px;
+  }
+  .discipline-metrics-strip {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 14px;
+  }
+  .pin-discipline-stage-card {
+    padding: 20px 12px 12px;
+    border-radius: 22px;
+  }
+  .pin-stage-title {
+    font-size: 1.25rem;
+    letter-spacing: 0.14em;
+  }
+  .discipline-phase-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
