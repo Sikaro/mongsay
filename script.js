@@ -2182,7 +2182,7 @@ function initGoldDustCanvas() {
    --------------------------------------------------------- */
 function initCard3DTilt() {
   const tiltCards = document.querySelectorAll(
-    '.venture-card, .portrait-frame, .crest-showcase, .pillar-card, .book-card, .telegram-qr-card, .rebate-calc-container, .risk-calc-container'
+    '.venture-card, .portrait-frame, .crest-showcase, .pillar-card, .book-card, .telegram-qr-card, .rebate-calc-container:not(.hedging-calc-container), .risk-calc-container'
   );
   if (!tiltCards.length) return;
 
