@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBrokerTerminalShowcase();
   initHedgingLedgerStack();
   initLibraryReadingStack();
+  initPinterestMobileHud();
 });
 
 /* ---------------------------------------------------------
@@ -4362,4 +4363,162 @@ function initLibraryReadingStack() {
       typewriterEl.textContent = activeQueries[queryIdx] || '';
     }
   };
+}
+
+/* ==========================================================================
+   PINTEREST MOBILE TELEMETRY HUD ENGINE (https://pin.it/UAq3Np3yg)
+   Radial tick speedometer geometry, tab sync, and Smart Routing switch
+   ========================================================================== */
+function initPinterestMobileHud() {
+  const carousel = document.getElementById('pinMobileCarousel');
+  const tabsWrap = document.getElementById('pinHudTabs');
+  const ticksGroup = document.getElementById('pinSpeedoTicks');
+  const speedoDot = document.getElementById('pinSpeedoDot');
+  const speedoVal = document.getElementById('pinSpeedoVal');
+  const speedoSub = document.getElementById('pinSpeedoSub');
+  const speedoTitle = document.getElementById('pinSpeedoTitle');
+  const row1Lbl = document.getElementById('pinRow1Lbl');
+  const row1Val = document.getElementById('pinRow1Val');
+  const row2Lbl = document.getElementById('pinRow2Lbl');
+  const row2Val = document.getElementById('pinRow2Val');
+  const presetsWrap = document.getElementById('pinSpeedoPresets');
+  const smartSwitch = document.getElementById('pinSmartSwitch');
+  const smartStatusTxt = document.getElementById('pinSmartStatusTxt');
+  const autoModeText = document.getElementById('pinAutoModeText');
+  const autoModeDot = document.getElementById('pinAutoModeDot');
+  const prevBtn = document.getElementById('pinSpeedoPrevBtn');
+
+  if (!carousel || !ticksGroup) return;
+
+  // 1. Render radial tick marks spanning -205 deg to +25 deg (230 deg sweep)
+  const cx = 110;
+  const cy = 104;
+  const rInner = 68;
+  const rOuter = 82;
+  const rDot = 89;
+  const totalTicks = 37;
+  const startDeg = -205;
+  const endDeg = 25;
+  const sweepDeg = endDeg - startDeg;
+  const tickLines = [];
+
+  for (let i = 0; i < totalTicks; i++) {
+    const ratio = i / (totalTicks - 1);
+    const rad = ((startDeg + ratio * sweepDeg) * Math.PI) / 180;
+    const x1 = (cx + rInner * Math.cos(rad)).toFixed(2);
+    const y1 = (cy + rInner * Math.sin(rad)).toFixed(2);
+    const x2 = (cx + rOuter * Math.cos(rad)).toFixed(2);
+    const y2 = (cy + rOuter * Math.sin(rad)).toFixed(2);
+
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x1);
+    line.setAttribute('y1', y1);
+    line.setAttribute('x2', x2);
+    line.setAttribute('y2', y2);
+    line.setAttribute('stroke', 'rgba(255,255,255,0.28)');
+    line.setAttribute('stroke-width', '2');
+    line.setAttribute('stroke-linecap', 'round');
+    ticksGroup.appendChild(line);
+    tickLines.push(line);
+  }
+
+  function updateGaugePct(pct) {
+    const clamped = Math.max(0, Math.min(100, pct));
+    const ratio = clamped / 100;
+    const activeCount = Math.round(ratio * totalTicks);
+
+    tickLines.forEach((line, idx) => {
+      if (idx < activeCount) {
+        line.setAttribute('stroke', 'rgba(255,255,255,0.95)');
+        line.setAttribute('stroke-width', '2.4');
+      } else {
+        line.setAttribute('stroke', 'rgba(255,255,255,0.28)');
+        line.setAttribute('stroke-width', '2');
+      }
+    });
+
+    const dotAngle = ((startDeg + ratio * sweepDeg) * Math.PI) / 180;
+    if (speedoDot) {
+      speedoDot.setAttribute('cx', (cx + rDot * Math.cos(dotAngle)).toFixed(2));
+      speedoDot.setAttribute('cy', (cy + rDot * Math.sin(dotAngle)).toFixed(2));
+    }
+  }
+
+  updateGaugePct(85);
+
+  // 2. Interactive speedometer preset buttons
+  if (presetsWrap) {
+    const presetBtns = presetsWrap.querySelectorAll('.pin-mini-glass-icon');
+    presetBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        presetBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const pct = parseInt(btn.getAttribute('data-pct') || '85', 10);
+        const sub = btn.getAttribute('data-sub') || 'Max Rebate';
+        const title = btn.getAttribute('data-title') || 'SAGFX ECN Rails';
+
+        if (speedoVal) speedoVal.textContent = pct + '%';
+        if (speedoSub) speedoSub.textContent = sub;
+        if (speedoTitle) speedoTitle.textContent = title;
+        if (row1Lbl) row1Lbl.textContent = btn.getAttribute('data-row1-lbl') || 'Latency';
+        if (row1Val) row1Val.textContent = btn.getAttribute('data-row1-val') || '<0.4 ms';
+        if (row2Lbl) row2Lbl.textContent = btn.getAttribute('data-row2-lbl') || 'Raw Spread';
+        if (row2Val) row2Val.textContent = btn.getAttribute('data-row2-val') || '0.0 Pips';
+
+        updateGaugePct(pct);
+      });
+    });
+  }
+
+  // 3. Interactive Smart Routing Toggle Switch
+  if (smartSwitch) {
+    smartSwitch.addEventListener('click', () => {
+      const isOff = smartSwitch.classList.toggle('is-off');
+      smartSwitch.setAttribute('aria-pressed', isOff ? 'false' : 'true');
+      if (smartStatusTxt) smartStatusTxt.textContent = isOff ? 'Off' : 'On';
+      if (autoModeText) autoModeText.textContent = isOff ? 'Manual' : 'Auto mode';
+      if (autoModeDot) {
+        autoModeDot.style.background = isOff ? '#94a3b8' : '#4ade80';
+        autoModeDot.style.boxShadow = isOff ? 'none' : '0 0 8px #4ade80';
+      }
+      if (speedoDot) {
+        speedoDot.setAttribute('fill', isOff ? '#94a3b8' : '#4ade80');
+      }
+    });
+  }
+
+  // 4. Segmented Tab Switcher & Horizontal Snap Scroll Sync
+  const tabBtns = tabsWrap ? tabsWrap.querySelectorAll('.pin-hud-tab-btn') : [];
+  const cards = carousel.querySelectorAll('.pin-mobile-card');
+
+  function scrollToCardIdx(idx) {
+    const targetCard = cards[idx];
+    if (!targetCard) return;
+    carousel.scrollTo({
+      left: idx * (targetCard.offsetWidth + 14),
+      behavior: 'smooth'
+    });
+    tabBtns.forEach((b, i) => b.classList.toggle('active', i === idx));
+  }
+
+  tabBtns.forEach((btn, idx) => {
+    btn.addEventListener('click', () => scrollToCardIdx(idx));
+  });
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => scrollToCardIdx(1));
+  }
+
+  // Sync active tab on swipe
+  let scrollDebounce = null;
+  carousel.addEventListener('scroll', () => {
+    if (scrollDebounce) clearTimeout(scrollDebounce);
+    scrollDebounce = setTimeout(() => {
+      const cardW = cards[0] ? cards[0].offsetWidth + 14 : 340;
+      const idx = Math.round(carousel.scrollLeft / cardW);
+      const clampedIdx = Math.max(0, Math.min(cards.length - 1, idx));
+      tabBtns.forEach((b, i) => b.classList.toggle('active', i === clampedIdx));
+    }, 60);
+  }, { passive: true });
 }

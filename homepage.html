@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.8.4">
+  <link rel="stylesheet" href="styles.css?v=3.8.5">
 </head>
 <body>
 
@@ -209,6 +209,211 @@
       </div>
     </section>
 
+    <!-- Pinterest Frosted Glass Mobile Telemetry HUD (https://pin.it/UAq3Np3yg) -->
+    <section class="mobile-pin-hud-section" id="mobilePinHud" aria-label="Mobile Institutional Trading HUD">
+      <div class="container">
+        <div class="pin-hud-header">
+          <div class="pin-hud-top-row">
+            <span class="pin-hud-badge"><span class="live-dot"></span> LIVE INSTITUTIONAL HUD</span>
+            <span style="font-family: 'Space Mono', monospace; font-size: 0.68rem; color: #94a3b8;">SWIPE DECK &rarr;</span>
+          </div>
+          <div class="pin-hud-tabs" id="pinHudTabs" role="tablist">
+            <button type="button" class="pin-hud-tab-btn active" data-slide-index="0" role="tab">01 Desk Overview</button>
+            <button type="button" class="pin-hud-tab-btn" data-slide-index="1" role="tab">02 VIP Access</button>
+            <button type="button" class="pin-hud-tab-btn" data-slide-index="2" role="tab">03 Speedometer</button>
+          </div>
+        </div>
+
+        <div class="pin-mobile-carousel" id="pinMobileCarousel">
+          <!-- CARD 1: Desk Welcome & Active Clearing -->
+          <article class="pin-mobile-card" data-card-idx="0">
+            <div class="pin-card-bg-glow"></div>
+            <div>
+              <div class="pin-dynamic-island" aria-hidden="true"></div>
+              <div class="pin-greeting-row">
+                <div>
+                  <div class="pin-greeting-sub">Hi Trader,</div>
+                  <div class="pin-greeting-title">Welcome!</div>
+                </div>
+                <a href="sagfx" class="pin-circle-icon-btn" aria-label="SAGFX Prime Home" title="SAGFX Portal">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </a>
+              </div>
+
+              <div class="pin-subsec-title">Desk Pulse</div>
+              <div class="pin-quick-split">
+                <div class="pin-glass-box">
+                  <div class="pin-split-label">Weekly Clearing</div>
+                  <div class="pin-icon-strip">
+                    <button type="button" class="pin-mini-glass-icon active" title="XAU/USD Gold" aria-label="XAU/USD Gold">Au</button>
+                    <button type="button" class="pin-mini-glass-icon" title="Execution Latency" aria-label="Execution Speed">&#9889;</button>
+                    <button type="button" class="pin-mini-glass-icon" title="Weekly Rebates" aria-label="Weekly Rebates">$</button>
+                    <button type="button" class="pin-mini-glass-icon" title="Delta Shield" aria-label="Delta Shield">&#128737;</button>
+                  </div>
+                </div>
+                <a href="https://t.me/MongsayFX" target="_blank" rel="noopener noreferrer" class="pin-glass-box pin-add-tile">
+                  <span class="pin-mini-glass-icon">+</span>
+                  <span>Whitelist Desk</span>
+                </a>
+              </div>
+
+              <div class="pin-subsec-title">Active Rail</div>
+              <div class="pin-active-task-card">
+                <div class="pin-task-left">
+                  <div>
+                    <div class="pin-task-name">XAU/USD Flow</div>
+                    <div class="pin-task-meta">0.0 Pip Raw &bull; London/NY Overlap</div>
+                  </div>
+                  <div class="pin-task-status-badge">
+                    <span class="pin-dot-green"></span>
+                    <span class="pin-mini-glass-icon" style="width: 28px; height: 24px; min-width: 28px; font-size: 0.62rem;">ECN</span>
+                  </div>
+                </div>
+                <div class="pin-task-right">
+                  <div class="pin-streak-pill">
+                    <span class="s-lbl">Rebate</span>
+                    <span class="s-val" style="color: #4ade80;">&raquo;</span>
+                    <span class="s-val">85%</span>
+                  </div>
+                  <div>
+                    <div class="pin-circular-progress">
+                      <svg width="68" height="68" viewBox="0 0 68 68">
+                        <circle cx="34" cy="34" r="28" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="6"></circle>
+                        <circle cx="34" cy="34" r="28" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-dasharray="175.9" stroke-dashoffset="26.4"></circle>
+                      </svg>
+                      <div class="pin-circular-text">
+                        <span class="lbl">Yield</span>
+                        <span class="pct">85%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="pin-prev-row">
+                <span>Clearing Batches</span>
+                <a href="sagfx">View All</a>
+              </div>
+              <div class="pin-prev-capsule">
+                <div class="pin-mini-ring"><div class="pin-mini-ring-inner">99%</div></div>
+                <div>
+                  <div style="font-size: 0.78rem; font-weight: 700; color: #fff;">Weekly payouts settled</div>
+                  <div style="font-size: 0.68rem; color: #94a3b8;">SAGFX Tier-1 Direct Clearing</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 2: Atmospheric Bottom Sheet Gateway -->
+          <article class="pin-mobile-card pin-card-gateway" data-card-idx="1">
+            <div class="pin-gateway-hero-bg">
+              <img src="assets/portrait.jpg" alt="Mong Say Executive Desk">
+            </div>
+            <div class="pin-gateway-top-brand">
+              <span class="pin-gateway-logo-txt">Mongsay</span>
+              <span class="pin-auto-mode-pill"><span class="pin-dot-green"></span> XAU/USD</span>
+            </div>
+
+            <div class="pin-bottom-sheet">
+              <div class="pin-drag-handle" aria-hidden="true"></div>
+              <h3 class="pin-sheet-title">Connect for<br>Institutional Alpha</h3>
+              <p class="pin-sheet-desc">
+                Fuel your trading desk with 0.0 pip Tier-1 ECN spreads, delta-neutral gold hedging, and weekly SAGFX rebates.
+              </p>
+              <div class="pin-sheet-actions">
+                <a href="https://t.me/MongsayFX" target="_blank" rel="noopener noreferrer" class="pin-capsule-white-cta">
+                  <span>JOIN VIP</span>
+                  <span class="pin-cta-black-circle">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </a>
+                <a href="hedging" class="pin-capsule-glass-secondary">Hedging Desk</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 3: Radial Tick Speedometer & Smart Routing -->
+          <article class="pin-mobile-card pin-speedometer-card" data-card-idx="2">
+            <div>
+              <div class="pin-speedo-topbar">
+                <button type="button" class="pin-circle-icon-btn" id="pinSpeedoPrevBtn" aria-label="Previous Card">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <span style="font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.86);">Today Live</span>
+                <a href="advisory" class="pin-circle-icon-btn" aria-label="Advisory Terminal">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </a>
+              </div>
+
+              <div class="pin-speedo-panel">
+                <div class="pin-speedo-panel-title" id="pinSpeedoTitle">SAGFX ECN Rails</div>
+                <div class="pin-icon-strip" style="justify-content: center; gap: 10px;" id="pinSpeedoPresets">
+                  <button type="button" class="pin-mini-glass-icon active" data-pct="85" data-sub="Max Rebate" data-title="SAGFX ECN Rails" data-row1-lbl="Latency" data-row1-val="&lt;0.4 ms" data-row2-lbl="Raw Spread" data-row2-val="0.0 Pips" title="Rebate Yield">%</button>
+                  <button type="button" class="pin-mini-glass-icon" data-pct="99" data-sub="Uptime SLA" data-title="Equinix Bridge" data-row1-lbl="Server Node" data-row1-val="NY4 / LD4" data-row2-lbl="Fill Rate" data-row2-val="99.98%" title="Server Uptime">&#9889;</button>
+                  <button type="button" class="pin-mini-glass-icon" data-pct="72" data-sub="Volume Cap" data-title="Prime Liquidity" data-row1-lbl="Monthly Vol" data-row1-val="135K+ Lots" data-row2-lbl="Settlement" data-row2-val="Weekly" title="Prime Volume">&#128202;</button>
+                  <button type="button" class="pin-mini-glass-icon" data-pct="100" data-sub="Delta Hedge" data-title="Bullion Defense" data-row1-lbl="Spot Risk" data-row1-val="0.00% Net" data-row2-lbl="Damlung Unit" data-row2-val="37.50 g" title="Gold Hedging">&#128737;</button>
+                </div>
+
+                <div class="pin-speedo-mode-row">
+                  <div class="pin-track-badge-wrap">
+                    <span class="pin-track-title">Track Record</span>
+                    <span class="pin-auto-mode-pill" id="pinAutoModeBadge">
+                      <span id="pinAutoModeText">Auto mode</span>
+                      <span class="pin-dot-green" id="pinAutoModeDot"></span>
+                    </span>
+                  </div>
+                  <a href="sagfx" class="pin-circle-icon-btn" style="width: 30px; height: 30px; min-width: 30px;" title="Expand SAGFX">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                  </a>
+                </div>
+
+                <!-- Semi-Circular Radial Tick Gauge -->
+                <div class="pin-gauge-wrap">
+                  <svg class="pin-gauge-svg" viewBox="0 0 220 130" id="pinSpeedoSvg">
+                    <g id="pinSpeedoTicks"></g>
+                    <circle id="pinSpeedoDot" cx="182" cy="54" r="5.5" fill="#4ade80" style="filter: drop-shadow(0 0 8px #4ade80); transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);"></circle>
+                  </svg>
+                  <div class="pin-gauge-center-val">
+                    <div class="num" id="pinSpeedoVal">85%</div>
+                    <div class="sub" id="pinSpeedoSub">Max Rebate</div>
+                  </div>
+                </div>
+
+                <!-- Divided Telemetry Metrics Rows -->
+                <div class="pin-telemetry-rows">
+                  <div class="pin-telemetry-row">
+                    <div class="pin-telemetry-left">
+                      <span class="pin-mini-glass-icon" style="width: 28px; height: 28px; min-width: 28px; font-size: 0.72rem;">&#128338;</span>
+                      <span id="pinRow1Lbl">Latency</span>
+                    </div>
+                    <div class="pin-telemetry-right" id="pinRow1Val">&lt;0.4 ms</div>
+                  </div>
+                  <div class="pin-telemetry-row">
+                    <div class="pin-telemetry-left">
+                      <span class="pin-mini-glass-icon" style="width: 28px; height: 28px; min-width: 28px; font-size: 0.72rem; position: relative;">&#128205;<span class="pin-dot-green" style="position: absolute; top: -2px; right: -2px; width: 6px; height: 6px;"></span></span>
+                      <span id="pinRow2Lbl">Raw Spread</span>
+                    </div>
+                    <div class="pin-telemetry-right" id="pinRow2Val">0.0 Pips</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Smart Routing Glass Switch -->
+            <button type="button" class="pin-smart-switch-bar" id="pinSmartSwitch" aria-pressed="true">
+              <span class="pin-smart-pill-track">
+                <span class="pin-smart-orb-thumb"></span>
+                <span class="pin-smart-status-txt" id="pinSmartStatusTxt">On</span>
+              </span>
+              <span class="pin-smart-switch-label">Smart Routing</span>
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- Global Institutional Trading Sessions Clock Bar -->
     <div class="container">
       <div class="market-sessions-bar">
@@ -263,7 +468,7 @@
             <div>
               <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
                 <div class="promo-ribbon" data-i18n="promo_2_ribbon">PROMO 02 // SAGFX.ORG</div>
-                <img src="assets/sagfx-3d-logo.jpg?v=3.8.4" alt="SAGFX 3D Official Emblem" style="height: 36px; width: 36px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);">
+                <img src="assets/sagfx-3d-logo.jpg?v=3.8.5" alt="SAGFX 3D Official Emblem" style="height: 36px; width: 36px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);">
               </div>
               <div class="promo-value-badge" data-i18n="promo_2_badge">💰 RECOVER UP TO 85% TRADING COMMISSIONS</div>
               <h3 class="promo-title" data-i18n="promo_2_title">Tier-1 Institutional Rebate Whitelist</h3>
@@ -365,7 +570,7 @@
               <div class="venture-header">
                 <span class="venture-badge-role" data-i18n="venture_2_role">Lead Institutional Brokerage</span>
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <img src="assets/sagfx-3d-logo.jpg?v=3.8.4" alt="SAGFX 3D Official Emblem" style="height: 42px; width: 42px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);">
+                  <img src="assets/sagfx-3d-logo.jpg?v=3.8.5" alt="SAGFX 3D Official Emblem" style="height: 42px; width: 42px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);">
                   <span style="font-weight: 800; font-size: 1.05rem; color: #38bdf8; text-shadow: 0 0 12px rgba(56, 189, 248, 0.6);">SAG<span style="color: #7dd3fc;">FX</span></span>
                 </div>
               </div>
@@ -444,7 +649,7 @@
         <div class="section-tag"><span class="dot"></span> <span data-i18n="calc_tag">QUANTITATIVE COST REDUCTION ENGINE</span></div>
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 12px;">
           <h2 class="section-title" style="margin-bottom: 0;" data-i18n="calc_title">SAGFX Interactive <span class="gold-gradient-text">Broker Rebate Yield</span></h2>
-          <img src="assets/sagfx-3d-logo.jpg?v=3.8.4" alt="SAGFX 3D Official Emblem" style="height: 44px; width: 44px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);">
+          <img src="assets/sagfx-3d-logo.jpg?v=3.8.5" alt="SAGFX 3D Official Emblem" style="height: 44px; width: 44px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);">
         </div>
         <p class="section-desc" data-i18n="calc_desc">
           Calculate real-time monthly cashback and trading cost reductions across institutional tier-1 partner brokers powered by SAGFX.ORG.
@@ -1093,6 +1298,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=3.8.4"></script>
+  <script src="script.js?v=3.8.5"></script>
 </body>
 </html>

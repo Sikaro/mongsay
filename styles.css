@@ -4897,14 +4897,12 @@ html.fx-frozen .nav-mobile-menu .fx-toggle .fx-label-off {
     height: 11px;
   }
   .mobile-toggle {
-    padding: 2px 4px;
-    font-size: 1.15rem;
-  }
-
-  @media (max-width: 400px) {
-    .brand-title {
-      display: none !important;
-    }
+    padding: 4px 6px;
+    font-size: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
 
   /* Card Action Buttons (Zero collision / neat stacking) */
@@ -9910,4 +9908,1230 @@ html.fx-frozen .btn-nav-telegram svg,
 html.fx-frozen .btn-telegram-primary svg {
   transition: none !important;
   transform: none !important;
+}
+
+/* ==========================================================================
+   COMPREHENSIVE MOBILE RESPONSIVE ARCHITECTURE & ZERO-OVERFLOW CONTAINMENT
+   Fixes 320px-640px viewports across all pages & adds Pinterest HUD (UAq3Np3yg)
+   ========================================================================== */
+html, body {
+  overflow-x: clip !important;
+  max-width: 100%;
+}
+
+main, section, footer {
+  overflow-x: clip !important;
+  max-width: 100%;
+}
+
+.hero-grid > *,
+.rebate-calc-grid > *,
+.telegram-enroll-grid > *,
+.contact-card-main > *,
+.ventures-grid > *,
+.promotions-grid > *,
+.pillars-grid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.calc-inputs-col,
+.calc-results-col,
+.calc-group,
+.form-select,
+.form-input {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.books-filter-nav {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.books-filter-nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile Navbar: Guarantee Brand + Controls + Hamburger fit cleanly across 320px-640px */
+@media (max-width: 640px) {
+  .site-nav-outer {
+    padding: 0 10px !important;
+    top: 10px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .site-nav {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 6px 12px !important;
+    gap: 6px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+  .brand-wrapper {
+    gap: 8px !important;
+    min-width: 0 !important;
+    flex-shrink: 1 !important;
+  }
+  .brand-lion-logo {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .brand-title {
+    display: inline-flex !important;
+    font-size: 1.08rem !important;
+    margin-right: 0 !important;
+  }
+  .brand-title .brand-cap {
+    font-size: 1.28rem !important;
+  }
+  .nav-actions {
+    gap: 6px !important;
+    min-width: 0 !important;
+    flex-shrink: 0 !important;
+  }
+  .nav-controls {
+    gap: 5px !important;
+  }
+  /* Telegram pill stays inside drawer + Hero CTAs on small phones so hamburger is never clipped */
+  .site-nav .btn-nav-telegram {
+    display: none !important;
+  }
+  .mobile-toggle {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    font-size: 1.15rem !important;
+    color: #fff !important;
+    flex-shrink: 0 !important;
+  }
+  .pin-theme-toggle.theme-toggle {
+    width: 62px !important;
+    min-width: 62px !important;
+    max-width: 62px !important;
+    height: 28px !important;
+  }
+  .pin-theme-toggle .pin-toggle-orb {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  [data-theme="light"] .pin-theme-toggle .pin-toggle-orb {
+    transform: translateX(36px) !important;
+  }
+  .lang-toggle {
+    height: 28px !important;
+    padding: 0 7px !important;
+    font-size: 0.68rem !important;
+  }
+
+  /* Global Section Tag & Pill Wrapping on Mobile */
+  .section-tag {
+    max-width: 100% !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 1.2px !important;
+    padding: 6px 12px !important;
+    line-height: 1.4 !important;
+  }
+  .community-badges {
+    justify-content: center !important;
+  }
+  .community-pill {
+    max-width: 100% !important;
+    white-space: normal !important;
+    text-align: center !important;
+    font-size: 0.78rem !important;
+    padding: 7px 12px !important;
+    line-height: 1.35 !important;
+  }
+  .btn-primary,
+  .btn-secondary,
+  .btn-telegram-primary {
+    max-width: 100% !important;
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Fix Calculators & Hedging Page Overflow (Resolves 530px scrollWidth) */
+  .rebate-calc-container,
+  .hedging-calc-container {
+    padding: 20px 14px !important;
+    margin: 24px 0 !important;
+  }
+  .rebate-calc-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .calc-results-col {
+    padding: 18px 14px !important;
+  }
+  .hedge-mode-toggle {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+  .hedge-flow-btn {
+    width: 100% !important;
+    white-space: normal !important;
+    padding: 10px 12px !important;
+    font-size: 0.78rem !important;
+  }
+  .hedge-unit-toggle {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
+  }
+  .hedge-unit-btn {
+    width: 100% !important;
+    white-space: normal !important;
+    font-size: 0.73rem !important;
+    padding: 8px 6px !important;
+    text-align: center !important;
+  }
+  .hedge-unit-btn:last-child {
+    grid-column: 1 / -1;
+  }
+
+  /* Fix Decorative Ambient Glows Expanding Mobile Viewport */
+  .ambient-glow-mesh,
+  .scene-ambient-glow,
+  .library-ambient-glow {
+    width: 100% !important;
+    max-width: 100vw !important;
+    left: 50% !important;
+  }
+
+  /* Advisory Page 3D Terminal & Floating Glass Card Containment */
+  .broker-terminal-section,
+  .terminal-scene-wrapper {
+    overflow-x: clip !important;
+    max-width: 100% !important;
+  }
+  .terminal-3d-stage {
+    transform: none !important;
+    max-width: 100% !important;
+  }
+  .chart-svg-container {
+    height: 210px !important;
+  }
+  .floating-glass-card {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 14px auto 0 !important;
+    padding: 18px 14px !important;
+    animation: none !important;
+  }
+  .glass-input-field {
+    padding: 0 10px !important;
+    gap: 6px !important;
+  }
+  .masked-bullets {
+    letter-spacing: 0.12em !important;
+    font-size: 0.85rem !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .field-tag {
+    font-size: 0.60rem !important;
+    padding: 2px 6px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Hedging & Library Studio Display Monitor Mobile Fit */
+  .hedging-showcase-container,
+  .library-showcase-container,
+  .hedging-showcase-container > *,
+  .library-showcase-container > *,
+  .showcase-left-info,
+  .showcase-right-scene,
+  .library-left-info,
+  .library-right-scene {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .monitor-hardware-frame,
+  .library-monitor-frame {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+  }
+  .monitor-screen-surface,
+  .library-screen-surface {
+    padding: 14px 10px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .screen-top-brand,
+  .library-screen-brand {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 4px 10px !important;
+    font-size: 0.65rem !important;
+  }
+  .cascading-cards-stack,
+  .library-cascading-stack {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    height: auto !important;
+    transform-style: flat !important;
+    margin-top: 12px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  .ledger-folder-card,
+  .library-folder-card {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    opacity: 1 !important;
+    padding: 10px 12px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .folder-tab-header {
+    padding: 0 !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+  .folder-tab-status {
+    display: none !important;
+  }
+  .folder-tab-title {
+    font-size: 0.78rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    min-width: 0 !important;
+    flex: 1 !important;
+    width: 0 !important;
+  }
+  .library-metrics-row,
+  .console-metrics-row {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  .console-search-bar,
+  .library-search-bar {
+    padding: 6px 6px 6px 10px !important;
+    gap: 6px !important;
+    height: 44px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .typewriter-query-text,
+  .library-typewriter-text {
+    min-width: 0 !important;
+    width: 0 !important;
+    flex: 1 !important;
+    font-size: 0.75rem !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .search-execute-pill,
+  .library-search-pill {
+    padding: 6px 9px !important;
+    font-size: 0.62rem !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* SAGFX Page Mobile Watermark & Bottom Slide Controller Centering */
+  .pin-slide-section {
+    overflow-x: clip !important;
+    max-width: 100% !important;
+  }
+  .pin-watermark-text {
+    font-size: clamp(2.2rem, 11vw, 3.8rem) !important;
+    max-width: 100% !important;
+  }
+  .pin-deck-controls {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    bottom: 14px !important;
+  }
+
+  /* Ventures & Crest Cards Mobile Padding */
+  .venture-card {
+    padding: 20px 16px !important;
+  }
+  .crest-showcase > div[style*="border-left"] {
+    border-left: none !important;
+    border-top: 1px solid var(--border-subtle) !important;
+    padding-left: 0 !important;
+    padding-top: 16px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand-title {
+    font-size: 0.94rem !important;
+  }
+  .brand-title .brand-cap {
+    font-size: 1.12rem !important;
+  }
+  .pin-theme-toggle.theme-toggle {
+    width: 54px !important;
+    min-width: 54px !important;
+    max-width: 54px !important;
+  }
+  .pin-theme-toggle .pin-toggle-label {
+    font-size: 0.56rem !important;
+  }
+  [data-theme="light"] .pin-theme-toggle .pin-toggle-orb {
+    transform: translateX(28px) !important;
+  }
+}
+
+/* ==========================================================================
+   PINTEREST MOBILE GLASSMORPHIC TELEMETRY HUD (https://pin.it/UAq3Np3yg)
+   Rendered natively on mobile & tablet screens (<= 960px)
+   ========================================================================== */
+.mobile-pin-hud-section {
+  display: none;
+  width: 100%;
+  padding: 18px 0 34px;
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 960px) {
+  .mobile-pin-hud-section {
+    display: block;
+  }
+}
+
+.pin-hud-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pin-hud-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pin-hud-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.12);
+  border: 1px solid rgba(74, 222, 128, 0.35);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.pin-hud-badge .live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 10px #4ade80;
+  animation: pulseGreen 1.8s infinite;
+}
+
+/* Segmented Tabs for 3 Mobile Screens */
+.pin-hud-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  background: rgba(8, 14, 28, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 4px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.pin-hud-tab-btn {
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 6px;
+  font-family: var(--font-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.pin-hud-tab-btn.active {
+  background: rgba(255, 255, 255, 0.96);
+  color: #05070b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* Horizontal Snap Carousel */
+.pin-mobile-carousel {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 4px 0 12px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pin-mobile-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile Screen Card Shell */
+.pin-mobile-card {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
+  scroll-snap-align: center;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(165deg, rgba(16, 28, 52, 0.82) 0%, rgba(7, 13, 26, 0.94) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 22px 45px rgba(0, 0, 0, 0.72),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 455px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 720px) and (max-width: 960px) {
+  .pin-mobile-card {
+    flex: 0 0 calc(50% - 7px);
+  }
+}
+
+/* Dynamic Island Top Pill */
+.pin-dynamic-island {
+  width: 68px;
+  height: 16px;
+  background: #020408;
+  border-radius: 999px;
+  margin: 0 auto 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.12);
+}
+
+/* Frosted Icon Circle Buttons */
+.pin-circle-icon-btn {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: transform 0.2s ease, background 0.2s ease;
+  text-decoration: none;
+}
+
+.pin-circle-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.26);
+  transform: scale(1.06);
+}
+
+.pin-mini-glass-icon {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pin-mini-glass-icon.active,
+.pin-mini-glass-icon:hover {
+  background: rgba(255, 255, 255, 0.94);
+  color: #05070b;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================
+   CARD 1: DESK WELCOME & ACTIVE RAIL
+   ========================================== */
+.pin-card-bg-glow {
+  position: absolute;
+  top: -40px;
+  right: -30px;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.26) 0%, rgba(229, 185, 95, 0.14) 45%, transparent 72%);
+  filter: blur(28px);
+  pointer-events: none;
+}
+
+.pin-greeting-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.pin-greeting-sub {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.2;
+}
+
+.pin-greeting-title {
+  font-family: var(--font-accent);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.pin-subsec-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+/* Quick Stats Split Block */
+.pin-quick-split {
+  display: grid;
+  grid-template-columns: 1.85fr 1fr;
+  gap: 8px;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.pin-glass-box {
+  background: rgba(148, 163, 184, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  padding: 12px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.pin-split-label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 10px;
+}
+
+.pin-icon-strip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pin-add-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.pin-add-tile:hover {
+  background: rgba(148, 163, 184, 0.28);
+  transform: translateY(-2px);
+}
+
+.pin-add-tile span {
+  font-size: 0.70rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Active Task Progress Ring Card */
+.pin-active-task-card {
+  background: rgba(148, 163, 184, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 22px;
+  padding: 14px;
+  margin-bottom: 12px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.pin-task-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pin-task-name {
+  font-family: var(--font-accent);
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.pin-task-meta {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.35;
+}
+
+.pin-task-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.pin-dot-green {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+}
+
+.pin-task-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pin-streak-pill {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 8px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 48px;
+}
+
+.pin-streak-pill .s-lbl {
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.pin-streak-pill .s-val {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.pin-circular-progress {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin-circular-progress svg {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+
+.pin-circular-text {
+  text-align: center;
+  z-index: 2;
+}
+
+.pin-circular-text .lbl {
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.78);
+  display: block;
+}
+
+.pin-circular-text .pct {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* Previous Tasks Footer Bar */
+.pin-prev-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.pin-prev-row span {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pin-prev-row a {
+  font-size: 0.72rem;
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.pin-prev-capsule {
+  background: rgba(148, 163, 184, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pin-mini-ring {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: conic-gradient(#4ade80 0% 99%, rgba(255, 255, 255, 0.15) 99% 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pin-mini-ring-inner {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #0d172a;
+  font-size: 0.58rem;
+  font-weight: 800;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   CARD 2: ATMOSPHERIC BOTTOM SHEET GATEWAY
+   ========================================== */
+.pin-card-gateway {
+  padding: 0 !important;
+  background: #050a14 !important;
+  justify-content: flex-end !important;
+}
+
+.pin-gateway-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.pin-gateway-hero-bg img {
+  width: 100%;
+  height: 68%;
+  object-fit: cover;
+  object-position: center 16%;
+  opacity: 0.82;
+  filter: contrast(1.08) saturate(0.95);
+}
+
+.pin-gateway-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 8, 18, 0.35) 0%, rgba(4, 8, 18, 0.15) 35%, rgba(15, 23, 42, 0.96) 72%);
+}
+
+.pin-gateway-top-brand {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  right: 18px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pin-gateway-logo-txt {
+  font-family: var(--font-brand);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.pin-bottom-sheet {
+  position: relative;
+  z-index: 4;
+  margin-top: auto;
+  background: linear-gradient(165deg, rgba(130, 148, 175, 0.44) 0%, rgba(42, 58, 86, 0.78) 100%);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 26px 26px 0 0;
+  padding: 12px 20px 22px;
+}
+
+.pin-drag-handle {
+  width: 44px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  margin: 0 auto 16px;
+}
+
+.pin-sheet-title {
+  font-family: var(--font-accent);
+  font-size: 1.42rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.18;
+  margin-bottom: 10px;
+}
+
+.pin-sheet-desc {
+  font-size: 0.80rem;
+  color: rgba(241, 245, 249, 0.86);
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.pin-sheet-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pin-capsule-white-cta {
+  flex: 1.35;
+  background: #ffffff;
+  color: #030712;
+  border-radius: 999px;
+  padding: 5px 6px 5px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-accent);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pin-capsule-white-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.6);
+}
+
+.pin-cta-black-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #030712;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pin-capsule-glass-secondary {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 12px 12px;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   CARD 3: RADIAL TICK SPEEDOMETER TELEMETRY
+   ========================================== */
+.pin-speedometer-card {
+  background: linear-gradient(175deg, rgba(14, 30, 58, 0.86) 0%, rgba(28, 62, 118, 0.68) 60%, rgba(15, 36, 74, 0.92) 100%) !important;
+}
+
+.pin-speedo-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.pin-speedo-panel {
+  background: rgba(110, 145, 195, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 24px;
+  padding: 14px 14px 16px;
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.pin-speedo-panel-title {
+  text-align: center;
+  font-family: var(--font-accent);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.pin-speedo-mode-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 0 4px;
+}
+
+.pin-track-badge-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pin-track-title {
+  font-size: 0.80rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pin-auto-mode-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #02050c;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #ffffff;
+  width: fit-content;
+}
+
+.pin-gauge-wrap {
+  position: relative;
+  width: 210px;
+  height: 126px;
+  margin: 4px auto 8px;
+}
+
+.pin-gauge-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.pin-gauge-center-val {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.pin-gauge-center-val .num {
+  font-family: var(--font-accent);
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.pin-gauge-center-val .sub {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 2px;
+}
+
+.pin-telemetry-rows {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  margin-top: 6px;
+}
+
+.pin-telemetry-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pin-telemetry-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-weight: 600;
+}
+
+.pin-telemetry-right {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: right;
+}
+
+/* Interactive Smart Routing Glowing Switch */
+.pin-smart-switch-bar {
+  margin-top: 12px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  padding: 5px 14px 5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pin-smart-pill-track {
+  position: relative;
+  width: 82px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(5, 10, 20, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  transition: background 0.3s ease;
+}
+
+.pin-smart-orb-thumb {
+  position: absolute;
+  left: 3px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #bbf7d0 0%, #4ade80 45%, #16a34a 100%);
+  box-shadow: 0 0 14px #4ade80, 0 0 24px rgba(74, 222, 128, 0.6);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pin-smart-status-txt {
+  margin-left: 32px;
+  font-size: 0.70rem;
+  font-weight: 700;
+  color: #ffffff;
+  transition: margin 0.3s ease;
+}
+
+.pin-smart-switch-bar.is-off .pin-smart-orb-thumb {
+  transform: translateX(48px);
+  background: radial-gradient(circle at 35% 30%, #cbd5e1 0%, #64748b 65%, #334155 100%);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.pin-smart-switch-bar.is-off .pin-smart-status-txt {
+  margin-left: 8px;
+  color: #94a3b8;
+}
+
+.pin-smart-switch-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Light Mode Integration for Pinterest HUD */
+[data-theme="light"] .pin-mobile-card {
+  background: linear-gradient(165deg, rgba(12, 34, 64, 0.88) 0%, rgba(5, 16, 32, 0.96) 100%);
+  border-color: rgba(56, 189, 248, 0.38);
+}
+
+[data-theme="light"] .pin-hud-tab-btn.active {
+  background: #38bdf8;
+  color: #020617;
+}
+
+html.fx-frozen .pin-mobile-card,
+html.fx-frozen .pin-hud-tabs,
+html.fx-frozen .pin-glass-box,
+html.fx-frozen .pin-bottom-sheet,
+html.fx-frozen .pin-speedo-panel {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
