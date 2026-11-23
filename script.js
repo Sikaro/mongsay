@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPinterestMobileHud();
   initDisciplineLoopAnimation();
   initMobileBottomDock();
+  initYouTubeBroadcastHub();
 });
 
 /* ---------------------------------------------------------
@@ -1433,6 +1434,11 @@ Object.assign(PHRASE_DICTIONARY_KH, {
   "Connect →": "ភ្ជាប់ទំនាក់ទំនង →",
   "Connect with": "ភ្ជាប់ទំនាក់ទំនងជាមួយ",
   "Live Analysis": "ការវិភាគផ្ទាល់",
+  "Live YouTube Broadcast Display & Video Archive": "ផ្ទាំងបង្ហាញ YouTube ផ្ទាល់ & បណ្ណសារវីដេអូ",
+  "Click any video below to stream directly inside the website with live channel synchronization from @MongSayFX.": "ចុចលើវីដេអូណាមួយខាងក្រោម ដើម្បីទស្សនាផ្ទាល់ក្នុងគេហទំព័រ ដោយភ្ជាប់ផ្ទាល់ពី @MongSayFX។",
+  "Institutional XAUUSD Live Streams, Recaps & Documentaries": "ការផ្សាយផ្ទាល់ XAUUSD ការសង្ខេបការជួញដូរ និងឯកសារស្ថាប័ន",
+  "▶ Play Live": "▶ លេងផ្ទាល់",
+  "⛶ Theater": "⛶ អេក្រង់ធំ",
   "Market Insights": "ការយល់ដឹងអំពីទីផ្សារ",
 
   // Market Sessions
@@ -4969,5 +4975,480 @@ function initMobileBottomDock() {
         toggleSheet(false);
       }
     });
+  }
+}
+
+/* ---------------------------------------------------------
+   Live YouTube Broadcast Display & Click-to-Play Theater Hub
+   Syncs @MongSayFX (UCQ2lS6954-0oPRtSvTIOSlw) + inline & <dialog> playback
+   --------------------------------------------------------- */
+function initYouTubeBroadcastHub() {
+  const deck = document.getElementById('ytBroadcastDeck');
+  const feedCards = document.querySelectorAll('.feed-item[data-yt-id]');
+  if (!deck && !feedCards.length) return;
+
+  const CHANNEL_ID = (deck && deck.getAttribute('data-yt-channel-id')) || 'UCQ2lS6954-0oPRtSvTIOSlw';
+  const VALID_YT_ID = /^[A-Za-z0-9_-]{11}$/;
+
+  const DEFAULT_VIDEOS = [
+    {
+      id: 'QBulTy2BXmw',
+      title: '+8RR Trading Recap | MongSayFX',
+      date: '2026-11-23',
+      category: 'recap',
+      badge: 'NEW',
+      tagClass: 'tag-new',
+      kicker: 'NEW UPLOAD'
+    },
+    {
+      id: 'S5BGxYa1EPY',
+      title: 'Live XAUUSD - MongSayFX',
+      date: '2026-11-13',
+      category: 'live',
+      badge: 'LIVE',
+      tagClass: 'tag-live',
+      kicker: 'LIVE XAUUSD BROADCAST'
+    },
+    {
+      id: '_2zz8euc_Z8',
+      title: 'ផែនការដោះនៅ Account Holding $1.2M By MoonGroup | Fund Managerment Doucumentary Ep-001',
+      date: '2025-12-30',
+      category: 'recap',
+      badge: 'DOCU',
+      tagClass: '',
+      kicker: 'FUND MANAGEMENT DOCUMENTARY'
+    },
+    {
+      id: 'qE3lhDE3FhQ',
+      title: 'Trade ចំណេញតែអត់សប្បាយចិត្ត!! ហេតុអ្វី? Profit of Shame!! WHY?? Ep02 MongSAYFX',
+      date: '2025-11-20',
+      category: 'mindset',
+      badge: 'EP 02',
+      tagClass: '',
+      kicker: 'TRADING PSYCHOLOGY'
+    },
+    {
+      id: 'pxbY_GL59yw',
+      title: 'Trade ចំណេញតែអត់សប្បាយចិត្ត!! ហេតុអ្វី? Profit of Shame!! WHY?? Ep01 MongSAYFX',
+      date: '2025-11-18',
+      category: 'mindset',
+      badge: 'EP 01',
+      tagClass: '',
+      kicker: 'TRADING PSYCHOLOGY'
+    },
+    {
+      id: 'Ka4wQKJP7cQ',
+      title: 'MongSayFX Live Testing',
+      date: '2025-10-01',
+      category: 'live',
+      badge: 'LIVE',
+      tagClass: 'tag-live',
+      kicker: 'LIVE EXECUTION SESSION'
+    },
+    {
+      id: '2EcgeuzwvFo',
+      title: 'I Payout 4032$ from Funded | MongSAYFX',
+      date: '2025-08-27',
+      category: 'recap',
+      badge: 'FUNDED',
+      tagClass: 'tag-new',
+      kicker: 'FUNDED PAYOUT BREAKDOWN'
+    },
+    {
+      id: 'uupwV1BQ_uU',
+      title: 'I Passed Phase 2 & Interview for Master Account | SMC KHMER TRADER',
+      date: '2025-08-09',
+      category: 'mindset',
+      badge: 'MASTER',
+      tagClass: '',
+      kicker: 'MASTER ACCOUNT INTERVIEW'
+    }
+  ];
+
+  let videos = DEFAULT_VIDEOS.slice();
+  let activeFilter = 'all';
+  let activeVideoId = videos[0].id;
+  let isPlayingInline = false;
+
+  const playerFrame = document.getElementById('ytMainPlayerFrame');
+  const stageTitle = document.getElementById('ytStageTitle');
+  const stageKicker = document.getElementById('ytStageKicker');
+  const externalLink = document.getElementById('ytExternalWatchLink');
+  const playlistEl = document.getElementById('ytPlaylistList');
+  const queueCountEl = document.getElementById('ytQueueCount');
+  const syncBadgeEl = document.getElementById('ytSyncBadge');
+  const openTheaterBtn = document.getElementById('ytOpenTheaterBtn');
+  const liveJumpBtn = document.getElementById('ytLiveJumpBtn');
+
+  function getVideoById(id, fallbackTitle) {
+    const found = videos.find(v => v.id === id);
+    if (found) return found;
+    return {
+      id,
+      title: fallbackTitle || 'MongSayFX YouTube Broadcast',
+      date: '',
+      category: 'recap',
+      badge: 'VIDEO',
+      tagClass: '',
+      kicker: 'OFFICIAL @MONGSAYFX'
+    };
+  }
+
+  function buildEmbedUrl(videoId) {
+    return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+  }
+
+  function createEmbedIframe(video) {
+    const iframe = document.createElement('iframe');
+    iframe.className = 'yt-embed-iframe';
+    iframe.src = buildEmbedUrl(video.id);
+    iframe.title = video.title;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    iframe.allowFullscreen = true;
+    return iframe;
+  }
+
+  function renderPosterFacade(video) {
+    if (!playerFrame) return;
+    isPlayingInline = false;
+    playerFrame.textContent = '';
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'yt-poster-trigger';
+    btn.id = 'ytMainPosterBtn';
+    btn.setAttribute('data-yt-id', video.id);
+    btn.setAttribute('aria-label', `Play ${video.title} in website`);
+
+    const img = document.createElement('img');
+    img.className = 'yt-poster-img';
+    img.id = 'ytMainPosterImg';
+    img.src = `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`;
+    img.alt = video.title;
+    img.onerror = () => {
+      if (!img.dataset.fallback) {
+        img.dataset.fallback = '1';
+        img.src = `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`;
+      } else {
+        img.src = 'assets/yt-thumb-2.jpg';
+      }
+    };
+
+    const scrim = document.createElement('span');
+    scrim.className = 'yt-poster-scrim';
+
+    const topBadge = document.createElement('span');
+    topBadge.className = 'yt-poster-top-badge';
+    const dot = document.createElement('span');
+    dot.className = 'yt-live-dot';
+    topBadge.appendChild(dot);
+    topBadge.appendChild(document.createTextNode(` ${video.kicker || 'OFFICIAL BROADCAST'}`));
+
+    const playCrest = document.createElement('span');
+    playCrest.className = 'yt-play-crest';
+    playCrest.setAttribute('aria-hidden', 'true');
+    playCrest.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="margin-left: 3px;"><path d="M8 5v14l11-7z"/></svg>';
+
+    const ctaPill = document.createElement('span');
+    ctaPill.className = 'yt-poster-cta-pill';
+    ctaPill.textContent = '▶ Click to Play Live in Website';
+
+    btn.appendChild(img);
+    btn.appendChild(scrim);
+    btn.appendChild(topBadge);
+    btn.appendChild(playCrest);
+    btn.appendChild(ctaPill);
+    btn.addEventListener('click', () => playInStage(video.id, video.title, true));
+    playerFrame.appendChild(btn);
+  }
+
+  function updateStageMeta(video) {
+    if (stageTitle) stageTitle.textContent = video.title;
+    if (stageKicker) {
+      stageKicker.textContent = video.date ? `${video.kicker || 'OFFICIAL'} • ${video.date}` : (video.kicker || 'OFFICIAL @MONGSAYFX');
+    }
+    if (externalLink) externalLink.href = `https://www.youtube.com/watch?v=${video.id}`;
+  }
+
+  function playInStage(videoId, fallbackTitle, autoplay) {
+    if (!VALID_YT_ID.test(videoId)) return;
+    const video = getVideoById(videoId, fallbackTitle);
+    activeVideoId = video.id;
+    updateStageMeta(video);
+
+    if (playerFrame) {
+      if (autoplay) {
+        isPlayingInline = true;
+        playerFrame.textContent = '';
+        playerFrame.appendChild(createEmbedIframe(video));
+      } else {
+        renderPosterFacade(video);
+      }
+    }
+    renderPlaylist();
+  }
+
+  function renderPlaylist() {
+    if (!playlistEl) return;
+    const filtered = activeFilter === 'all' ? videos : videos.filter(v => v.category === activeFilter);
+    if (queueCountEl) {
+      queueCountEl.textContent = `${filtered.length} ${filtered.length === 1 ? 'Video' : 'Videos'}`;
+    }
+
+    playlistEl.textContent = '';
+    filtered.forEach(video => {
+      const isActive = video.id === activeVideoId;
+      const itemBtn = document.createElement('button');
+      itemBtn.type = 'button';
+      itemBtn.className = `yt-queue-item${isActive ? ' active' : ''}`;
+      itemBtn.setAttribute('data-yt-id', video.id);
+      itemBtn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+
+      const thumbWrap = document.createElement('div');
+      thumbWrap.className = 'yt-queue-thumb';
+
+      const img = document.createElement('img');
+      img.src = `https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`;
+      img.alt = video.title;
+      img.loading = 'lazy';
+      img.onerror = () => { img.src = 'assets/yt-thumb-2.jpg'; };
+
+      const overlay = document.createElement('div');
+      overlay.className = 'yt-queue-overlay';
+      if (isActive) {
+        const eq = document.createElement('span');
+        eq.className = 'yt-eq-bars';
+        for (let i = 0; i < 3; i++) {
+          const bar = document.createElement('span');
+          bar.className = 'yt-eq-bar';
+          eq.appendChild(bar);
+        }
+        overlay.appendChild(eq);
+      } else {
+        overlay.textContent = '▶';
+      }
+
+      thumbWrap.appendChild(img);
+      thumbWrap.appendChild(overlay);
+
+      const body = document.createElement('div');
+      body.className = 'yt-queue-body';
+
+      const tagsRow = document.createElement('div');
+      tagsRow.className = 'yt-queue-tags';
+
+      const tagSpan = document.createElement('span');
+      tagSpan.className = `yt-queue-tag${video.tagClass ? ' ' + video.tagClass : ''}`;
+      tagSpan.textContent = video.badge || 'VIDEO';
+      tagsRow.appendChild(tagSpan);
+
+      if (video.date) {
+        const dateSpan = document.createElement('span');
+        dateSpan.className = 'yt-queue-date';
+        dateSpan.textContent = video.date;
+        tagsRow.appendChild(dateSpan);
+      }
+
+      const titleDiv = document.createElement('div');
+      titleDiv.className = 'yt-queue-title';
+      titleDiv.textContent = video.title;
+
+      body.appendChild(tagsRow);
+      body.appendChild(titleDiv);
+      itemBtn.appendChild(thumbWrap);
+      itemBtn.appendChild(body);
+
+      itemBtn.addEventListener('click', () => playInStage(video.id, video.title, true));
+      playlistEl.appendChild(itemBtn);
+    });
+  }
+
+  // Native <dialog> Theater Modal Setup (Modern Web Guidance compliant)
+  let theaterDialog = document.getElementById('ytTheaterDialog');
+  if (!theaterDialog) {
+    theaterDialog = document.createElement('dialog');
+    theaterDialog.id = 'ytTheaterDialog';
+    theaterDialog.className = 'yt-theater-dialog';
+    theaterDialog.setAttribute('closedby', 'any');
+    theaterDialog.setAttribute('aria-labelledby', 'ytDialogTitle');
+    theaterDialog.innerHTML = `
+      <div class="yt-dialog-header">
+        <div class="yt-dialog-title-wrap">
+          <span class="yt-live-sync-pill"><span class="yt-live-dot"></span> @MONGSAYFX</span>
+          <h2 class="yt-dialog-title" id="ytDialogTitle">YouTube Broadcast</h2>
+        </div>
+        <div class="yt-dialog-header-actions">
+          <a href="https://www.youtube.com/@MongSayFX" target="_blank" rel="noopener noreferrer" class="yt-action-pill secondary" id="ytDialogExternalLink">YouTube ↗</a>
+          <form method="dialog" style="margin: 0;">
+            <button type="submit" class="yt-dialog-close" aria-label="Close video player" autofocus>✕</button>
+          </form>
+        </div>
+      </div>
+      <div class="yt-dialog-stage" id="ytDialogStage"></div>
+    `;
+    document.body.appendChild(theaterDialog);
+  }
+
+  const dialogStage = document.getElementById('ytDialogStage');
+  const dialogTitle = document.getElementById('ytDialogTitle');
+  const dialogExtLink = document.getElementById('ytDialogExternalLink');
+
+  // Safari fallback for declarative closedby="any" light dismiss
+  if (!('closedBy' in HTMLDialogElement.prototype)) {
+    const isOutsideDialog = (e, dlg) => {
+      const r = dlg.getBoundingClientRect();
+      return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
+    };
+    let pressedOutside = false;
+    theaterDialog.addEventListener('pointerdown', (e) => {
+      pressedOutside = isOutsideDialog(e, theaterDialog);
+    });
+    theaterDialog.addEventListener('pointerup', (e) => {
+      if (pressedOutside && isOutsideDialog(e, theaterDialog)) theaterDialog.close();
+    });
+  }
+
+  theaterDialog.addEventListener('close', () => {
+    if (dialogStage) dialogStage.textContent = '';
+    theaterDialog.returnValue = '';
+  });
+
+  function openYouTubeTheater(videoId, fallbackTitle) {
+    if (!VALID_YT_ID.test(videoId)) return;
+    const video = getVideoById(videoId, fallbackTitle);
+
+    // Pause inline stage to prevent duplicate audio streams
+    if (isPlayingInline) {
+      renderPosterFacade(getVideoById(activeVideoId));
+    }
+
+    if (dialogTitle) dialogTitle.textContent = video.title;
+    if (dialogExtLink) dialogExtLink.href = `https://www.youtube.com/watch?v=${video.id}`;
+    if (dialogStage) {
+      dialogStage.textContent = '';
+      dialogStage.appendChild(createEmbedIframe(video));
+    }
+    if (!theaterDialog.open) {
+      theaterDialog.showModal();
+    }
+  }
+
+  window.openYouTubeTheater = openYouTubeTheater;
+
+  // Bind initial main poster facade click
+  if (deck) {
+    renderPosterFacade(videos[0]);
+    updateStageMeta(videos[0]);
+    renderPlaylist();
+
+    deck.querySelectorAll('.yt-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeFilter = btn.getAttribute('data-yt-filter') || 'all';
+        deck.querySelectorAll('.yt-filter-btn').forEach(b => {
+          const isMatch = b === btn;
+          b.classList.toggle('active', isMatch);
+          b.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+        });
+        renderPlaylist();
+      });
+    });
+
+    if (openTheaterBtn) {
+      openTheaterBtn.addEventListener('click', () => openYouTubeTheater(activeVideoId));
+    }
+
+    if (liveJumpBtn) {
+      liveJumpBtn.addEventListener('click', () => {
+        const liveVid = videos.find(v => v.category === 'live') || videos[1] || videos[0];
+        if (liveVid) playInStage(liveVid.id, liveVid.title, true);
+      });
+    }
+  }
+
+  // Bind click-to-play on all .feed-item cards
+  feedCards.forEach(card => {
+    const vid = card.getAttribute('data-yt-id');
+    const vTitle = card.getAttribute('data-yt-title') || (card.querySelector('.feed-title') ? card.querySelector('.feed-title').textContent.trim() : '');
+    if (!vid || !VALID_YT_ID.test(vid)) return;
+
+    const triggerPlayback = () => {
+      if (deck && playerFrame) {
+        playInStage(vid, vTitle, true);
+        deck.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        openYouTubeTheater(vid, vTitle);
+      }
+    };
+
+    const thumb = card.querySelector('.feed-thumb');
+    if (thumb) {
+      thumb.addEventListener('click', triggerPlayback);
+      thumb.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          triggerPlayback();
+        }
+      });
+    }
+
+    const playBtn = card.querySelector('.feed-play-inline-btn');
+    if (playBtn) {
+      playBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        triggerPlayback();
+      });
+    }
+  });
+
+  // Non-blocking live YouTube RSS sync to auto-surface future uploads from @MongSayFX
+  if (deck && window.location.protocol !== 'file:' && typeof fetch === 'function') {
+    const rssUrl = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`);
+    const ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    const timer = ctrl ? setTimeout(() => ctrl.abort(), 4500) : null;
+
+    fetch(`https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`, ctrl ? { signal: ctrl.signal } : undefined)
+      .then(res => (res.ok ? res.json() : null))
+      .then(data => {
+        if (timer) clearTimeout(timer);
+        if (!data || data.status !== 'ok' || !Array.isArray(data.items) || !data.items.length) return;
+
+        const parsed = [];
+        data.items.slice(0, 10).forEach((item, idx) => {
+          const m = (item.link || item.guid || '').match(/(?:v=|yt:video:)([A-Za-z0-9_-]{11})/);
+          if (!m) return;
+          const id = m[1];
+          const title = (item.title || '').trim() || 'MongSayFX Video';
+          const date = item.pubDate ? item.pubDate.slice(0, 10) : '';
+          const lower = title.toLowerCase();
+          const isLive = lower.includes('live');
+          const isMindset = lower.includes('shame') || lower.includes('psych') || lower.includes('master') || lower.includes('life');
+          parsed.push({
+            id,
+            title,
+            date,
+            category: isLive ? 'live' : (isMindset ? 'mindset' : 'recap'),
+            badge: idx === 0 ? 'NEW' : (isLive ? 'LIVE' : 'VIDEO'),
+            tagClass: isLive ? 'tag-live' : (idx === 0 ? 'tag-new' : ''),
+            kicker: isLive ? 'LIVE BROADCAST' : (idx === 0 ? 'LATEST UPLOAD' : 'OFFICIAL @MONGSAYFX')
+          });
+        });
+
+        if (parsed.length) {
+          videos = parsed;
+          if (!isPlayingInline) {
+            activeVideoId = videos[0].id;
+            renderPosterFacade(videos[0]);
+            updateStageMeta(videos[0]);
+          }
+          renderPlaylist();
+          if (syncBadgeEl) {
+            syncBadgeEl.innerHTML = '<span class="yt-live-dot"></span> LIVE SYNCED';
+          }
+        }
+      })
+      .catch(() => {
+        if (timer) clearTimeout(timer);
+      });
   }
 }

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Kantumruy+Pro:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3.9.1">
+  <link rel="stylesheet" href="styles.css?v=3.9.2">
 </head>
 <body>
 
@@ -617,7 +617,7 @@
             <div>
               <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
                 <div class="promo-ribbon" data-i18n="promo_2_ribbon">PROMO 02 // SAGFX.ORG</div>
-                <img src="assets/sagfx-3d-logo.jpg?v=3.9.1" alt="SAGFX 3D Official Emblem" style="height: 36px; width: 36px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);">
+                <img src="assets/sagfx-3d-logo.jpg?v=3.9.2" alt="SAGFX 3D Official Emblem" style="height: 36px; width: 36px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.35);">
               </div>
               <div class="pin-feature-visual" aria-hidden="true">
                 <div class="pin-step-bars-wrap">
@@ -770,7 +770,7 @@
               <div class="venture-header">
                 <span class="venture-badge-role" data-i18n="venture_2_role">Lead Institutional Brokerage</span>
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <img src="assets/sagfx-3d-logo.jpg?v=3.9.1" alt="SAGFX 3D Official Emblem" style="height: 42px; width: 42px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);">
+                  <img src="assets/sagfx-3d-logo.jpg?v=3.9.2" alt="SAGFX 3D Official Emblem" style="height: 42px; width: 42px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);">
                   <span style="font-weight: 800; font-size: 1.05rem; color: #38bdf8; text-shadow: 0 0 12px rgba(56, 189, 248, 0.6);">SAG<span style="color: #7dd3fc;">FX</span></span>
                 </div>
               </div>
@@ -879,7 +879,7 @@
         <div class="section-tag"><span class="dot"></span> <span data-i18n="calc_tag">QUANTITATIVE COST REDUCTION ENGINE</span></div>
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 12px;">
           <h2 class="section-title" style="margin-bottom: 0;" data-i18n="calc_title">SAGFX Interactive <span class="gold-gradient-text">Broker Rebate Yield</span></h2>
-          <img src="assets/sagfx-3d-logo.jpg?v=3.9.1" alt="SAGFX 3D Official Emblem" style="height: 44px; width: 44px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);">
+          <img src="assets/sagfx-3d-logo.jpg?v=3.9.2" alt="SAGFX 3D Official Emblem" style="height: 44px; width: 44px; border-radius: 8px; object-fit: contain; box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);">
         </div>
         <p class="section-desc" data-i18n="calc_desc">
           Calculate real-time monthly cashback and trading cost reductions across institutional tier-1 partner brokers powered by SAGFX.ORG.
@@ -1138,57 +1138,154 @@
           </a>
         </div>
 
+        <!-- Live Interactive YouTube Broadcast Display -->
+        <div class="yt-broadcast-deck" id="ytBroadcastDeck" data-yt-channel-id="UCQ2lS6954-0oPRtSvTIOSlw">
+          <div class="yt-deck-topbar">
+            <div class="yt-deck-brand">
+              <div class="yt-deck-logo-pill" aria-hidden="true">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </div>
+              <div class="yt-deck-brand-meta">
+                <div class="yt-deck-brand-title">
+                  <span>@MongSayFX</span>
+                  <span class="yt-live-sync-pill" id="ytSyncBadge"><span class="yt-live-dot"></span> LIVE FEED</span>
+                </div>
+                <div class="yt-deck-brand-sub" data-i18n="yt_deck_subtitle">Institutional XAUUSD Live Streams, Recaps &amp; Documentaries</div>
+              </div>
+            </div>
+
+            <div class="yt-deck-controls">
+              <div class="yt-filter-group" role="tablist" aria-label="Filter YouTube broadcasts">
+                <button type="button" class="yt-filter-btn active" data-yt-filter="all" role="tab" aria-selected="true">All</button>
+                <button type="button" class="yt-filter-btn" data-yt-filter="live" role="tab" aria-selected="false">Live</button>
+                <button type="button" class="yt-filter-btn" data-yt-filter="recap" role="tab" aria-selected="false">Recaps</button>
+                <button type="button" class="yt-filter-btn" data-yt-filter="mindset" role="tab" aria-selected="false">Mindset</button>
+              </div>
+              <button type="button" class="yt-live-jump-btn" id="ytLiveJumpBtn" data-yt-play="S5BGxYa1EPY">
+                <span class="yt-live-dot"></span> Live XAUUSD
+              </button>
+              <a href="https://www.youtube.com/@MongSayFX?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="yt-sub-link">Subscribe ↗</a>
+            </div>
+          </div>
+
+          <div class="yt-deck-grid">
+            <div class="yt-stage-col">
+              <div class="yt-player-frame" id="ytMainPlayerFrame">
+                <button type="button" class="yt-poster-trigger" id="ytMainPosterBtn" data-yt-id="QBulTy2BXmw" aria-label="Play +8RR Trading Recap | MongSayFX in website">
+                  <img class="yt-poster-img" id="ytMainPosterImg" src="https://i.ytimg.com/vi/QBulTy2BXmw/maxresdefault.jpg" alt="+8RR Trading Recap | MongSayFX" loading="eager">
+                  <span class="yt-poster-scrim"></span>
+                  <span class="yt-poster-top-badge" id="ytPosterBadge"><span class="yt-live-dot"></span> LATEST UPLOAD</span>
+                  <span class="yt-play-crest" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style="margin-left: 3px;"><path d="M8 5v14l11-7z"/></svg>
+                  </span>
+                  <span class="yt-poster-cta-pill">▶ Click to Play Live in Website</span>
+                </button>
+              </div>
+
+              <div class="yt-stage-meta">
+                <div class="yt-stage-info">
+                  <div class="yt-stage-kicker" id="ytStageKicker">NEW UPLOAD • 2026-11-23</div>
+                  <h3 class="yt-stage-title" id="ytStageTitle">+8RR Trading Recap | MongSayFX</h3>
+                </div>
+                <div class="yt-stage-actions">
+                  <button type="button" class="yt-action-pill" id="ytOpenTheaterBtn">⛶ Theater</button>
+                  <a href="https://www.youtube.com/watch?v=QBulTy2BXmw" target="_blank" rel="noopener noreferrer" class="yt-action-pill secondary" id="ytExternalWatchLink">YouTube ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="yt-playlist-rail">
+              <div class="yt-playlist-header">
+                <span class="yt-playlist-heading">CHANNEL QUEUE // @MONGSAYFX</span>
+                <span class="yt-playlist-count" id="ytQueueCount">8 Videos</span>
+              </div>
+              <div class="yt-playlist-scroll" id="ytPlaylistList">
+                <button type="button" class="yt-queue-item active" data-yt-id="QBulTy2BXmw">
+                  <div class="yt-queue-thumb">
+                    <img src="https://i.ytimg.com/vi/QBulTy2BXmw/mqdefault.jpg" alt="+8RR Trading Recap | MongSayFX" loading="lazy">
+                    <div class="yt-queue-overlay"><span class="yt-eq-bars"><span class="yt-eq-bar"></span><span class="yt-eq-bar"></span><span class="yt-eq-bar"></span></span></div>
+                  </div>
+                  <div class="yt-queue-body">
+                    <div class="yt-queue-tags"><span class="yt-queue-tag tag-new">NEW</span><span class="yt-queue-date">2026-11-23</span></div>
+                    <div class="yt-queue-title">+8RR Trading Recap | MongSayFX</div>
+                  </div>
+                </button>
+                <button type="button" class="yt-queue-item" data-yt-id="S5BGxYa1EPY">
+                  <div class="yt-queue-thumb">
+                    <img src="https://i.ytimg.com/vi/S5BGxYa1EPY/mqdefault.jpg" alt="Live XAUUSD - MongSayFX" loading="lazy">
+                    <div class="yt-queue-overlay">▶</div>
+                  </div>
+                  <div class="yt-queue-body">
+                    <div class="yt-queue-tags"><span class="yt-queue-tag tag-live">LIVE</span><span class="yt-queue-date">2026-11-13</span></div>
+                    <div class="yt-queue-title">Live XAUUSD - MongSayFX</div>
+                  </div>
+                </button>
+                <button type="button" class="yt-queue-item" data-yt-id="_2zz8euc_Z8">
+                  <div class="yt-queue-thumb">
+                    <img src="https://i.ytimg.com/vi/_2zz8euc_Z8/mqdefault.jpg" alt="Account Holding $1.2M By MoonGroup Documentary" loading="lazy">
+                    <div class="yt-queue-overlay">▶</div>
+                  </div>
+                  <div class="yt-queue-body">
+                    <div class="yt-queue-tags"><span class="yt-queue-tag">DOCU</span><span class="yt-queue-date">2025-12-30</span></div>
+                    <div class="yt-queue-title">ផែនការដោះនៅ Account Holding $1.2M By MoonGroup | Ep-001</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="media-feed-grid">
-          <div class="feed-item">
-            <div class="feed-thumb">
-              <img src="assets/yt-thumb-2.jpg" alt="Gold Structural Execution">
-              <span class="feed-thumb-duration">22:15</span>
+          <div class="feed-item" data-yt-id="qE3lhDE3FhQ" data-yt-title="Trade ចំណេញតែអត់សប្បាយចិត្ត!! ហេតុអ្វី? Profit of Shame!! WHY?? Ep02 MongSAYFX">
+            <div class="feed-thumb" role="button" tabindex="0" aria-label="Play video: Profit of Shame Ep02">
+              <img src="https://i.ytimg.com/vi/qE3lhDE3FhQ/maxresdefault.jpg" onerror="this.src='assets/yt-thumb-2.jpg'" alt="Gold Structural Execution" loading="lazy">
+              <span class="feed-thumb-duration">EP 02</span>
               <div class="feed-thumb-play">▶</div>
             </div>
             <div class="feed-content">
               <div>
                 <span class="feed-badge" style="color: #38bdf8;">Live Analysis</span>
-                <h3 class="feed-title">True Liquidity Sweeps vs Mechanical Market Displacement</h3>
+                <h3 class="feed-title">Profit of Shame!! Ep 02 — Mechanical Execution &amp; Liquidity Sweeps</h3>
               </div>
               <div class="feed-meta">
-                <span>Channel: @MongSayFX</span>
-                <a href="https://www.youtube.com/watch?v=qE3lhDE3FhQ" target="_blank" class="blue-text">Watch Analysis →</a>
+                <span>YouTube @MongSayFX</span>
+                <button type="button" class="feed-play-inline-btn" data-yt-trigger="qE3lhDE3FhQ">▶ Play Live</button>
               </div>
             </div>
           </div>
 
-          <div class="feed-item">
-            <div class="feed-thumb">
-              <img src="assets/yt-thumb-3.jpg" alt="SAGFX Broker Rebates">
-              <span class="feed-thumb-duration">09:40</span>
+          <div class="feed-item" data-yt-id="pxbY_GL59yw" data-yt-title="Trade ចំណេញតែអត់សប្បាយចិត្ត!! ហេតុអ្វី? Profit of Shame!! WHY?? Ep01 MongSAYFX">
+            <div class="feed-thumb" role="button" tabindex="0" aria-label="Play video: Profit of Shame Ep01">
+              <img src="https://i.ytimg.com/vi/pxbY_GL59yw/maxresdefault.jpg" onerror="this.src='assets/yt-thumb-3.jpg'" alt="Profit of Shame Ep 01" loading="lazy">
+              <span class="feed-thumb-duration">EP 01</span>
               <div class="feed-thumb-play">▶</div>
             </div>
             <div class="feed-content">
               <div>
-                <span class="feed-badge">Lead Brokerage</span>
-                <h3 class="feed-title">Maximizing Volume Yield: Institutional Broker Rebates via SAGFX.ORG</h3>
+                <span class="feed-badge">Trading Psychology</span>
+                <h3 class="feed-title">Profit of Shame!! Ep 01 — Overcoming Emotional Drift in Live Markets</h3>
               </div>
               <div class="feed-meta">
-                <span>sagfx.org</span>
-                <a href="https://www.youtube.com/watch?v=pxbY_GL59yw" target="_blank" class="gold-text">Watch Breakdown →</a>
+                <span>YouTube @MongSayFX</span>
+                <button type="button" class="feed-play-inline-btn" data-yt-trigger="pxbY_GL59yw">▶ Play Live</button>
               </div>
             </div>
           </div>
 
-          <div class="feed-item">
-            <div class="feed-thumb">
-              <img src="assets/yt-thumb-4.jpg" alt="Trading Psychology & Mindset">
-              <span class="feed-thumb-duration">18:50</span>
+          <div class="feed-item" data-yt-id="2EcgeuzwvFo" data-yt-title="I Payout 4032$ from Funded | MongSAYFX">
+            <div class="feed-thumb" role="button" tabindex="0" aria-label="Play video: I Payout 4032$ from Funded">
+              <img src="https://i.ytimg.com/vi/2EcgeuzwvFo/maxresdefault.jpg" onerror="this.src='assets/yt-thumb-4.jpg'" alt="Funded Payout Breakdown" loading="lazy">
+              <span class="feed-thumb-duration">FUNDED</span>
               <div class="feed-thumb-play">▶</div>
             </div>
             <div class="feed-content">
               <div>
-                <span class="feed-badge">Executive Mindset</span>
-                <h3 class="feed-title">Trading Psychology & Mental Toughness in Institutional Markets</h3>
+                <span class="feed-badge">Funded Payout</span>
+                <h3 class="feed-title">I Payout $4,032 from Funded Account — Risk &amp; Execution Breakdown</h3>
               </div>
               <div class="feed-meta">
                 <span>Mongsay House</span>
-                <a href="https://www.youtube.com/watch?v=2EcgeuzwvFo" target="_blank" class="gold-text">Watch Session →</a>
+                <button type="button" class="feed-play-inline-btn" data-yt-trigger="2EcgeuzwvFo">▶ Play Live</button>
               </div>
             </div>
           </div>
@@ -1528,6 +1625,23 @@
     </div>
   </div>
 
-  <script src="script.js?v=3.9.1"></script>
+  <!-- Native Modal YouTube Theater Lightbox -->
+  <dialog id="ytTheaterDialog" class="yt-theater-dialog" closedby="any" aria-labelledby="ytDialogTitle">
+    <div class="yt-dialog-header">
+      <div class="yt-dialog-title-wrap">
+        <span class="yt-live-sync-pill"><span class="yt-live-dot"></span> @MONGSAYFX</span>
+        <h2 class="yt-dialog-title" id="ytDialogTitle">YouTube Broadcast</h2>
+      </div>
+      <div class="yt-dialog-header-actions">
+        <a href="https://www.youtube.com/@MongSayFX" target="_blank" rel="noopener noreferrer" class="yt-action-pill secondary" id="ytDialogExternalLink">YouTube ↗</a>
+        <form method="dialog" style="margin: 0;">
+          <button type="submit" class="yt-dialog-close" aria-label="Close video player" autofocus>✕</button>
+        </form>
+      </div>
+    </div>
+    <div class="yt-dialog-stage" id="ytDialogStage"></div>
+  </dialog>
+
+  <script src="script.js?v=3.9.2"></script>
 </body>
 </html>
